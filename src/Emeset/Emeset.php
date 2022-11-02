@@ -11,6 +11,7 @@
  **/
 
 namespace Emeset;
+require_once __DIR__ . '/Middleware.php';
 
 /**
  * Emeset: objecte que encapsula l'aplicació web.
