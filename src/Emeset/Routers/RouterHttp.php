@@ -183,10 +183,10 @@ class RouterHttp implements Router
                 $action = array();
                 $call = $this->caller->resolve($handler[0]);
 
-                print_r($call);
-                echo "\n--------\n";
-                print_r($handler);
-                die();
+                // print_r($call);
+                // echo "\n--------\n";
+                // print_r($handler);
+                // die();
                 if ($handler[1]) {
                     // Si hi ha middleware
                     //$response = $handler[1]($request, $response, $this->config, $handler[0]);
