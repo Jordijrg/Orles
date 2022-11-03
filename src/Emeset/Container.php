@@ -49,10 +49,6 @@ class Container extends PimpleContainer
             return new \Emeset\Caller($c);
         };
 
-        $this["ctrlPrivat"] = function ($c) {
-            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
-            return new \ctrlPrivat($c);
-        };
     }
 
     /**

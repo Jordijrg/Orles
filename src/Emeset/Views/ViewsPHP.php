@@ -30,7 +30,7 @@ class ViewsPHP implements Views
      *
      * @param $path string path fins a la carpeta de plantilles.
     **/
-    public function __construct($path = "../src/views/")
+    public function __construct($path = "../App/Views/")
     {
         $this->path = $path;
     }
