@@ -125,6 +125,18 @@ class Response
     }
 
     /**
+     * setBody utilitza el paràmetre body com a contingut de la resposta HTTP.
+     *
+     *  @param string $body  Contingut de la resposta HTTP
+     *
+     * @return void
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+    }    
+
+    /**
      * Genera la response HTTP
      *
      * @return void
