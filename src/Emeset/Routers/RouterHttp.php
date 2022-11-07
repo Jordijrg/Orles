@@ -139,6 +139,7 @@ class RouterHttp implements Router
             foreach ($this->routes as $method => $routes) {
                 foreach ($routes as $route => $handler) {
                     if ($route !== 0) {
+                        $route = ltrim($route, "/");
                         $r->addRoute($method, "/$route", $handler);
                     }
                 }
@@ -179,17 +180,13 @@ class RouterHttp implements Router
             case \FastRoute\Dispatcher::FOUND:
                 $handler = $routeInfo[1];
                 $vars = $routeInfo[2];
+                $request->setParams($vars);
 
                 $action = array();
                 $call = $this->caller->resolve($handler[0]);
 
-                // print_r($call);
-                // echo "\n--------\n";
-                // print_r($handler);
-                // die();
                 if ($handler[1]) {
                     // Si hi ha middleware
-                    //$response = $handler[1]($request, $response, $this->config, $handler[0]);
 
                     if (is_array($handler[1])) {
                         array_push($action, ...$handler[1]);
@@ -199,10 +196,9 @@ class RouterHttp implements Router
                     array_push($action, $call);
                 } else {
                     // No hi ha middleware
-                    //$response = $handler[0]($request, $response, $this->config);
                     $action[] = $call;
                 }
-                $response = nextMiddleware($request, $response, $this->config, $action);
+                $response = nextMiddleware($request, $response, $this->container, $action);
                 break;
         }
 

@@ -19,6 +19,7 @@ namespace Emeset\Http;
  **/
 class Request
 {
+    public $params = [];
 
     /**
      * __construct:  Crear el petició http
@@ -72,5 +73,28 @@ class Request
     public function getRaw($input, $id, $options = 0)
     {
         return $this->get($input, $id, FILTER_DEFAULT, $options);
+    }
+
+    /**
+     * setParams desa el paràmetres de la ruta.
+     *
+     *  @param array $params  parametres de la ruta.
+     *
+     * @return void
+     */
+    public function setParams($params)
+    {
+        $this->params = $params;
+    }
+
+    /**
+     * getParam obté el paràmetre $param de la ruta.
+     * 
+     *  @param string $param  paràmetre a recuperar.
+     *
+     * @return string
+     */
+    public function getParam($param) {
+        return $this->params[$param];
     }
 }

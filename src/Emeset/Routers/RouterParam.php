@@ -70,15 +70,13 @@ class RouterParam implements Router
             $controlador = $this->routes[0];
         } else {
             throw (new Exception("Ruta no definida!"));
-            die();
         }
 
-        // si té mildeware definit l'executem
+        
         $action = array();
         $call = $this->caller->resolve($controlador[0]);
         if ($controlador[1]) {
-            // si té middleware definit 
-            //$response = $controlador[1]($request, $response, $this->config, $controlador[0]);
+            // si té middleware definit l'executem 
             if (is_array($controlador[1])) {
                 array_push($action, ...$controlador[1]);
             } else {
@@ -90,7 +88,7 @@ class RouterParam implements Router
             //$response = $controlador[0]($request, $response, $this->config);
             $action[] = $call;
         }
-        $response = nextMiddleware($request, $response, $this->config, $action);
+        $response = nextMiddleware($request, $response, $this->container, $action);
 
         return $response;
     }
