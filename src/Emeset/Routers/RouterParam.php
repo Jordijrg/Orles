@@ -41,12 +41,12 @@ class RouterParam implements Router
      *
      * @param string $id
      * @param callable $callback
-     * @param callable $midelware
+     * @param callable $middleware
      * @return void
      */
-    public function route($id, $callback, $midelware = false)
+    public function route($id, $callback, $middleware = false)
     {
-        $this->routes[$id] = [$callback, $midelware];
+        $this->routes[$id] = [$callback, $middleware];
     }
 
     /**
@@ -94,26 +94,26 @@ class RouterParam implements Router
     }
 
 
-    public function get($id, $callback, $midelware = false)
+    public function get($id, $callback, $middleware = false)
     {
-        $this->route($id, $callback, $midelware);
+        $this->route($id, $callback, $middleware);
     }
-    public function post($id, $callback, $midelware = false)
+    public function post($id, $callback, $middleware = false)
     {
-        $this->route($id, $callback, $midelware);
-    }
-
-    public function put($id, $callback, $midelware = false)
-    {
-        $this->route($id, $callback, $midelware);
-    }
-    public function delete($id, $callback, $midelware = false)
-    {
-        $this->route($id, $callback, $midelware);
+        $this->route($id, $callback, $middleware);
     }
 
-    public function head($id, $callback, $midelware = false)
+    public function put($id, $callback, $middleware = false)
     {
-        $this->route($id, $callback, $midelware);
+        $this->route($id, $callback, $middleware);
+    }
+    public function delete($id, $callback, $middleware = false)
+    {
+        $this->route($id, $callback, $middleware);
+    }
+
+    public function head($id, $callback, $middleware = false)
+    {
+        $this->route($id, $callback, $middleware);
     }
 }
