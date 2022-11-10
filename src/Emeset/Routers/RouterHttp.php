@@ -167,15 +167,16 @@ class RouterHttp implements Router
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
                 // ... 404 Not Found
-                $handler = $this->routes[0];
-                //print_r($uri); die();
-                $response = $handler[0]($request, $response, $this->config);
+                $handler = $this->routes["GET"][0];
+                $call = $this->caller->resolve($handler[0]);
+                $response = $call($request, $response, $this->container);
                 break;
             case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
                 $allowedMethods = $routeInfo[1];
-                // ... 405 Method Not Allowed
-                $handler = $this->routes[0];
-                $response = $handler[0]($request, $response, $this->config);
+                $handler = $this->routes["GET"][0];
+                $call = $this->caller->resolve($handler[0]);
+                $response = $call($request, $response, $this->container);
+                $response = $handler[0]($request, $response, $this->container);
                 break;
             case \FastRoute\Dispatcher::FOUND:
                 $handler = $routeInfo[1];
