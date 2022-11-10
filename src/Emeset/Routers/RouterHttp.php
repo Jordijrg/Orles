@@ -176,7 +176,6 @@ class RouterHttp implements Router
                 $handler = $this->routes["GET"][0];
                 $call = $this->caller->resolve($handler[0]);
                 $response = $call($request, $response, $this->container);
-                $response = $handler[0]($request, $response, $this->container);
                 break;
             case \FastRoute\Dispatcher::FOUND:
                 $handler = $routeInfo[1];
