@@ -41,7 +41,10 @@ class Request
     {
         $result = false;
         if ($input === 'SESSION') {
-            $result = $_SESSION[$id];
+            $result = null;
+            if(isset($_SESSION[$id])) {
+                $result = $_SESSION[$id];
+            }
         } elseif ($input === 'FILES') {
             $result = $_FILES[$id];
         } elseif ($input === "INPUT_REQUEST") {
