@@ -44,11 +44,15 @@ class Caller
      */
     public function resolve($toResolve)
     {
-        if (is_callable($toResolve)) {
+        if (is_callable($toResolve) && !is_array($toResolve)) {
             return $toResolve;
         }
-
+ 
         $resolved = $toResolve;
+
+        if (is_array($toResolve)) {
+            $resolved = $this->resolveCallable($toResolve[0], $toResolve[1]);
+        }
 
         if (is_string($toResolve)) {
             list($class, $method) = $this->parseCallable($toResolve);
@@ -88,8 +92,9 @@ class Caller
      */
     protected function resolveCallable($class, $method)
     {
-        if ($this->container->has($class)) {
-            return [$this->container->get($class), $method];
+        $class = ltrim($class, '\\');
+        if ($this->container->has("\\". $class)) {
+            return [$this->container->get("\\". $class), $method];
         }
 
         if (!class_exists($class)) {
