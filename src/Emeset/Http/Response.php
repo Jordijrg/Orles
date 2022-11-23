@@ -61,6 +61,16 @@ class Response
     }
 
     /**
+     * Esborra el valor indicat de la sessió
+     *
+     * @param $id
+     * @return void
+     */
+    public function unsetSession($id) {
+        unset($_SESSION[$id]);
+    }
+
+    /**
      * setCookie funció afegida per consistència crea una cookie.
      *
      * Accepta exament els mateixos paràmetres que la funció setcookie de php.
