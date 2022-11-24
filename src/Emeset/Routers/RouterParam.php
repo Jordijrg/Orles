@@ -11,6 +11,7 @@
 
 namespace Emeset\Routers;
 
+use Emeset\Middleware;
 use Exception;
 
 /**
@@ -88,7 +89,7 @@ class RouterParam implements Router
             //$response = $controlador[0]($request, $response, $this->config);
             $action[] = $call;
         }
-        $response = nextMiddleware($request, $response, $this->container, $action);
+        $response = Middleware::next($request, $response, $this->container, $action);
 
         return $response;
     }

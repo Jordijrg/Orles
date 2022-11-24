@@ -11,6 +11,8 @@
 
 namespace Emeset\Routers;
 
+use Emeset\Middleware;
+
 /**
  * Router: objecte que enroute a la petició al controlador adequat.
  * @author: Dani Prados dprados@cendrassos.net
@@ -198,7 +200,7 @@ class RouterHttp implements Router
                     // No hi ha middleware
                     $action[] = $call;
                 }
-                $response = nextMiddleware($request, $response, $this->container, $action);
+                $response = Middleware::next($request, $response, $this->container, $action);
                 break;
         }
 
