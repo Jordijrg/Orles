@@ -26,6 +26,15 @@ class Container extends PimpleContainer
      **/
     public function __construct($config)
     {
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
+        $dotenv->safeLoad();
+        
+        if (is_string($config)) {
+            $config = require $config;
+        }
+            
+        $this["config"] = $config;
+
 
         $this["config"] = $config;
 
