@@ -42,7 +42,7 @@ class Request
         $result = false;
         if ($input === 'SESSION') {
             $result = null;
-            if(isset($_SESSION[$id])) {
+            if (isset($_SESSION[$id])) {
                 $result = $_SESSION[$id];
             }
         } elseif ($input === 'FILES') {
@@ -97,7 +97,8 @@ class Request
      *
      * @return string
      */
-    public function getParam($param) {
+    public function getParam($param)
+    {
         return $this->params[$param];
     }
 }

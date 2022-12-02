@@ -16,23 +16,23 @@ class Middleware
     public static function next($request, $response, $container, $next)
     {
         if (is_array($next)) {
-//            A middleware has been defined
+            //            A middleware has been defined
             if (count($next) > 1) {
 
-//                A single callable array or 2 string callables
+                //                A single callable array or 2 string callables
                 if (count($next) === 3 && is_string($next[0]) && is_string($next[1])) {
                     $call = [$next[0], $next[1]];
 
-//                    Check if it's callable array
+                    //                    Check if it's callable array
                     if (is_callable($call)) {
                         $response = $call($request, $response, $container, [$next[2]]);
 
-//                    If it's only 2 string callables
+                        //                    If it's only 2 string callables
                     } else {
                         $call = array_shift($next);
                         $response = $call($request, $response, $container, $next);
                     }
-//                    An array of either callables or string callables
+                    //                    An array of either callables or string callables
                 } else {
                     $call = array_shift($next);
                     $response = $call($request, $response, $container, $next);

@@ -1,23 +1,23 @@
 <?php
 
 /**
-    * Exemple de MVC per a M07 Desenvolupament d'aplicacions web en entorn de servidor.
-    * Implementa una view
-    * @author: Dani Prados dprados@cendrassos.net
-    *
-    * Defineix els mètodes que ha de tenir una view
-    *
-**/
+ * Exemple de MVC per a M07 Desenvolupament d'aplicacions web en entorn de servidor.
+ * Implementa una view
+ * @author: Dani Prados dprados@cendrassos.net
+ *
+ * Defineix els mètodes que ha de tenir una view
+ *
+ **/
 
 namespace Emeset\Views;
 
 /**
-    * Response: Objecte que encapsula la response.
-    * @author: Dani Prados dprados@cendrassos.net
-    *
-    * Per guarda tota la informació de la response.
-    *
-**/
+ * Response: Objecte que encapsula la response.
+ * @author: Dani Prados dprados@cendrassos.net
+ *
+ * Per guarda tota la informació de la response.
+ *
+ **/
 class ViewsPHP implements Views
 {
 
@@ -29,19 +29,19 @@ class ViewsPHP implements Views
      * __construct:  Té tota la informació per crear la response
      *
      * @param $path string path fins a la carpeta de plantilles.
-    **/
+     **/
     public function __construct($path = "../App/Views/")
     {
         $this->path = $path;
     }
-    
+
     /**
-      * set:  obté un valor de l'entrada especificada amb el filtre indicat
-      *
-      * @param $id string identificadro del valor que deem.
-      * @param $valor mixed filtre a desar
-      *
-    **/
+     * set:  obté un valor de l'entrada especificada amb el filtre indicat
+     *
+     * @param $id string identificadro del valor que deem.
+     * @param $valor mixed filtre a desar
+     *
+     **/
     public function set($id, $valor)
     {
         $this->values[$id] = $valor;

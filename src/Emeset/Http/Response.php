@@ -66,7 +66,8 @@ class Response
      * @param $id
      * @return void
      */
-    public function unsetSession($id) {
+    public function unsetSession($id)
+    {
         unset($_SESSION[$id]);
     }
 
@@ -144,7 +145,7 @@ class Response
     public function setBody($body)
     {
         $this->body = $body;
-    }    
+    }
 
     /**
      * Genera la response HTTP

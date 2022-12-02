@@ -73,7 +73,7 @@ class RouterParam implements Router
             throw (new Exception("Ruta no definida!"));
         }
 
-        
+
         $action = array();
         $call = $this->caller->resolve($controlador[0]);
         if ($controlador[1]) {

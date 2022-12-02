@@ -47,7 +47,7 @@ class Caller
         if (is_callable($toResolve) && !is_array($toResolve)) {
             return $toResolve;
         }
- 
+
         $resolved = $toResolve;
 
         if (is_array($toResolve)) {
@@ -93,8 +93,8 @@ class Caller
     protected function resolveCallable($class, $method)
     {
         $class = ltrim($class, '\\');
-        if ($this->container->has("\\". $class)) {
-            return [$this->container->get("\\". $class), $method];
+        if ($this->container->has("\\" . $class)) {
+            return [$this->container->get("\\" . $class), $method];
         }
 
         if (!class_exists($class)) {

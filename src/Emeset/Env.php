@@ -2,7 +2,8 @@
 
 namespace Emeset;
 
-class Env {
+class Env
+{
 
     /**
      * Obté una variable d'entorn
@@ -10,12 +11,12 @@ class Env {
      * @param mixed $default valor per defecte si no existeix la variable
      * @return mixed
      */
-    static public function get(string $key, $default = null) {
+    static public function get(string $key, $default = null)
+    {
         $value = $default;
         if (isset($_ENV[$key])) {
             $value = $_ENV[$key];
         }
         return $value;
     }
-
 }
