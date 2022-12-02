@@ -14,6 +14,7 @@
 namespace Emeset;
 
 use Pimple\Container as PimpleContainer;
+use Dotenv\Dotenv;
 
 class Container extends PimpleContainer
 {
@@ -26,7 +27,7 @@ class Container extends PimpleContainer
      **/
     public function __construct($config)
     {
-        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
+        $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
         $dotenv->safeLoad();
         
         if (is_string($config)) {
