@@ -19,7 +19,6 @@ use Dotenv\Dotenv;
 class Container extends PimpleContainer
 {
 
-
     /**
      * __construct:  Defineix les dependències del projecte Emeset
      *
@@ -29,11 +28,11 @@ class Container extends PimpleContainer
     {
         $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
         $dotenv->safeLoad();
-        
+
         if (is_string($config)) {
             $config = require $config;
         }
-            
+
         $this["config"] = $config;
 
 
@@ -58,7 +57,6 @@ class Container extends PimpleContainer
         $this["caller"] = function ($c) {
             return new \Emeset\Caller($c);
         };
-
     }
 
     /**
