@@ -57,7 +57,11 @@ class Request
             $result = null;
             if (isset($_SERVER[$id])) {
                 $var = $_SERVER[$id];
-                $result = filter_var($var, $filter, $options);
+                if ($filter == "FILTER_SANITIZE_STRING") {
+                    $result = htmlspecialchars($var);
+                } else {
+                    $result = filter_var($var, $filter, $options);
+                }
             }
         } else {
             if ($filter == "FILTER_SANITIZE_STRING") {
