@@ -53,6 +53,12 @@ class Request
                 $var = $_REQUEST[$id];
                 $result = filter_var($var, $filter, $options);
             }
+        } elseif ($input === INPUT_SERVER) {
+            $result = null;
+            if (isset($_SERVER[$id])) {
+                $var = $_SERVER[$id];
+                $result = filter_var($var, $filter, $options);
+            }
         } else {
             if ($filter == "FILTER_SANITIZE_STRING") {
                 $result = filter_input($input, $id, FILTER_DEFAULT, $options);
