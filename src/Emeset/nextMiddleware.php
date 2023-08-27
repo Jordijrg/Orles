@@ -10,7 +10,7 @@ use Emeset\Middleware;
  * @param $next
  * @return mixed
  */
-function nextMiddleware(\Emeset\Http\Request $request,\Emeset\Http\Response $response, \Emeset\Container $container, callable $next)
+function nextMiddleware(\Emeset\Http\Request $request,\Emeset\Http\Response $response, \Emeset\Container $container, $next)
 {
     return Middleware::next($request, $response, $container, $next);
 }
