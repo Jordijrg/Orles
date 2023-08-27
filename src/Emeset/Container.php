@@ -66,11 +66,7 @@ class Container extends PimpleContainer
      *
      * @return mixed
      *
-     * @throws InvalidArgumentException         Thrown when an offset cannot be found in the Pimple container
-     * @throws SlimContainerException           Thrown when an exception is
-     *         not an instance of ContainerExceptionInterface
-     * @throws ContainerValueNotFoundException  No entry was found for this identifier.
-     * @throws ContainerExceptionInterface      Error while retrieving the entry.
+     * @throws \Exception      when identifier not found   
      */
     public function get($id)
     {
