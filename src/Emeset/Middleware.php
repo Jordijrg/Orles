@@ -13,7 +13,7 @@ class Middleware
      * @param $next
      * @return mixed
      */
-    public static function next($request, $response, $container, $next)
+    public static function next(\Emeset\Http\Request $request,\Emeset\Http\Response $response, \Emeset\Container $container, callable $next)
     {
         if (is_array($next)) {
             //            A middleware has been defined

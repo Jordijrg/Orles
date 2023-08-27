@@ -17,12 +17,12 @@ class Caller
     public const CALLABLE_PATTERN = '!^([^\:]+)\:([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)$!';
 
     /**
-     * @var \Pimple\ContainerInterface
+     * @var \Pimple\Container
      */
     private $container;
 
     /**
-     * @param \Pimple\ContainerInterface $container
+     * @param \Pimple\Container $container
      */
     public function __construct($container)
     {
@@ -105,7 +105,7 @@ class Caller
     }
 
     /**
-     * @param Callable $callable
+     * @param callable $callable
      *
      * @throws \RuntimeException if the callable is not resolvable
      */
