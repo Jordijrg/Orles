@@ -46,7 +46,10 @@ class Request
                 $result = $_SESSION[$id];
             }
         } elseif ($input === 'FILES') {
-            $result = $_FILES[$id];
+            $result = null;
+            if (isset($_SESSION[$id])) {
+                $result = $_FILES[$id];
+            }            
         } elseif ($input === "INPUT_REQUEST") {
             $result = null;
             if (isset($_REQUEST[$id])) {
@@ -110,5 +113,27 @@ class Request
     public function getParam($param)
     {
         return $this->params[$param];
+    }
+
+    /**
+     * has:  retorna true si l'entrada especificada existeix i false si no.
+     *
+     * @param $input   string identificador de l'entrada.
+     * @param $id      string amb la tasca.
+     * return boolean
+     **/
+    public function has($input, $id)
+    {
+        $result = false;
+        if ($input === 'SESSION') {
+            $result = isset($_SESSION[$id]);
+        } elseif ($input === 'FILES') {
+            $result = isset($_FILES[$id]);
+        } elseif ($input === "INPUT_REQUEST") {
+            $result = isset($_REQUEST[$id]);
+        } else {
+            $result = !is_null(filter_input($input, $id, FILTER_DEFAULT));
+        }
+        return $result;
     }
 }
