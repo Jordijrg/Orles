@@ -27,7 +27,8 @@ class Container extends PimpleContainer implements ContainerInterface
      **/
     public function __construct($config)
     {
-        $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
+        $projectRootPath = dirname(getcwd());
+        $dotenv = Dotenv::createImmutable($projectRootPath);
         $dotenv->safeLoad();
 
         if (is_string($config)) {
