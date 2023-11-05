@@ -4,8 +4,9 @@ namespace Emeset;
 use Emeset\Contracts\Http\Request;
 use Emeset\Contracts\Http\Response;
 use Emeset\Contracts\Container;
+use Emeset\Contracts\Middleware as MiddlewareInterface;
 
-class Middleware
+class Middleware implements MiddlewareInterface
 {
     /**
      * Call the next middleware or page controller passed through the
@@ -16,7 +17,7 @@ class Middleware
      * @param $next
      * @return mixed
      */
-    public static function next(Request $request,Response $response, Container $container, $next)
+    public static function next(Request $request, Response $response, Container $container, $next)
     {
         if (is_array($next)) {
             //            A middleware has been defined
