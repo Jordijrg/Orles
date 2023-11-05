@@ -1,8 +1,9 @@
 <?php
 
 namespace Emeset;
+use Emeset\Contracts\Env as EnvInterface;
 
-class Env
+class Env implements EnvInterface
 {
 
     /**

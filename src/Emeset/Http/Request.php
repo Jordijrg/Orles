@@ -10,6 +10,8 @@
 
 namespace Emeset\Http;
 
+use Emeset\Contracts\Http\Request as RequestInterface;
+
 /**
  * Request: Classe gestiona la petició HTTP.
  *
@@ -17,7 +19,7 @@ namespace Emeset\Http;
  *
  * Encapsula la petició HTTP per permetre llegir-la com una entrada.
  **/
-class Request
+class Request implements RequestInterface
 {
     public $params = [];
 
