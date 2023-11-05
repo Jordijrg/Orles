@@ -11,6 +11,8 @@
 
 namespace Emeset\Routers;
 
+use Emeset\Contracts\Http\Request;
+use Emeset\Contracts\Http\Response;
 use Emeset\Middleware;
 
 /**
@@ -20,7 +22,7 @@ use Emeset\Middleware;
  * Permet definir les routes dels controladors
  *
  **/
-class RouterHttp implements Router
+class RouterHttp implements \Emeset\Contracts\Routers\Router
 {
     public $routes = [];
     public $config = [];
@@ -131,11 +133,11 @@ class RouterHttp implements Router
     /**
      * execute el controlador vinculat a la route definida
      *
-     * @param Emeset/HTTP/Request $request
-     * @param Emeset/HTTP/Response $response
-     * @return Emeset/HTTP/Response
+     * @param Request $request
+     * @param Response $response
+     * @return Response
      */
-    public function execute($request, $response)
+    public function execute(Request $request,Response $response)
     {
         $dispatcher = \FastRoute\simpleDispatcher(function (\FastRoute\RouteCollector $r) {
             foreach ($this->routes as $method => $routes) {

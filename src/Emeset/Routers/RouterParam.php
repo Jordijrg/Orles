@@ -12,6 +12,8 @@
 namespace Emeset\Routers;
 
 use Emeset\Middleware;
+use Emeset\Contracts\Http\Request;
+use Emeset\Contracts\Http\Response;
 use Exception;
 
 /**
@@ -21,7 +23,7 @@ use Exception;
  * Permet definir les routes dels controladors
  *
  **/
-class RouterParam implements Router
+class RouterParam implements \Emeset\Contracts\Routers\Router
 {
     public $routes = [];
     public $config = [];
@@ -53,11 +55,11 @@ class RouterParam implements Router
     /**
      * execute el controlador vinculat a la route definida
      *
-     * @param Emeset/HTTP/Request $request
-     * @param Emeset/HTTP/Response $response
-     * @return Emeset/HTTP/Response
+     * @param Request $request
+     * @param Response $response
+     * @return Response
      */
-    public function execute($request, $response)
+    public function execute(Request $request, Response $response)
     {
         $route = $request->get("INPUT_REQUEST", "r");
 
@@ -66,27 +68,27 @@ class RouterParam implements Router
         }
 
         if (isset($this->routes[$route])) {
-            $controlador = $this->routes[$route];
+            $controller = $this->routes[$route];
         } elseif (isset($this->routes[0])) {
-            $controlador = $this->routes[0];
+            $controller = $this->routes[0];
         } else {
             throw (new Exception("Ruta no definida!"));
         }
 
 
         $action = array();
-        $call = $this->caller->resolve($controlador[0]);
-        if ($controlador[1]) {
+        $call = $this->caller->resolve($controller[0]);
+        if ($controller[1]) {
             // si té middleware definit l'executem 
-            if (is_array($controlador[1])) {
-                array_push($action, ...$controlador[1]);
+            if (is_array($controller[1])) {
+                array_push($action, ...$controller[1]);
             } else {
-                array_push($action, $controlador[1]);
+                array_push($action, $controller[1]);
             }
             array_push($action, $call);
         } else {
             // si no té middleware
-            //$response = $controlador[0]($request, $response, $this->config);
+            //$response = $controller[0]($request, $response, $this->config);
             $action[] = $call;
         }
         $response = Middleware::next($request, $response, $this->container, $action);

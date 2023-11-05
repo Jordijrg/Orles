@@ -9,7 +9,7 @@
  *
  **/
 
-namespace Emeset\Routers;
+namespace Emeset\Contracts\Routers;
 
 /**
  * Router: interficie que ha d'implementar un router.
