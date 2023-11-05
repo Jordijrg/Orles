@@ -9,7 +9,7 @@
  *
  **/
 
-namespace Emeset\Views;
+namespace Emeset\Contracts\Views;
 
 /**
  * Response: Objecte que encapsula la response.

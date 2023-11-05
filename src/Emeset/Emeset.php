@@ -30,7 +30,7 @@ class Emeset
     public $response;
     public $request;
 
-    public function __construct(\Emeset\Container $contenidor)
+    public function __construct(\Emeset\Contracts\Container $contenidor)
     {
         $this->contenidor = $contenidor;
 

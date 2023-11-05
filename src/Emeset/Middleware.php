@@ -3,6 +3,7 @@
 namespace Emeset;
 use Emeset\Contracts\Http\Request;
 use Emeset\Contracts\Http\Response;
+use Emeset\Contracts\Container;
 
 class Middleware
 {
@@ -15,7 +16,7 @@ class Middleware
      * @param $next
      * @return mixed
      */
-    public static function next(Request $request,Response $response, \Emeset\Container $container, $next)
+    public static function next(Request $request,Response $response, Container $container, $next)
     {
         if (is_array($next)) {
             //            A middleware has been defined

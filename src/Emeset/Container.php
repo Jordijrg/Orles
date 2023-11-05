@@ -13,10 +13,11 @@
 
 namespace Emeset;
 
+use Emeset\Contracts\Container as ContainerInterface;
 use Pimple\Container as PimpleContainer;
 use Dotenv\Dotenv;
 
-class Container extends PimpleContainer
+class Container extends PimpleContainer implements ContainerInterface
 {
 
     /**
@@ -35,8 +36,6 @@ class Container extends PimpleContainer
 
         $this["config"] = $config;
 
-
-        $this["config"] = $config;
 
         $this["request"] = function ($c) {
             return new \Emeset\Http\Request();
