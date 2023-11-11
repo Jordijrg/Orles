@@ -39,7 +39,7 @@ class Emeset
 
         $this->response = $contenidor["response"];
         $this->request = $contenidor["request"];
-        $this->frontController = $contenidor["frontController"];
+        $this->frontController = $contenidor["FrontController"];
     }
 
     public function middleware($callback)
