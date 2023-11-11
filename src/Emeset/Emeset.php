@@ -24,51 +24,59 @@ class Emeset
 {
 
     public $contenidor;
-    public $router = null;
     public $config = [];
     public $constructor = null;
     public $response;
     public $request;
 
+    public $frontController;
+
+    public $middleware = [];
+
     public function __construct(\Emeset\Contracts\Container $contenidor)
     {
         $this->contenidor = $contenidor;
 
-        $this->router = $contenidor["router"];
         $this->response = $contenidor["response"];
         $this->request = $contenidor["request"];
+        $this->frontController = $contenidor["FrontController"];
+    }
+
+    public function middleware($callback)
+    {
+        $this->middleware[] = $callback;
     }
 
     public function route($id, $callback, $middleware = false)
     {
-        $this->router->route($id, $callback, $middleware);
+        $this->frontController->route($id, $callback, $middleware);
     }
 
     public function get($id, $callback, $middleware = false)
     {
-        $this->router->get($id, $callback, $middleware);
+        $this->frontController->get($id, $callback, $middleware);
     }
     
     public function post($id, $callback, $middleware = false)
     {
-        $this->router->post($id, $callback, $middleware);
+        $this->frontController->post($id, $callback, $middleware);
     }
     public function put($id, $callback, $middleware = false)
     {
-        $this->router->put($id, $callback, $middleware);
+        $this->frontController->put($id, $callback, $middleware);
     }
     public function delete($id, $callback, $middleware = false)
     {
-        $this->router->delete($id, $callback, $middleware);
+        $this->frontController->delete($id, $callback, $middleware);
     }
     public function head($id, $callback, $middleware = false)
     {
-        $this->router->head($id, $callback, $middleware);
+        $this->frontController->head($id, $callback, $middleware);
     }
-
     public function execute()
     {
-        $response = $this->router->execute($this->request, $this->response);
+        $this->middleware[] = [$this->frontController, "execute"];
+        $response = Middleware::next($this->request, $this->response, $this->contenidor, $this->middleware);
         $response->response();
     }
 }
