@@ -54,6 +54,10 @@ class Container extends PimpleContainer implements ContainerInterface
             return new \Emeset\Routers\RouterHttp($c, $c["config"]);
         };
 
+        $this["FrontController"] = function ($c) {
+            return new \Emeset\FrontController($c);
+        };
+
         $this["caller"] = function ($c) {
             return new \Emeset\Caller($c);
         };
