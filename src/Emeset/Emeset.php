@@ -75,7 +75,8 @@ class Emeset
     }
     public function execute()
     {
-        $response = Middleware::next($this->request, $this->response, $this->contenidor, [$this->frontController, "execute"]);
+        $this->middleware[] = [$this->frontController, "execute"];
+        $response = Middleware::next($this->request, $this->response, $this->contenidor, $this->middleware);
         $response->response();
     }
 }
