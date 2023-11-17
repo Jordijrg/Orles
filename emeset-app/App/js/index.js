@@ -1,11 +1,8 @@
-import $ from "jquery";
+import jQuery from 'jquery';
 
-import hola from "./hola.js";
+console.log("hola");
 
-import {Example, obj} from "./example.ts";
 
-$(function() {
-    console.log('Hello World');
-    hola();
-    console.log("Example", obj);
-});
+
+
+

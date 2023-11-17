@@ -9,7 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/main.css">
 
-  <title>Exemple d'us de sessions</title>
+  <title>Error</title>
 </head>
 
 <body>
