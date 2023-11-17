@@ -3,15 +3,15 @@
 return [
     /* configuració de connexió a la base dades */
     /* Path on guardarem el fitxer sqlite */
-    "db_type" => Emeset\Env::get("db_type", "sqlite"), /* sqlite o mysql */
+    "db_type" => Emeset\Env::get("db_type", "PDO"), /* sqlite o mysql */
     "sqlite" => [
         "path" => Emeset\Env::get("sqlite_path", "../"),
         "name" => Emeset\Env::get("sqlite_name", "db.sqlite")
     ],
     "db" => [
-        "user" => "demo-daw",
-        "pass" => "1234",
-        "db" => "tasks-emeset",
+        "user" => "root",
+        "pass" => "",
+        "db" => "orlas",
         "host" => "localhost"
     ],
     /* Nom de la cookie */

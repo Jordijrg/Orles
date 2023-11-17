@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 15-11-2023 a las 18:05:32
--- Versión del servidor: 10.6.12-MariaDB-0ubuntu0.22.04.1
--- Versión de PHP: 8.1.2-1ubuntu2.14
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 17-11-2023 a las 16:21:30
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `orlas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `avatar`
+--
+
+CREATE TABLE `avatar` (
+  `idavatar` int(11) NOT NULL,
+  `srcimagen` text NOT NULL,
+  `iduser` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -47,10 +59,10 @@ CREATE TABLE `grup` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Imatges_Usuaris`
+-- Estructura de tabla para la tabla `imatges_usuaris`
 --
 
-CREATE TABLE `Imatges_Usuaris` (
+CREATE TABLE `imatges_usuaris` (
   `IdImatge` int(11) NOT NULL,
   `Srcimatge` text NOT NULL,
   `idusuari` int(11) NOT NULL
@@ -99,6 +111,12 @@ CREATE TABLE `usuari_grup` (
 --
 
 --
+-- Indices de la tabla `avatar`
+--
+ALTER TABLE `avatar`
+  ADD KEY `iduser` (`iduser`);
+
+--
 -- Indices de la tabla `carnet`
 --
 ALTER TABLE `carnet`
@@ -111,9 +129,9 @@ ALTER TABLE `grup`
   ADD PRIMARY KEY (`IdGrup`);
 
 --
--- Indices de la tabla `Imatges_Usuaris`
+-- Indices de la tabla `imatges_usuaris`
 --
-ALTER TABLE `Imatges_Usuaris`
+ALTER TABLE `imatges_usuaris`
   ADD PRIMARY KEY (`IdImatge`),
   ADD KEY `idusuari` (`idusuari`);
 
@@ -154,9 +172,9 @@ ALTER TABLE `grup`
   MODIFY `IdGrup` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `Imatges_Usuaris`
+-- AUTO_INCREMENT de la tabla `imatges_usuaris`
 --
-ALTER TABLE `Imatges_Usuaris`
+ALTER TABLE `imatges_usuaris`
   MODIFY `IdImatge` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -176,9 +194,15 @@ ALTER TABLE `usuaris`
 --
 
 --
--- Filtros para la tabla `Imatges_Usuaris`
+-- Filtros para la tabla `avatar`
 --
-ALTER TABLE `Imatges_Usuaris`
+ALTER TABLE `avatar`
+  ADD CONSTRAINT `avatar_ibfk_1` FOREIGN KEY (`iduser`) REFERENCES `usuaris` (`IdUsuari`);
+
+--
+-- Filtros para la tabla `imatges_usuaris`
+--
+ALTER TABLE `imatges_usuaris`
   ADD CONSTRAINT `Imatges_Usuaris_ibfk_1` FOREIGN KEY (`idusuari`) REFERENCES `usuaris` (`IdUsuari`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
