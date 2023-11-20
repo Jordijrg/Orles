@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <div><?php include 'header.php'; ?></div>
   <section class="bg-gray-50 dark:bg-gray-900 ">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a href="#"
@@ -52,15 +53,7 @@
       </div>
     </div>
   </section>
-  <button id="toggleDarkModeButton" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">
-    Toggle Dark Mode
-  </button>
   <script src="/js/bundle.js"></script>
-  <script>
-    document.getElementById('toggleDarkModeButton').addEventListener('click', function () {
-      document.getElementById('html').classList.toggle('dark');
-    });
-  </script>
 </body>
 
 </html>
