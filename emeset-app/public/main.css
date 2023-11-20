@@ -1058,6 +1058,27 @@ input:checked + .toggle-bg {
 .col-span-4 {
   grid-column: span 4 / span 4;
 }
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+.col-span-12 {
+  grid-column: span 12 / span 12;
+}
+.col-span-11 {
+  grid-column: span 11 / span 11;
+}
+.col-span-10 {
+  grid-column: span 10 / span 10;
+}
+.col-span-5 {
+  grid-column: span 5 / span 5;
+}
+.col-span-6 {
+  grid-column: span 6 / span 6;
+}
 .col-start-5 {
   grid-column-start: 5;
 }
@@ -1207,6 +1228,18 @@ input:checked + .toggle-bg {
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
 .flex-col {
   flex-direction: column;
 }
@@ -1239,6 +1272,15 @@ input:checked + .toggle-bg {
 }
 .gap-4 {
   gap: 1rem;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-0 {
+  gap: 0px;
+}
+.gap-2 {
+  gap: 0.5rem;
 }
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1563,6 +1605,9 @@ input:checked + .toggle-bg {
 }
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+.hover\:grid-cols-6:hover {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
