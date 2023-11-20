@@ -9,9 +9,9 @@ return [
         "name" => Emeset\Env::get("sqlite_name", "db.sqlite")
     ],
     "db" => [
-        "user" => "orles",
+        "user" => "root",
         "pass" => "1234",
-        "db" => "tasks-emeset",
+        "db" => "orles",
         "host" => "localhost",
     ],
     /* Nom de la cookie */
