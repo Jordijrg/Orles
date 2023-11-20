@@ -10,8 +10,8 @@ return [
     ],
     "db" => [
         "user" => "root",
-        "pass" => "1234",
-        "db" => "orla",
+        "pass" => "",
+        "db" => "orlas",
         "host" => "localhost"
     ],
     /* Nom de la cookie */
