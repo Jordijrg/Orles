@@ -18,7 +18,7 @@
 
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+  <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="images/logo.png" class="h-10" alt="Logo" />
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ORLAS</span>
   </a>
@@ -77,13 +77,9 @@
 
 
 <script src="js/flowbite.js"></script>
+<script src="js/darkmode.js"></script>
 
 
-  <script>
-    document.getElementById('toggleDarkModeButton').addEventListener('click', function () {
-      document.getElementById('html').classList.toggle('dark');
-    });
-  </script>
 </body>
 
 </html>
