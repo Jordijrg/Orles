@@ -12,28 +12,45 @@
   <title>Registre</title>
 </head>
 
-<body>
-  <div class="container mx-auto p-10">
-    <div class="grid grid-cols-1 gap-4">
-      <div>
-        <h1 class="mb-4 text-xl text-red-700 font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Alguna cosa ha anat malament!</h1>
-      </div>
+<div class="bg-gray-100 h-screen flex items-center justify-center">
+
+    <div class="bg-gray-800 p-8 rounded-md shadow-md w-100 text-center">
+
+        <img src="graduacion.png" alt="Logo" class="mx-auto max-w-full h-auto mb-4" style="max-height: 100px;">
+
+        <h2 class="text-2xl font-semibold mb-4 text-white">Registrarse</h2>
+
+        <form action="#" method="POST">
+
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="username" class="block text-gray-300 text-sm font-medium mb-2">Nom</label>
+                    <input type="text" id="username" name="username" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-700 text-gray-300" required>
+                </div>
+                <div>
+                    <label for="surname" class="block text-gray-300 text-sm font-medium mb-2">Cognom</label>
+                    <input type="text" id="surname" name="surname" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-700 text-gray-300" required>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="block text-gray-300 text-sm font-medium mb-2">Email</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-700 text-gray-300" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="block text-gray-300 text-sm font-medium mb-2">Contrasenya</label>
+                <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-700 text-gray-300" required>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Registrarse</button>
+
+        </form>
+
+        <p class="mt-4 text-gray-300 text-sm">Ja tens una contrasenya? <a href="#" class="text-blue-500">Inicia Sessio</a></p>
+
     </div>
+</div>
 
-    <?php if (isset($error) && $error != "") { ?>
-      <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-        <?= $error ?>
-      </div>
-    <?php } ?>
-
-    <div class="grid grid-cols-1 gap-4">
-      <div>
-        <p class="text-base">Si has arribat aquí vol dir que alguna cosa ha fallat.</p>
-      </div>
-    </div>
-
-  </div>
-  <script src="/js/bundle.js"></script>
-</body>
 
 </html>
