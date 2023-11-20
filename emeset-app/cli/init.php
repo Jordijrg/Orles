@@ -2,7 +2,7 @@
 
 include "../vendor/autoload.php";
 $config = require "../App/config.php";
-
+//ddd
 $db = $config["sqlite"]["path"] . $config["sqlite"]["name"];
 echo "Creant la base de dades : {$db} \n";
 $sql = new SQLite3($db);
