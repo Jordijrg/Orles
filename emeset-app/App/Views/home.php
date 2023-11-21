@@ -18,17 +18,17 @@
     <?php include 'header.php';?>
 </div>
 
-<div id="controls-carousel" class="relative w-full md:h-screen" data-carousel="static">
+<div id="controls-carousel" class="relative w-full md:h-screen dark:bg-gray-900" data-carousel="static">
     
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-screen">
          <!-- Item 1 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="images/slider2.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="1">
+            <img src="images/slider2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="1">
         </div>
         <!-- Item 2 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-            <img src="images/slider1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="..2">
+            <img src="images/slider1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="..2">
         </div>
        
         <!-- Item 3 -->
