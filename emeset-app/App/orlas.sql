@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2023 a las 16:21:30
+-- Tiempo de generación: 20-11-2023 a las 18:25:39
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET @OLD_COLLATION_CdONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
 --
@@ -41,7 +41,8 @@ CREATE TABLE `avatar` (
 
 CREATE TABLE `carnet` (
   `idcarnet` int(11) NOT NULL,
-  `srcimagen` text NOT NULL
+  `srcimagen` text NOT NULL,
+  `IDUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -84,6 +85,47 @@ CREATE TABLE `orles` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` int(11) NOT NULL,
+  `task` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `deleted` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `user` varchar(128) NOT NULL,
+  `pass` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `user`, `pass`) VALUES
+(1, 'user0', '$2y$12$basffknz4AMs32WIzqtMtOzHTKDANLQDqq8OwuPFB0TPooDJLyeTK'),
+(2, 'user1', '$2y$12$DH/gQDI0cMiI5yOeMatmQO5hKuJ6QkDyJ.x31ph0OwhdorG4GPTSu'),
+(3, 'user2', '$2y$12$r63UzlXt80cFwy/WQ188EuMe74saMMi3YdwmxeGNDFZRGreN5h0BW'),
+(4, 'user3', '$2y$12$x/DwaxQqbMfNIr2r5h8uxul/NSJJ2Tv.3IYqtbhi59J1YXWsi/QHC'),
+(5, 'user4', '$2y$12$HgYQiRZtb4FIYrAIh7AOuOObSr0VVUsuNto2aiiKcNGrD5iUsalC2'),
+(6, 'user5', '$2y$12$yv5/22j3GZ81Uo9j57Nv9OE.dnfQGjoGalhemjsahYo35kH1VRU/C'),
+(7, 'user6', '$2y$12$/kyTUGEN7Srf/86lwn0tme4ipKntc4noDIpsxKw2jL25fo.IwsE.e'),
+(8, 'user7', '$2y$12$ZoU4Y.9ABeq0QcMqHfjcP.kPse3poTrjGFosOZMYuzN8pmhpphHqm'),
+(9, 'user8', '$2y$12$lKCMuoaPy9vQpDj2KYLIHOaByp6Weqt73Gt2EycQO..IIAu20Qiua'),
+(10, 'user9', '$2y$12$DfnG7E1vg9n7qiT9xnEUDeIDGNAddOpg0UujiPRIZS370XIco30gW');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuaris`
 --
 
@@ -120,7 +162,8 @@ ALTER TABLE `avatar`
 -- Indices de la tabla `carnet`
 --
 ALTER TABLE `carnet`
-  ADD PRIMARY KEY (`idcarnet`);
+  ADD PRIMARY KEY (`idcarnet`),
+  ADD KEY `IDUsuario` (`IDUsuario`);
 
 --
 -- Indices de la tabla `grup`
@@ -141,6 +184,20 @@ ALTER TABLE `imatges_usuaris`
 ALTER TABLE `orles`
   ADD PRIMARY KEY (`IdOrla`),
   ADD KEY `idgrup` (`idgrup`);
+
+--
+-- Indices de la tabla `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `task_owner` (`user_id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`user`);
 
 --
 -- Indices de la tabla `usuaris`
@@ -184,6 +241,18 @@ ALTER TABLE `orles`
   MODIFY `IdOrla` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT de la tabla `usuaris`
 --
 ALTER TABLE `usuaris`
@@ -200,6 +269,12 @@ ALTER TABLE `avatar`
   ADD CONSTRAINT `avatar_ibfk_1` FOREIGN KEY (`iduser`) REFERENCES `usuaris` (`IdUsuari`);
 
 --
+-- Filtros para la tabla `carnet`
+--
+ALTER TABLE `carnet`
+  ADD CONSTRAINT `carnet_ibfk_1` FOREIGN KEY (`IDUsuario`) REFERENCES `usuaris` (`IdUsuari`);
+
+--
 -- Filtros para la tabla `imatges_usuaris`
 --
 ALTER TABLE `imatges_usuaris`
@@ -210,6 +285,12 @@ ALTER TABLE `imatges_usuaris`
 --
 ALTER TABLE `orles`
   ADD CONSTRAINT `orles_ibfk_1` FOREIGN KEY (`idgrup`) REFERENCES `grup` (`IdGrup`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tasks`
+--
+ALTER TABLE `tasks`
+  ADD CONSTRAINT `task_owner` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuari_grup`

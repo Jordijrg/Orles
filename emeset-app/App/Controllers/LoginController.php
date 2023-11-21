@@ -29,7 +29,7 @@ class LoginController
         } else {
             $response->setSession("logged", false);
             $response->setSession("error", "Usuari o contrasenya incorrectes");
-            $response->redirect("Location: /login");
+            $response->redirect("Location: /");
         }
 
         return $response;

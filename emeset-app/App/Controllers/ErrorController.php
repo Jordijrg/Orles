@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class ErrorController 
+class ErrorController
 {
     public function error404($request, $response, $container)
     {
