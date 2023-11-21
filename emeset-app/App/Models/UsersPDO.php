@@ -40,7 +40,7 @@ class UsersPDO
      */
     public function getUser($user)
     {
-        $query = 'select id, user, pass from users where user=:user;';
+        $query = 'select * from users where user=:user;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':user' => $user]);
 
@@ -56,7 +56,7 @@ class UsersPDO
 
     public function validateUser($user, $pass)
     {
-        
+
         $login = $this->getUser($user);
 
         if ($login) {
