@@ -12,7 +12,7 @@ return [
         "user" => "root",
         "pass" => "",
         "db" => "orlas",
-        "host" => "localhost: 3307"
+        "host" => "localhost",
     ],
     /* Nom de la cookie */
     "cookie" => [
