@@ -31,7 +31,7 @@ $app->post("/", [TaskController::class,"add"], [[\App\Middleware\Auth::class,"au
 $app->get("/done/{id}", [TaskController::class,"delete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\Auth::class,"auth"]]);
 
-$app->get("/register", [registercontroller::class,"index"]); 
+$app->get("/register", [registercontroller::class,"addregister"]); 
 
 $app->get("/login", "\App\Controllers\LoginController:index");
 $app->post("/login", "\App\Controllers\LoginController:login");
