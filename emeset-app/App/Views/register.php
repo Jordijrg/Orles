@@ -11,46 +11,59 @@
 
   <title>Registre</title>
 </head>
+<body>
+<div><?php include 'header.php'; ?></div>
+  <section class="bg-gray-50 dark:bg-gray-900 ">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <a href="#"
+        class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white dark:rounded-xl">
+        <img class="w-24 h-24 mr-2 " src="img/logo.png" alt="logo">
 
-<div class="bg-gray-100 h-screen flex items-center justify-center">
-
-    <div class="bg-gray-800 p-8 rounded-md shadow-md w-100 text-center">
-
-        <img src="graduacion.png" alt="Logo" class="mx-auto max-w-full h-auto mb-4" style="max-height: 100px;">
-
-        <h2 class="text-2xl font-semibold mb-4 text-white">Registrarse</h2>
-
-        <form action="#" method="POST">
-
-            <div class="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                    <label for="username" class="block text-gray-300 text-sm font-medium mb-2">Nom</label>
-                    <input type="text" id="username" name="username" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-700 text-gray-300" required>
-                </div>
-                <div>
-                    <label for="surname" class="block text-gray-300 text-sm font-medium mb-2">Cognom</label>
-                    <input type="text" id="surname" name="surname" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-700 text-gray-300" required>
-                </div>
+      </a>
+      <div
+        class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-slate-950 dark:border-gray-700">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            Registrarse
+          </h1>
+          <form method="POST" class="space-y-4 md:space-y-6" action="/register">
+            <div class="flex space-x-4"> 
+              <div class="w-1/2">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
+                <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nom" required="">
+              </div>
+              <div class="w-1/2">
+                <label for="surname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cognoms</label>
+                <input type="text" name="surname" id="surname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cognoms" required="">
+              </div>
             </div>
-
-            <div class="mb-4">
-                <label for="email" class="block text-gray-300 text-sm font-medium mb-2">Email</label>
-                <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-700 text-gray-300" required>
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correu</label>
+              <input type="text" name="user" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@company.com" required="">
             </div>
-
-            <div class="mb-4">
-                <label for="password" class="block text-gray-300 text-sm font-medium mb-2">Contrasenya</label>
-                <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-700 text-gray-300" required>
+            <div>
+              <label for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contrasenya</label>
+              <input type="password" name="password" id="password" placeholder="••••••••"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required="">
             </div>
-
-            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Registrarse</button>
-
-        </form>
-
-        <p class="mt-4 text-gray-300 text-sm">Ja tens una contrasenya? <a href="#" class="text-blue-500">Inicia Sessio</a></p>
-
+            <button type="submit"
+              class="w-full bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-gray-200">Sign
+              in</button>
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+              Ja tens una compta? <a href="/login"
+                class="font-medium text-primary-600 hover:underline dark:text-primary-500">Inicia Sessio</a>
+            </p>
+          </form>
+        </div>
+      </div>
     </div>
+  </section>
+  <script src="/js/bundle.js"></script>
 </div>
 
-
+</body>
 </html>
