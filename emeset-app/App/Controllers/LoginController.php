@@ -25,7 +25,7 @@ class LoginController
         if ($login) {
             $response->setSession("logged", true);
             $response->setSession("user", $login);
-            $response->redirect("Location: /");
+            $response->redirect("Location: /");   
         } else {
             $response->setSession("logged", false);
             $response->setSession("error", "Usuari o contrasenya incorrectes");
@@ -41,6 +41,14 @@ class LoginController
         $response->setSession("user", []);
         $response->redirect("Location: /login");
 
+        return $response;
+    }
+    function resnav($request, $response, $container){
+        $response->SetTemplate("resnav.php");
+        return $response;
+    }
+    function ctrlalumne($request, $response, $container){
+        $response->SetTemplate("alumne.php");
         return $response;
     }
 
