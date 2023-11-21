@@ -22,6 +22,7 @@
       <img src="images/logo.png" class="h-10" alt="Logo" />
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ORLAS</span>
   </a>
+  <?php if ($logged) { ?>
   <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <span class="sr-only">Open user menu</span>
@@ -30,7 +31,7 @@
       <!-- Dropdown menu -->
       <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
         <div class="px-4 py-3">
-          <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+          <span class="block text-sm text-gray-900 dark:text-white"><?php echo $user["user"]?> </span>
           <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
@@ -44,7 +45,7 @@
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+            <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</a>
           </li>
         </ul>
       </div>
@@ -55,11 +56,18 @@
         </svg>
     </button>
   </div>
+  <?php } ?>
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
     <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-      <li>
+      <?php if ($logged) { ?>
+        <li>
+          <a href="/logout" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Logout</a>
+        </li>
+      <?php }else{ ?>
+        <li>
         <a href="/login" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
       </li>
+      <?php } ?>
       <li>
         <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
       </li>
