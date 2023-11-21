@@ -17,6 +17,7 @@
 use App\Controllers\TaskController;
 use Emeset\Contracts\Routers\Router;
 use App\Controllers\profecontroller;
+use App\Controllers\alumnecontrollers;
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
@@ -31,9 +32,11 @@ $app->post("/", [TaskController::class,"add"], [[\App\Middleware\Auth::class,"au
 $app->get("/done/{id}", [TaskController::class,"delete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/panelprofe", [profecontroller::class,"index"]);
+$app->get("/alumne", [alumnecontrollers::class,"index"]);
 
 $app->get("/login", "\App\Controllers\LoginController:index");
 $app->post("/login", "\App\Controllers\LoginController:login");
+$app->get("/resnav", "\App\Controllers\LoginController:resnav");
 $app->get("/logout", "\App\Controllers\LoginController:logout", [[\App\Middleware\Auth::class,"auth"]]);
 
 $app->route(Router::DEFAULT_ROUTE, "\App\Controllers\ErrorController:error404");
