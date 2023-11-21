@@ -1,23 +1,28 @@
-    // Función para alternar el modo oscuro y guardar la preferencia
-    function toggleDarkMode() {
-      const htmlElement = document.getElementById('html');
-      htmlElement.classList.toggle('dark');
+// Función para alternar el modo oscuro y guardar la preferencia
+function toggleDarkMode() {
+  const htmlElement = document.getElementById('html');
+  const isDarkModeEnabled = htmlElement.classList.toggle('dark');
 
-      // Guardar la preferencia en localStorage
-      const isDarkModeEnabled = htmlElement.classList.contains('dark');
-      localStorage.setItem('darkMode', isDarkModeEnabled ? 'enabled' : 'disabled');
-    }
+  // Actualizar el estado del toggle
+  const toggleDarkModeButton = document.getElementById('toggleDarkModeButton');
+  toggleDarkModeButton.checked = isDarkModeEnabled;
 
-    // Agregar evento de clic al botón para alternar y guardar el modo oscuro
-    document.getElementById('toggleDarkModeButton').addEventListener('click', toggleDarkMode);
+  // Guardar la preferencia en localStorage
+  localStorage.setItem('darkMode', isDarkModeEnabled ? 'enabled' : 'disabled');
+}
 
-    // Verificar y aplicar la preferencia almacenada en localStorage al cargar la página
-    window.addEventListener('load', function() {
-      const htmlElement = document.getElementById('html');
-      const storedDarkMode = localStorage.getItem('darkMode');
+// Agregar evento de clic al botón para alternar y guardar el modo oscuro
+const toggleDarkModeButton = document.getElementById('toggleDarkModeButton');
+toggleDarkModeButton.addEventListener('click', toggleDarkMode);
 
-      // Si la preferencia está almacenada, aplicarla
-      if (storedDarkMode === 'enabled') {
-        htmlElement.classList.add('dark');
-      }
-    });
+// Verificar y aplicar la preferencia almacenada en localStorage al cargar la página
+window.addEventListener('load', function() {
+  const htmlElement = document.getElementById('html');
+  const storedDarkMode = localStorage.getItem('darkMode');
+
+  // Si la preferencia está almacenada, aplicarla y actualizar el estado del toggle
+  if (storedDarkMode === 'enabled') {
+    htmlElement.classList.add('dark');
+    toggleDarkModeButton.checked = true;
+  }
+});
