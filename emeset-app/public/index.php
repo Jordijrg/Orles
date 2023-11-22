@@ -35,6 +35,7 @@ $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\
 $app->get("/panelprofe", [profecontroller::class,"index"]);
 $app->get("/alumne", [alumnecontrollers::class,"index"]);
 
+
 $app->get("/register", [registercontroller::class,"addregister"]); 
 
 $app->get("/login", "\App\Controllers\LoginController:index");
