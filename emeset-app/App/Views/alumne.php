@@ -14,90 +14,32 @@
     <div class="grid grid-cols-2 gap-4 p-10 dark:bg-black">
         <div class=" col-span-1 grid grid-cols-3 gap-4">
             <div class="col-span-3 dark:text-white"><h2 class="border-l-2 border-l-black pl-2 dark:border-l-white">ORLES</h2></div>
+            <?php foreach ($orles as $orla): ?>
             <div class=" col-span-1">
                 <a href="#"
                     class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                        technology acquisitions 2021</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $orla['IdOrla']?></h5>
+                    <div class="font-normal text-gray-700 dark:text-gray-400"><img class="rounded-xl" src="images/<?php echo $orla['SrcImatge']?>"></div>
                 </a>
             </div>
-            <div class=" col-span-1">
-                <a href="#"
-                    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                        technology acquisitions 2021</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </a>
-            </div>
-            <div class="col-span-1">
-                <a href="#"
-                    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                        technology acquisitions 2021</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </a>
-            </div>
-            <div class="col-span-1">
-                <a href="#"
-                    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                        technology acquisitions 2021</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </a>
-            </div>
+            <?php endforeach; ?>
         </div>
+        
         <div class="col-span-1 grid grid-cols-3 gap-4">
             <div class="col-span-3 dark:text-white"><h2 class="border-l-2 border-l-black pl-2  dark:border-l-white">FOTOGRAFIES</h2></div>
+            <?php foreach ($fotografies as $fotografia): ?>
             <div class=" col-span-1">
                 <a href="#"
                     class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                        technology acquisitions 2021</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> <?php echo $fotografia['IdImatge'] ?> </h5>
+                    <div class="font-normal text-gray-700 dark:text-gray-400"><img class="rounded-xl" src="images/<?php echo $fotografia['Srcimatge']?>"></div>
                 </a>
             </div>
-            <div class=" col-span-1">
-                <a href="#"
-                    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                        technology acquisitions 2021</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </a>
-            </div>
-            <div class=" col-span-1">
-                <a href="#"
-                    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                        technology acquisitions 2021</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </a>
-            </div>
-            <div class=" col-span-1">
-                <a href="#"
-                    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy
-                        technology acquisitions 2021</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
-                </a>
-            </div>
+            <?php endforeach; ?>
         </div>
+        
     </div>
 </body>
 

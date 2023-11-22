@@ -36,6 +36,7 @@ $app->get("/panelprofe", [profecontroller::class,"index"]);
 $app->get("/alumne", [alumnecontrollers::class,"index"]);
 $app->post("/register", [registercontroller::class,"doregister"]);
 
+
 $app->get("/register", [registercontroller::class,"addregister"]); 
 
 $app->get("/login", "\App\Controllers\LoginController:index");
