@@ -25,6 +25,7 @@ class LoginController
         if ($login) {
             $response->setSession("logged", true);
             $response->setSession("user", $login);
+            echo $login;
             $response->redirect("Location: /");   
         } else {
             $response->setSession("logged", false);

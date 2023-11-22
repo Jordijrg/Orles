@@ -40,6 +40,7 @@
                 <?php echo $user["Nom"] ." ". $user["Cognom"] ?>
               </span>
               <span class="block text-sm  text-gray-500 truncate dark:text-gray-400"><?php echo $user["Correu"] ?></span>
+              <span class="block text-sm  text-gray-500 truncate dark:text-gray-400"><?php echo $user["grupNom"] ?></span>
             </div>
             <ul class="py-2" aria-labelledby="user-menu-button">
               <li>
