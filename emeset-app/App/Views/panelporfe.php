@@ -8,124 +8,9 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="main.css">
-  <script src="https://unpkg.com/feather-icons"></script>
+<?php include "script_icons.php" ?>
 <style>
-#btnmenu{
-  left: -1%;
-  animation: prueba 2s infinite ;
-}
-@keyframes prueba {
-  0%{
-    left: -9px;
-  }
-  1%{
-    left: -8px;
-  }
-  2%{
-    left: -7px;
-  }
-  3%{
-    left: -6px;
-  }
-  4%{
-    left: -5px;
-  }
-  5%{
-    left: -4px;
-  }
-  6%{
-    left: -3px;
-  }
-  7%{
-    left: -2px;
-  }
-  8%{
-    left: -1px;
-  }
-  9%{
-    left: 0px;
-  }
-  10%{
-    left: 1px;
-  }
-  11%{
-    left: 2px;
-  }
-  12%{
-    left: 3px;
-  }
-  13%{
-    left: 4px;
-  }
-  14%{
-    left: 5px;
-  }
-  15%{
-    left: 6px;
-  }
-  16%{
-    left: 7px;
-  }
-  17%{
-    left: 8px;
-  }
-  18%{
-    left: 9px;
-  }
-  19%{
-    left: 8px;
-  }
-  20%{
-    left: 7px;
-  }
-  21%{
-    left: 6px;
-  }
-  22%{
-    left: 5px;
-  }
-  23%{
-    left: 4px;
-  }
-  24%{
-    left: 3px;
-  }
-  25%{
-    left: 2px;
-  }
-  26%{
-    left: 1px;
-  }
-  27%{
-    left: 0px;
-  }
-  28%{
-    left: -1px;
-  }
-  29%{
-    left: -2px;
-  }
-  30%{
-    left: -4px;
-  }
-  31%{
-    left: -5px;
-  }
-  32%{
-    left: -6px;
-  }
-  34%{
-    left: -7px;
-  }
-  35%{
-    left: -8px;
-  }
-  36%{
-    left: -9px;
-  }
 
- 
-}
 </style>
   <title>Todo APP</title>
 </head>
@@ -136,37 +21,8 @@
 
   <div class="grid grid-cols-7 gap-1">
     <div class="col-span-1" >
-        <div >
-        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10" id="btnmenu" data-status="closed">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-        </svg>
-        </div>
-        <nav class="navbar">
-  <ul class="navbar__menu" id="menu_main">
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="home"></i><span>Home</span></a>
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="message-square"></i><span>Messages</span></a>        
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="users"></i><span>Customers</span></a>        
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="folder"></i><span>Projects</span></a>        
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="archive"></i><span>Resources</span></a>        
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="help-circle"></i><span>Help</span></a>        
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link" id="btn_close"><i data-feather="x" ></i><span>Cerrar</span></a>        
-    </li>
-  </ul>
-</nav>
-
+       
+    <?php include "nav_panel.php"; ?>
     </div>
     
     <div class="col-span-6  mt-50 ">
