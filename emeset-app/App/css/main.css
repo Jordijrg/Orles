@@ -1124,3 +1124,120 @@ body {
     position: absolute;
     top: 50%;
 }
+
+#btnmenu{
+  left: -1%;
+  animation: prueba 2s infinite ;
+}
+@keyframes prueba {
+  0%{
+    left: -9px;
+  }
+  1%{
+    left: -8px;
+  }
+  2%{
+    left: -7px;
+  }
+  3%{
+    left: -6px;
+  }
+  4%{
+    left: -5px;
+  }
+  5%{
+    left: -4px;
+  }
+  6%{
+    left: -3px;
+  }
+  7%{
+    left: -2px;
+  }
+  8%{
+    left: -1px;
+  }
+  9%{
+    left: 0px;
+  }
+  10%{
+    left: 1px;
+  }
+  11%{
+    left: 2px;
+  }
+  12%{
+    left: 3px;
+  }
+  13%{
+    left: 4px;
+  }
+  14%{
+    left: 5px;
+  }
+  15%{
+    left: 6px;
+  }
+  16%{
+    left: 7px;
+  }
+  17%{
+    left: 8px;
+  }
+  18%{
+    left: 9px;
+  }
+  19%{
+    left: 8px;
+  }
+  20%{
+    left: 7px;
+  }
+  21%{
+    left: 6px;
+  }
+  22%{
+    left: 5px;
+  }
+  23%{
+    left: 4px;
+  }
+  24%{
+    left: 3px;
+  }
+  25%{
+    left: 2px;
+  }
+  26%{
+    left: 1px;
+  }
+  27%{
+    left: 0px;
+  }
+  28%{
+    left: -1px;
+  }
+  29%{
+    left: -2px;
+  }
+  30%{
+    left: -4px;
+  }
+  31%{
+    left: -5px;
+  }
+  32%{
+    left: -6px;
+  }
+  34%{
+    left: -7px;
+  }
+  35%{
+    left: -8px;
+  }
+  36%{
+    left: -9px;
+  }
+
+ 
+}
