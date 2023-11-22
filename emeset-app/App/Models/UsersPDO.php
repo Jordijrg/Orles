@@ -40,9 +40,9 @@ class UsersPDO
      */
     public function getUser($user)
     {
-        $query = 'select * from usuaris where Nom=:user;';
+        $query = 'select * from usuaris where Correu=:Correu;';
         $stm = $this->sql->prepare($query);
-        $result = $stm->execute([':user' => $user]);
+        $result = $stm->execute([':Correu' => $user]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();

@@ -17,8 +17,8 @@ class registercontroller
         $email = $request->get(INPUT_POST, "email"); 
         $pass = $request->get(INPUT_POST, "password"); 
         $usermodel=$container["Users"]->registerUser($nombre,$apellido,$email,$pass);
-        
-        die();
+        $response->redirect("Location: /");
+        return $response;
     }
 
     
