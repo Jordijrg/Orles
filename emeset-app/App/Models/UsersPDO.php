@@ -40,7 +40,10 @@ class UsersPDO
      */
     public function getUser($user)
     {
-        $query = 'select * from usuaris where Correu=:Correu;';
+        $query = 'select usuaris.*, grup.Nom as "grupNom" from usuaris
+        join usuari_grup on usuari_grup.IdUsuari = usuaris.IdUsuari
+        join grup on grup.IdGrup = usuari_grup.IdGrup
+        where Correu=:Correu;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':Correu' => $user]);
 
