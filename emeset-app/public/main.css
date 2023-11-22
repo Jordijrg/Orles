@@ -1730,47 +1730,11 @@ input:checked + .toggle-bg {
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
-.after\:absolute::after {
-  content: var(--tw-content);
-  position: absolute;
-}
-.after\:start-\[2px\]::after {
-  content: var(--tw-content);
-  inset-inline-start: 2px;
-}
-.after\:top-0::after {
-  content: var(--tw-content);
-  top: 0px;
-}
-.after\:top-0\.5::after {
-  content: var(--tw-content);
-  top: 0.125rem;
-}
-.after\:h-3::after {
-  content: var(--tw-content);
-  height: 0.75rem;
-}
-.after\:w-3::after {
-  content: var(--tw-content);
-  width: 0.75rem;
-}
-.after\:rounded-full::after {
-  content: var(--tw-content);
-  border-radius: 9999px;
-}
-.after\:border::after {
-  content: var(--tw-content);
-  border-width: 1px;
-}
-.after\:border-gray-300::after {
-  content: var(--tw-content);
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
-}
 body {
   background: #eaeef6;
   font-family: "Open Sans", sans-serif;
 }
-
 
 .navbar {
   position: fixed;
@@ -2887,7 +2851,40 @@ body {
     position: absolute;
     top: 50%;
 }
-.hover\:border-gray-300:hover {
+.after\:absolute::after {
+  content: var(--tw-content);
+  position: absolute;
+}
+.after\:start-\[2px\]::after {
+  content: var(--tw-content);
+  inset-inline-start: 2px;
+}
+.after\:top-0::after {
+  content: var(--tw-content);
+  top: 0px;
+}
+.after\:top-0\.5::after {
+  content: var(--tw-content);
+  top: 0.125rem;
+}
+.after\:h-3::after {
+  content: var(--tw-content);
+  height: 0.75rem;
+}
+.after\:w-3::after {
+  content: var(--tw-content);
+  width: 0.75rem;
+}
+.after\:rounded-full::after {
+  content: var(--tw-content);
+  border-radius: 9999px;
+}
+.after\:border::after {
+  content: var(--tw-content);
+  border-width: 1px;
+}
+.after\:border-gray-300::after {
+  content: var(--tw-content);
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }

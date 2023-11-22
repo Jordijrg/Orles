@@ -21,6 +21,7 @@ class Container extends EmesetContainer {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
                 return new \App\Models\UsersPDO($c["db"]->getConnection());
             };
+           
 
             $this["db"] = function ($c) {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
@@ -41,6 +42,7 @@ class Container extends EmesetContainer {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
                 return new \App\Models\UsersSQLite($c->get("config")["sqlite"]);
             };
+      
         }
     }
 }

@@ -40,7 +40,7 @@ class UsersPDO
      */
     public function getUser($user)
     {
-        $query = 'select * from users where user=:user;';
+        $query = 'select * from usuaris where Nom=:user;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':user' => $user]);
 
@@ -58,17 +58,19 @@ class UsersPDO
     {
 
         $login = $this->getUser($user);
-
+    
         if ($login) {
-            $hash = $login["pass"];
+            $hash = $login["Contrasenya"];
+           
             if (password_verify($pass, $hash)) {
+               
                 if (password_needs_rehash($hash, PASSWORD_DEFAULT, $this->options)) {
                     $newHash = password_hash($pass, PASSWORD_DEFAULT, $this->options);
-                    $query = 'update users set pass=:hash where user=:user;';
+                    $query = 'update usuaris set Contrasenya=:Contrasenya where Nom=:Nom;';
                     $stm = $this->sql->prepare($query);
                     $result = $stm->execute([
-                        ':user' => $user,
-                        ':hash' => $newHash,
+                        ':Nom' => $user,
+                        ':Contrasenya' => $newHash,
                     ]);
                 }
             } else {
@@ -77,5 +79,15 @@ class UsersPDO
         }
 
         return $login;
+    }
+    public function registerUser($nombre,$apellido,$email,$pass)
+    {
+        
+        $newHash = password_hash($pass, PASSWORD_DEFAULT,  ["cost" => 12]);
+
+        $stm = $this->sql->prepare('INSERT INTO usuaris (Nom, Cognom, Correu, Contrasenya,estado) values (:Nom, :Cognom, :Correu, :Contrasenya,:estado);');
+        $stm->execute([':Nom' => $nombre, ':Cognom' => $apellido, ':Contrasenya' => $newHash, ':estado' => "pendent", ':Correu' => $email]);
+
+      
     }
 }
