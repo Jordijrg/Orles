@@ -16,7 +16,7 @@
 
 
 
-  <nav class="bg-white border-l-2 border-b border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+  <nav class="bg-white border-b-2 border-gray-200 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="images/logo.png" class="h-10" alt="Logo" />
