@@ -51,6 +51,9 @@ class LoginController
         $response->SetTemplate("alumne.php");
         return $response;
     }
-
+    function ctrlperfil($request, $response, $container){
+        $response->SetTemplate("profile.php");
+        return $response;
+    }
 }
 
