@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2023 a las 17:07:43
+-- Tiempo de generación: 27-11-2023 a las 15:15:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -56,6 +56,15 @@ CREATE TABLE `grup` (
   `Nom` varchar(90) NOT NULL,
   `data_grup` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `grup`
+--
+
+INSERT INTO `grup` (`IdGrup`, `Nom`, `data_grup`) VALUES
+(1, 'DAW', '2023-11-17'),
+(2, 'smx2', '2023-11-17'),
+(3, 'smx3', '2023-11-17');
 
 -- --------------------------------------------------------
 
@@ -147,8 +156,8 @@ INSERT INTO `usuaris` (`IdUsuari`, `Nom`, `Cognom`, `Correu`, `Contrasenya`, `ro
 (1, '1', '1', '1@1.com', '$2y$12$EFbKVKaAndTsA3LfLlKFQuiMbz0D9khJfxNeYeHQlI02HIovqBa0K', NULL, 'pendent'),
 (2, 'p', 'p1', 'p1@1.com', '$2y$12$LJgCSEkLEyUKnpEcKKKsQe.CNtekf5lfWcHs80Ek1.foEUnEY2kxC', NULL, 'pendent'),
 (3, 'prueba', '1', 'p@p.com', '$2y$12$NxGwTJs8JHSeXxLjTdQOm.Xv3UjT23RsIuhoqkxwDzhayXK3ML0RW', NULL, 'pendent'),
-(4, 'user1', 'user2', 'caca@caca.com', '$2y$12$1ScAxD2fdSIUqcxTLLQcl.gb3EAmSun6MH78Qh.2siW8PbF0mElW.', NULL, 'pendent'),
-(5, '1', '1', '1@1.cm', '$2y$12$S.Fj/dp6A2LOu9aKErSNR.PhIFgZdJFgoqxs49Gi5MkwFJBKNhUzy', NULL, 'pendent'),
+(4, 'user1', 'user2', 'caca@caca.com', '$2y$12$1ScAxD2fdSIUqcxTLLQcl.gb3EAmSun6MH78Qh.2siW8PbF0mElW.', 'profe', 'active'),
+(5, 'pedro', '1', '1@1.cm', '$2y$12$S.Fj/dp6A2LOu9aKErSNR.PhIFgZdJFgoqxs49Gi5MkwFJBKNhUzy', 'alumne', 'pendent'),
 (6, '1', '1', '1@2.com', '$2y$12$2PzZbqrQjib3u1mnwIagq.Bwp8BDZ9kKWZlK8WmKONOAobnFRd7sW', NULL, 'pendent');
 
 -- --------------------------------------------------------
@@ -159,8 +168,17 @@ INSERT INTO `usuaris` (`IdUsuari`, `Nom`, `Cognom`, `Correu`, `Contrasenya`, `ro
 
 CREATE TABLE `usuari_grup` (
   `IdGrup` int(11) NOT NULL,
-  `IdUsuari` int(11) NOT NULL
+  `IdUsuari` int(11) NOT NULL,
+  `id_d` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuari_grup`
+--
+
+INSERT INTO `usuari_grup` (`IdGrup`, `IdUsuari`, `id_d`) VALUES
+(1, 4, 1),
+(2, 4, 2);
 
 --
 -- Índices para tablas volcadas
@@ -223,6 +241,7 @@ ALTER TABLE `usuaris`
 -- Indices de la tabla `usuari_grup`
 --
 ALTER TABLE `usuari_grup`
+  ADD PRIMARY KEY (`id_d`),
   ADD KEY `IdGrup` (`IdGrup`),
   ADD KEY `IdUsuari` (`IdUsuari`);
 
@@ -240,7 +259,7 @@ ALTER TABLE `carnet`
 -- AUTO_INCREMENT de la tabla `grup`
 --
 ALTER TABLE `grup`
-  MODIFY `IdGrup` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdGrup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `imatges_usuaris`
@@ -271,6 +290,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `usuaris`
   MODIFY `IdUsuari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `usuari_grup`
+--
+ALTER TABLE `usuari_grup`
+  MODIFY `id_d` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
