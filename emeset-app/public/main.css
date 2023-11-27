@@ -1176,6 +1176,9 @@ input:checked + .toggle-bg {
 .h-24 {
   height: 6rem;
 }
+.h-3 {
+  height: 0.75rem;
+}
 .h-4 {
   height: 1rem;
 }
@@ -1194,11 +1197,23 @@ input:checked + .toggle-bg {
 .h-9 {
   height: 2.25rem;
 }
+.h-96 {
+  height: 24rem;
+}
+.h-\[calc\(100\%-1rem\)\] {
+  height: calc(100% - 1rem);
+}
 .h-full {
   height: 100%;
 }
 .h-screen {
   height: 100vh;
+}
+.h-32 {
+  height: 8rem;
+}
+.max-h-full {
+  max-height: 100%;
 }
 .w-1\/2 {
   width: 50%;
@@ -1208,6 +1223,9 @@ input:checked + .toggle-bg {
 }
 .w-24 {
   width: 6rem;
+}
+.w-3 {
+  width: 0.75rem;
 }
 .w-4 {
   width: 1rem;
@@ -1223,9 +1241,6 @@ input:checked + .toggle-bg {
 }
 .w-8 {
   width: 2rem;
-}
-.w-96 {
-  width: 24rem;
 }
 .w-full {
   width: 100%;
