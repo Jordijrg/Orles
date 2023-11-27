@@ -38,10 +38,15 @@ class Orles
      * @param int $id
      * @return array imatge amb ["titol", "url"]
      */
-    public function getallorles()
+    public function getallorles($id)
     {
-        $query = 'select * from orles;';
+        $query = 'select orles.*, grup.Nom as "Nom" from orles 
+        join grup on orles.idgrup = grup.IdGrup
+        join usuari_grup on usuari_grup.IdGrup = grup.IdGrup
+        join usuaris on usuaris.IdUsuari = usuari_grup.IdUsuari
+        where usuaris.IdUsuari = :id;';
         $stm = $this->sql->prepare($query);
+        $stm->bindParam(':id', $id);
         // if ($stm->errorCode() !== '00000') {
         //     $err = $stm->errorInfo();
         //     $code = $stm->errorCode();
