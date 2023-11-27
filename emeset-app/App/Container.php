@@ -25,6 +25,14 @@ class Container extends EmesetContainer {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
                 return new \App\Models\Orles($c["db"]->getConnection());
             };
+            $this["grupo"] = function ($c) {
+                // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
+                return new \App\Models\grupo($c["db"]->getConnection());
+            };
+            $this["grupo_usarios"] = function ($c) {
+                // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
+                return new \App\Models\grupo_usarios($c["db"]->getConnection());
+            };
             $this["Fotografies"] = function ($c) {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
                 return new \App\Models\Fotografies($c["db"]->getConnection());
