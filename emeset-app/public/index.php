@@ -19,7 +19,6 @@ use Emeset\Contracts\Routers\Router;
 use App\Controllers\profecontroller;
 use App\Controllers\registercontroller;
 use App\Controllers\alumnecontrollers;
-use App\Controllers\profilecontroller;
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
@@ -36,6 +35,9 @@ $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\
 $app->get("/panelprofe", [profecontroller::class,"index"]);
 $app->get("/alumne", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/register", [registercontroller::class,"doregister"]);
+$app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
+$app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
+$app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->get("/register", [registercontroller::class,"addregister"]); 
