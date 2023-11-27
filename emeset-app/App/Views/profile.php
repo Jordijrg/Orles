@@ -28,11 +28,11 @@ Editar Perfil</button>
     </div>
     <div class="mt-6 text-center">
       <div class="flex flex-col md:flex-row justify-center">
-        <h1 class="text-3xl md:text-5xl font-semibold dark:text-white">Tu nombre</h1>
-        <h1 class="text-3xl md:text-5xl font-semibold ml-2 md:ml-4 dark:text-white">Tu Apellido</h1>
+        <h1 class="text-3xl md:text-5xl font-semibold dark:text-white"><?php echo $user["Nom"] ?></h1>
+        <h1 class="text-3xl md:text-5xl font-semibold ml-2 md:ml-4 dark:text-white"><?php echo $user["Cognom"] ?></h1>
       </div>
-      <p class="text-gray-600 text-base md:text-lg dark:text-gray-400">Alumne/Professor</p>
-      <p class="text-gray-600 text-base md:text-lg dark:text-gray-400">tu.email@example.com</p>
+      <p class="text-gray-600 text-base md:text-lg dark:text-gray-400"><?php echo $user["rol"] ?></p>
+      <p class="text-gray-600 text-base md:text-lg dark:text-gray-400"><?php echo $user["Correu"] ?></p>
     </div>
   </div>
 </div>

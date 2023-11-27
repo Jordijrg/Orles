@@ -93,4 +93,21 @@ class UsersPDO
 
       
     }
+
+    public function emailExists($email)
+{
+    $query = 'SELECT COUNT(*) FROM usuaris WHERE Correu = :Correu';
+    $stm = $this->sql->prepare($query);
+    $result = $stm->execute([':Correu' => $email]);
+
+    if ($stm->errorCode() !== '00000') {
+        $err = $stm->errorInfo();
+        $code = $stm->errorCode();
+        die("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+    }
+
+    $count = $stm->fetchColumn();
+    return $count > 0; 
+}
+
 }
