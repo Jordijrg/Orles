@@ -21,6 +21,8 @@ use App\Controllers\registercontroller;
 use App\Controllers\alumnecontrollers;
 use App\Controllers\ajaxcontroller;
 use App\Controllers\adminpanelcontroller;
+use App\Controllers\profilecontroller;
+
 
 
 
@@ -38,12 +40,16 @@ $app->get("/done/{id}", [TaskController::class,"delete"], [[\App\Middleware\Auth
 $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/panelprofe", [profecontroller::class,"index"]);
 $app->get("/alumne", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/selfoto/{iduser}/{id}", [alumnecontrollers::class,"selfoto"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/delselfoto/{id}", [alumnecontrollers::class,"delselfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
 $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
+
+
 $app->get("/register", [registercontroller::class,"addregister"]); 
 $app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
