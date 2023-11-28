@@ -1,18 +1,4 @@
-<!doctype html>
-<html lang="en" id="html">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="main.css">
-
-  <title>Todo APP</title>
-</head>
-
-<body>
 
 
 
@@ -40,8 +26,13 @@
                 <?php echo $user["Nom"] ." ". $user["Cognom"] ?>
               </span>
               <span class="block text-sm  text-gray-500 truncate dark:text-gray-400"><?php echo $user["Correu"] ?></span>
+              <span class="block text-sm  text-gray-500 truncate dark:text-gray-400"><?php echo $user["grupNom"] ?></span>
             </div>
             <ul class="py-2" aria-labelledby="user-menu-button">
+              <li>
+                <a href="/perfil"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Perfil</a>
+              </li>
               <li>
                 <a href="#"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
@@ -114,9 +105,6 @@
 
 
   <script src="js/flowbite.js"></script>
-  <script src="js/darkmode.js"></script>
 
 
-</body>
 
-</html>
