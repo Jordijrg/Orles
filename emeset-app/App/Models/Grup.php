@@ -12,7 +12,7 @@ namespace App\Models;
 /**
  * Imatges
 */
-class Orles
+class Grup
 {
 
     private $sql;
@@ -38,15 +38,12 @@ class Orles
      * @param int $id
      * @return array imatge amb ["titol", "url"]
      */
-    public function getallorles($id)
+    public function getgrup($id)
     {
-        $query = 'select orles.*, grup.Nom as "Nom", grup.IdGrup as "IdGrup" from orles 
-        join grup on orles.idgrup = grup.IdGrup
-        join usuari_grup on usuari_grup.IdGrup = grup.IdGrup
+        $query = 'select * from grup 
+        join usuari_grup on grup.IdGrup = usuari_grup.Idgrup
         join usuaris on usuaris.IdUsuari = usuari_grup.IdUsuari
-        where usuaris.IdUsuari = :id
-        order by orles.IdOrla DESC
-        LIMIT 1 OFFSET 1;';
+        where :id = usuaris.IdUsuari;';
         $stm = $this->sql->prepare($query);
         $stm->bindParam(':id', $id);
         // if ($stm->errorCode() !== '00000') {
@@ -64,17 +61,5 @@ class Orles
         }
         return $tasks;
         
-    }
-    public function lastorla($id){
-        $query = 'select orles.*, grup.Nom as "Nom",usuaris.IdUsuari "IdUsuari" from orles 
-        join grup on orles.idgrup = grup.IdGrup
-        join usuari_grup on usuari_grup.IdGrup = grup.IdGrup
-        join usuaris on usuaris.IdUsuari = usuari_grup.IdUsuari
-        where usuaris.IdUsuari = :id
-        order by orles.IdOrla DESC limit 1;';
-        $stm = $this->sql->prepare($query);
-        $stm->bindParam(':id', $id);
-        $stm->execute();
-        return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 }

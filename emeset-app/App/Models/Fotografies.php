@@ -43,13 +43,6 @@ class Fotografies
         $query = 'select * from imatges_usuaris where idusuari= :id;';
         $stm = $this->sql->prepare($query);
         $stm->bindParam(':id', $id);
-        // if ($stm->errorCode() !== '00000') {
-        //     $err = $stm->errorInfo();
-        //     $code = $stm->errorCode();
-        //     die("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
-        // }
-        
-        // return $stm->fetch(\PDO::FETCH_ASSOC);
         $stm->execute();
 
         $tasks = array();
@@ -57,6 +50,41 @@ class Fotografies
             $tasks[] = $task;
         }
         return $tasks;
+        
+    }
+    public function selfoto($idgrup,$idimg){
+        // return $stm->fetch(\PDO::FETCH_ASSOC);
+        
+        $query = $this->sql->prepare('update imatges_usuaris set idgrup = :idgrup
+        where IdImatge = :idimg;');
+        $result = $query->execute([":idgrup" => $idgrup , ":idimg" => $idimg]);
+    }
+
+    public function getgrup($id){
+        $query = 'select * from usuari_grup where IdUsuari= :id;';
+        $stm = $this->sql->prepare($query);
+        $stm->bindParam(':id', $id);
+        $stm->execute();
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+    public function imgselect($idgrup, $iduser){
+        $query = 'select * from imatges_usuaris where idgrup= :idgrup and idusuari = :iduser;';
+        $stm = $this->sql->prepare($query);
+        $stm->bindParam(':idgrup', $idgrup);
+        $stm->bindParam(':iduser', $iduser);
+        $stm->execute();
+        $tasks = array();
+        while ($task = $stm->fetch(\PDO::FETCH_ASSOC)) {
+            $tasks[] = $task;
+        }
+        return $tasks;
+    }
+    public function delselfoto($id){
+        $query = 'update imatges_usuaris set idgrup = 
+        0 where IdImatge = :id;';
+        $stm = $this->sql->prepare($query);
+        $stm->bindParam(':id', $id);
+        $stm->execute();
         
     }
 }

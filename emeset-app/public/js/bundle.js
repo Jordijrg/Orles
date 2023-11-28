@@ -19,6 +19,17 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 
 /***/ }),
 
+/***/ "./App/js/addfotoorla.js":
+/*!*******************************!*\
+  !*** ./App/js/addfotoorla.js ***!
+  \*******************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   addfotoorla: () => (/* binding */ addfotoorla)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\r\n\r\nfunction addfotoorla() {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0__(\".imgft\").click(function () {\r\n        // Mostrar el div con id \"addfotoorla\"\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\"#addfotoorla\").removeClass(\"hidden\");\r\n        // Obtener la ID y la ruta de la imagen\r\n        var id = this.id;\r\n        var rutaImagen = jquery__WEBPACK_IMPORTED_MODULE_0__(\"#\" + this.id + \" div img\").attr(\"src\");\r\n        var iduser = jquery__WEBPACK_IMPORTED_MODULE_0__(\"#\" + this.id + \" div img\").data(\"user\");\r\n        console.log(iduser);\r\n        // Actualizar el contenido del bloque en el HTML\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\"#addfotoorla .srcfoto img\").attr(\"src\", rutaImagen);\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\".Idfoto\").text(\"ID: \" + id);\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\".bt-img\").attr(\"id\",id);\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\".bt-img\").attr(\"href\",\"/selfoto/\"+iduser+\"/\"+id);\r\n        console.log(id + \" \" + rutaImagen);\r\n    });\r\n    jquery__WEBPACK_IMPORTED_MODULE_0__(\".delft\").click(function () {\r\n        var id = this.id;\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\".confdel\").attr(\"href\",\"/delselfoto/\"+id);\r\n    });\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/addfotoorla.js?");
+
+/***/ }),
+
 /***/ "./App/js/adminpanel.js":
 /*!******************************!*\
   !*** ./App/js/adminpanel.js ***!
@@ -41,6 +52,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./App/js/darkmode.js":
+/*!****************************!*\
+  !*** ./App/js/darkmode.js ***!
+  \****************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   toggleDarkMode: () => (/* binding */ toggleDarkMode)\n/* harmony export */ });\n// Función para alternar el modo oscuro y guardar la preferencia\r\nfunction toggleDarkMode() {\r\n  const htmlElement = document.getElementById('html');\r\n  const isDarkModeEnabled = htmlElement.classList.toggle('dark');\r\n\r\n  // Actualizar el estado del toggle\r\n  const toggleDarkModeButton = document.getElementById('toggleDarkModeButton');\r\n  toggleDarkModeButton.checked = isDarkModeEnabled;\r\n\r\n  // Guardar la preferencia en localStorage\r\n  localStorage.setItem('darkMode', isDarkModeEnabled ? 'enabled' : 'disabled');\r\n}\r\n\r\n// Agregar evento de clic al botón para alternar y guardar el modo oscuro\r\nconst toggleDarkModeButton = document.getElementById('toggleDarkModeButton');\r\ntoggleDarkModeButton.addEventListener('click', toggleDarkMode);\r\n\r\n// Verificar y aplicar la preferencia almacenada en localStorage al cargar la página\r\nwindow.addEventListener('load', function() {\r\n  const htmlElement = document.getElementById('html');\r\n  const storedDarkMode = localStorage.getItem('darkMode');\r\n\r\n  // Si la preferencia está almacenada, aplicarla y actualizar el estado del toggle\r\n  if (storedDarkMode === 'enabled') {\r\n    htmlElement.classList.add('dark');\r\n    toggleDarkModeButton.checked = true;\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack:///./App/js/darkmode.js?");
+
+/***/ }),
+
 /***/ "./App/js/index.js":
 /*!*************************!*\
   !*** ./App/js/index.js ***!
@@ -48,7 +70,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var _menupanel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menupanel.js */ \"./App/js/menupanel.js\");\n/* harmony import */ var _adminpanel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./adminpanel.js */ \"./App/js/adminpanel.js\");\n/* harmony import */ var _ajax_grupos_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ajax_grupos.js */ \"./App/js/ajax_grupos.js\");\n\r\n\r\n\r\n\r\nfeather.replace()\r\n\r\n\r\n;(0,_ajax_grupos_js__WEBPACK_IMPORTED_MODULE_3__.grupoajax)()\r\n;(0,_adminpanel_js__WEBPACK_IMPORTED_MODULE_2__.ajax)();\r\n$(\"#menu_main\").hide()\r\nconsole.log($(\"#btnmenu\"))\r\n\r\n$(\"#btnmenu\").click((e)=>{\r\n    console.log(\"entra\")\r\n    let value_data=$(\"#btnmenu\").data(\"status\")\r\n    if(value_data==\"closed\"){\r\n        $(\"#btnmenu\").data(\"status\",\"open\")\r\n        $(\"#menu_main\").show()\r\n        console.log(\"entra1\")\r\n\r\n        \r\n    }\r\n    \r\n    $(\"#btn_close\").click(()=>{\r\n        \r\n            $(\"#btnmenu\").data(\"status\",\"closed\")\r\n            $(\"#menu_main\").hide()\r\n        \r\n    })\r\n})\r\n\r\n  jquery__WEBPACK_IMPORTED_MODULE_0__('#usuarisbtn').click(()=>{\r\n    ;(0,_menupanel_js__WEBPACK_IMPORTED_MODULE_1__.toggleUsuaris)()\r\n   })\r\n\r\n    jquery__WEBPACK_IMPORTED_MODULE_0__('#orlasbtn').click(()=>{\r\n        ;(0,_menupanel_js__WEBPACK_IMPORTED_MODULE_1__.toggleOrlas)()\r\n    })\r\n\r\nfeather.replace()\r\nconsole.log(\"dwad\")\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var _menupanel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menupanel.js */ \"./App/js/menupanel.js\");\n/* harmony import */ var _adminpanel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./adminpanel.js */ \"./App/js/adminpanel.js\");\n/* harmony import */ var _ajax_grupos_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ajax_grupos.js */ \"./App/js/ajax_grupos.js\");\n/* harmony import */ var _darkmode_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./darkmode.js */ \"./App/js/darkmode.js\");\n/* harmony import */ var _onscroll_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./onscroll.js */ \"./App/js/onscroll.js\");\n/* harmony import */ var _addfotoorla_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./addfotoorla.js */ \"./App/js/addfotoorla.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconsole.log(\"funcionaaaaa\")\r\n;(0,_darkmode_js__WEBPACK_IMPORTED_MODULE_4__.toggleDarkMode)();\r\n(0,_onscroll_js__WEBPACK_IMPORTED_MODULE_5__.scrollFunction)();\r\n(0,_onscroll_js__WEBPACK_IMPORTED_MODULE_5__.scrollToTop)();\r\n(0,_addfotoorla_js__WEBPACK_IMPORTED_MODULE_6__.addfotoorla)();\r\njquery__WEBPACK_IMPORTED_MODULE_0__(\"#menu_main\").hide()\r\nconsole.log(jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\"))\r\n\r\n\r\n;(0,_ajax_grupos_js__WEBPACK_IMPORTED_MODULE_3__.grupoajax)()\r\n;(0,_adminpanel_js__WEBPACK_IMPORTED_MODULE_2__.ajax)();\r\n$(\"#menu_main\").hide()\r\nconsole.log($(\"#btnmenu\"))\r\n\r\n$(\"#btnmenu\").click((e)=>{\r\n    console.log(\"entra\")\r\n    let value_data=$(\"#btnmenu\").data(\"status\")\r\n    if(value_data==\"closed\"){\r\n        $(\"#btnmenu\").data(\"status\",\"open\")\r\n        $(\"#menu_main\").show()\r\n        console.log(\"entra1\")\r\n\r\n        \r\n    }\r\n    \r\n    $(\"#btn_close\").click(()=>{\r\n        \r\n            $(\"#btnmenu\").data(\"status\",\"closed\")\r\n            $(\"#menu_main\").hide()\r\n        \r\n    })\r\n})\r\n\r\n  jquery__WEBPACK_IMPORTED_MODULE_0__('#usuarisbtn').click(()=>{\r\n    ;(0,_menupanel_js__WEBPACK_IMPORTED_MODULE_1__.toggleUsuaris)()\r\n   })\r\n\r\n    jquery__WEBPACK_IMPORTED_MODULE_0__('#orlasbtn').click(()=>{\r\n        ;(0,_menupanel_js__WEBPACK_IMPORTED_MODULE_1__.toggleOrlas)()\r\n    })\r\n\r\nfeather.replace()\r\nconsole.log(\"dwad\")\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
 
 /***/ }),
 
@@ -60,6 +82,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   toggleOrlas: () => (/* binding */ toggleOrlas),\n/* harmony export */   toggleUsuaris: () => (/* binding */ toggleUsuaris)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\r\n\r\n\r\nfunction toggleUsuaris() {\r\n    var usuaris = document.getElementById(\"usuaris\");\r\n    if (usuaris.style.display === \"none\" || usuaris.style.display === \"\") {\r\n        usuaris.style.display = \"block\";\r\n    } else {\r\n        usuaris.style.display = \"none\";\r\n    }\r\n}\r\n\r\nfunction toggleOrlas() {\r\n    var orlas = document.getElementById(\"orlas\");\r\n    if (orlas.style.display === \"none\" || orlas.style.display === \"\") {\r\n        orlas.style.display = \"block\";\r\n    } else {\r\n        orlas.style.display = \"none\";\r\n    }\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/menupanel.js?");
+
+/***/ }),
+
+/***/ "./App/js/onscroll.js":
+/*!****************************!*\
+  !*** ./App/js/onscroll.js ***!
+  \****************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   scrollFunction: () => (/* binding */ scrollFunction),\n/* harmony export */   scrollToTop: () => (/* binding */ scrollToTop)\n/* harmony export */ });\nwindow.addEventListener(\"scroll\", scrollFunction);\r\n\r\nfunction scrollFunction() {\r\n    var scrollToTopBtn = document.getElementById(\"scrollToTopBtn\");\r\n\r\n    // Muestra u oculta el botón dependiendo del desplazamiento vertical\r\n    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {\r\n        scrollToTopBtn.style.display = \"block\";\r\n    } else {\r\n        scrollToTopBtn.style.display = \"none\";\r\n    }\r\n}\r\n\r\nfunction scrollToTop() {\r\n    document.body.scrollTop = 0; // Para navegadores Safari\r\n    document.documentElement.scrollTop = 0; // Para otros navegadores\r\n}\r\n\r\n// Agrega un event listener al botón para llamar a la función scrollToTop\r\ndocument.getElementById(\"scrollToTopBtn\").addEventListener(\"click\", scrollToTop);\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/onscroll.js?");
 
 /***/ })
 
