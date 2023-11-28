@@ -2,13 +2,15 @@ import $ from 'jquery';
 
 // initialize components based on data attribute selectors
 function grupoajax(){
-    initFlowbite();
-   
+    
     let control_witedmax=false
     $("#grupo_search").on("keydown",(evt)=>{
         let value_input=$("#grupo_search").val()
+       
 
-        
+        const modal = FlowbiteInstances.getInstance('Modal', 'default-modal');
+    modal.removeInstance();
+    initFlowbite();
        
         if(value_input.length>=2){
             control_witedmax=true
@@ -83,9 +85,10 @@ function grupoajax(){
     `)
                                                 })
                                                 jQuery(".modales").on("click",()=>{
-                                                    initFlowbite();
-                                                    const modal = FlowbiteInstances.getInstance('Modal', 'default-modal');
+                                                    
                                                     modal.show();
+                                                  
+
                                                 })
                                                
                                             }
@@ -172,14 +175,14 @@ function grupoajax(){
                                                     })
                                                  
                                                     jQuery(".modales").on("click",()=>{
-                                                        initFlowbite();
-                                                        const modal = FlowbiteInstances.getInstance('Modal', 'default-modal');
+                                                        
                                                         modal.show();
+
                                                     })
                                                 }
                                                
                                              
-                                                
+
                                             },
                                 
                                             dataType: "json", // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
