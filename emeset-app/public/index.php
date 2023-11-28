@@ -19,6 +19,8 @@ use Emeset\Contracts\Routers\Router;
 use App\Controllers\profecontroller;
 use App\Controllers\registercontroller;
 use App\Controllers\alumnecontrollers;
+use App\Controllers\ajaxcontroller;
+
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
