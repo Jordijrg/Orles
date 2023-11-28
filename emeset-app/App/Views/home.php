@@ -74,7 +74,19 @@
 </button>
 
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const htmlElement = document.getElementById('html');
+      const storedDarkMode = localStorage.getItem('darkMode');
 
+      // Si la preferencia está almacenada y es 'enabled', aplicarla
+      if (storedDarkMode === 'enabled') {
+        htmlElement.classList.add('dark');
+      } else {
+        htmlElement.classList.remove('dark');
+      }
+    });
+  </script>
 <script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>
 

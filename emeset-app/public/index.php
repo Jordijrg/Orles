@@ -25,7 +25,6 @@ use App\Controllers\profilecontroller;
 
 
 
-
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
 
