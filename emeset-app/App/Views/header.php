@@ -115,7 +115,6 @@
 
 
   <script src="js/flowbite.js"></script>
-  <script src="js/darkmode.js"></script>
 
 
 </body>

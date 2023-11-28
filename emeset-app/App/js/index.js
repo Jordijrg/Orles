@@ -1,6 +1,13 @@
 import jQuery from 'jquery';
-feather.replace()
+import {toggleDarkMode} from './darkmode.js';
+import {scrollToTop,scrollFunction} from './onscroll.js';
+import {addfotoorla} from './addfotoorla.js';
+
 console.log("funcionaaaaa")
+toggleDarkMode();
+scrollFunction();
+scrollToTop();
+addfotoorla();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
 
