@@ -42,18 +42,20 @@
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
             </li>
             <li>
-              <div class="flex items-center space-x-4">
-                <!-- Toggle (small) -->
-                <span
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                  onclick="toggleDarkMode()">Dark mode</span>
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" value="" class="sr-only peer" id="toggleDarkModeButton">
-                  <div
-                    class="w-8 h-4 bg-gray-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                  </div>
-                </label>
-              </div>
+
+            <div class="flex items-center space-x-4">
+                  <!-- Toggle (small) -->
+                  <span
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dark
+                      mode</span>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer" id="toggleDarkModeButton">
+                    <div
+                      class="w-8 h-4 bg-gray-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                    </div>
+
+                  </label>
+                </div>
 
 
 
@@ -106,7 +108,6 @@
     </div>
   </div>
 </nav>
-
 
 
 <script src="js/flowbite.js"></script>

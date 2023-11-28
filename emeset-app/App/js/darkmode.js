@@ -1,4 +1,7 @@
 // Función para alternar el modo oscuro y guardar la preferencia
+function darkmode(){
+
+
 function toggleDarkMode() {
   const htmlElement = document.getElementById('html');
   const isDarkModeEnabled = htmlElement.classList.toggle('dark');
@@ -26,6 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+}
 
-
-export {toggleDarkMode};
+export {darkmode};
