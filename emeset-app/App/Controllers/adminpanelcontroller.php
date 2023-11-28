@@ -8,6 +8,8 @@ class adminpanelcontroller
     {
         $response->set("logged", $_SESSION["logged"]);
         $response->set("user", $_SESSION["user"]);
+        $usuaris = $container["Users"]-> getAllUsers();
+        $response->set("usuaris", $usuaris);
         $response->SetTemplate("adminpanel.php");
 
         $usuaris = $container["Users"]-> getAllUsers();

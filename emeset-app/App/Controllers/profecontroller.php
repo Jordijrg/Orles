@@ -6,7 +6,10 @@ class profecontroller
 {
     public function index($request, $response, $container)
     {
-       
+        $response->set("logged", $_SESSION["logged"]);
+        $response->set("user", $_SESSION["user"]);
+        $usuaris = $container["Users"]-> getAllUsers();
+        $response->set("usuaris", $usuaris);
 
         $response->SetTemplate("panelporfe.php");
 
