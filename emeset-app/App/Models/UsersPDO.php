@@ -109,5 +109,43 @@ class UsersPDO
     $count = $stm->fetchColumn();
     return $count > 0; 
 }
+    public function getAllUsers(){
+        $query = 'select * from usuaris;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute();
+        
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getUserById($IdUsuari){
+        $query = 'select * from usuaris where IdUsuari = :IdUsuari;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function deleteuser($id){
+        $query = 'UPDATE usuaris SET estado = "desactivat" WHERE IdUsuari = :IdUsuari;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $id]);
+    } 
+
+    public function adduser($Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado){
+        $Contrasenya = password_hash($Contrasenya, PASSWORD_DEFAULT,  ["cost" => 12]);
+        $query = 'INSERT INTO usuaris (Nom, Cognom, Correu, Contrasenya, rol, estado) VALUES (:Nom, :Cognom, :Correu, :Contrasenya, :rol, :estado);';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
+    }
+
+    public function updateuser($IdUsuari, $Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado){
+        $Contrasenya = password_hash($Contrasenya, PASSWORD_DEFAULT,  ["cost" => 12]);
+        $query = 'UPDATE usuaris SET Nom = :Nom, Cognom = :Cognom, Correu = :Correu, Contrasenya = :Contrasenya, rol = :rol, estado = :estado WHERE IdUsuari = :IdUsuari;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
+    }
+
+    
 
 }
+

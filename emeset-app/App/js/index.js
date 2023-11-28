@@ -1,13 +1,10 @@
-import $ from 'jquery';
-import {grupoajax} from './ajax_grupos.js';
+import jQuery from 'jquery';
 feather.replace()
+console.log("funcionaaaaa")
+jQuery("#menu_main").hide()
+console.log(jQuery("#btnmenu"))
 
-
-grupoajax()
-$("#menu_main").hide()
-console.log($("#btnmenu"))
-
-$("#btnmenu").click((e)=>{
+jQuery("#btnmenu").click((e)=>{
     console.log("entra")
     let value_data=$("#btnmenu").data("status")
     if(value_data=="closed"){
@@ -25,6 +22,3 @@ $("#btnmenu").click((e)=>{
         
     })
 })
-
-
-    

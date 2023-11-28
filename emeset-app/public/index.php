@@ -20,6 +20,8 @@ use App\Controllers\profecontroller;
 use App\Controllers\registercontroller;
 use App\Controllers\alumnecontrollers;
 use App\Controllers\ajaxcontroller;
+use App\Controllers\adminpanelcontroller;
+
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -43,6 +45,22 @@ $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->get("/register", [registercontroller::class,"addregister"]); 
+$app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
+$app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
+$app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
+
+$app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
+
+
+
+
+
+
+
+
+$app->get("/register", [registercontroller::class,"addregister"]);
+
 
 $app->get("/login", "\App\Controllers\LoginController:index");
 $app->post("/login", "\App\Controllers\LoginController:login");
