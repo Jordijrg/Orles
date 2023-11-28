@@ -1,9 +1,9 @@
 import jQuery from 'jquery';
+import {toggleUsuaris,toggleOrlas} from './menupanel.js'
+import {ajax} from './adminpanel.js'
 feather.replace()
-console.log("funcionaaaaa")
-jQuery("#menu_main").hide()
-console.log(jQuery("#btnmenu"))
-
+console.log("dwad")
+ajax();
 jQuery("#btnmenu").click((e)=>{
     console.log("entra")
     let value_data=jQuery("#btnmenu").data("status")
@@ -22,3 +22,15 @@ jQuery("#btnmenu").click((e)=>{
         
     })
 })
+
+   jQuery('#usuarisbtn').click(()=>{
+    toggleUsuaris()
+   })
+
+    jQuery('#orlasbtn').click(()=>{
+        toggleOrlas()
+    })
+
+
+
+  

@@ -19,6 +19,9 @@ use Emeset\Contracts\Routers\Router;
 use App\Controllers\profecontroller;
 use App\Controllers\registercontroller;
 use App\Controllers\alumnecontrollers;
+use App\Controllers\adminpanelcontroller;
+
+
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
@@ -35,9 +38,22 @@ $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\
 $app->get("/panelprofe", [profecontroller::class,"index"]);
 $app->get("/alumne", [alumnecontrollers::class,"index"]);
 $app->post("/register", [registercontroller::class,"doregister"]);
+$app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
+$app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
+$app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
+
+$app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 
 
-$app->get("/register", [registercontroller::class,"addregister"]); 
+
+
+
+
+
+
+$app->get("/register", [registercontroller::class,"addregister"]);
+
 
 $app->get("/login", "\App\Controllers\LoginController:index");
 $app->post("/login", "\App\Controllers\LoginController:login");

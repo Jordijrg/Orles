@@ -19,7 +19,7 @@
   <nav class="bg-white border-b-2 border-gray-200 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="images/logo.png" class="h-10" alt="Logo" />
+        <img src="images/logo.png" class="h-8" alt="Logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ORLAS</span>
       </a>
       <?php if ($logged) { ?>
@@ -29,7 +29,7 @@
             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="bottom">
             <span class="sr-only">Open user menu</span>
-            <img class="w-10 h-10 rounded-full" src="images/inici.png" alt="user photo">
+            <img class="w-8 h-8 rounded-full" src="images/inici.png" alt="user photo">
           </button>
           <!-- Dropdown menu -->
           <div
@@ -105,6 +105,10 @@
           <li>
             <a href="/alumne"
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Alumne</a>
+          </li>
+          <li>
+            <a href="/adminpanel"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Admin Panel</a>
           </li>
         </ul>
       </div>

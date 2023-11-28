@@ -19,6 +19,17 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 
 /***/ }),
 
+/***/ "./App/js/adminpanel.js":
+/*!******************************!*\
+  !*** ./App/js/adminpanel.js ***!
+  \******************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   ajax: () => (/* binding */ ajax)\n/* harmony export */ });\n\r\nfunction ajax(){\r\n\r\n    \r\n$(document).ready(function() {\r\n\r\n    $(\".openModal\").on(\"click\", function() {\r\n        var IdUsuari = $(this).data(\"user-id\");\r\n        console.log(IdUsuari);\r\n\r\n       \r\n \r\n\r\n        //quan tanqui el modal totes les dades del modal\r\n        $('#editUserModal').on('hidden.bs.modal', function() {\r\n            $(this).find('form').trigger('reset');\r\n        }); \r\n\r\n        \r\n\r\n\r\n\r\n        $.ajax({\r\n\r\n            type: \"POST\",\r\n            url: \"/openModal\",\r\n            data: { IdUsuari: IdUsuari },\r\n            dataType: \"json\", \r\n\r\n            success: function(users) {\r\n\r\n                    console.log(users.id.IdUsuari);\r\n\r\n                    $(\"#ID\").val(users.id.IdUsuari);\r\n                    $(\"#Nom\").val(users.id.Nom);\r\n                    $(\"#Cognom\").val(users.id.Cognom);\r\n                    $(\"#Correu\").val(users.id.Correu);\r\n                    $(\"#Contrasenya\").val(users.id.Contrasenya);\r\n                    $(\"#Estado\").val(users.id.estado);\r\n                    $(\"#Rol\").val(users.id.rol);\r\n\r\n\r\n                    \r\n            // jQuery(\"#ID\").html(users.id.IdUsuari);\r\n            // jQuery(\"#Nom\").html(users.Nom);\r\n            // jQuery(\"#Cognom\").html(users.Cognom);\r\n            // jQuery(\"#Correu\").html(users.Correu);\r\n            // jQuery(\"#Contrasenya\").html(users.Contrasenya);\r\n            // jQuery(\"#Estado\").html(users.estado);\r\n            // jQuery(\"#Rol\").html(users.rol);\r\n                \r\n            },\r\n            error: function(xhr, textStatus, errorThrown) {\r\n                console.log(\"Error en la solicitud AJAX: \" + errorThrown);\r\n            }\r\n        });\r\n    });\r\n});\r\n document.addEventListener(\"DOMContentLoaded\", function () {\r\n    const input = document.getElementById(\"table-search-users\");\r\n    const table = document.getElementById(\"userTable\");\r\n    const rows = table.getElementsByTagName(\"tr\");\r\n\r\n    input.addEventListener(\"input\", function () {\r\n      const searchTerm = input.value.toLowerCase();\r\n\r\n      for (let i = 1; i < rows.length; i++) {\r\n        const row = rows[i];\r\n        const cells = row.getElementsByTagName(\"td\");\r\n        let shouldHide = true;\r\n\r\n        for (let j = 0; j < cells.length; j++) {\r\n          const cellText = cells[j].textContent.toLowerCase();\r\n\r\n          if (cellText.includes(searchTerm)) {\r\n            shouldHide = false;\r\n            break;\r\n          }\r\n        }\r\n\r\n        if (shouldHide) {\r\n          row.style.display = \"none\";\r\n        } else {\r\n          row.style.display = \"\";\r\n        }\r\n      }\r\n    });\r\n\r\n  });\r\n}\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/adminpanel.js?");
+
+/***/ }),
+
 /***/ "./App/js/index.js":
 /*!*************************!*\
   !*** ./App/js/index.js ***!
@@ -26,7 +37,18 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\r\nfeather.replace()\r\nconsole.log(\"funcionaaaaa\")\r\njquery__WEBPACK_IMPORTED_MODULE_0__(\"#menu_main\").hide()\r\nconsole.log(jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\"))\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\").click((e)=>{\r\n    console.log(\"entra\")\r\n    let value_data=jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\").data(\"status\")\r\n    if(value_data==\"closed\"){\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\").data(\"status\",\"open\")\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\"#menu_main\").show()\r\n        console.log(\"entra1\")\r\n\r\n        \r\n    }\r\n    \r\n    jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btn_close\").click(()=>{\r\n        \r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\").data(\"status\",\"closed\")\r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#menu_main\").hide()\r\n        \r\n    })\r\n})\n\n//# sourceURL=webpack:///./App/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var _menupanel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menupanel.js */ \"./App/js/menupanel.js\");\n/* harmony import */ var _adminpanel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./adminpanel.js */ \"./App/js/adminpanel.js\");\n\r\n\r\n\r\nfeather.replace()\r\nconsole.log(\"dwad\")\r\n;(0,_adminpanel_js__WEBPACK_IMPORTED_MODULE_2__.ajax)();\r\njquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\").click((e)=>{\r\n    console.log(\"entra\")\r\n    let value_data=jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\").data(\"status\")\r\n    if(value_data==\"closed\"){\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\").data(\"status\",\"open\")\r\n        jquery__WEBPACK_IMPORTED_MODULE_0__(\"#menu_main\").show()\r\n        console.log(\"entra1\")\r\n\r\n        \r\n    }\r\n    \r\n    jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btn_close\").click(()=>{\r\n        \r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#btnmenu\").data(\"status\",\"closed\")\r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#menu_main\").hide()\r\n        \r\n    })\r\n})\r\n\r\n   jquery__WEBPACK_IMPORTED_MODULE_0__('#usuarisbtn').click(()=>{\r\n    ;(0,_menupanel_js__WEBPACK_IMPORTED_MODULE_1__.toggleUsuaris)()\r\n   })\r\n\r\n    jquery__WEBPACK_IMPORTED_MODULE_0__('#orlasbtn').click(()=>{\r\n        ;(0,_menupanel_js__WEBPACK_IMPORTED_MODULE_1__.toggleOrlas)()\r\n    })\r\n\r\n\r\n\r\n  \n\n//# sourceURL=webpack:///./App/js/index.js?");
+
+/***/ }),
+
+/***/ "./App/js/menupanel.js":
+/*!*****************************!*\
+  !*** ./App/js/menupanel.js ***!
+  \*****************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   toggleOrlas: () => (/* binding */ toggleOrlas),\n/* harmony export */   toggleUsuaris: () => (/* binding */ toggleUsuaris)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\r\n\r\n\r\nfunction toggleUsuaris() {\r\n    var usuaris = document.getElementById(\"usuaris\");\r\n    if (usuaris.style.display === \"none\" || usuaris.style.display === \"\") {\r\n        usuaris.style.display = \"block\";\r\n    } else {\r\n        usuaris.style.display = \"none\";\r\n    }\r\n}\r\n\r\nfunction toggleOrlas() {\r\n    var orlas = document.getElementById(\"orlas\");\r\n    if (orlas.style.display === \"none\" || orlas.style.display === \"\") {\r\n        orlas.style.display = \"block\";\r\n    } else {\r\n        orlas.style.display = \"none\";\r\n    }\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/menupanel.js?");
 
 /***/ })
 
@@ -57,6 +79,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
