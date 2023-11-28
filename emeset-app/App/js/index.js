@@ -1,10 +1,16 @@
 import jQuery from 'jquery';
+import {toggleUsuaris,toggleOrlas} from './menupanel.js'
+import {ajax} from './adminpanel.js'
+import {grupoajax} from './ajax_grupos.js';
 feather.replace()
-console.log("funcionaaaaa")
-jQuery("#menu_main").hide()
-console.log(jQuery("#btnmenu"))
 
-jQuery("#btnmenu").click((e)=>{
+
+grupoajax()
+ajax();
+$("#menu_main").hide()
+console.log($("#btnmenu"))
+
+$("#btnmenu").click((e)=>{
     console.log("entra")
     let value_data=$("#btnmenu").data("status")
     if(value_data=="closed"){
@@ -22,3 +28,14 @@ jQuery("#btnmenu").click((e)=>{
         
     })
 })
+
+  jQuery('#usuarisbtn').click(()=>{
+    toggleUsuaris()
+   })
+
+    jQuery('#orlasbtn').click(()=>{
+        toggleOrlas()
+    })
+
+feather.replace()
+console.log("dwad")

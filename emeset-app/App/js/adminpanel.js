@@ -1,7 +1,7 @@
 
 function ajax(){
 
-    
+      console.log("entraaaa")
 $(document).ready(function() {
 
     $(".openModal").on("click", function() {
