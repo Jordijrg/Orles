@@ -1,10 +1,11 @@
 import jQuery from 'jquery';
-import {toggleUsuaris,toggleOrlas} from './menupanel.js'
+import {toggleUsuaris,toggleOrlas,toggleEditUsuaris} from './menupanel.js'
 import {ajax} from './adminpanel.js'
 import {grupoajax} from './ajax_grupos.js';
 import {toggleDarkMode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
 import {addfotoorla} from './addfotoorla.js';
+import {editar} from './profile.js';
 
 console.log("funcionaaaaa")
 toggleDarkMode();
@@ -14,9 +15,12 @@ addfotoorla();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
 
+editar();
+
 
 grupoajax()
 ajax();
+toggleEditUsuaris();
 $("#menu_main").hide()
 console.log($("#btnmenu"))
 
@@ -47,5 +51,9 @@ $("#btnmenu").click((e)=>{
         toggleOrlas()
     })
 
+    jQuery('#editbtn').click(()=>{
+        console.log("entra");
+    })
+
+
 feather.replace()
-console.log("dwad")

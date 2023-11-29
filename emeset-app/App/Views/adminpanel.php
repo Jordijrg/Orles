@@ -275,7 +275,7 @@
 
 
 
-<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden ">
+<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
 
 
 
@@ -311,13 +311,6 @@
     
 <script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>
-
-
-
-
-
-
-
 
 
 </body>

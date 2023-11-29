@@ -50,8 +50,15 @@ $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 
 
-$app->get("/register", [registercontroller::class,"addregister"]); 
-$app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+
+$app->get("/login", "\App\Controllers\LoginController:index");
+$app->post("/login", "\App\Controllers\LoginController:login");
+$app->get("/resnav", "\App\Controllers\LoginController:resnav");
+$app->get("/logout", "\App\Controllers\LoginController:logout", [[\App\Middleware\Auth::class,"auth"]]);
+
+
+
+$app->get("/adminpanel", [adminpanelcontroller::class,"index"] /*, [[\App\Middleware\Auth::class,"auth"]] */);
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
 $app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
 $app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
