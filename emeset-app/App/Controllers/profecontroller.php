@@ -15,6 +15,32 @@ class profecontroller
 
         return $response;
     }
+    public function subir_alumno($request, $response, $container){
+        
+    
+        
+        $imagenes=json_decode($_POST["imagen"],true);
+        $imagenes_storage=[];
+
+            
+        foreach ($imagenes as $key => $value) {
+            $imagenes_storage[]=json_decode($value,true);
+        }
+        print_r($_FILES);
+        echo "<br>";
+    for($i=0;$i<count($_FILES["imagen"]);$i++){
+        $tmp_nameimg = $_FILES["imagen"]["tmp_name"][$i];
+        $url_img = "img/" .time()."".$i.".png";
+        move_uploaded_file($tmp_nameimg, $url_img);
+
+
+    
+    }
+      
+        die();
+
+        return $response;
+    }
 
     public function add($request, $response, $container){
         $model = $container->get("Tasks");

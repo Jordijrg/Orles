@@ -85,7 +85,8 @@ function grupoajax(){
     `)
                                                 })
                                                 jQuery(".modales").on("click",()=>{
-                                                    
+                                                    jQuery("#upload_image_div").hide();
+    
                                                     modal.show();
                                                   
 
@@ -175,7 +176,8 @@ function grupoajax(){
                                                     })
                                                  
                                                     jQuery(".modales").on("click",()=>{
-                                                        
+                                                        jQuery("#upload_image_div").hide();
+
                                                         modal.show();
 
                                                     })

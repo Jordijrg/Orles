@@ -22,7 +22,7 @@ use App\Controllers\alumnecontrollers;
 use App\Controllers\ajaxcontroller;
 use App\Controllers\adminpanelcontroller;
 use App\Controllers\profilecontroller;
-
+use App\Controllers\LoginController;
 
 
 
@@ -46,6 +46,9 @@ $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
 $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
+$app->post("/subir_alumno", [profecontroller::class,"subir_alumno"]);
+$app->get("/login", [LoginController::class,"index"]);
+$app->post("/login", [LoginController::class,"login"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 
@@ -68,8 +71,8 @@ $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 $app->get("/register", [registercontroller::class,"addregister"]);
 
 
-$app->get("/login", "\App\Controllers\LoginController:index");
-$app->post("/login", "\App\Controllers\LoginController:login");
+// $app->get("/login", "\App\Controllers\LoginController:index");
+// $app->post("/login", "\App\Controllers\LoginController:login");
 $app->get("/resnav", "\App\Controllers\LoginController:resnav");
 $app->get("/logout", "\App\Controllers\LoginController:logout", [[\App\Middleware\Auth::class,"auth"]]);
 
