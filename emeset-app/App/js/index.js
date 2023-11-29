@@ -5,8 +5,12 @@ import {grupoajax} from './ajax_grupos.js';
 import {toggleDarkMode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
 import {addfotoorla} from './addfotoorla.js';
+<<<<<<< HEAD
 import {editar} from './profile.js';
 
+=======
+import {upload_div} from './upload_div.js';
+>>>>>>> 236f0a0a76ac214a98baa837a005c7febbe3369d
 console.log("funcionaaaaa")
 toggleDarkMode();
 scrollFunction();
@@ -20,7 +24,11 @@ editar();
 
 grupoajax()
 ajax();
+<<<<<<< HEAD
 toggleEditUsuaris();
+=======
+upload_div();
+>>>>>>> 236f0a0a76ac214a98baa837a005c7febbe3369d
 $("#menu_main").hide()
 console.log($("#btnmenu"))
 

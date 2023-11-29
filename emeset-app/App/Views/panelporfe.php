@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="html">
 
 <head>
   <!-- Required meta tags -->
@@ -127,10 +127,31 @@
 
 <div class="flex flex-col ">
   <div class="mt-5">
-<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800  float-right">Añadir imagenes</button>
+<button type="button" id="btn_uploaddiv" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800  float-right">Añadir imagenes</button>
+</div>
+<div id="upload_image_div">
+<form action="/subir_alumno" method="post" enctype="multipart/form-data">
+
+<div class="flex items-center justify-center w-full">
+    <label id="dropContainer" for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+        <div  class="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+            </svg>
+            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+            <input type="file" id="fileInput"name="imagen[]" />
+
+        </div>
+
+    </label>
+</div> 
+  <button type="submit">enviar</button>
+</form>
 </div>
 
 <h3 class="underline	text-center	"  >Imagenes del alumno</h3>
+
 </div>
 <div class="flex justify-center">
 <div class="grid gap-7 grid-cols-3 	 ">
@@ -152,8 +173,105 @@
 
 
 </section>
+<style>
+  #drop_zone {
+  border: 5px solid blue;
+  width: 200px;
+  height: 100px;
+}
+
+</style>
 
 
+<script>
+  dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
+  evt.preventDefault();
+};
+
+dropContainer.ondrop = function(evt) {
+  // pretty simple -- but not for IE :(
+  fileInput.files = evt.dataTransfer.files;
+    
+  // If you want to use some of the dropped files
+  const dT = new DataTransfer();
+  console.log()
+  for(i=0;i< evt.dataTransfer.files.length;i++){
+    console.log( )
+
+    dT.items.add(evt.dataTransfer.files[i]);
+  }
+ 
+  
+ 
+  
+ 
+  fileInput.files = dT.files;
+
+  evt.preventDefault();
+};
+</script>
+<div
+  id="drop_zone"
+>
+  <p>Zona de imagen provisional pruebas <i>zona de soltar</i>.</p>
+</div>
+
+  <input type="file" value="prueba" name="imagen" id="imagen"   ondrop="dropHandler(event);"
+  ondragover="dragOverHandler(event);">
+  <br>
+</form>
+<script>
+  let image=[]
+function dropHandler(ev) {
+  console.log("File(s) dropped");
+
+  // Prevent default behavior (Prevent file from being opened)
+  ev.preventDefault();
+
+  if (ev.dataTransfer.items) {
+    // Use DataTransferItemList interface to access the file(s)
+    [...ev.dataTransfer.items].forEach((item, i) => {
+      // If dropped items aren't files, reject them
+      if (item.kind === "file") {
+        const file = item.getAsFile();
+        var newObject  = {
+   'lastModified'     : file.lastModified,
+   'lastModifiedDate' : file.lastModifiedDate,
+   'name'             : file.name,
+   'size'             : file.size,
+   'type'             : file.type
+};
+image.push(JSON.stringify(newObject))
+
+
+
+      }
+    });
+  } else {
+    // Use DataTransfer interface to access the file(s)
+    [...ev.dataTransfer.files].forEach((file, i) => {
+     
+
+    });
+  }
+  document.getElementById("imagen").value=JSON.stringify(image)
+}
+function dragOverHandler(ev) {
+  console.log("File(s) in drop zone");
+
+  // Prevent default behavior (Prevent file from being opened)
+  ev.preventDefault();
+}
+
+</script>
+<button id="scrollToTopBtn"
+            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                class="h-6 w-6 dark:stroke-black">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
+                </path>
+            </svg>
+        </button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
