@@ -28,25 +28,25 @@
               <?php echo $user["grupNom"] ?>
             </span>
           </div>
-          <ul class="py-2" aria-labelledby="user-menu-button">
+          <ul class="py-2 mr-4" aria-labelledby="user-menu-button">
             <li>
               <a href="/perfil"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Perfil</a>
+                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-500 dark:hover:text-gray-600 dark:text-gray-200 ">Perfil</a>
             </li>
             <li>
               <a href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-500 dark:hover:text-gray-600 dark:text-gray-200 ">Dashboard</a>
             </li>
             <li>
               <a href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-500 dark:hover:text-gray-600 dark:text-gray-200 ">Settings</a>
             </li>
             <li>
 
             <div class="flex items-center space-x-4">
                   <!-- Toggle (small) -->
                   <span
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dark
+                      class="block px-4 py-2 text-sm text-gray-700   dark:text-gray-200 ">Dark
                       mode</span>
                   <label class="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" value="" class="sr-only peer" id="toggleDarkModeButton">
@@ -62,7 +62,7 @@
             </li>
             <li>
               <a href="/logout"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</a>
+                class="block px-4 py-2 text-sm text-red-500 hover:text-red-700 dark:text-red-500 dark:hover:text-red-700">Logout</a>
             </li>
           </ul>
         </div>

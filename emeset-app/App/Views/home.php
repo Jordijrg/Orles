@@ -28,9 +28,9 @@
             <h2 class="absolute top-0 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl">AMB LES TEVES PRÒPIES </h2> <br>
             <h2 class="absolute top-10 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl"> FOTOS PERSONALITZADES</h2>
             <?php if ($logged) { ?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Anar</button></a>
+            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear">Anar</button></a>
             <?php }else {?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Començar</button></a>
+            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear">Començar</button></a>
             <?php }?>
         </div>
         <!-- Item 2 -->
@@ -39,9 +39,9 @@
             <h2 class="absolute top-0 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl">FES LA TEVA ORLA</h2> <br>
             <h2 class="absolute top-10 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl"> PERSONALITZADA</h2>
             <?php if ($logged) { ?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Anar</button></a>
+            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear">Anar</button></a>
             <?php }else {?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Començar</button></a>
+            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear">Començar</button></a>
             <?php }?>
         </div>
        
