@@ -146,7 +146,11 @@ class UsersPDO
         $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
     }
 
-    
+    public function updateperfil($IdUsuari, $Nom, $Cognom){
+        $query = 'UPDATE usuaris SET Nom = :Nom, Cognom = :Cognom, Correu = :Correu WHERE IdUsuari = :IdUsuari;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu]);
+    }
 
 }
 
