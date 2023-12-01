@@ -61,10 +61,11 @@ class UsersPDO
     {
 
         $login = $this->getUser($user);
-    
+
         if ($login) {
             $hash = $login["Contrasenya"];
-           
+            
+            
             if (password_verify($pass, $hash)) {
                
                 if (password_needs_rehash($hash, PASSWORD_DEFAULT, $this->options)) {
