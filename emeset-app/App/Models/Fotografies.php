@@ -87,4 +87,17 @@ class Fotografies
         $stm->execute();
         
     }
+    // public function getCurrentGroupId($idimg) {
+    //     $query = $this->sql->prepare('SELECT idgrup FROM imatges_usuaris WHERE IdImatge = :idimg');
+    //     $query->execute([":idimg" => $idimg]);
+    //     $currentGroupId = $query->fetchColumn();
+    //     return $currentGroupId;
+    // }
+    public function noterror($id, $missatge){
+        $query = 'insert into errors (TextoError, IdUsuari) values (:missatge, :id);';
+        $stm = $this->sql->prepare($query);
+        $stm->bindParam(':id', $id);
+        $stm->bindParam(':missatge', $missatge);
+        $stm->execute();
+    }
 }

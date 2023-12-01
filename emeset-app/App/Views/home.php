@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="html">
 
 <head>
   <!-- Required meta tags -->
@@ -28,9 +28,9 @@
             <h2 class="absolute top-0 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl">AMB LES TEVES PRÒPIES </h2> <br>
             <h2 class="absolute top-10 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl"> FOTOS PERSONALITZADES</h2>
             <?php if ($logged) { ?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Anar</button></a>
+            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear">Anar</button></a>
             <?php }else {?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Començar</button></a>
+            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear">Començar</button></a>
             <?php }?>
         </div>
         <!-- Item 2 -->
@@ -39,9 +39,9 @@
             <h2 class="absolute top-0 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl">FES LA TEVA ORLA</h2> <br>
             <h2 class="absolute top-10 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl"> PERSONALITZADA</h2>
             <?php if ($logged) { ?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Anar</button></a>
+            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear">Anar</button></a>
             <?php }else {?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Començar</button></a>
+            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear">Començar</button></a>
             <?php }?>
         </div>
        
@@ -76,6 +76,36 @@
 
 
 <script src="js/flowbite.js"></script>
+<!-- <script>
+    // Función para alternar el modo oscuro y guardar la preferencia
+function toggleDarkMode() {
+  const htmlElement = document.getElementById('html');
+  const isDarkModeEnabled = htmlElement.classList.toggle('dark');
+
+  // Actualizar el estado del toggle
+  const toggleDarkModeButton = document.getElementById('toggleDarkModeButton');
+  toggleDarkModeButton.checked = isDarkModeEnabled;
+
+  // Guardar la preferencia en localStorage
+  localStorage.setItem('darkMode', isDarkModeEnabled ? 'enabled' : 'disabled');
+}
+
+// Agregar evento de clic al botón para alternar y guardar el modo oscuro
+const toggleDarkModeButton = document.getElementById('toggleDarkModeButton');
+toggleDarkModeButton.addEventListener('click', toggleDarkMode);
+
+// Verificar y aplicar la preferencia almacenada en localStorage al cargar la página
+window.addEventListener('load', function() {
+  const htmlElement = document.getElementById('html');
+  const storedDarkMode = localStorage.getItem('darkMode');
+
+  // Si la preferencia está almacenada, aplicarla y actualizar el estado del toggle
+  if (storedDarkMode === 'enabled') {
+    htmlElement.classList.add('dark');
+    toggleDarkModeButton.checked = true;
+  }
+});
+</script> -->
 <script src="js/bundle.js"></script>
 
 </body>
