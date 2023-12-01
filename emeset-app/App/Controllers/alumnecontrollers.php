@@ -51,6 +51,10 @@ class alumnecontrollers
     public function noterror($request, $response, $container){
         $missatge = $request->get(INPUT_POST, "description");
         $model = $container->get("Fotografies");
+        if (empty($missatge)) {
+            $response->redirect("Location: /alumne");
+            return $response;
+        }
         $model->noterror($_SESSION["user"]["IdUsuari"], $missatge);
         $response->redirect("Location: /alumne");
         return $response;

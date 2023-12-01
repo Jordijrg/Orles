@@ -1391,36 +1391,6 @@ input:checked + .toggle-bg {
 .transform-none {
   transform: none;
 }
-@keyframes jump-in {
-
-  0% {
-    transform: scale(0%);
-  }
-
-  80% {
-    transform: scale(120%);
-  }
-
-  100% {
-    transform: scale(100%);
-  }
-}
-.animate-jump-in {
-  animation: jump-in .5s both;
-}
-@keyframes wiggle {
-
-  0%, 100% {
-    transform: rotate(-3deg);
-  }
-
-  50% {
-    transform: rotate(3deg);
-  }
-}
-.animate-wiggle {
-  animation: wiggle 1s both;
-}
 @keyframes jump {
 
   0%, 100% {
@@ -1437,23 +1407,6 @@ input:checked + .toggle-bg {
 }
 .animate-jump {
   animation: jump .5s both;
-}
-@keyframes jump-out {
-
-  0% {
-    transform: scale(100%);
-  }
-
-  20% {
-    transform: scale(120%);
-  }
-
-  100% {
-    transform: scale(0%);
-  }
-}
-.animate-jump-out {
-  animation: jump-out .5s both;
 }
 .cursor-default {
   cursor: default;
@@ -2001,23 +1954,11 @@ input:checked + .toggle-bg {
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
-.animate-delay-300 {
-  animation-delay: 300ms;
-}
-.animate-duration-\[6000ms\] {
-  animation-duration: 6000ms;
-}
 .animate-duration-\[8000ms\] {
   animation-duration: 8000ms;
 }
-.animate-duration-\[800ms\] {
-  animation-duration: 800ms;
-}
 .animate-infinite {
   animation-iteration-count: infinite;
-}
-.animate-once {
-  animation-iteration-count: 1;
 }
 .animate-ease-linear {
   animation-timing-function: linear;

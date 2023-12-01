@@ -22,6 +22,7 @@ use App\Controllers\alumnecontrollers;
 use App\Controllers\ajaxcontroller;
 use App\Controllers\adminpanelcontroller;
 use App\Controllers\profilecontroller;
+use App\Controllers\missatgecontroller;
 
 
 
@@ -42,6 +43,7 @@ $app->get("/alumne", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth:
 $app->get("/selfoto/{iduser}/{id}", [alumnecontrollers::class,"selfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/delselfoto/{id}", [alumnecontrollers::class,"delselfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/noterror", [alumnecontrollers::class,"noterror"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/missatge", [missatgecontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
