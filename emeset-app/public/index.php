@@ -51,7 +51,7 @@ $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
-
+$app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
 
 $app->get("/register", [registercontroller::class,"addregister"]); 
 $app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
