@@ -5,7 +5,7 @@ import {grupoajax} from './ajax_grupos.js';
 import {darkmode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
 import {addfotoorla} from './addfotoorla.js';
-
+import {upload_div} from './upload_div.js';
 console.log("funcionaaaaa")
 darkmode();
 scrollFunction();
@@ -17,6 +17,7 @@ console.log(jQuery("#btnmenu"))
 
 grupoajax()
 ajax();
+upload_div();
 $("#menu_main").hide()
 console.log($("#btnmenu"))
 
