@@ -1394,36 +1394,6 @@ input:checked + .toggle-bg {
 .transform-none {
   transform: none;
 }
-@keyframes jump-in {
-
-  0% {
-    transform: scale(0%);
-  }
-
-  80% {
-    transform: scale(120%);
-  }
-
-  100% {
-    transform: scale(100%);
-  }
-}
-.animate-jump-in {
-  animation: jump-in .5s both;
-}
-@keyframes wiggle {
-
-  0%, 100% {
-    transform: rotate(-3deg);
-  }
-
-  50% {
-    transform: rotate(3deg);
-  }
-}
-.animate-wiggle {
-  animation: wiggle 1s both;
-}
 @keyframes jump {
 
   0%, 100% {
@@ -1441,22 +1411,15 @@ input:checked + .toggle-bg {
 .animate-jump {
   animation: jump .5s both;
 }
-@keyframes jump-out {
+@keyframes ping {
 
-  0% {
-    transform: scale(100%);
-  }
-
-  20% {
-    transform: scale(120%);
-  }
-
-  100% {
-    transform: scale(0%);
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }
-.animate-jump-out {
-  animation: jump-out .5s both;
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 .cursor-default {
   cursor: default;
@@ -1983,6 +1946,10 @@ input:checked + .toggle-bg {
 .outline {
   outline-style: solid;
 }
+.ring-blue-800 {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(30 66 159 / var(--tw-ring-opacity));
+}
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -2016,17 +1983,8 @@ input:checked + .toggle-bg {
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
-.animate-delay-300 {
-  animation-delay: 300ms;
-}
-.animate-duration-\[6000ms\] {
-  animation-duration: 6000ms;
-}
 .animate-duration-\[8000ms\] {
   animation-duration: 8000ms;
-}
-.animate-duration-\[800ms\] {
-  animation-duration: 800ms;
 }
 .animate-infinite {
   animation-iteration-count: infinite;
@@ -3390,6 +3348,16 @@ input:checked + .toggle-bg {
 .focus\:z-10:focus {
   z-index: 10;
 }
+@keyframes ping {
+
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.focus\:animate-ping:focus {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
 .focus\:border-blue-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(63 131 248 / var(--tw-border-opacity));
@@ -3553,6 +3521,10 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(227 160 8 / var(--tw-bg-opacity));
 }
+:is(.dark .dark\:bg-black) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
 :is(.dark .dark\:stroke-black) {
   stroke: #000000;
 }
@@ -3647,6 +3619,16 @@ input:checked + .toggle-bg {
 :is(.dark .dark\:hover\:text-white:hover) {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+@keyframes ping {
+
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+:is(.dark .dark\:focus\:animate-ping:focus) {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 :is(.dark .dark\:focus\:border-blue-500:focus) {
   --tw-border-opacity: 1;
