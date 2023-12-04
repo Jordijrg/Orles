@@ -37,6 +37,10 @@ class Container extends EmesetContainer {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
                 return new \App\Models\Fotografies($c["db"]->getConnection());
             };
+            $this["missatges"] = function ($c) {
+                // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
+                return new \App\Models\missatges($c["db"]->getConnection());
+            };
 
             $this["db"] = function ($c) {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
