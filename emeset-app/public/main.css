@@ -3331,6 +3331,16 @@ input:checked + .toggle-bg {
 .focus\:z-10:focus {
   z-index: 10;
 }
+@keyframes ping {
+
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.focus\:animate-ping:focus {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
 .focus\:border-blue-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(63 131 248 / var(--tw-border-opacity));

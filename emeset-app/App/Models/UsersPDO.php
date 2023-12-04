@@ -146,7 +146,5 @@ class UsersPDO
         $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
     }
 
-    
-
 }
 
