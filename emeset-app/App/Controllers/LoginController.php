@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class LoginController 
+class LoginController
 {
     public function index($request, $response, $container)
     {
@@ -15,7 +15,8 @@ class LoginController
         return $response;
     }
 
-    function login($request, $response, $container) {
+    function login($request, $response, $container)
+    {
         $user = $request->get(INPUT_POST, "user");
         $password = $request->get(INPUT_POST, "password");
 
@@ -25,8 +26,7 @@ class LoginController
         if ($login) {
             $response->setSession("logged", true);
             $response->setSession("user", $login);
-            echo $login;
-            $response->redirect("Location: /");   
+            $response->redirect("Location: /index");
         } else {
             $response->setSession("logged", false);
             $response->setSession("error", "Usuari o contrasenya incorrectes");
@@ -36,23 +36,27 @@ class LoginController
         return $response;
     }
 
-    function logout($request, $response, $container) {
-        
+    function logout($request, $response, $container)
+    {
+
         $response->setSession("logged", false);
         $response->setSession("user", []);
         $response->redirect("Location: /login");
 
         return $response;
     }
-    function resnav($request, $response, $container){
+    function resnav($request, $response, $container)
+    {
         $response->SetTemplate("resnav.php");
         return $response;
     }
-    function ctrlalumne($request, $response, $container){
+    function ctrlalumne($request, $response, $container)
+    {
         $response->SetTemplate("alumne.php");
         return $response;
     }
-    function ctrlperfil($request, $response, $container){
+    function ctrlperfil($request, $response, $container)
+    {
         $response->SetTemplate("profile.php");
         return $response;
     }

@@ -6,11 +6,13 @@ import {darkmode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
 import {addfotoorla} from './addfotoorla.js';
 import {upload_div} from './upload_div.js';
+import {delmissatge} from './delmissatge.js';
 console.log("funcionaaaaa")
 darkmode();
 scrollFunction();
 scrollToTop();
 addfotoorla();
+delmissatge();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
 

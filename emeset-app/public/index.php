@@ -22,6 +22,8 @@ use App\Controllers\alumnecontrollers;
 use App\Controllers\ajaxcontroller;
 use App\Controllers\adminpanelcontroller;
 use App\Controllers\profilecontroller;
+use App\Controllers\missatgecontroller;
+
 use App\Controllers\LoginController;
 
 
@@ -33,8 +35,9 @@ $contenidor = new \App\Container(__DIR__ . "/../App/config.php");
 
 $app = new \Emeset\Emeset($contenidor);
 
-$app->get("/", [TaskController::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/", [TaskController::class,"index"]);
 $app->post("/", [TaskController::class,"add"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/index", [TaskController::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/done/{id}", [TaskController::class,"delete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/panelprofe", [profecontroller::class,"index"]);
@@ -42,6 +45,9 @@ $app->get("/alumne", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth:
 $app->get("/selfoto/{iduser}/{id}", [alumnecontrollers::class,"selfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/delselfoto/{id}", [alumnecontrollers::class,"delselfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/noterror", [alumnecontrollers::class,"noterror"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/missatge", [missatgecontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/updmissatge/{id}", [missatgecontroller::class,"updmissatge"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/delmssg/{id}", [missatgecontroller::class,"delmssg"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
