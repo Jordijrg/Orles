@@ -50,7 +50,8 @@ $app->post("/subir_alumno", [profecontroller::class,"subir_alumno"]);
 $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);
 
-$app->get("/perfil", [profilecontroller::class,"index"]); 
+$app->get("/perfil", [profilecontroller::class,"index"]);
+$app->get("/perfil/error", [profilecontroller::class,"error"]); 
 
 
 
@@ -58,6 +59,8 @@ $app->get("/adminpanel", [adminpanelcontroller::class,"index"] /*, [[\App\Middle
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
 $app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
 $app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
+$app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
+
 
 $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 
@@ -69,6 +72,7 @@ $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 
 
 $app->get("/register", [registercontroller::class,"addregister"]);
+
 
 
 

@@ -26,7 +26,7 @@ class LoginController
             $response->setSession("logged", true);
             $response->setSession("user", $login);
             echo $login;
-            $response->redirect("Location: /");   
+            $response->redirect("Location: /");
         } else {
             $response->setSession("logged", false);
             $response->setSession("error", "Usuari o contrasenya incorrectes");
@@ -37,7 +37,7 @@ class LoginController
     }
 
     function logout($request, $response, $container) {
-        
+
         $response->setSession("logged", false);
         $response->setSession("user", []);
         $response->redirect("Location: /login");
@@ -57,4 +57,3 @@ class LoginController
         return $response;
     }
 }
-

@@ -1,16 +1,14 @@
 import jQuery from 'jquery';
-import {toggleUsuaris,toggleOrlas,toggleEditUsuaris} from './menupanel.js'
+import {toggleUsuaris,toggleOrlas} from './menupanel.js'
 import {ajax} from './adminpanel.js'
 import {grupoajax} from './ajax_grupos.js';
 import {toggleDarkMode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
 import {addfotoorla} from './addfotoorla.js';
-<<<<<<< HEAD
 import {editar} from './profile.js';
 
-=======
 import {upload_div} from './upload_div.js';
->>>>>>> 236f0a0a76ac214a98baa837a005c7febbe3369d
+feather.replace()
 console.log("funcionaaaaa")
 toggleDarkMode();
 scrollFunction();
@@ -24,11 +22,7 @@ editar();
 
 grupoajax()
 ajax();
-<<<<<<< HEAD
-toggleEditUsuaris();
-=======
 upload_div();
->>>>>>> 236f0a0a76ac214a98baa837a005c7febbe3369d
 $("#menu_main").hide()
 console.log($("#btnmenu"))
 
@@ -59,9 +53,7 @@ $("#btnmenu").click((e)=>{
         toggleOrlas()
     })
 
-    jQuery('#editbtn').click(()=>{
-        console.log("entra");
-    })
+    
 
 
-feather.replace()
+

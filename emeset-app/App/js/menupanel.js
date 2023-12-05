@@ -19,13 +19,6 @@ function toggleOrlas() {
     }
 }
 
-function toggleEditUsuaris() {
-    var editusuaris = document.getElementById("editusuaris");
-    if (editusuaris.style.display === "none" || editusuaris.style.display === "") {
-        editusuaris.style.display = "block";
-    } else {
-        editusuaris.style.display = "none";
-    }
-}
 
-export {toggleUsuaris,toggleOrlas,toggleEditUsuaris};
+
+export {toggleUsuaris,toggleOrlas};
