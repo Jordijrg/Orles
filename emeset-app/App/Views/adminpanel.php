@@ -13,7 +13,7 @@
 <style>
 
 </style>
-  <title>Todo APP</title>
+  <title>Admin Panel</title>
 </head>
 
 

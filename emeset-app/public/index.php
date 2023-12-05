@@ -23,6 +23,7 @@ use App\Controllers\ajaxcontroller;
 use App\Controllers\adminpanelcontroller;
 use App\Controllers\profilecontroller;
 use App\Controllers\LoginController;
+use App\Controllers\editororlescontroller;
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -52,6 +53,7 @@ $app->post("/login", [LoginController::class,"login"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
+$app->get("/editororles", [editororlescontroller::class,"index"]); 
 
 $app->get("/register", [registercontroller::class,"addregister"]); 
 $app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
