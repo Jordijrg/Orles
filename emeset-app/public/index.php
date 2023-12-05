@@ -72,12 +72,6 @@ $app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
 $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 
 
-
-
-
-
-
-
 $app->get("/register", [registercontroller::class,"addregister"]);
 
 

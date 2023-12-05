@@ -9,7 +9,7 @@ import {editar} from './profile.js';
 
 import {upload_div} from './upload_div.js';
 import {delmissatge} from './delmissatge.js';
-feather.replace()
+
 console.log("funcionaaaaa")
 darkmode();
 scrollFunction();
@@ -55,7 +55,7 @@ $("#btnmenu").click((e)=>{
         toggleOrlas()
     })
 
-    
+feather.replace()  
 
 
 
