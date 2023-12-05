@@ -156,6 +156,14 @@ class UsersPDO
         return password_hash($password, PASSWORD_DEFAULT, $this->options);
     }
 
+    public function getAllGrups(){
+        $query = 'select * from grup;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute();
+        
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     
 
 }

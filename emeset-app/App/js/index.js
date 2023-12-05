@@ -1,5 +1,5 @@
 import jQuery from 'jquery';
-import {toggleUsuaris,toggleOrlas} from './menupanel.js'
+import {toggleUsuaris,toggleOrlas, toggleGrups} from './menupanel.js'
 import {ajax} from './adminpanel.js'
 import {grupoajax} from './ajax_grupos.js';
 import {darkmode} from './darkmode.js';
@@ -53,6 +53,9 @@ $("#btnmenu").click((e)=>{
 
     jQuery('#orlasbtn').click(()=>{
         toggleOrlas()
+    })
+    jQuery('#grupsbtn').click(()=>{
+        toggleGrups()
     })
 
 feather.replace()  

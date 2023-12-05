@@ -15,6 +15,11 @@ class adminpanelcontroller
         $usuaris = $container["Users"]-> getAllUsers();
         $response->set("usuaris", $usuaris);
 
+        $grups = $container["Users"]-> getAllGrups();
+        $response->set("grups", $grups);
+
+
+
 
         return $response;
     }
