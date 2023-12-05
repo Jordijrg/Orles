@@ -295,6 +295,17 @@
 
 
 
+</div>
+<?php include 'modalperfil.php'; ?>
+<button id="scrollToTopBtn"
+            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                class="h-6 w-6 dark:stroke-black">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
+                </path>
+            </svg>
+        </button>
+<script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>
 
 <script src="path/to/html2pdf.bundle.js"></script>

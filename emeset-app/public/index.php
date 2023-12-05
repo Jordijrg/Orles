@@ -25,6 +25,7 @@ use App\Controllers\profilecontroller;
 use App\Controllers\missatgecontroller;
 
 use App\Controllers\LoginController;
+use App\Controllers\editororlescontroller;
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -59,6 +60,7 @@ $app->post("/login", [LoginController::class,"login"]);
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
 $app->get("/perfil/error", [profilecontroller::class,"error"]); 
+$app->get("/editororles", [editororlescontroller::class,"index"]); 
 
 
 
