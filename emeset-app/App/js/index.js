@@ -5,8 +5,11 @@ import {grupoajax} from './ajax_grupos.js';
 import {darkmode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
 import {addfotoorla} from './addfotoorla.js';
+import {editar} from './profile.js';
+
 import {upload_div} from './upload_div.js';
 import {delmissatge} from './delmissatge.js';
+feather.replace()
 console.log("funcionaaaaa")
 darkmode();
 scrollFunction();
@@ -15,6 +18,8 @@ addfotoorla();
 delmissatge();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
+
+editar();
 
 
 grupoajax()
@@ -50,5 +55,7 @@ $("#btnmenu").click((e)=>{
         toggleOrlas()
     })
 
-feather.replace()
-console.log("dwad")
+    
+
+
+

@@ -30,8 +30,8 @@ use App\Controllers\LoginController;
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
 
-/* Creem els diferents models */
-$contenidor = new \App\Container(__DIR__ . "/../App/config.php");
+// Creem els diferents models 
+$contenidor = new \App\Container(__DIR__ . "/../App/config.php"); 
 
 $app = new \Emeset\Emeset($contenidor);
 
@@ -58,12 +58,16 @@ $app->post("/login", [LoginController::class,"login"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
+$app->get("/perfil/error", [profilecontroller::class,"error"]); 
 
-$app->get("/register", [registercontroller::class,"addregister"]); 
-$app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+
+
+$app->get("/adminpanel", [adminpanelcontroller::class,"index"] /*, [[\App\Middleware\Auth::class,"auth"]] */);
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
 $app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
 $app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
+$app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
+
 
 $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 
@@ -75,6 +79,8 @@ $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 
 
 $app->get("/register", [registercontroller::class,"addregister"]);
+
+
 
 
 // $app->get("/login", "\App\Controllers\LoginController:index");

@@ -73,9 +73,6 @@
                     Correu
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Contrasenya
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Rol
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -106,10 +103,6 @@
         </td>
         <td class="px-6 py-4">
             <?php echo $usuari['Correu']; ?>
-        </td>
-        
-        <td class="px-6 py-4">
-            <?php echo $usuari['Contrasenya']; ?>
         </td>
         <td class="px-6 py-4">
             <?php echo $usuari['rol']; ?>
@@ -246,7 +239,7 @@
         </div>
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contrasenya</label>
-            <input type="text" name="Contrasenya" id="Contrasenya" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="" >
+            <input type="text" name="Contrasenya" id="Contrasenya1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
         </div>
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rol</label>
@@ -275,7 +268,7 @@
 
 
 
-<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden ">
+<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
 
 
 
@@ -311,13 +304,6 @@
     
 <script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>
-
-
-
-
-
-
-
 
 
 </body>
