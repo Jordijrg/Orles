@@ -1,32 +1,21 @@
 import jQuery from 'jquery';
 
-
 function form_img() {
-    jQuery("#upload_image_div").hide()
     jQuery("#btn_uploaddiv").click(()=>{
          jQuery("#upload_image_div").show()
-         jQuery("#btn_uploaddiv").html(`
-         <button type="button" id="hide_form" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
-         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-         </svg>
-         <span class="sr-only">Cerrar!</span>
-     </button>
-         `)
-       
-         jQuery("#hide_form").click(()=>{
-            console.log(jQuery("body").find(jQuery("#upload_image_div")))
-            jQuery("#upload_image_div").hide()
-        })
+         
+         jQuery("#btn_uploaddiv").hide()
+         jQuery("#cerrar").show()
+        
     })
-    jQuery("#btn_uploaddiv_2").click(()=>{
+    jQuery("#cerrar").click(()=>{
         jQuery("#upload_image_div").hide()
-    
+        jQuery("#cerrar").hide()
+        jQuery("#btn_uploaddiv").show()
+
     })
 
-    if(isset($_GET("error1"))){
-        awdawdawd
-    }
+    
     
 }
 

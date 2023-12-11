@@ -15,6 +15,20 @@ class profecontroller
 
         return $response;
     }
+    public function subir_alumno2($request, $response, $container){
+        
+    
+        
+    
+       
+        $id = $request->getParam("id");
+        $fotografies = $container["Fotografies"]->getallfotos($id);
+        $response->SetTemplate("subir_alumno.php");
+        $response->set("fotografies",$fotografies);
+        return $response;
+    }
+  
+
     public function subir_alumno($request, $response, $container){
         
     

@@ -85,9 +85,12 @@ icons: null
                                     `
                                     
                                     usuarios.forEach(element2=>{
-                                        console.log(element2.Nom+" aquiiiid" )
+                                        console.log(" aquiiii el de busqueda")
+                                        console.log(element2.IdUsuari)
                                             html+=` <div data-modal-target="default-modal" data-modal-toggle="default-modal" class=" modales">
                                             <button>${element2.Nom}</button>
+                                            <a href="/subir_alumno/${element2.IdUsuari}">    <button class="float-right	">Imagenes</button></a>
+
                                           </div>`
                                     })
 
@@ -98,11 +101,7 @@ icons: null
                                    
                                    ${html}`)
 
-                                   jQuery(".modales").on("click",()=>{
-                                                        
-                                    modal.show();
-
-                                })
+                            
                                    
                                 }
                                 
@@ -179,8 +178,11 @@ icons: null
                                                 <div>
                                                 `
                                                 usuarios.forEach(element=>{
+                                                    console.log("aquiii22--")
+                                                    console.log(element.IdUsuari)
                                                     html+=`  <div data-modal-target="default-modal" data-modal-toggle="default-modal" class=" modales">
                                                     <button>${element.Nom}</button>
+                                                    <a href="/subir_alumno/${element.IdUsuari}"><button class="float-right	">Imagenes</button></a>
                                                   </div>`
 
                                                    
@@ -191,10 +193,6 @@ icons: null
                                               
                                                 $(".valores_grupos").append(html)
          
-                                                jQuery(".modales").on("click",()=>{
-                                                  
-                                                    modal.show();
-                                                })
                                             }
                                            
                                          

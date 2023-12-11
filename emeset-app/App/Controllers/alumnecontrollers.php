@@ -21,6 +21,7 @@ class alumnecontrollers
         $response->SetTemplate("alumne.php");
         return $response;
     }
+    
     public function selfoto($request, $response, $container)
     {       
         $idimg = $request->getParam("id");
@@ -48,6 +49,39 @@ class alumnecontrollers
         return $response;
 
     }
+    public function noterror($request, $response, $container){
+        $missatge = $request->get(INPUT_POST, "description");
+        $model = $container->get("Fotografies");
+        $model->noterror($_SESSION["user"]["IdUsuari"], $missatge);
+        $response->redirect("Location: /alumne");
+        return $response;
+    }
 
 }
 
+// public function selfoto($request, $response, $container)
+// {       
+//     $idimg = $request->getParam("id");
+//     $iduser = $request->getParam("iduser");
+//     $model = $container->get("Fotografies");
+
+//     // Obtener el idgrup actual de la imagen
+//     $currentGroupId = $container["Fotografies"]->getCurrentGroupId($idimg);
+
+//     // Obtener el idgrup al que se quiere cambiar
+//     $getgrup = $container["Fotografies"]->getgrup($iduser);
+
+//     // Verificar si el idgrup es el mismo antes de actualizar
+//     if ($currentGroupId !== $getgrup["IdGrup"]) {
+//         // Realizar la actualización solo si el idgrup es diferente
+//         $model->selfoto($getgrup["IdGrup"], $idimg);
+//         $response->redirect("Location: /alumne");
+//     } else {
+//         // Mostrar un mensaje de error si el idgrup es el mismo
+//         $response->redirect("Location: /alumne");
+//         $response->set("error", "No puedes seleccionar una foto que ya tienes seleccionada");
+        
+//     }
+
+//     return $response;
+// }

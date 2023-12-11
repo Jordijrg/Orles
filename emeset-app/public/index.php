@@ -25,7 +25,6 @@ use App\Controllers\profilecontroller;
 use App\Controllers\LoginController;
 
 
-
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
 
@@ -42,16 +41,21 @@ $app->get("/panelprofe", [profecontroller::class,"index"]);
 $app->get("/alumne", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/selfoto/{iduser}/{id}", [alumnecontrollers::class,"selfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/delselfoto/{id}", [alumnecontrollers::class,"delselfoto"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/noterror", [alumnecontrollers::class,"noterror"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
 $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
 $app->post("/subir_alumno", [profecontroller::class,"subir_alumno"]);
+$app->get("/subir_alumno/{id}", [profecontroller::class,"subir_alumno2"]);
+$app->get("/subir_alumno2/{id}", [profecontroller::class,"subir_alumno3"]);
+
 $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);
+$app->post("/imagensajax", [ajaxcontroller::class,"imagensajax"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
-
+$app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
 
 $app->get("/register", [registercontroller::class,"addregister"]); 
 $app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
