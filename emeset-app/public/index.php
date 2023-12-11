@@ -22,19 +22,23 @@ use App\Controllers\alumnecontrollers;
 use App\Controllers\ajaxcontroller;
 use App\Controllers\adminpanelcontroller;
 use App\Controllers\profilecontroller;
+use App\Controllers\missatgecontroller;
+
 use App\Controllers\LoginController;
+use App\Controllers\editororlescontroller;
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
 
-/* Creem els diferents models */
-$contenidor = new \App\Container(__DIR__ . "/../App/config.php");
+// Creem els diferents models 
+$contenidor = new \App\Container(__DIR__ . "/../App/config.php"); 
 
 $app = new \Emeset\Emeset($contenidor);
 
-$app->get("/", [TaskController::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/", [TaskController::class,"index"]);
 $app->post("/", [TaskController::class,"add"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/index", [TaskController::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/done/{id}", [TaskController::class,"delete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/panelprofe", [profecontroller::class,"index"]);
@@ -42,6 +46,9 @@ $app->get("/alumne", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth:
 $app->get("/selfoto/{iduser}/{id}", [alumnecontrollers::class,"selfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/delselfoto/{id}", [alumnecontrollers::class,"delselfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/noterror", [alumnecontrollers::class,"noterror"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/missatge", [missatgecontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/updmissatge/{id}", [missatgecontroller::class,"updmissatge"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/delmssg/{id}", [missatgecontroller::class,"delmssg"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
@@ -56,23 +63,24 @@ $app->post("/imagensajax", [ajaxcontroller::class,"imagensajax"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
+$app->get("/perfil/error", [profilecontroller::class,"error"]); 
+$app->get("/editororles", [editororlescontroller::class,"index"]); 
 
-$app->get("/register", [registercontroller::class,"addregister"]); 
-$app->get("/adminpanel", [adminpanelcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+
+
+$app->get("/adminpanel", [adminpanelcontroller::class,"index"] , [[\App\Middleware\Auth::class,"auth"]] );
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
 $app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
 $app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
+$app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
+
 
 $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 
 
-
-
-
-
-
-
 $app->get("/register", [registercontroller::class,"addregister"]);
+
+
 
 
 // $app->get("/login", "\App\Controllers\LoginController:index");

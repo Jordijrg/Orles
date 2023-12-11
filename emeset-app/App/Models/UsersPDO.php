@@ -23,7 +23,7 @@ class UsersPDO
      *
      * Model adaptat per PDO
      *
-     * @param \App\Models\Db $conn connexió a la base de dades
+     * @param \App\Models\Db $conn connexiÃ³ a la base de dades
      *
     **/
     public function __construct($conn, $options = ['cost' => 12])
@@ -140,17 +140,30 @@ class UsersPDO
     }
 
     public function updateuser($IdUsuari, $Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado){
-        $Contrasenya = password_hash($Contrasenya, PASSWORD_DEFAULT,  ["cost" => 12]);
         $query = 'UPDATE usuaris SET Nom = :Nom, Cognom = :Cognom, Correu = :Correu, Contrasenya = :Contrasenya, rol = :rol, estado = :estado WHERE IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
     }
 
-    public function updateperfil($IdUsuari, $Nom, $Cognom){
-        $query = 'UPDATE usuaris SET Nom = :Nom, Cognom = :Cognom, Correu = :Correu WHERE IdUsuari = :IdUsuari;';
+    public function updateuser_user($IdUsuari, $Nom, $Cognom, $Correu, $Contrasenya){
+        $query = 'UPDATE usuaris SET Nom = :Nom, Cognom = :Cognom, Correu = :Correu, Contrasenya = :Contrasenya WHERE IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
-        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu]);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya]);
     }
 
-}
+    public function hashPassword($password)
+    {
+        return password_hash($password, PASSWORD_DEFAULT, $this->options);
+    }
 
+    public function getAllGrups(){
+        $query = 'select * from grup;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute();
+        
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    
+
+}

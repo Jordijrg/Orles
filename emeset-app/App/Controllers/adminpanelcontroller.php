@@ -15,6 +15,11 @@ class adminpanelcontroller
         $usuaris = $container["Users"]-> getAllUsers();
         $response->set("usuaris", $usuaris);
 
+        $grups = $container["Users"]-> getAllGrups();
+        $response->set("grups", $grups);
+
+
+
 
         return $response;
     }
@@ -47,16 +52,31 @@ class adminpanelcontroller
 
     public function updateuser($request, $response, $container){
         $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
+
+        $usuaris = $container["Users"]->getUserById($IdUsuari);
+        $Contrasenya = $usuaris["Contrasenya"];
+
+        if ($request->get(INPUT_POST, "Contrasenya") == "") {
+            $Contrasenya = $Contrasenya;
+        } else {
+            $Contrasenya2 = $request->get(INPUT_POST, "Contrasenya");
+            $Contrasenya = password_hash($Contrasenya2, PASSWORD_DEFAULT,  ["cost" => 12]);
+        }
+
+
         $Nom = $request->get(INPUT_POST, "Nom");
         $Cognom = $request->get(INPUT_POST, "Cognom");
         $Correu = $request->get(INPUT_POST, "Correu");
-        $Contrasenya = $request->get(INPUT_POST, "Contrasenya");
         $rol = $request->get(INPUT_POST, "rol");
         $estado = $request->get(INPUT_POST, "estado");
-        $usermodel=$container["Users"]->updateuser($IdUsuari,$Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado);
 
-        $response->redirect("Location: /adminpanel");
-
+        if ($Nom == "" or $Cognom == "" or $Correu == "" or $estado == "") {
+            $response->redirect("Location: /adminpanel");
+        } else {
+            $usermodel=$container["Users"]->updateuser($IdUsuari,$Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado);
+            $response->redirect("Location: /adminpanel");
+        }
+        
         return $response;
 
         }

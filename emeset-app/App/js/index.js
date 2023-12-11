@@ -1,19 +1,27 @@
 import jQuery from 'jquery';
-import {toggleUsuaris,toggleOrlas} from './menupanel.js'
+import {toggleUsuaris,toggleOrlas, toggleGrups} from './menupanel.js'
 import {ajax} from './adminpanel.js'
 import {grupoajax} from './ajax_grupos.js';
 import {darkmode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
 import {addfotoorla} from './addfotoorla.js';
+import {editar} from './profile.js';
+
 import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
+import {delmissatge} from './delmissatge.js';
 
 console.log("funcionaaaaa")
 darkmode();
 scrollFunction();
 scrollToTop();
 addfotoorla();
+delmissatge();
 jQuery("#menu_main").hide()
+console.log(jQuery("#btnmenu"))
+
+editar();
+
 
 form_img();
 grupoajax()
@@ -48,6 +56,11 @@ $("#btnmenu").click((e)=>{
     jQuery('#orlasbtn').click(()=>{
         toggleOrlas()
     })
+    jQuery('#grupsbtn').click(()=>{
+        toggleGrups()
+    })
 
-feather.replace()
-console.log("dwad")
+feather.replace()  
+
+
+
