@@ -39,7 +39,7 @@
     
     <div class="col-span-6  mt-50 ">
     <h1 class="mt-20 mb-20 text-center">Aqui puedes hacer una busqueda de los grupos y orlas</h1>
-      <div class="grid grid-cols-12 gap-5" >
+      <div class="grid  gap-5" >
         <div   class="">
         <form>   
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
