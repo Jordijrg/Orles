@@ -1074,9 +1074,6 @@ input:checked + .toggle-bg {
 .top-3 {
   top: 0.75rem;
 }
-.top-full {
-  top: 100%;
-}
 .z-10 {
   z-index: 10;
 }
@@ -1147,6 +1144,9 @@ input:checked + .toggle-bg {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
+.mb-auto {
+  margin-bottom: auto;
+}
 .me-1 {
   margin-inline-end: 0.25rem;
 }
@@ -1200,18 +1200,6 @@ input:checked + .toggle-bg {
 }
 .mt-7 {
   margin-top: 1.75rem;
-}
-.ms-1 {
-  margin-inline-start: 0.25rem;
-}
-.ms-1\.5 {
-  margin-inline-start: 0.375rem;
-}
-.mt-8 {
-  margin-top: 2rem;
-}
-.-mr-1 {
-  margin-right: -0.25rem;
 }
 .block {
   display: block;
@@ -1294,6 +1282,9 @@ input:checked + .toggle-bg {
 .h-screen {
   height: 100vh;
 }
+.max-h-\[15rem\] {
+  max-height: 15rem;
+}
 .max-h-full {
   max-height: 100%;
 }
@@ -1359,6 +1350,9 @@ input:checked + .toggle-bg {
 }
 .max-w-7xl {
   max-width: 80rem;
+}
+.max-w-\[70\%\] {
+  max-width: 70%;
 }
 .max-w-md {
   max-width: 28rem;
@@ -1771,6 +1765,9 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(227 160 8 / var(--tw-bg-opacity));
 }
+.fill-current {
+  fill: currentColor;
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1842,9 +1839,6 @@ input:checked + .toggle-bg {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-.pb-10 {
-  padding-bottom: 2.5rem;
 }
 .pb-6 {
   padding-bottom: 1.5rem;
@@ -3438,6 +3432,10 @@ input:checked + .toggle-bg {
 .hover\:text-red-700:hover {
   --tw-text-opacity: 1;
   color: rgb(200 30 30 / var(--tw-text-opacity));
+}
+.hover\:text-gray-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .hover\:underline:hover {
   text-decoration-line: underline;

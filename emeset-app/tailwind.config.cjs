@@ -6,7 +6,14 @@ module.exports = {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        '1/2': '70%',
+      },
+      maxHeight: {
+        '128': '15rem',
+      }
+    },
   },
   plugins: [
     require('flowbite/plugin'),
