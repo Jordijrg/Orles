@@ -2,12 +2,12 @@
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <?php if ($logged) { ?>
     <a href="/index" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="images/logo.png" class="h-8" alt="Logo" />
+      <img src="/images/logo.png" class="h-8" alt="Logo" />
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ORLAS</span>
     </a>
     <?php } else { ?>
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="images/logo.png" class="h-8" alt="Logo" />
+      <img src="/images/logo.png" class="h-8" alt="Logo" />
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ORLAS</span>
     </a>
     <?php } ?>
@@ -18,7 +18,7 @@
           id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
           data-dropdown-placement="bottom">
           <span class="sr-only">Open user menu</span>
-          <img class="w-8 h-8 rounded-full" src="images/inici.png" alt="user photo">
+          <img class="w-8 h-8 rounded-full" src="/images/inici.png" alt="user photo">
         </button>
         <!-- Dropdown menu -->
         <div
@@ -123,4 +123,4 @@
 </nav>
 
 
-<script src="js/flowbite.js"></script>
+<script src="/js/flowbite.js"></script>
