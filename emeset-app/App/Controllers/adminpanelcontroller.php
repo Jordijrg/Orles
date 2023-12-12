@@ -99,4 +99,31 @@ class adminpanelcontroller
 
         }
 
+        public function updateRandom($request, $response, $container){
+
+            $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
+
+            $usermodel=$container["Users"]->getUserById($IdUsuari);
+
+            $usermodel = [
+                'Nom' => 'random',
+                'Cognom' => 'random',
+                'Correu' => 'random@example.com',
+                'Contrasenya' => 'random_password',
+                'rol' => 'random_role',
+                'estado' => 'active',
+            ];
+
+            if(!empty($usermodel)){
+                $response->set("id", $usermodel);
+                $response->setJSON();
+            } else{
+                $response->set("id", "error");
+                $response->setJSON();
+            }
+        
+            return $response;}
+
+        
+        
 }
