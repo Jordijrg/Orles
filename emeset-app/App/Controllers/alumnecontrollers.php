@@ -7,6 +7,8 @@ class alumnecontrollers
 {
     public function index($request, $response, $container)
     {
+        $idimg = $request->getParam("id");
+        $iduser = $request->getParam("iduser");
         $orles = $container["Orles"]->getallorles($_SESSION["user"]["IdUsuari"]);
         $response->set("orles", $orles);
         $fotografies = $container["Fotografies"]->getallfotos($_SESSION["user"]["IdUsuari"]);
@@ -18,26 +20,30 @@ class alumnecontrollers
         $getgrup = $container["Fotografies"]->getgrup($_SESSION["user"]["IdUsuari"]);
         $imgselects = $container["Fotografies"]->imgselect($getgrup["IdGrup"], $_SESSION["user"]["IdUsuari"]);
         $response->set("imgselects", $imgselects);
+        $model = $container->get("Fotografies");
+        $getgrup = $container["Fotografies"]->getgrup($iduser);
+        $error = $model->confselfoto($getgrup["IdGrup"],$idimg);
+        $res=0;
+        if($error){
+            $res = 1;
+            $response->set("res",$res);
+            
+        }else{
+        $response->set("res",$res ); }
         $response->SetTemplate("alumne.php");
         return $response;
     }
     
     public function selfoto($request, $response, $container)
-    {       
+    {   
         $idimg = $request->getParam("id");
         $iduser = $request->getParam("iduser");
         $model = $container->get("Fotografies");
         $getgrup = $container["Fotografies"]->getgrup($iduser);
         $model->selfoto($getgrup["IdGrup"],$idimg);
-    //     $err = $model->selfoto($getgrup["IdGrup"],$idimg);
-    //     if ($err == "El idgrup proporcionado ya era el que estaba anteriormente. No se realizaron cambios.") {
-    //         $response->redirect("Location: /alumne");
-            
-    //     }else{
-    //     $response->redirect("Location: /alumne");
-    //     return $response;
-    // }
-    $response->redirect("Location: /alumne");
+        $error = $model->confselfoto($getgrup["IdGrup"],$idimg);
+
+    $response->redirect("Location: /alumne2/$iduser/$idimg");
     return $response;
 
     }

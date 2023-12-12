@@ -38,21 +38,19 @@ class ajaxcontroller
         $response->setJson();  
         return $response;
     }
-    public function imagensajax($request, $response, $container){
-        
-        // for($i=0;$i<count($_POST["imagenes"]);$i++){
-        //     $myfile = fopen("imagen222.png.png", "w") or die("Unable to open file!");
-        //     $txt = base64_decode($_POST["imagenes"][$i]);
-        //     file_put_contents(time().".png",$txt);
-        //     fwrite($myfile, $txt);
-        //     fclose($myfile);
-        // }
-       
-
-        $response->set("result",$_POST); 
+    public function ajaxselfoto($request, $response, $container)
+    {       
+        $idimg = $request->getParam("id");
+        $iduser = $request->getParam("iduser");
+        $model = $container->get("Fotografies");
+        $getgrup = $container["Fotografies"]->getgrup($iduser);
+        $error = $model->confselfoto($getgrup["IdGrup"],$idimg);
+        if($error){
+            $response->set("respuesta",0);
+        }else{
+        $response->set("respuesta",1 ); }
         $response->setJson();  
-
-        return $response;
+    return $response;
 
     }
 

@@ -8,6 +8,7 @@ function delmissatge() {
         // Actualizar el contenido del bloque en el HTML
         $(".confdelmssg").attr("id",id);
         $(".confdelmssg").attr("href","/delmssg/"+id);
+        console.log(id);
     });
 
 }
