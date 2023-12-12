@@ -81,7 +81,19 @@ class adminpanelcontroller
 
         }
 
-        public function updateModal($request, $response, $container){
+        public function updategrup($request, $response, $container){
+            $IdGrup = $request->get(INPUT_POST, "IdGrup");
+            $Nom = $request->get(INPUT_POST, "Nom");
+            $estado = $request->get(INPUT_POST, "estado");
+
+            $usermodel=$container["Users"]->updategrup($IdGrup, $Nom, $estado);
+
+            $response->redirect("Location: /adminpanel");
+
+            return $response;
+        }
+
+        public function updateModalUser($request, $response, $container){
 
             $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
 
@@ -97,6 +109,44 @@ class adminpanelcontroller
 
             return $response;
 
+        }
+
+        public function updateModalGrup($request, $response, $container){
+
+            $IdGrup = $request->get(INPUT_POST, "IdGrup");
+
+            $usermodel=$container["Users"]->getGrupById($IdGrup);
+
+            if(!empty($usermodel)){
+                $response->set("id", $usermodel);
+                $response->setJSON();
+            } else{
+                $response->set("id", "error");
+                $response->setJSON();
+            }
+
+            return $response;
+
+        }
+
+        public function addgrup($request, $response, $container){
+            $Nom = $request->get(INPUT_POST, "Nom"); 
+            
+            $usermodel=$container["Users"]->addgrup($Nom);
+    
+            $response->redirect("Location: /adminpanel");
+    
+            return $response;
+            
+        }
+
+        public function deletegrup($request, $response, $container){
+            $model = $container->get("Users");
+            $id = $request->getParam("id");
+            $model->deletegrup($id);
+            $response->redirect("Location: /adminpanel");
+    
+            return $response;
         }
 
 }

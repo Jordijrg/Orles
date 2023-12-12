@@ -20,6 +20,7 @@ delmissatge();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
 
+
 editar();
 
 
