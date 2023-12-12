@@ -1053,6 +1053,9 @@ input:checked + .toggle-bg {
 .right-0 {
   right: 0px;
 }
+.right-2 {
+  right: 0.5rem;
+}
 .start-0 {
   inset-inline-start: 0px;
 }
@@ -1067,6 +1070,9 @@ input:checked + .toggle-bg {
 }
 .top-10 {
   top: 2.5rem;
+}
+.top-2 {
+  top: 0.5rem;
 }
 .top-24 {
   top: 6rem;
@@ -1196,9 +1202,6 @@ input:checked + .toggle-bg {
 }
 .mt-7 {
   margin-top: 1.75rem;
-}
-.mt-8 {
-  margin-top: 2rem;
 }
 .block {
   display: block;
@@ -1803,6 +1806,9 @@ input:checked + .toggle-bg {
 .p-6 {
   padding: 1.5rem;
 }
+.p-8 {
+  padding: 2rem;
+}
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1842,6 +1848,12 @@ input:checked + .toggle-bg {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
 }
 .pb-6 {
   padding-bottom: 1.5rem;
@@ -1950,6 +1962,10 @@ input:checked + .toggle-bg {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 .text-gray-700 {
   --tw-text-opacity: 1;
@@ -3394,6 +3410,10 @@ input:checked + .toggle-bg {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
+.hover\:text-gray-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
@@ -3401,10 +3421,6 @@ input:checked + .toggle-bg {
 .hover\:text-red-700:hover {
   --tw-text-opacity: 1;
   color: rgb(200 30 30 / var(--tw-text-opacity));
-}
-.hover\:text-gray-700:hover {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .hover\:underline:hover {
   text-decoration-line: underline;
