@@ -84,8 +84,7 @@ class adminpanelcontroller
 
     }
 
-    public function updateModal($request, $response, $container)
-    {
+        public function updateModalUser($request, $response, $container){
 
         $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
 
@@ -99,23 +98,7 @@ class adminpanelcontroller
             $response->setJSON();
         }
 
-<<<<<<< HEAD
-        public function updategrup($request, $response, $container){
-            $IdGrup = $request->get(INPUT_POST, "IdGrup");
-            $Nom = $request->get(INPUT_POST, "Nom");
-            $estado = $request->get(INPUT_POST, "estado");
-
-            $usermodel=$container["Users"]->updategrup($IdGrup, $Nom, $estado);
-
-            $response->redirect("Location: /adminpanel");
-
-            return $response;
-        }
-
-        public function updateModalUser($request, $response, $container){
-=======
         return $response;
->>>>>>> feature-importador
 
     }
     function parseCSV($csvContent)

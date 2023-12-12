@@ -30,9 +30,6 @@ $(document).ready(function() {
             dataType: "json", 
 
             success: function(users) {
-
-                    console.log(users.id.IdUsuari);
-
                     $("#ID").val(users.id.IdUsuari);
                     $("#Nom").val(users.id.Nom);
                     $("#Cognom").val(users.id.Cognom);

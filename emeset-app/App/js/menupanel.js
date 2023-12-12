@@ -38,6 +38,7 @@ function toggleGrups() {
     } else {
         grups.style.display = "none";
     }
+    console.log("VAAAAAAAAAAAA");
 }
 
 
