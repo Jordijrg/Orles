@@ -31,7 +31,7 @@
   <?php include "header.php";  ?>
 
 
-  <form action="/subir_alumno" method="post" enctype="multipart/form-data">
+  <form action="/subir_alumno/<?php echo $id; ?>/<?php echo $id_grupo;?>" method="post" enctype="multipart/form-data">
 
   <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
     <div class="sm:hidden">

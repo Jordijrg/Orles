@@ -53,9 +53,8 @@ $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
 $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
-$app->post("/subir_alumno", [profecontroller::class,"subir_alumno"]);
-$app->get("/subir_alumno/{id}", [profecontroller::class,"subir_alumno2"]);
-$app->get("/subir_alumno2/{id}", [profecontroller::class,"subir_alumno3"]);
+$app->post("/subir_alumno/{id}/{idgrupo}", [profecontroller::class,"subir_alumno"]);
+$app->get("/subir_alumno/{id}/{idgrupo}", [profecontroller::class,"subir_alumno2"]);
 
 $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);

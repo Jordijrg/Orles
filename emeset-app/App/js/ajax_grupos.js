@@ -8,9 +8,6 @@ function grupoajax(){
         let value_input=$("#grupo_search").val()
        
 
-        const modal = FlowbiteInstances.getInstance('Modal', 'default-modal');
-    modal.removeInstance();
-    initFlowbite();
        
     if(value_input.length>=2){
         control_witedmax=true
@@ -53,7 +50,7 @@ icons: null
                       
                           
                                                 
-
+                                console.log(element)
                                     $.ajax({
                                     type: "POST", // la variable type guarda el tipo de la peticion GET,POST,..
                                     url: "/alumngrupajax", //url guarda la ruta hacia donde se hace la peticion
@@ -89,7 +86,7 @@ icons: null
                                         console.log(element2.IdUsuari)
                                             html+=` <div data-modal-target="default-modal" data-modal-toggle="default-modal" class=" modales">
                                             <button>${element2.Nom}</button>
-                                            <a href="/subir_alumno/${element2.IdUsuari}">    <button class="float-right	">Imagenes</button></a>
+                                            <a href="/subir_alumno/${element2.IdUsuari}/${element.IdGrup}">    <button class="float-right	">Imagenes</button></a>
 
                                           </div>`
                                     })
@@ -157,12 +154,12 @@ icons: null
 
                         let grupos=datos.result
                        
-                        grupos.forEach((element,i) => {
+                        grupos.forEach((element2,i) => {
                                         $.ajax({
                                         type: "POST", // la variable type guarda el tipo de la peticion GET,POST,..
                                         url: "/alumngrupajax", //url guarda la ruta hacia donde se hace la peticion
                                         data: {
-                                            idgrupo:element.IdGrup
+                                            idgrupo:element2.IdGrup
                                         },
                                         async:false
                                         , // data recive un objeto con la informacion que se enviara al servidor
@@ -174,7 +171,7 @@ icons: null
                                             }   else{
                                                 let html=``
 
-                                                html+=`<h3>${element.Nom}</h3>
+                                                html+=`<h3>${element2.Nom}</h3>
                                                 <div>
                                                 `
                                                 usuarios.forEach(element=>{
@@ -182,7 +179,7 @@ icons: null
                                                     console.log(element.IdUsuari)
                                                     html+=`  <div data-modal-target="default-modal" data-modal-toggle="default-modal" class=" modales">
                                                     <button>${element.Nom}</button>
-                                                    <a href="/subir_alumno/${element.IdUsuari}"><button class="float-right	">Imagenes</button></a>
+                                                    <a href="/subir_alumno/${element.IdUsuari}/${element2.IdGrup}"> <button class="float-right	">Imagenes</button></a>
                                                   </div>`
 
                                                    

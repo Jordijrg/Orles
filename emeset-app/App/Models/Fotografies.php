@@ -100,4 +100,20 @@ class Fotografies
         $stm->bindParam(':missatge', $missatge);
         $stm->execute();
     }
+    public function activate_img_orla($id){
+        
+        $query = 'update imatges_usuaris set img_select_orl="active" where IdImatge=:IdImatge ;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':IdImatge' =>  $id]);
+
+    }
+
+
+    public function add_imguser_orla($Srcimatge,$idusuari,$idgrup){
+        
+        $query = 'insert into imatges_usuaris (Srcimatge,idusuari,idgrup) values  (:Srcimatge,:idusuari,:idgrup) ;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':Srcimatge' =>  $Srcimatge,':idusuari'=>$idusuari,':idgrup'=>$idgrup]);
+
+    }
 }
