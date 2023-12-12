@@ -204,7 +204,7 @@
           <button type="submit" class="mt-7 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 focus:animate-ping animate-once">Afegir</button>
         </div>
         <div>
-        <a href="#" type="button" data-modal-target="randommodal" data-modal-show="randommodal" data-user-id="<?= $usuari['IdUsuari'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline modalRandom focus:animate-ping animate-once">Editar</a>
+        <a href="#" type="button" data-modal-target="randommodal" data-modal-show="randommodal" data-user-id="<?= $usuari['IdUsuari'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline modalRandom focus:animate-ping animate-once">Usuari Aleatori</a>
         </div>
       </div>
     </div>
