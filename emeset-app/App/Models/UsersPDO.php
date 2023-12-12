@@ -126,6 +126,14 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    public function getGrupById($IdGrup){
+        $query = 'select * from grup where IdGrup = :IdGrup;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdGrup' => $IdGrup]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function deleteuser($id){
         $query = 'UPDATE usuaris SET estado = "desactivat" WHERE IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
@@ -162,6 +170,25 @@ class UsersPDO
         $result = $stm->execute();
         
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function addgrup($Nom){
+        $data_grup = date('Y/m/d');
+        $query = 'INSERT INTO grup (Nom, data_grup, estado) VALUES (:Nom, :data_grup, "actiu");';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':Nom' => $Nom, ':data_grup' => $data_grup]);
+    }
+
+    public function deletegrup($id){
+        $query = 'UPDATE grup SET estado = "desactivat" WHERE IdGrup = :IdGrup;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdGrup' => $id]);
+    }
+
+    public function updategrup($IdGrup, $Nom, $estado){
+        $query = 'UPDATE grup SET Nom = :Nom, estado = :estado WHERE IdGrup = :IdGrup;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdGrup' => $IdGrup, ':Nom' => $Nom, ':estado' => $estado]);
     }
 
     

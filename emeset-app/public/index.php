@@ -25,6 +25,7 @@ use App\Controllers\profilecontroller;
 use App\Controllers\missatgecontroller;
 
 use App\Controllers\LoginController;
+use App\Controllers\RecuperacioController;
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -55,6 +56,9 @@ $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
 $app->post("/subir_alumno", [profecontroller::class,"subir_alumno"]);
 $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);
+$app->get("/recuperacio", [RecuperacioController::class,"index"]);
+$app->post("/recuperarPass", [RecuperacioController::class,"recuperarPass"]);
+
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
@@ -66,10 +70,14 @@ $app->get("/adminpanel", [adminpanelcontroller::class,"index"] , [[\App\Middlewa
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
 $app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
 $app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
+$app->post("/updategrup", [adminpanelcontroller::class,"updategrup"]);
 $app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
+$app->post("/addgrup", [adminpanelcontroller::class,"addgrup"]);
+$app->get("/deletegrup/{id}", [adminpanelcontroller::class,"deletegrup"]);
 
 
-$app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
+$app->post("/openModalUser", [adminpanelcontroller::class, "updateModalUser"]);
+$app->post("/openModalGrup", [adminpanelcontroller::class, "updateModalGrup"]);
 
 
 $app->get("/register", [registercontroller::class,"addregister"]);

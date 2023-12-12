@@ -48,6 +48,10 @@
               Encara no tens una compta? <a href="/register"
                 class="font-medium text-primary-600 hover:underline dark:text-primary-500 focus:animate-ping animate-once">Registrat</a>
             </p>
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+              Has oblidat la contrasenya? <a href="/recuperacio"
+                class="font-medium text-primary-600 hover:underline dark:text-primary-500 focus:animate-ping animate-once">Recuperar la contrasenya</a>
+            </p>
           </form>
         </div>
       </div>
