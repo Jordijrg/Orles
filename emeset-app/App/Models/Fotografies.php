@@ -40,7 +40,9 @@ class Fotografies
      */
     public function getallfotos($id)
     {
-        $query = 'select * from imatges_usuaris where idusuari= :id;';
+        $query = 'select imatges_usuaris.*, usuaris.Nom as "Nomuser", usuaris.Cognom as "Coguser"  from imatges_usuaris 
+        join usuaris on usuaris.IdUsuari = imatges_usuaris.idusuari
+        where imatges_usuaris.idusuari= :id;';
         $stm = $this->sql->prepare($query);
         $stm->bindParam(':id', $id);
         $stm->execute();
@@ -59,6 +61,16 @@ class Fotografies
         where IdImatge = :idimg;');
         $result = $query->execute([":idgrup" => $idgrup , ":idimg" => $idimg]);
     }
+    public function confselfoto($idgrup,$idimg){
+        // return $stm->fetch(\PDO::FETCH_ASSOC);
+        
+        $query = 'select * from imatges_usuaris where IdImatge= :idimg and idgrup = :idgrup;';
+        $stm = $this->sql->prepare($query);
+        $stm->bindParam(':idgrup', $idgrup);
+        $stm->bindParam(':idimg', $idimg);
+        $stm->execute();
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
 
     public function getgrup($id){
         $query = 'select * from usuari_grup where IdUsuari= :id;';
@@ -68,7 +80,9 @@ class Fotografies
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
     public function imgselect($idgrup, $iduser){
-        $query = 'select * from imatges_usuaris where idgrup= :idgrup and idusuari = :iduser;';
+        $query = 'select imatges_usuaris.*,usuaris.Nom as "Nomuser", usuaris.Cognom as "Coguser"  from imatges_usuaris
+        join usuaris on usuaris.IdUsuari = imatges_usuaris.idusuari
+        where imatges_usuaris.idgrup= :idgrup and imatges_usuaris.idusuari = :iduser;';
         $stm = $this->sql->prepare($query);
         $stm->bindParam(':idgrup', $idgrup);
         $stm->bindParam(':iduser', $iduser);
@@ -99,5 +113,21 @@ class Fotografies
         $stm->bindParam(':id', $id);
         $stm->bindParam(':missatge', $missatge);
         $stm->execute();
+    }
+    public function activate_img_orla($id){
+        
+        $query = 'update imatges_usuaris set img_select_orl="active" where IdImatge=:IdImatge ;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':IdImatge' =>  $id]);
+
+    }
+
+
+    public function add_imguser_orla($Srcimatge,$idusuari,$idgrup){
+        
+        $query = 'insert into imatges_usuaris (Srcimatge,idusuari,idgrup) values  (:Srcimatge,:idusuari,:idgrup) ;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':Srcimatge' =>  $Srcimatge,':idusuari'=>$idusuari,':idgrup'=>$idgrup]);
+
     }
 }

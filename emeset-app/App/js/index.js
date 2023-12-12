@@ -10,6 +10,7 @@ import {addfotoorla} from './addfotoorla.js';
 import {editar} from './profile.js';
 
 import {upload_div} from './upload_div.js';
+import {form_img} from './show_form_img.js'
 import {delmissatge} from './delmissatge.js';
 
 console.log("funcionaaaaa")
@@ -22,9 +23,11 @@ delmissatge();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
 
+
 editar();
 
 
+form_img();
 grupoajax()
 ajax();
 random();

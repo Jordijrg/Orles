@@ -6,7 +6,9 @@ $(document).ready(function() {
 
     $(".openModal").on("click", function() {
         var IdUsuari = $(this).data("user-id");
+        var IdGrup = $(this).data("grup-id");
         console.log(IdUsuari);
+        console.log(IdGrup);
 
        
  
@@ -23,14 +25,11 @@ $(document).ready(function() {
         $.ajax({
 
             type: "POST",
-            url: "/openModal",
+            url: "/openModalUser",
             data: { IdUsuari: IdUsuari },
             dataType: "json", 
 
             success: function(users) {
-
-                    console.log(users.id.IdUsuari);
-
                     $("#ID").val(users.id.IdUsuari);
                     $("#Nom").val(users.id.Nom);
                     $("#Cognom").val(users.id.Cognom);
@@ -54,6 +53,30 @@ $(document).ready(function() {
                 console.log("Error en la solicitud AJAX: " + errorThrown);
             }
         });
+
+        $.ajax({
+
+            type: "POST",
+            url: "/openModalGrup",
+            data: { IdGrup: IdGrup },
+            dataType: "json", 
+
+            success: function(grups) {
+
+                    console.log(grups.id);
+
+                    $("#IdGrup").val(grups.id.IdGrup);
+                    $("#NomGrup").val(grups.id.Nom);
+                    $("#EstadoGrup").val(grups.id.estado);
+                
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.log("Error en la solicitud AJAX: " + errorThrown);
+            }
+        });
+          
+
+
     });
 });
  document.addEventListener("DOMContentLoaded", function () {
@@ -87,6 +110,39 @@ $(document).ready(function() {
     });
 
   });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("table-search-grups");
+    const table = document.getElementById("grupTable");
+    const rows = table.getElementsByTagName("tr");
+
+    input.addEventListener("input", function () {
+      const searchTerm = input.value.toLowerCase();
+
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        const cells = row.getElementsByTagName("td");
+        let shouldHide = true;
+
+        for (let j = 0; j < cells.length; j++) {
+          const cellText = cells[j].textContent.toLowerCase();
+
+          if (cellText.includes(searchTerm)) {
+            shouldHide = false;
+            break;
+          }
+        }
+
+        if (shouldHide) {
+          row.style.display = "none";
+        } else {
+          row.style.display = "";
+        }
+      }
+    });
+
+  });
+
 }
 
 export {ajax};

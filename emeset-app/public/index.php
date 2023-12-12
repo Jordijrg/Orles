@@ -26,6 +26,7 @@ use App\Controllers\missatgecontroller;
 
 use App\Controllers\LoginController;
 use App\Controllers\editororlescontroller;
+use App\Controllers\RecuperacioController;
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -43,19 +44,31 @@ $app->get("/done/{id}", [TaskController::class,"delete"], [[\App\Middleware\Auth
 $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/panelprofe", [profecontroller::class,"index"]);
 $app->get("/alumne", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/alumne2/{iduser}/{id}", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/selfoto/{iduser}/{id}", [alumnecontrollers::class,"selfoto"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/ajaxselfoto/{iduser}/{id}", [ajaxcontroller::class,"ajaxselfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/delselfoto/{id}", [alumnecontrollers::class,"delselfoto"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/noterror", [alumnecontrollers::class,"noterror"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/missatge", [missatgecontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/updmissatge/{id}", [missatgecontroller::class,"updmissatge"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/delmssg/{id}", [missatgecontroller::class,"delmssg"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/userimport", [missatgecontroller::class,"delmssg"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/userimport", [adminpanelcontroller::class,"userimport"], [[\App\Middleware\Auth::class,"auth"]]);
+
+
 $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
 $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
-$app->post("/subir_alumno", [profecontroller::class,"subir_alumno"]);
+$app->post("/subir_alumno/{id}/{idgrupo}", [profecontroller::class,"subir_alumno"]);
+$app->get("/subir_alumno/{id}/{idgrupo}", [profecontroller::class,"subir_alumno2"]);
+
 $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);
+$app->post("/imagensajax", [ajaxcontroller::class,"imagensajax"]);
+$app->get("/recuperacio", [RecuperacioController::class,"index"]);
+$app->post("/recuperarPass", [RecuperacioController::class,"recuperarPass"]);
+
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
@@ -68,11 +81,16 @@ $app->get("/adminpanel", [adminpanelcontroller::class,"index"] , [[\App\Middlewa
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
 $app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
 $app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
+$app->post("/updategrup", [adminpanelcontroller::class,"updategrup"]);
 $app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
+$app->post("/addgrup", [adminpanelcontroller::class,"addgrup"]);
+$app->get("/deletegrup/{id}", [adminpanelcontroller::class,"deletegrup"]);
 
 
 $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
 $app->post("/modalRandom", [adminpanelcontroller::class, "updateRandom"]);
+$app->post("/openModalUser", [adminpanelcontroller::class, "updateModalUser"]);
+$app->post("/openModalGrup", [adminpanelcontroller::class, "updateModalGrup"]);
 
 
 $app->get("/register", [registercontroller::class,"addregister"]);

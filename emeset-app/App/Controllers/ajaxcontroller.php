@@ -38,6 +38,21 @@ class ajaxcontroller
         $response->setJson();  
         return $response;
     }
+    public function ajaxselfoto($request, $response, $container)
+    {       
+        $idimg = $request->getParam("id");
+        $iduser = $request->getParam("iduser");
+        $model = $container->get("Fotografies");
+        $getgrup = $container["Fotografies"]->getgrup($iduser);
+        $error = $model->confselfoto($getgrup["IdGrup"],$idimg);
+        if($error){
+            $response->set("respuesta",0);
+        }else{
+        $response->set("respuesta",1 ); }
+        $response->setJson();  
+    return $response;
+
+    }
 
 }
 
