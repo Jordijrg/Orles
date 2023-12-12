@@ -52,6 +52,10 @@ $app->post("/noterror", [alumnecontrollers::class,"noterror"], [[\App\Middleware
 $app->get("/missatge", [missatgecontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/updmissatge/{id}", [missatgecontroller::class,"updmissatge"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/delmssg/{id}", [missatgecontroller::class,"delmssg"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/userimport", [missatgecontroller::class,"delmssg"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/userimport", [adminpanelcontroller::class,"userimport"], [[\App\Middleware\Auth::class,"auth"]]);
+
+
 $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
