@@ -391,10 +391,20 @@
 
 
     <div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
+        <div class="flex items-center	">
+        <div class="ps-3">
+                            <div class="text-base font-semibold">Afegir plantilla d'una orle</div>
 
+                        </div>             
+        <a class="navbar__link"><i data-feather="plus"></i></a>
+                      
+                        </div>
 
 
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div>
+                <a href=""></a>
+            </div>
             <a href="#">
                 <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
             </a>
