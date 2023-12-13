@@ -15,8 +15,8 @@
     </div>
     <?php if ($_SESSION["user"]["rol"] == "gestor") {
         ; ?>
-        <div class="grid grid-cols-2 gap-7 p-5">
-                <div class="col-span-1 grid grid-cols-2 gap-7">
+        <div class="grid grid-cols-2 gap-7 p-5 content-start ">
+                <div class="col-span-1 grid grid-cols-2 gap-7 ">
                     <div class="col-span-2">
                         <h1 class="text-3xl font-bold text-center dark:text-white">Missatges sense llegir <?php echo $missatgesnovists[0]["Count"]; ?> </h1>
                     </div>

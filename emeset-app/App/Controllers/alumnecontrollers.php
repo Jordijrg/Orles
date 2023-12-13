@@ -5,6 +5,7 @@ namespace App\Controllers;
 
 class alumnecontrollers 
 {
+    
     public function index($request, $response, $container)
     {
         $idimg = $request->getParam("id");
