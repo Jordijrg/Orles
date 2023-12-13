@@ -175,12 +175,12 @@ class adminpanelcontroller
         
             // Update the user model with random values
             $usermodel = [
-                'Nom' => $randomUserData['name']['first'],
-                'Cognom' => $randomUserData['name']['last'],
-                'Correu' => $randomUserData['email'],
-                'Contrasenya' => 'testing10',
-                'rol' => 'random_role',
-                'estado' => 'active',
+                'name' => $randomUserData['name']['first'],
+                'surname' => $randomUserData['name']['last'],
+                'email' => $randomUserData['email'],
+                'password' => 'testing10',
+                'role' => 'random_role',
+                'state' => 'active',
             ];
         
             if (!empty($usermodel)) {
