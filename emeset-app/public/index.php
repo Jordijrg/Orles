@@ -67,7 +67,10 @@ $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);
 $app->post("/imagensajax", [ajaxcontroller::class,"imagensajax"]);
 $app->get("/recuperacio", [RecuperacioController::class,"index"]);
+$app->get("/recuperacio/{missatge}", [RecuperacioController::class,"index"]);
 $app->post("/recuperarPass", [RecuperacioController::class,"recuperarPass"]);
+$app->get("/resetPassword/{token}", [RecuperacioController::class,"token"]);
+$app->post("/updatePassword", [RecuperacioController::class,"updatePassword"]);
 
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
