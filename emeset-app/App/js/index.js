@@ -1,6 +1,8 @@
 import jQuery from 'jquery';
 import {toggleUsuaris,toggleOrlas, toggleGrups} from './menupanel.js'
 import {ajax} from './adminpanel.js'
+import {random} from './random.js'
+import {randomuser} from './randomuser.js'
 import {grupoajax} from './ajax_grupos.js';
 import {darkmode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
@@ -16,6 +18,7 @@ darkmode();
 scrollFunction();
 scrollToTop();
 addfotoorla();
+randomuser();
 delmissatge();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
@@ -27,6 +30,7 @@ editar();
 form_img();
 grupoajax()
 ajax();
+random();
 upload_div();
 $("#menu_main").hide()
 console.log($("#btnmenu"))

@@ -87,6 +87,8 @@ $app->post("/addgrup", [adminpanelcontroller::class,"addgrup"]);
 $app->get("/deletegrup/{id}", [adminpanelcontroller::class,"deletegrup"]);
 
 
+$app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
+$app->post("/modalRandom", [adminpanelcontroller::class, "updateRandom"]);
 $app->post("/openModalUser", [adminpanelcontroller::class, "updateModalUser"]);
 $app->post("/openModalGrup", [adminpanelcontroller::class, "updateModalGrup"]);
 
