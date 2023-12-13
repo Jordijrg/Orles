@@ -191,6 +191,26 @@ class UsersPDO
         $result = $stm->execute([':IdGrup' => $IdGrup, ':Nom' => $Nom, ':estado' => $estado]);
     }
 
+    public function addToken($Correu, $token){
+        $query = 'UPDATE usuaris SET token = :token WHERE Correu = :Correu;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':Correu' => $Correu, ':token' => $token]);
+    }
+
+    public function getUserByToken($token){
+        $query = 'select * from usuaris where token = :token;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':token' => $token]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function updatePassword($IdUsuari, $Contrasenya){
+        $query = 'UPDATE usuaris SET Contrasenya = :Contrasenya WHERE IdUsuari = :IdUsuari;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Contrasenya' => $Contrasenya]);
+    }
+
     
 
 }
