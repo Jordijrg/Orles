@@ -393,13 +393,21 @@
     <div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
         <div class="flex items-center	">
         <div class="ps-3">
-                            <div class="text-base font-semibold">Afegir plantilla d'una orle</div>
+                           <a href="/crear_orlaplantilla"> <div class="text-base font-semibold flex items-center" style="    border: 2px solid;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius:10px;
+">
+                                <p>Afegir plantilla d'una orle</p>
+                            <a class="" style="float:right;"><i data-feather="plus"></i></a>
+                            </div>
 
-                        </div>             
-        <a class="navbar__link"><i data-feather="plus"></i></a>
+                        </div>        
+                        </a>     
+      
                       
                         </div>
-
 
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div>
