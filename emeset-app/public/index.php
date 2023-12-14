@@ -27,6 +27,7 @@ use App\Controllers\missatgecontroller;
 use App\Controllers\LoginController;
 use App\Controllers\editororlescontroller;
 use App\Controllers\RecuperacioController;
+use App\Controllers\carnetcontroller;
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -69,6 +70,7 @@ $app->post("/imagensajax", [ajaxcontroller::class,"imagensajax"]);
 $app->get("/recuperacio", [RecuperacioController::class,"index"]);
 $app->post("/recuperarPass", [RecuperacioController::class,"recuperarPass"]);
 
+$app->get("/carnet", [carnetcontroller::class,"index"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
