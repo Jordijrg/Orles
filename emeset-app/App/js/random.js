@@ -11,8 +11,7 @@ $(".modalRandom").on("click", function() {
    
 
 
-    //quan tanqui el modal totes les dades del modal
-    $('#crud-modal').on('hidden.bs.modal', function() {
+    $('#modalRandom').on('hidden.bs.modal', function() {
         $(this).find('form').trigger('reset');
     }); 
 
@@ -32,22 +31,13 @@ $(".modalRandom").on("click", function() {
                 console.log(users.id.IdUsuari);
 
                 $("#ID").val(users.id.IdUsuari);
-                $("#Nom").val(users.id.Nom);
-                $("#Cognom").val(users.id.Cognom);
-                $("#Correu").val(users.id.Correu);
-                $("#Contrasenya").val(users.id.Contrasenya);
-                $("#Estado").val(users.id.estado);
-                $("#Rol").val(users.id.rol);
+                $("#names").val(users.id.names);
+                $("#surname").val(users.id.surname);
+                $("#email").val(users.id.email);
+                $("#password").val(users.id.password);
+                $("#state").val(users.id.state);
+                $("#role").val(users.id.role);
 
-
-                
-        // jQuery("#ID").html(users.id.IdUsuari);
-        // jQuery("#Nom").html(users.Nom);
-        // jQuery("#Cognom").html(users.Cognom);
-        // jQuery("#Correu").html(users.Correu);
-        // jQuery("#Contrasenya").html(users.Contrasenya);
-        // jQuery("#Estado").html(users.estado);
-        // jQuery("#Rol").html(users.rol);
             
         },
         error: function(xhr, textStatus, errorThrown) {

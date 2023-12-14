@@ -9,7 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="main.css">
 
-  <title>Todo APP</title>
+  <title>Orlify</title>
 </head>
 
 <body>

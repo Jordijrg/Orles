@@ -43,6 +43,30 @@ class profilecontroller
         $Cognom = $request->get(INPUT_POST, "Cognom");
         $Correu = $request->get(INPUT_POST, "Correu");
 
+        if (strlen($Contrasenya) < 6 || strlen($Contrasenya) > 13) {
+            $errorMessage = "La contraseña debe tener entre 6 y 13 caracteres";
+            $response->set("errorMessage", $errorMessage);
+            $response->setTemplate("profile.php");
+            return $response;
+            $response->redirect("Location: /perfil");
+        }
+    
+        if (!preg_match('/[A-Za-z]/', $Contrasenya) || !preg_match('/[0-9]/', $Contrasenya) || !strpos($Contrasenya, '-')) {
+            $errorMessage = "La contraseña debe contener al menos una letra, un numero y un guion";
+            $response->set("errorMessage", $errorMessage);
+            $response->setTemplate("profile.php");
+            return $response;
+            $response->redirect("Location: /perfil");
+        }
+
+        $usersPDO = $container["Users"];
+        if ($usersPDO->emailExists($Correu)) {
+            $errorMessage = "Ese correo ya esta registrado";
+            $response->set("errorMessage", $errorMessage);
+            $response->setTemplate("profile.php");            
+            $response->redirect("Location: /perfil");
+        } else {
+
         if ($Nom == "" or $Cognom == "" or $Correu == "") {
             $response->redirect("Location: /perfil/error");
         } else {
@@ -52,7 +76,7 @@ class profilecontroller
 
 
         
-
+}
         return $response;
 
         }

@@ -167,22 +167,14 @@ class adminpanelcontroller
 
         public function updateRandom($request, $response, $container){
             $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
-        
-            $usermodel = $container["Users"]->getUserById($IdUsuari);
-        
-            // Make an AJAX request to randomuser.me API
-            $randomUserData = $this->getRandomUserData(); // You need to implement this method
-        
-            // Update the user model with random values
+
             $usermodel = [
-                'name' => $randomUserData['name']['first'],
-                'surname' => $randomUserData['name']['last'],
-                'email' => $randomUserData['email'],
                 'password' => 'testing10',
-                'role' => 'random_role',
-                'state' => 'active',
+                'role' => '',
+                'state' => 'pendent',
             ];
-        
+            
+
             if (!empty($usermodel)) {
                 $response->set("id", $usermodel);
                 $response->setJSON();
@@ -193,29 +185,6 @@ class adminpanelcontroller
         
             return $response;
         }
-        
-        // Function to make an AJAX request to randomuser.me API
-        private function getRandomUserData() {
-            $apiUrl = 'https://randomuser.me/api/';
-            
-            $ch = curl_init($apiUrl);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            
-            $response = curl_exec($ch);
-            
-            if (curl_errno($ch)) {
-                // Handle error
-                return null;
-            }
-            
-            curl_close($ch);
-            
-            $userData = json_decode($response, true);
-            
-            return $userData['results'][0];
-        }
-        
-
         
         
         public function addgrup($request, $response, $container){
