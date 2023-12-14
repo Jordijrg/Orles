@@ -80,6 +80,7 @@ $app->get("/editororles", [editororlescontroller::class,"index"]);
 $app->get("/adminpanel", [adminpanelcontroller::class,"index"] , [[\App\Middleware\Auth::class,"auth"]] );
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
 $app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
+$app->post("/adduserrandom", [adminpanelcontroller::class,"adduserrandom"]);
 $app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
 $app->post("/updategrup", [adminpanelcontroller::class,"updategrup"]);
 $app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);

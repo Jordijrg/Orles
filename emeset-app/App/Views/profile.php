@@ -14,10 +14,13 @@
 <style>
 
 </style>
-  <title>Todo APP</title>
+  <title>Perfil</title>
 </head>
 
 <body class="dark:bg-gray-900">
+<?php if (isset($errorMessage)) : ?>
+                  <p class="text-sm font-medium text-red-500"><?= $errorMessage ?>GungaBinga</p>
+                <?php endif; ?>
 <div id="header">
         <?php include 'header.php'; ?>
 </div>
