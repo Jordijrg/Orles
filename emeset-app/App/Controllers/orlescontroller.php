@@ -39,8 +39,7 @@ class orlescontroller
         return $response;
     }
     public function pdforla($request, $response, $container){
-
-        
+//dd
         $mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/tmp']);
 
         die();
