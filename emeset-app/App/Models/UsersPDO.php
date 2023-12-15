@@ -185,6 +185,12 @@ class UsersPDO
         $result = $stm->execute([':IdGrup' => $id]);
     }
 
+    public function deleteusergrup($id){
+        $query = 'DELETE FROM usuari_grup WHERE id_d = :id_d;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id_d' => $id]);
+    }
+
     public function updategrup($IdGrup, $Nom, $estado){
         $query = 'UPDATE grup SET Nom = :Nom, estado = :estado WHERE IdGrup = :IdGrup;';
         $stm = $this->sql->prepare($query);
@@ -209,6 +215,50 @@ class UsersPDO
         $query = 'UPDATE usuaris SET Contrasenya = :Contrasenya WHERE IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Contrasenya' => $Contrasenya]);
+    }
+
+    public function getAllUsersAndGrups(){
+        $query = "SELECT usuaris.Nom AS 'nom_usuari', usuaris.Cognom 'cognom_usuari', grup.Nom AS 'nom_grup', usuari_grup.id_d  FROM usuaris JOIN usuari_grup ON usuaris.IdUsuari = usuari_grup.IdUsuari JOIN grup ON usuari_grup.IdGrup = grup.IdGrup;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute();
+        
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getUsersAndGrupsById($id_d){
+        $query = "SELECT usuaris.Nom AS 'nom_usuari', usuaris.Cognom 'cognom_usuari', grup.Nom AS 'nom_grup', usuari_grup.id_d  FROM usuaris JOIN usuari_grup ON usuaris.IdUsuari = usuari_grup.IdUsuari JOIN grup ON usuari_grup.IdGrup = grup.IdGrup WHERE usuari_grup.id_d = :id_d;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id_d' => $id_d]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getIdUsuari($nomUsuari){
+        $query = "SELECT IdUsuari FROM usuaris WHERE Nom = :nomUsuari;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':nomUsuari' => $nomUsuari]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getIdGrup($nomGrup){
+        $query = "SELECT IdGrup FROM grup WHERE Nom = :nomGrup;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':nomGrup' => $nomGrup]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function addusergrup($IdUsuari, $IdGrup){
+        $query = 'INSERT INTO usuari_grup (IdUsuari, IdGrup) VALUES (:IdUsuari, :IdGrup);';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':IdGrup' => $IdGrup]);
+    }
+
+    public function updateusergrup($id_d, $IdGrup){
+        $query = 'UPDATE usuari_grup SET IdGrup = :IdGrup WHERE id_d = :id_d;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id_d' => $id_d, ':IdGrup' => $IdGrup]);
     }
 
     
