@@ -10,7 +10,6 @@ function toggleUsuaris() {
         orlas.style.display = "none";
         grups.style.display = "none";
     } else {
-        usuaris.style.display = "none";
     }
 }
 
@@ -23,7 +22,6 @@ function toggleOrlas() {
         usuaris.style.display = "none";
         grups.style.display = "none";
     } else {
-        orlas.style.display = "none";
     }
 }
 
@@ -36,7 +34,6 @@ function toggleGrups() {
         orlas.style.display = "none";
         usuaris.style.display = "none";
     } else {
-        grups.style.display = "none";
     }
     console.log("VAAAAAAAAAAAA");
 }

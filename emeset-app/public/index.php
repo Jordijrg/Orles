@@ -23,6 +23,7 @@ use App\Controllers\ajaxcontroller;
 use App\Controllers\adminpanelcontroller;
 use App\Controllers\profilecontroller;
 use App\Controllers\missatgecontroller;
+use App\Controllers\orlescontroller;
 
 use App\Controllers\LoginController;
 use App\Controllers\editororlescontroller;
@@ -85,6 +86,10 @@ $app->post("/updategrup", [adminpanelcontroller::class,"updategrup"]);
 $app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
 $app->post("/addgrup", [adminpanelcontroller::class,"addgrup"]);
 $app->get("/deletegrup/{id}", [adminpanelcontroller::class,"deletegrup"]);
+$app->post("/getallplantillas", [adminpanelcontroller::class,"getallplantillas"]);
+$app->post("/general_orla", [orlescontroller::class,"general_orla"]);
+
+$app->get("/view_orla/{id}", [orlescontroller::class,"view_orla"]);
 
 
 $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
@@ -94,6 +99,7 @@ $app->post("/openModalGrup", [adminpanelcontroller::class, "updateModalGrup"]);
 
 
 $app->get("/register", [registercontroller::class,"addregister"]);
+$app->get("/pdforla", [orlescontroller::class,"pdforla"]);
 
 
 

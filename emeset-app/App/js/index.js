@@ -12,7 +12,8 @@ import {editar} from './profile.js';
 import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
 import {delmissatge} from './delmissatge.js';
-
+import {delmissatge} from './ajaxorlapdf.js';
+back_orla
 console.log("funcionaaaaa")
 darkmode();
 scrollFunction();

@@ -41,6 +41,10 @@ class Container extends EmesetContainer {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
                 return new \App\Models\missatges($c["db"]->getConnection());
             };
+            $this["plantilla_orla"] = function ($c) {
+                // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
+                return new \App\Models\plantilla_orla($c["db"]->getConnection());
+            };
 
             $this["db"] = function ($c) {
                 // Aqui podem inicialitzar totes les dependències del model i passar-les com a paràmetre.
