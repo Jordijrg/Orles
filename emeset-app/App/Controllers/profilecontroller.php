@@ -14,6 +14,7 @@ class profilecontroller
         $IdUsuari = $request->get("SESSION", "user")["IdUsuari"];
 
         $usuaris = $container["Users"]->getUserById($IdUsuari);
+
         $response->set("usuaris", $usuaris);
 
         $response->SetTemplate("profile.php");

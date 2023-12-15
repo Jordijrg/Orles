@@ -28,6 +28,7 @@ use App\Controllers\orles;
 use App\Controllers\LoginController;
 use App\Controllers\editororlescontroller;
 use App\Controllers\RecuperacioController;
+use App\Controllers\carnetcontroller;
 
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -73,6 +74,7 @@ $app->post("/recuperarPass", [RecuperacioController::class,"recuperarPass"]);
 $app->get("/resetPassword/{token}", [RecuperacioController::class,"token"]);
 $app->post("/updatePassword", [RecuperacioController::class,"updatePassword"]);
 
+$app->get("/carnet", [carnetcontroller::class,"index"]);
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
 $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
