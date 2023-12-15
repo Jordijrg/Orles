@@ -1447,13 +1447,11 @@ input:checked + .toggle-bg {
 .flex-wrap {
   flex-wrap: wrap;
 }
-<<<<<<< HEAD
-.content-start {
-  align-content: flex-start;
-=======
 .flex-nowrap {
   flex-wrap: nowrap;
->>>>>>> 660291c1c234038e387edeb4988ccf19d3da2f6e
+}
+.content-start {
+  align-content: flex-start;
 }
 .items-start {
   align-items: flex-start;
