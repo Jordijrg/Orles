@@ -30,6 +30,8 @@ class profilecontroller
 
         $usuaris = $container["Users"]->getUserById($IdUsuari);
         $Contrasenya = $usuaris["Contrasenya"];
+        $rol = $usuaris["Rol"];
+        $estado = $usuaris["estado"];
 
         if ($request->get(INPUT_POST, "Contrasenya") == "") {
             $Contrasenya = $Contrasenya;
@@ -46,7 +48,7 @@ class profilecontroller
         if ($Nom == "" or $Cognom == "" or $Correu == "") {
             $response->redirect("Location: /perfil/error");
         } else {
-            $usermodel=$container["Users"]->updateuser_user($IdUsuari,$Nom, $Cognom, $Correu, $Contrasenya);
+            $usermodel=$container["Users"]->updateuser($IdUsuari,$Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado );
             $response->redirect("Location: /perfil");
         }
 

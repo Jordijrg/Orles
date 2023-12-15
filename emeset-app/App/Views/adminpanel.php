@@ -19,35 +19,30 @@
 
 
 <body class="dark:bg-gray-900">
-
+<!-- INCLUDE HEADER -->
 <?php include "header.php" ?>
 
+<!-- CREATE SIDEBAR TO MOVE IN DIFFERENT DIVS -->
 <div>
     <nav class="navbar dark:bg-gray-900 border-inherit">
   <ul class="navbar__menu">
-    <li class="navbar__item">
-      <a href="/" class="navbar__link cursor-pointer"><i data-feather="home"></i><span>Inici</span></a>
-    </li>
     <li class="navbar__item cursor-pointer" id="usuarisbtn">
-      <a class="navbar__link" ><i data-feather="users"></i><span>Usuaris</span></a>        
+      <a class="navbar__link" ><i data-feather="user"></i><span>Usuaris</span></a>        
+    </li>
+    <li class="navbar__item cursor-pointer" id="grupsbtn">
+      <a href="#" class="navbar__link"><i data-feather="users"></i><span>Grups</span></a>        
     </li>
     <li class="navbar__item cursor-pointer" id="orlasbtn">
       <a  class="navbar__link" ><i data-feather="folder"></i><span>Orles</span></a>        
     </li>
-    <li class="navbar__item cursor-pointer" id="grupsbtn">
-      <a href="#" class="navbar__link"><i data-feather="archive"></i><span>Grups</span></a>        
-    </li>
     <li class="navbar__item cursor-pointer" id="usuarigrupsbtn">
-      <a href="#" class="navbar__link"><i data-feather="help-circle"></i><span>Help</span></a>        
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="settings"></i><span>Settings</span></a>        
+      <a href="#" class="navbar__link"><i data-feather="users"></i><span>Usuari/Grup</span></a>        
     </li>
   </ul>
 </nav>
 </div>
 
-
+<!-- DIV TO SHOW THE USERS -->
 <div id="usuaris" class="relative overflow-x-auto shadow-md sm:rounded-lg ml-36 mr-10">
     <div class="flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
         <label for="table-search" class="sr-only">Search</label>
@@ -57,7 +52,8 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
-            <input type="text" id="table-search-users" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscador per usuaris">
+            <input type="text" id="table-search-users" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-label="Buscador per usuaris">
+
         </div>
     </div>
     <table id="userTable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -136,7 +132,7 @@
 
     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer" data-modal-target="crud-modal" data-modal-toggle="crud-modal">
         <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-            <a class="navbar__link"><i data-feather="plus"></i></a> 
+            <a class="navbar__link" id="afgUser"><i data-feather="plus"></i></a> 
             <div class="ps-3">
                 <div class="text-base font-semibold" >Afegir Usuari</div>
                 
@@ -149,6 +145,7 @@
     </table>
 
 
+<!-- MODAL TO ADD USERS -->
 <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-7xl max-h-full">
         <!-- Modal content -->
@@ -205,7 +202,7 @@
 </div> 
 
 
-    
+    <!-- MODAL TO EDIT USERS -->
     <div id="editUserModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-7xl max-h-full">
         <!-- Modal content -->
@@ -267,36 +264,44 @@
 </div>
 
 
-
+<!-- DIV TO SHOW THE ORLAS -->
 <div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
 
 
-
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
-    </a>
-    <div class="p-5">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">DAW</h5>
-        </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
+<div id="accordion-collapse" data-accordion="collapse">
+  <?php foreach ($grups as $index => $grup) : ?>
+    <h2 id="accordion-collapse-heading-<?php echo $index + 1; ?>">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-<?php echo $index + 1; ?>" aria-expanded="<?php echo ($index === 0) ? 'true' : 'false'; ?>" aria-controls="accordion-collapse-body-<?php echo $index + 1; ?>">
+        <span><?php echo $grup['Nom']; ?></span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-collapse-body-<?php echo $index + 1; ?>" class="<?php echo ($index === 0) ? 'block' : 'hidden'; ?>" aria-labelledby="accordion-collapse-heading-<?php echo $index + 1; ?>">
+        <?php foreach ($usuaris as $usuari) : ?>
+            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                <p class="mb-2 text-gray-500 dark:text-gray-400"><?php echo $usuari['Nom']; ?></p>
+            </div>
+        <?php endforeach; ?>
     </div>
+    
+  <?php endforeach; ?>
 </div>
-<button id="scrollToTopBtn"
-            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="h-6 w-6 dark:stroke-black">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
-                </path>
-            </svg>
-        </button>
+
+
+
+
+
+
+
+<button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" onclick="scrollToTop()" style="display: none;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M7.41 15.41L12 12l4.59-4.59L18.58 12 12 18.58 7.41 15.41z"/>
+  </svg>
+  <span aria-label="Scroll to top">Scroll to top</span>
+</button>
     
 </div>
 
@@ -304,7 +309,7 @@
 
 
 
-
+<!-- DIV TO SHOW THE GROUPS -->
 <div id="grups" class="relative overflow-x-auto shadow-md sm:rounded-lg ml-36 mr-10 hidden">
     <div class="flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
         <label for="table-search" class="sr-only">Search</label>
@@ -314,7 +319,7 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
-            <input type="text" id="table-search-grups" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscador per grups">
+            <input type="text" id="table-search-grups" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-label="Buscador per grups">
         </div>
     </div>
     <table id="grupTable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -381,7 +386,7 @@
 ?>
     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer" data-modal-target="afegirUsuari" data-modal-toggle="afegirUsuari">
         <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-            <a class="navbar__link"><i data-feather="plus"></i></a> 
+            <a class="navbar__link" id="afgGrup"><i data-feather="plus"></i></a> 
             <div class="ps-3">
                 <div class="text-base font-semibold" >Afegir Grup</div>
                 
@@ -394,7 +399,7 @@
     </table>
 </div> 
 
-
+<!-- MODAL FOR EDIT GRUPS-->
  <div id="editGrupModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-7xl max-h-full">
         <!-- Modal content -->
@@ -447,7 +452,7 @@
 </div>
 
 
-
+<!-- MODAL TO ADD GRUP -->
 <div id="afegirUsuari" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-7xl max-h-full">
         <!-- Modal content -->
@@ -483,6 +488,7 @@
 </div>
 
 
+<!-- DIV TO SHOW USUARIS AND HIS GROUP -->
 <div id="usuariGrup" class="relative sm:rounded-lg ml-36 mr-10 hidden">
     <div class="flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
         <label for="table-search" class="sr-only">Search</label>
@@ -492,7 +498,8 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
-            <input type="text" id="table-search-usuarigrup" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscador per usuaris i grups">
+            <input type="text" id="table-search-usuarigrup" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-50" aria-label="Buscador per usuaris i grups">
+
         </div>
     </div>
     <table id="usuarigrupTable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -545,7 +552,7 @@
 ?>
     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer" data-modal-target="afegirUsuariGrup" data-modal-toggle="afegirUsuariGrup">
         <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-            <a class="navbar__link"><i data-feather="plus"></i></a> 
+            <a class="navbar__link" id="afgUserGrup"><i data-feather="plus"></i></a> 
             <div class="ps-3">
                 <div class="text-base font-semibold" >Afegir Grup</div>
                 
@@ -558,7 +565,7 @@
     </table>
 </div>
 
-
+<!-- MODAL FOR EDIT USERS AND GROUPS -->
 <div id="editUserGrupModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <!-- Modal content -->
@@ -600,6 +607,7 @@
     </div>
 </div> 
 
+<!-- MODAL TO ADD USER TO GROUP -->
 <div id="afegirUsuariGrup" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-7xl max-h-full">
         <!-- Modal content -->
