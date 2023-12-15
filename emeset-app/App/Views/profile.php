@@ -25,29 +25,23 @@
         <?php include 'header.php'; ?>
 </div>
         
-<div class=" px-4 mx-auto max-w-screen-xl">
-<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-12 mb-4 mt-4">
-<center>                     
-<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 border-none">
-    <div class="flex flex-col items-center pb-10">
-        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="/images/inici.png" alt="Bonnie image"/>
-        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $usuaris['Nom'] . " " . $usuaris['Cognom']?></h5>
-        <span class="text-sm text-gray-500 dark:text-gray-400"><?= $usuaris['Correu']?></span>
-        <div class="flex mt-4 md:mt-6">
-            <a href="#" data-modal-target="static-modal" data-modal-toggle="static-modal" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Veure el carnet</a>
-            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Enviar un missatge</a>
+<div class="px-4 mx-auto max-w-screen-xl">
+    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-12 mb-4 mt-4 flex flex-row flex-nowrap justify-center items-center">
+        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 border-none ">
+
+            <div class="flex flex-col items-center pb-10 justify-center">
+                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="/images/inici.png" alt="Bonnie image">
+                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $usuaris['Nom'] . " " . $usuaris['Cognom']?></h5>
+                <span class="text-sm text-gray-500 dark:text-gray-400"><?= $usuaris['Correu']?></span>
+
+                <div class="flex mt-4 md:mt-6 justify-center"> 
+                    <a href="#" data-modal-target="static-modal" data-modal-toggle="static-modal" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus-ring-gray-700 ms-3">Veure el carnet</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
-</center>  
-
-</div>
-</div>
-        
-        
-
-
-
 
 
 <div class=" px-4 mx-auto max-w-screen-xl">
@@ -67,8 +61,7 @@
                             Nom
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Cognom" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['Nom']?>" disabled>
+                            <input type="text" name="Nom" id="Nom" class="dark:bg-gray-800 border-none w-full" required="" value="<?= $usuaris['Nom']?>" disabled aria-label="Nom de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -80,8 +73,7 @@
                             Cognom
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Cognom" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['Cognom']?>" disabled>
+                            <input type="text" name="Cognom" id="Cognom" class="dark:bg-gray-800 border-none w-full" required="" value="<?= $usuaris['Cognom']?>" disabled aria-label="Cognom de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -93,24 +85,12 @@
                             Correu
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Cognom" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['Correu']?>" disabled>
+                            <input type="text" name="Correu" id="Correu" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['Correu']?>" disabled aria-label="Correu de l'Usuari">
                         </p>
                     </div>
                 </div>
             </li>
-            <!-- <li class="py-3">
-                <div class="flex items-center ">
-                    <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            Contrasenya
-                        </p>
-                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Contrasenya" id="name" class="dark:bg-gray-800 border-none w-full">
-                        </p>
-                    </div>
-                </div>
-            </li> -->
             <li class="py-3">
                 <div class="flex items-center ">
                     <div class="flex-1 min-w-0 ms-4">
@@ -118,8 +98,8 @@
                             Estat
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="estado" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['estado']?>" disabled>
+                            <input type="text" name="estado" id="estado" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['estado']?>" disabled aria-label="Estat de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -131,8 +111,8 @@
                             Rol
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="rol" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['rol']?>" disabled>
+                            <input type="text" name="rol" id="Rol" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['rol']?>" disabled aria-label="Rol de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -168,10 +148,10 @@
                             Nom
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="hidden" name="IdUsuari" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['IdUsuari']?>">
-                            <input type="text" name="Nom" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['Nom']?>">
+                            <input type="hidden" name="IdUsuari" id="IdUsuariV" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['IdUsuari']?>" aria-label="IdUsuari">
+                            <input type="text" name="Nom" id="NomV" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['Nom']?>" aria-label="Nom de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -183,8 +163,8 @@
                             Cognom
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Cognom" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['Cognom']?>">
+                            <input type="text" name="Cognom" id="CognomV" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['Cognom']?>" aria-label="Cognom de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -196,8 +176,8 @@
                             Correu
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Correu" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['Correu']?>">
+                            <input type="text" name="Correu" id="CorreuV" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['Correu']?>" aria-label="Correu de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -209,7 +189,7 @@
                             Contrasenya
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Contrasenya" id="name" class="dark:bg-gray-800 border-none w-full">
+                            <input type="text" name="Contrasenya" id="ContrasenyaV" class="dark:bg-gray-800 border-none w-full" aria-label="Contrasenya de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -221,8 +201,8 @@
                             Estat
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Cognom" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['estado']?>" disabled>
+                            <input type="text" name="Cognom" id="EstadoV" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['estado']?>" disabled aria-label="Estat de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -234,8 +214,8 @@
                             Rol
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            <input type="text" name="Cognom" id="name" class="dark:bg-gray-800 border-none w-full" 
-                            required="" value="<?= $usuaris['rol']?>" disabled>
+                            <input type="text" name="Cognom" id="RolV" class="dark:bg-gray-800 border-none w-full" 
+                            required="" value="<?= $usuaris['rol']?>" disabled aria-label="Rol de l'Usuari">
                         </p>
                     </div>
                 </div>
@@ -295,27 +275,17 @@
         </div>
     </div>
 </div>
-        <button id="scrollToTopBtn"
-            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="h-6 w-6 dark:stroke-black">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
-                </path>
-            </svg>
-        </button>
+        <button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" style="display: none;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-label="Scroll to Top">
+    <path d="M5 5h14l-5-5v14l5-5z"></path>
+  </svg>
+  <span aria-label="Scroll to Top" class="hidden">Scroll to Top</span>
+</button>
 
 
 
 </div>
 <?php include 'modalperfil.php'; ?>
-<button id="scrollToTopBtn"
-            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="h-6 w-6 dark:stroke-black">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
-                </path>
-            </svg>
-        </button>
 <script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>
 

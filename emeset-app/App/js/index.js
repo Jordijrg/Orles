@@ -1,5 +1,5 @@
 import jQuery from 'jquery';
-import {toggleUsuaris,toggleOrlas, toggleGrups} from './menupanel.js'
+import {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups} from './menupanel.js'
 import {ajax} from './adminpanel.js'
 import {random} from './random.js'
 import {randomuser} from './randomuser.js'
@@ -63,6 +63,9 @@ $("#btnmenu").click((e)=>{
     })
     jQuery('#grupsbtn').click(()=>{
         toggleGrups()
+    })
+    jQuery('#usuarigrupsbtn').click(()=>{
+        toggleUsuariGrups()
     })
 
 feather.replace()  
