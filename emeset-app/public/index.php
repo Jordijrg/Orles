@@ -23,6 +23,7 @@ use App\Controllers\ajaxcontroller;
 use App\Controllers\adminpanelcontroller;
 use App\Controllers\profilecontroller;
 use App\Controllers\missatgecontroller;
+use App\Controllers\orles;
 
 use App\Controllers\LoginController;
 use App\Controllers\editororlescontroller;
@@ -67,7 +68,10 @@ $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);
 $app->post("/imagensajax", [ajaxcontroller::class,"imagensajax"]);
 $app->get("/recuperacio", [RecuperacioController::class,"index"]);
+$app->get("/recuperacio/{missatge}", [RecuperacioController::class,"index"]);
 $app->post("/recuperarPass", [RecuperacioController::class,"recuperarPass"]);
+$app->get("/resetPassword/{token}", [RecuperacioController::class,"token"]);
+$app->post("/updatePassword", [RecuperacioController::class,"updatePassword"]);
 
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 
@@ -75,20 +79,32 @@ $app->post("/updateprofile", [profilecontroller::class,"updateprofile"]);
 $app->get("/perfil/error", [profilecontroller::class,"error"]); 
 $app->get("/editororles", [editororlescontroller::class,"index"]); 
 
+$app->get("/orles", [orles::class,"index"]); 
+
 
 
 $app->get("/adminpanel", [adminpanelcontroller::class,"index"] , [[\App\Middleware\Auth::class,"auth"]] );
 $app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
 $app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
+$app->post("/adduserrandom", [adminpanelcontroller::class,"adduserrandom"]);
 $app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
 $app->post("/updategrup", [adminpanelcontroller::class,"updategrup"]);
 $app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
+
 $app->post("/addgrup", [adminpanelcontroller::class,"addgrup"]);
+$app->post("/addusergrup", [adminpanelcontroller::class,"addusergrup"]);
 $app->get("/deletegrup/{id}", [adminpanelcontroller::class,"deletegrup"]);
+$app->get("/deleteusergrup/{id}", [adminpanelcontroller::class,"deleteusergrup"]);
+$app->post("/updateusergrup", [adminpanelcontroller::class,"updateusergrup"]);
 
 
+$app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);
+$app->post("/modalRandom", [adminpanelcontroller::class, "updateRandom"]);
 $app->post("/openModalUser", [adminpanelcontroller::class, "updateModalUser"]);
 $app->post("/openModalGrup", [adminpanelcontroller::class, "updateModalGrup"]);
+$app->post("/openModalUserGrup", [adminpanelcontroller::class, "updateModalUserGrup"]);
+
+
 
 
 $app->get("/register", [registercontroller::class,"addregister"]);

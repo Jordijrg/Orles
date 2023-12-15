@@ -18,8 +18,8 @@ class adminpanelcontroller
         $grups = $container["Users"]->getAllGrups();
         $response->set("grups", $grups);
 
-
-
+        $usuari_grup = $container["Users"]->getAllUsersAndGrups();
+        $response->set("usuari_grup", $usuari_grup);
 
         return $response;
     }
@@ -46,6 +46,24 @@ class adminpanelcontroller
 
         $usermodel = $container["Users"]->adduser($Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado);
 
+        $response->redirect("Location: /adminpanel");
+
+        return $response;
+
+    }
+
+public function addusergrup($request, $response, $container)
+    {
+        $nomUsuari = $request->get(INPUT_POST, "nomUsuari");
+        $IdUsuari = $container["Users"]->getIdUsuari($nomUsuari);
+        $IdUsuari = $IdUsuari["IdUsuari"];
+
+        $nomGrup = $request->get(INPUT_POST, "nomGrup");
+        $IdGrup = $container["Users"]->getIdGrup($nomGrup);
+        $IdGrup = $IdGrup["IdGrup"];
+
+
+        $usermodel = $container["Users"]->addusergrup($IdUsuari, $IdGrup);
         $response->redirect("Location: /adminpanel");
 
         return $response;
@@ -165,6 +183,46 @@ class adminpanelcontroller
 
         }
 
+        public function updateModalUserGrup($request, $response, $container){
+
+            $id_d = $request->get(INPUT_POST, "id_d");
+
+            $usermodel=$container["Users"]->getUsersAndGrupsById($id_d);
+
+            if(!empty($usermodel)){
+                $response->set("id", $usermodel);
+                $response->setJSON();
+            } else{
+                $response->set("id", "error");
+                $response->setJSON();
+            }
+
+            return $response;
+
+        }
+
+        public function updateRandom($request, $response, $container){
+            $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
+
+            $usermodel = [
+                'password' => 'testing10',
+                'role' => '',
+                'state' => 'pendent',
+            ];
+            
+
+            if (!empty($usermodel)) {
+                $response->set("id", $usermodel);
+                $response->setJSON();
+            } else {
+                $response->set("id", "error");
+                $response->setJSON();
+            }
+        
+            return $response;
+        }
+        
+        
         public function addgrup($request, $response, $container){
             $Nom = $request->get(INPUT_POST, "Nom"); 
             
@@ -176,6 +234,7 @@ class adminpanelcontroller
             
         }
 
+
         public function deletegrup($request, $response, $container){
             $model = $container->get("Users");
             $id = $request->getParam("id");
@@ -184,5 +243,37 @@ class adminpanelcontroller
     
             return $response;
         }
+
+        public function deleteusergrup($request, $response, $container){
+            $model = $container->get("Users");
+            $id = $request->getParam("id");
+            $model->deleteusergrup($id);
+            $response->redirect("Location: /adminpanel");
+    
+            return $response;
+        }
+
+        public function updateusergrup($request, $response, $container){
+
+            $id_d = $request->get(INPUT_POST, "id_d");
+
+            $nomUsuari = $request->get(INPUT_POST, "nomUsuari");
+            $IdUsuari = $container["Users"]->getIdUsuari($nomUsuari);
+            $IdUsuari = $IdUsuari["IdUsuari"];
+
+            $nomGrup = $request->get(INPUT_POST, "nomGrup");
+            $IdGrup = $container["Users"]->getIdGrup($nomGrup);
+            $IdGrup = $IdGrup["IdGrup"];
+
+            
+           $usermodel = $container["Users"]->updateusergrup($id_d, $IdGrup);
+
+            $response->redirect("Location: /adminpanel");
+
+            return $response;
+        }
+
+        
+
 
 }
