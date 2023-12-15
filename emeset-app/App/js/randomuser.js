@@ -12,13 +12,13 @@ function randomuser(userId) {
           dataType: 'json',
           success: function (data) {
             resolve(data);
-            const names = data.results[0].name.first;
-            const surname = data.results[0].name.last;
-            const email = data.results[0].email;
+            const namess = data.results[0].name.first;
+            const surnames = data.results[0].name.last;
+            const emails = data.results[0].email;
   
-            $("#names").val(names);
-            $("#surname").val(surname);
-            $("#email").val(email);
+            $("#namess").val(namess);
+            $("#surnames").val(surnames);
+            $("#emails").val(emails);
           },
           error: function (error) {
             reject(error);

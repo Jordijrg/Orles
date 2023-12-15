@@ -206,8 +206,8 @@ public function addusergrup($request, $response, $container)
 
             $usermodel = [
                 'password' => 'testing10',
-                'role' => '',
-                'state' => 'pendent',
+                'roles' => '',
+                'states' => 'pendent',
             ];
             
 
