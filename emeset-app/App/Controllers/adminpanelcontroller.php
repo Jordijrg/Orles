@@ -122,7 +122,6 @@ class adminpanelcontroller
     
     public function userimport($request, $response, $container)
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Verifica si se ha enviado un archivo
             if (isset($_FILES['CSV']) && $_FILES['CSV']['error'] === UPLOAD_ERR_OK) {
                 $file = $_FILES['CSV']['tmp_name'];
@@ -140,7 +139,6 @@ class adminpanelcontroller
                 echo "Error al subir el archivo CSV.";
             }
             
-        }
         $response->redirect("Location: /adminpanel");
         return $response;
     }
