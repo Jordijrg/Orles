@@ -332,26 +332,19 @@
 
 
 <!-- DIV TO SHOW THE ORLAS -->
-<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
-        <div class="flex items-center	">
-        <div class="ps-3">
-                           <a href="/crear_orlaplantilla"> <div class="text-base font-semibold flex items-center" style="    border: 2px solid;
-    padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius:10px;
+<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden" >
+<div style="    display: flex !important;
+    flex-flow: row;
+    place-content: center;
+    align-items: center;
 ">
-                                <p>Afegir plantilla d'una orle</p>
-                            <a class="" style="float:right;"><i data-feather="plus"></i></a>
-                            </div>
+<h3 class="txt-2xl lg:text-4xl font-extrabold text-gray-900 dark:text-white" style="text-align:center;">Fes click a la plantilla per crear una orle </h3>
 
-                        </div>        
-                        </a>     
+</div>
       
                       
-                        </div>
-<div class="grid grid-cols-3">
- 
+<div class="" style="padding:20px;">
+
 <?php  
 
 foreach ($plantillaorla as $key => $value) {?>
@@ -406,9 +399,9 @@ foreach ($plantillaorla as $key => $value) {?>
 
 
 <!-- DIV TO SHOW ORLAS GENERATED -->
-<div id="orlas_generadas" class="relative sm:rounded-lg ml-36 mr-10 hidden ">
+<div id="orlas_generadas" class="relative sm:rounded-lg ml-36 mr-10 hidden " style="padding:20px;">
        
-<div class="grid grid-cols-3">
+<div class="grid grid-cols-3 gap-5">
  
 <?php  
 
