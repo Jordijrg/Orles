@@ -26,10 +26,10 @@
 
                         <h5
                             class="p-2 border-t-2 dark:border-t-white border-t-black mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
-                            <?php echo $orla['Nom'] ?>
+                            <?php echo $orla['Nom']."<br>".$orla['dataCreacio'] ?>
                         </h5>
-                        <div class=" font-normal text-gray-700 dark:text-gray-400"><img alt="imatge orla" class="rounded-lg"
-                                src="/images/<?php echo $orla['SrcImatge'] ?>"></div>
+                        <div class=" font-normal text-gray-700 dark:text-gray-400 flex justify-center"><img alt="imatge orla" class="rounded-lg w-48"
+                                src="/images/orla.png"></div>
                     </a>
                 </div>
             <?php endforeach; ?>
@@ -77,12 +77,13 @@
 
         <div class="col-span-2 grid grid-cols-3 gap-4">
             <div class="col-span-3 grid grid-cols-2 dark:text-white">
-                <h2 class="font-bold text-2xl border-l-2 border-l-black pl-2  dark:border-l-white col-span-1">FOTOGRAFIES</h2>
-                <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                <h2 class="font-bold text-2xl border-l-2 border-l-black pl-2  dark:border-l-white col-span-1">
+                    FOTOGRAFIES</h2>
+                <!-- <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
                     class="col-span-1 block text-white bg-black hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-500 dark:focus:ring-blue-800"
                     type="button">
                     Notificar Error
-                </button>
+                </button> -->
             </div>
 
             <!-- Main modal -->
@@ -146,8 +147,8 @@
                             <?php echo $fotografia['Nomuser']; ?>
                             <?php echo $fotografia['Coguser']; ?>
                         </h5>
-                        <div class="font-normal text-gray-700 dark:text-gray-400 flex justify-center"><img alt="imatge persona"
-                                data-user="<?php echo $lastorla['IdUsuari'] ?>"
+                        <div class="font-normal text-gray-700 dark:text-gray-400 flex justify-center"><img
+                                alt="imatge persona" data-user="<?php echo $lastorla['IdUsuari'] ?>"
                                 class="object-cover w-32 h-32 mb-3 rounded-full shadow-lg overflow-hidden"
                                 src="/images/<?php echo $fotografia['Srcimatge'] ?>"></div>
                     </a>
@@ -183,17 +184,19 @@
                                 <h2 class="border-l-2 border-l-black pl-2  dark:border-l-white">ORLA</h2>
                             </div>
                             <div class="col-span-1 dark:text-white">
-                                <h2 class="border-l-2 border-l-black pl-2  dark:border-l-white">IMATGE</h2>
+                                <h2 class="border-l-2 border-l-black pl-2  dark:border-l-white">FOTOGRAFIA</h2>
                             </div>
                             <div class=" col-span-1 flex justify-center">
                                 <a class="block max-w-sm p-6 rounded-lg  ">
-                                    <div class="font-normal text-gray-700 dark:text-gray-400 "><img alt="imatge orla" class="rounded-lg"
-                                            src="/images/<?php echo $lastorla["SrcImatge"]; ?>"></div>
+                                    <div class="font-normal text-gray-700 dark:text-gray-400 "><img alt="imatge orla"
+                                            class="rounded-lg w-72" src="/images/orla.png">
+                                    </div>
                                 </a>
                             </div>
                             <div class=" col-span-1 flex justify-center">
                                 <a class="block max-w-sm p-6  rounded-lg  ">
-                                    <div class="font-normal text-gray-700 dark:text-gray-400 srcfoto iduser"><img alt="imatge persona"
+                                    <div class="font-normal text-gray-700 dark:text-gray-400 srcfoto iduser"><img
+                                            alt="imatge persona"
                                             class="object-cover w-48 h-48 mb-3 rounded-full shadow-lg" src="/">
                                     </div>
                                 </a>
@@ -215,7 +218,8 @@
         </div>
         <div class="col-span-2 grid grid-cols-6 gap-4 mt-3">
             <div class="col-span-6 dark:text-white ">
-                <h2 class="font-bold text-2xl border-l-2 border-l-black pl-2  dark:border-l-white">IMATGES SELECCIONADES</h2>
+                <h2 class="font-bold text-2xl border-l-2 border-l-black pl-2  dark:border-l-white">IMATGES SELECCIONADES
+                </h2>
                 <div>
                     <?php echo $error ?>
                 </div>
@@ -229,8 +233,8 @@
                             <?php echo $imgselect['Nomuser']; ?>
                             <?php echo $imgselect['Coguser']; ?>
                         </h5>
-                        <div class="flex justify-center font-normal text-gray-700 dark:text-gray-400 "><img alt="Imatge Seleccionada"
-                                class="object-cover w-32 h-32 mb-3 rounded-full shadow-lg"
+                        <div class="flex justify-center font-normal text-gray-700 dark:text-gray-400 "><img
+                                alt="Imatge Seleccionada" class="object-cover w-32 h-32 mb-3 rounded-full shadow-lg"
                                 src="/images/<?php echo $imgselect['Srcimatge'] ?>"></div>
                         <button data-id="<?php echo $imgselect['IdImatge'] ?>" data-modal-target="popup-modal"
                             data-modal-toggle="popup-modal"
@@ -245,13 +249,19 @@
             <?php endforeach; ?>
         </div>
         <button id="scrollToTopBtn"
-            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" aria-label="Ir arriba">
+            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50"
+            aria-label="Ir arriba">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                 class="h-6 w-6 dark:stroke-black">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
                 </path>
             </svg>
         </button>
+        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" id="errorNotificationBtn" class="fixed bottom-4 left-4  p-2 rounded-full z-50 text-white bg-black hover:bg-zinc-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-white dark:hover:bg-zinc-200 dark:text-black "
+            aria-label="Notificar error">
+            Notificar error
+        </button>
+
     </div>
     <div id="popup-modal" tabindex="-1"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -289,13 +299,14 @@
     <!-- Modal -->
     <div id="myModal"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full flex">
-        <div class="border border-2 border-black dark:border-zinc-600 dark:text-white modal-container bg-white dark:bg-gray-700 relative p-4 w-80 max-w-4xl max-h-full rounded overflow-y-auto">
+        <div
+            class="border border-2 border-black dark:border-zinc-600 dark:text-white modal-container bg-white dark:bg-gray-700 relative p-4 w-80 max-w-4xl max-h-full rounded overflow-y-auto">
             <div class="modal-content py-4 text-left px-6 h-full">
                 <!-- Modal Header -->
                 <div class="flex justify-between items-center pb-3">
                     <div class="text-2xl font-bold text-red-600">Alerta!</div>
                     <div class="modal-close cursor-pointer z-50">
-                    <!-- <div class="modal-close cursor-pointer z-50" data-modal-hide="default-modal"> -->
+                        <!-- <div class="modal-close cursor-pointer z-50" data-modal-hide="default-modal"> -->
                         <svg class="fill-current text-black dark:text-white" xmlns="http://www.w3.org/2000/svg"
                             width="18" height="18" viewBox="0 0 18 18">
                             <path
