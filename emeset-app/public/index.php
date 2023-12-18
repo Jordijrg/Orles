@@ -73,6 +73,7 @@ $app->get("/recuperacio/{missatge}", [RecuperacioController::class,"index"]);
 $app->post("/recuperarPass", [RecuperacioController::class,"recuperarPass"]);
 $app->get("/resetPassword/{token}", [RecuperacioController::class,"token"]);
 $app->post("/updatePassword", [RecuperacioController::class,"updatePassword"]);
+$app->post("/ajax_orlas_visibility", [ajaxcontroller::class,"ajax_orlas_visibility"]);
 
 
 $app->get("/perfil", [profilecontroller::class,"index"]); 

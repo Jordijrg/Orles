@@ -99,4 +99,10 @@ class Orles
         $stm->execute();
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
+    public function updateestado($estado,$id){
+      
+        $query = 'UPDATE orles SET estat = :estat WHERE IdOrla = :IdOrla;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':estat' => $estado,':IdOrla'=>$id]);
+    } 
 }

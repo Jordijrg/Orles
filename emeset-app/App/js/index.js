@@ -1,5 +1,5 @@
 import jQuery from 'jquery';
-import {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups} from './menupanel.js'
+import {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups,toggleorlasgeneradas} from './menupanel.js'
 import {ajax} from './adminpanel.js'
 import {random} from './random.js'
 import {randomuser} from './randomuser.js'
@@ -8,12 +8,14 @@ import {darkmode} from './darkmode.js';
 import {scrollToTop,scrollFunction} from './onscroll.js';
 import {addfotoorla} from './addfotoorla.js';
 import {editar} from './profile.js';
+import {viwer} from './ajax_btn_viwer.js';
 
 import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
 import {delmissatge} from './delmissatge.js';
 
 console.log("funcionaaaaa")
+viwer()
 darkmode();
 scrollFunction();
 scrollToTop();
@@ -68,4 +70,8 @@ $("#btnmenu").click((e)=>{
         toggleUsuariGrups()
     })
 
+
+    jQuery('#orlas_generadasbtn').click(()=>{
+        toggleorlasgeneradas()
+    })
 feather.replace()

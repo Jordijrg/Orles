@@ -58,11 +58,27 @@ function toggleUsuariGrups() {
         grups.style.display = "none";
         orlas.style.display = "none";
         usuaris.style.display = "none";
+        orlas_generadas.style.display = "none";
     } else {
         usuariGrup.style.display = "none";
     }
 }
+function toggleorlasgeneradas() {
+    let orlas_generadas=document.getElementById("orlas_generadas")
+    var grups = document.getElementById("grups");
+    var orlas = document.getElementById("orlas");
+    var usuaris = document.getElementById("usuaris");
+    var usuariGrup = document.getElementById("usuariGrup");
+    if (orlas_generadas.style.display === "none" || orlas_generadas.style.display === "") {
+        orlas_generadas.style.display = "block";
+        usuariGrup.style.display = "none";
+        grups.style.display = "none";
+        orlas.style.display = "none";
+        usuaris.style.display = "none";
+    } else {
+        orlas_generadas.style.display = "none";
+    }
+}
 
-
-
-export {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups};
+// 
+export {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups,toggleorlasgeneradas};

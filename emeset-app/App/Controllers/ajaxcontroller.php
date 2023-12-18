@@ -53,7 +53,17 @@ class ajaxcontroller
     return $response;
 
     }
-
+    public function ajax_orlas_visibility($request, $response, $container)
+    {       
+        $estado=$_POST["estado"];
+        $id=$_POST["id"];
+        $updat_main = $container["Orles"]->updateestado($estado,$id);
+        
+        $response->set("respuesta",$_POST); 
+        $response->setJson();  
+    return $response;
+    }
+    
    
 
 }
