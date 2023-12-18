@@ -26,8 +26,6 @@ class missatgecontroller
     {
         $model = $container->get("missatges");
         $id = $request->getParam("id");
-        print_r( $id);
-        die();
         $model->delmssg($id);
         $response->redirect("Location: /missatge");
         return $response;
