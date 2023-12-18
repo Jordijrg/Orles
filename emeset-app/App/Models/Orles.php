@@ -65,6 +65,28 @@ class Orles
         return $tasks;
         
     }
+    public function getallorles_ALL()
+    {
+
+        $query = 'SELECT * FROM `orles` ORDER BY `IdOrla` DESC';
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+        // if ($stm->errorCode() !== '00000') {
+        //     $err = $stm->errorInfo();
+        //     $code = $stm->errorCode();
+        //     die("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        // }
+        
+        // return $stm->fetch(\PDO::FETCH_ASSOC);
+        $stm->execute();
+
+        $tasks = array();
+        while ($task = $stm->fetch(\PDO::FETCH_ASSOC)) {
+            $tasks[] = $task;
+        }
+        return $tasks;
+        
+    }
     public function lastorla($id){
         $query = 'select orles.*, grup.Nom as "Nom",usuaris.IdUsuari "IdUsuari" from orles 
         join grup on orles.idgrup = grup.IdGrup

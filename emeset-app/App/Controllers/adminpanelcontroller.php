@@ -18,9 +18,11 @@ class adminpanelcontroller
         $response->set("grups", $grups);
 
         $plantillaorla = $container["plantilla_orla"]->getAllorlas();
-      
+        $orlas= $container["Orles"]->getallorles_ALL();
+        
         $response->set("plantillaorla",$plantillaorla);
-
+        $response->set("orlas",$orlas);
+//
 
         $usuari_grup = $container["Users"]->getAllUsersAndGrups();
         $response->set("usuari_grup", $usuari_grup);

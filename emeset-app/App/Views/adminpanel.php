@@ -348,7 +348,12 @@
                       
                         </div>
 <div class="grid grid-cols-3">
-    <div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+ 
+<?php  
+
+foreach ($plantillaorla as $key => $value) {?>
+
+<div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div>
                 <a href=""></a>
             </div>
@@ -371,13 +376,61 @@
                 </path>
             </svg>
         </button>
-<?php  
-
-foreach ($plantillaorla as $key => $value) {?>
-
-
         
         <?php }?>
+        
+</div>
+    </div>
+
+
+
+
+
+
+
+<button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" onclick="scrollToTop()" style="display: none;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M7.41 15.41L12 12l4.59-4.59L18.58 12 12 18.58 7.41 15.41z"/>
+  </svg>
+  <span aria-label="Scroll to top">Scroll to top</span>
+</button>
+    
+</div>
+
+<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 ">
+       
+<div class="grid grid-cols-3">
+ 
+<?php  
+
+foreach ($orlas as $key => $value) {?>
+
+<div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div>
+                <a href=""></a>
+            </div>
+            <a href="#">
+                <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["nomorle"]; ?></h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["datacreacio"]; ?></h5>
+                </a>
+            </div>
+        </div>
+        <button id="scrollToTopBtn"
+            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                class="h-6 w-6 dark:stroke-black">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
+                </path>
+            </svg>
+        </button>
+        
+        <?php }?>
+        
 </div>
     </div>
 

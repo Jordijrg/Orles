@@ -10,7 +10,7 @@ return [
     ],
     "db" => [
         "user" => "root",
-        "pass" => "1234",
+        "pass" => "",
         "db" => "orlas",
         "host" => "localhost",
     ],
