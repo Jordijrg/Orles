@@ -38,10 +38,6 @@
     <li class="navbar__item cursor-pointer" id="usuarigrupsbtn">
       <a href="#" class="navbar__link"><i data-feather="users"></i><span>Usuari/Grup</span></a>        
     </li>
-    
-               <li class="navbar__item cursor-pointer" id="orlas_generadasbtn">
-      <a href="#" class="navbar__link"><i data-feather="users"></i><span>Orles Existents</span></a>        
-    </li>
     <?php
             if ($user["rol"] === "equip_directiu" || $user["rol"] === "profe") {?>
     <li class="navbar__item">
@@ -458,74 +454,6 @@ foreach ($plantillaorla as $key => $value) {?>
 
 
 
-
-<!-- DIV TO SHOW ORLAS GENERATED -->
-<div id="orlas_generadas" class="relative sm:rounded-lg ml-36 mr-10 hidden ">
-       
-<div class="grid grid-cols-3">
- 
-<?php  
-
-foreach ($orlas as $key => $value) {?>
-
-<div  class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div>
-                <p>Estat de l'orle <span id="<?php  echo "estado".$value["IdOrla"]; ?>"> <?php echo $value["estat"]; ?></span></p> 
-            <label class="relative inline-flex items-center cursor-pointer">
-                 
-            <input type="checkbox" value="<?php echo $value["estat"]; ?>" class="sr-only peer btn_viwer_ora" id="" data-id="<?php echo $value["IdOrla"]; ?>" <?php 
-                if($value["estat"]=="invisible"){
-
-                }else{
-                    echo "checked";
-                }
-            
-            ?>>
-                    
-                    <div
-                      class="w-8 h-4 bg-gray-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                    </div>
-
-                  </label>            </div>
-            
-                <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
-            
-            <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["nomorle"]; ?></h5>
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["datacreacio"]; ?></h5>
-                
-            </div>
-        
-        </div>
-        <button id="scrollToTopBtn"
-            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="h-6 w-6 dark:stroke-black">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
-                </path>
-            </svg>
-        </button>
-        
-        <?php }?>
-        
-</div>
-    </div>
-
-
-
-
-
-
-
-<button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" onclick="scrollToTop()" style="display: none;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M7.41 15.41L12 12l4.59-4.59L18.58 12 12 18.58 7.41 15.41z"/>
-  </svg>
-  <span aria-label="Scroll to top">Scroll to top</span>
-</button>
-    
-</div>
 
 <!-- DIV TO SHOW THE GROUPS -->
 <div id="grups" class="relative overflow-x-auto shadow-md sm:rounded-lg ml-36 mr-10 hidden">
