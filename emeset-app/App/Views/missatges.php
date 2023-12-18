@@ -16,12 +16,12 @@
     <?php if ($_SESSION["user"]["rol"] == "gestor") {
         ; ?>
         <div class="grid grid-cols-2 gap-7 p-5 content-start ">
-                <div class="col-span-1 grid grid-cols-2 gap-7 ">
-                    <div class="col-span-2">
+                <div class="col-span-1 grid grid-cols-3 gap-7 ">
+                    <div class="col-span-3">
                         <h1 class="text-3xl font-bold text-center dark:text-white">Missatges sense llegir <?php echo $missatgesnovists[0]["Count"]; ?> </h1>
                     </div>
                     <?php foreach ($missatgesnovists as $missatgenovist): ?>
-                        <div class="bg-gray-100 col-span-2 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
+                        <div class="bg-gray-100 col-span-1 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
                             <div class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg">
                             <?php echo ($missatgenovist["Nom"]); ?> <?php echo ($missatgenovist["Cognom"]); ?> 
                             </div>
