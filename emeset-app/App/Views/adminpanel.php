@@ -35,7 +35,6 @@
     <li class="navbar__item cursor-pointer" id="orlasbtn">
       <a  class="navbar__link" ><i data-feather="folder"></i><span>Orles</span></a>        
     </li>
-<<<<<<< HEAD
     <li class="navbar__item cursor-pointer" id="grupsbtn">
       <a href="#" class="navbar__link"><i data-feather="archive"></i><span>Grups</span></a>        
     </li>
@@ -44,10 +43,8 @@
     </li>
     <li class="navbar__item">
       <a href="#" class="navbar__link"><i data-feather="settings"></i><span>Settings</span></a>        
-=======
     <li class="navbar__item cursor-pointer" id="usuarigrupsbtn">
       <a href="#" class="navbar__link"><i data-feather="users"></i><span>Usuari/Grup</span></a>        
->>>>>>> 145ead396362901d796730fa79fc7b1621ced93b
     </li>
     
     <?php
@@ -340,7 +337,6 @@
 </div>
 
 
-<<<<<<< HEAD
 
     <div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
         <div class="flex items-center	">
@@ -391,7 +387,6 @@ foreach ($plantillaorla as $key => $value) {?>
         </button>
         <?php }?>
 </div>
-=======
 <!-- DIV TO SHOW THE ORLAS -->
 <div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
 
@@ -412,7 +407,6 @@ foreach ($plantillaorla as $key => $value) {?>
                 <p class="mb-2 text-gray-500 dark:text-gray-400"><?php echo $usuari['Nom']; ?></p>
             </div>
         <?php endforeach; ?>
->>>>>>> 145ead396362901d796730fa79fc7b1621ced93b
     </div>
     
   <?php endforeach; ?>
@@ -424,7 +418,6 @@ foreach ($plantillaorla as $key => $value) {?>
 
 
 
-<<<<<<< HEAD
 
     
     <div id="grups" class="relative overflow-x-auto shadow-md sm:rounded-lg ml-36 mr-10 hidden">
@@ -438,7 +431,6 @@ foreach ($plantillaorla as $key => $value) {?>
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>
-=======
 <button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" onclick="scrollToTop()" style="display: none;">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M0 0h24v24H0V0z" fill="none"/>
@@ -513,7 +505,6 @@ foreach ($plantillaorla as $key => $value) {?>
             <?php } else { ?>
                 <div class="flex items-center">
                     <div class="h-2.5 w-2.5 rounded-full bg-lime-500 me-2"></div> <?php echo $grup['estado']; ?>
->>>>>>> 145ead396362901d796730fa79fc7b1621ced93b
                 </div>
             <?php } ?>
         </td>
@@ -795,7 +786,6 @@ foreach ($plantillaorla as $key => $value) {?>
 </div>
 
 
-<<<<<<< HEAD
 
     <div id="afegirUsuari" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -902,12 +892,10 @@ foreach ($plantillaorla as $key => $value) {?>
 
     <script src="/js/flowbite.js"></script>
     <script src="/js/bundle.js"></script>
-=======
     
     
 <script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>
->>>>>>> 145ead396362901d796730fa79fc7b1621ced93b
 
 
 </body>

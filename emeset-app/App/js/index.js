@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import jQuery from 'jquery';
 import {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups} from './menupanel.js'
 import {ajax} from './adminpanel.js'
@@ -74,4 +72,3 @@ feather.replace()
 
 
 
->>>>>>> 145ead396362901d796730fa79fc7b1621ced93b
