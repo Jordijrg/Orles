@@ -1247,8 +1247,8 @@ input:checked + .toggle-bg {
 .h-3 {
   height: 0.75rem;
 }
-.h-3\.5 {
-  height: 0.875rem;
+.h-32 {
+  height: 8rem;
 }
 .h-4 {
   height: 1rem;
@@ -1310,8 +1310,8 @@ input:checked + .toggle-bg {
 .w-3 {
   width: 0.75rem;
 }
-.w-3\.5 {
-  width: 0.875rem;
+.w-32 {
+  width: 8rem;
 }
 .w-4 {
   width: 1rem;
