@@ -137,7 +137,10 @@ class UsersPDO
          * 
      */
     public function getUserById($IdUsuari){
-        $query = 'select * from usuaris where IdUsuari = :IdUsuari;';
+        $query = 'select usuaris.* ,grup.Nom as "Nomgrup"  from usuaris
+        join usuari_grup on usuari_grup.IdUsuari = usuaris.IdUsuari
+        join grup on grup.IdGrup = usuari_grup.IdGrup
+        where usuaris.IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdUsuari' => $IdUsuari]);
         
@@ -151,6 +154,13 @@ class UsersPDO
          * @return array
          * 
      */
+    public function getAvat($IdUsuari){
+        $query = 'select * from avatar where avatar.iduser=:IdUsuari';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
     public function getGrupById($IdGrup){
         $query = 'select * from grup where IdGrup = :IdGrup;';
         $stm = $this->sql->prepare($query);

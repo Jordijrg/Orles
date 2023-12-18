@@ -43,14 +43,14 @@ $("#btnmenu").click((e)=>{
         $("#menu_main").show()
         console.log("entra1")
 
-        
+
     }
-    
+
     $("#btn_close").click(()=>{
-        
+
             $("#btnmenu").data("status","closed")
             $("#menu_main").hide()
-        
+
     })
 })
 
@@ -68,7 +68,4 @@ $("#btnmenu").click((e)=>{
         toggleUsuariGrups()
     })
 
-feather.replace()  
-
-
-
+feather.replace()

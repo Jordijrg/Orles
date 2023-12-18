@@ -14,8 +14,13 @@ class profilecontroller
         $IdUsuari = $request->get("SESSION", "user")["IdUsuari"];
 
         $usuaris = $container["Users"]->getUserById($IdUsuari);
+        $avatar = $container["Users"]->getAvat($IdUsuari);
+        $response->set("avatar", $avatar);
+
         $response->set("usuaris", $usuaris);
 
+   
+       
         $response->SetTemplate("profile.php");
 
         return $response;
@@ -78,7 +83,20 @@ class profilecontroller
         return $response;
 
         }
+        public function subir_logos($request, $response, $container)
+        {
+            if($_FILES["avatar"]["name"][0]!=""){
+                $name=time()."ddd".".png";
+                $tmp_nameimg = $_FILES["avatar"]["tmp_name"];
+                $url_img = "images/" .$name;
+                $container["avatar"]->addavatar($name,$_SESSION["user"]["IdUsuari"]);
+                move_uploaded_file($tmp_nameimg, $url_img);
+                }
+                $response->redirect("Location: /perfil");
 
+        return $response;
+    }
+        
         public function error($request, $response, $container)
         {
         $response->SetTemplate("error_profile.php");

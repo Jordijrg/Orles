@@ -6,11 +6,11 @@ function addfotoorla() {
     }
 
         // Evento para cerrar modal al hacer clic fuera de él
-        // $('#myModal').on('click', function(event) {
-        //     if (event.target === this) {
-        //         closeModal();
-        //     }
-        // });
+        $('#myModal').on('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
 
         // Evento para cerrar modal al hacer clic en la cruz
         $('.modal-close').on('click', closeModal);
@@ -26,7 +26,7 @@ function addfotoorla() {
         console.log(iduser);
         // Actualizar el contenido del bloque en el HTML
         $("#addfotoorla .srcfoto img").attr("src", rutaImagen);
-        $(".Idfoto").text("ID: " + id);
+        // $(".Idfoto").text("ID: " + id);
         $(".bt-img").attr("id",id);
         $(".bt-img").attr("href","/selfoto/"+iduser+"/"+id);
         let prueba
@@ -65,7 +65,7 @@ function addfotoorla() {
         console.log(id + " " + rutaImagen);
     });
     $(".delft").click(function () {
-        var id = this.id;
+        var id = this.dataset.id;
         $(".confdel").attr("href","/delselfoto/"+id);
     });
 
