@@ -137,7 +137,10 @@ class UsersPDO
          * 
      */
     public function getUserById($IdUsuari){
-        $query = 'select * from usuaris where IdUsuari = :IdUsuari;';
+        $query = 'select usuaris.* ,grup.Nom as "Nomgrup"  from usuaris
+        join usuari_grup on usuari_grup.IdUsuari = usuaris.IdUsuari
+        join grup on grup.IdGrup = usuari_grup.IdGrup
+        where usuaris.IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdUsuari' => $IdUsuari]);
         

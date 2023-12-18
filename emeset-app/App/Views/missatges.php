@@ -15,14 +15,14 @@
     </div>
     <?php if ($_SESSION["user"]["rol"] == "gestor") {
         ; ?>
-        <div class="grid grid-cols-2 gap-7 p-5">
-                <div class="col-span-1 grid grid-cols-2 gap-7">
-                    <div class="col-span-2">
+        <div class="grid grid-cols-2 gap-7 p-5 content-start ">
+                <div class="col-span-1 grid grid-cols-3 gap-7 ">
+                    <div class="col-span-3">
                         <h1 class="text-3xl font-bold text-center dark:text-white">Missatges sense llegir <?php echo $missatgesnovists[0]["Count"]; ?> </h1>
                     </div>
                     <?php foreach ($missatgesnovists as $missatgenovist): ?>
-                        <div class="bg-gray-100 col-span-2 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
-                            <div class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white bg-yellow-400 rounded-lg">
+                        <div class="bg-gray-100 col-span-1 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
+                            <div class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg">
                             <?php echo ($missatgenovist["Nom"]); ?> <?php echo ($missatgenovist["Cognom"]); ?> 
                             </div>
                             <div class="p-6">
@@ -34,7 +34,7 @@
                                 </p>
                             </div>
                             <a href="/updmissatge/<?php echo $missatgenovist["IdError"]; ?>"><button type="button"
-                                    class="mt-2 bg-green-500 missid focus:outline-none text-white  hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2  dark:hover:bg-green-700 dark:focus:ring-green-800">Marcar
+                                    class="mt-2 bg-black missid focus:outline-none text-white  hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2  dark:hover:bg-green-700 dark:focus:ring-green-800">Marcar
                                     com a vist</button></a>
                         </div>
                     <?php endforeach; ?>
@@ -48,7 +48,7 @@
                         <div class="col-span-2 dark:text-white">
                             <div
                                 class="bg-gray-100 col-span-2 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
-                                <div class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white bg-green-500 rounded-lg ">
+                                <div class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg ">
                                 <?php echo ($missatgevist["Nom"]); ?> <?php echo ($missatgevist["Cognom"]); ?> 
                                 </div>
                                 <div class="p-6">
