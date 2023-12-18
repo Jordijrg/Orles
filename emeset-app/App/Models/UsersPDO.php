@@ -147,6 +147,14 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    public function getUserById1($IdUsuari){
+        $query = 'select * from usuaris where IdUsuari = :IdUsuari;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
     /**
          * Middleware per agafar tota la informació d'un grup a partir del seu id
          *
