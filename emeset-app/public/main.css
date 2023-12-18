@@ -1059,23 +1059,14 @@ input:checked + .toggle-bg {
 .start-0 {
   inset-inline-start: 0px;
 }
-.start-40 {
-  inset-inline-start: 10rem;
-}
 .top-0 {
   top: 0px;
 }
 .top-1\/2 {
   top: 50%;
 }
-.top-10 {
-  top: 2.5rem;
-}
 .top-2 {
   top: 0.5rem;
-}
-.top-24 {
-  top: 6rem;
 }
 .top-3 {
   top: 0.75rem;
@@ -1110,6 +1101,10 @@ input:checked + .toggle-bg {
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .mx-auto {
   margin-left: auto;
@@ -1369,6 +1364,9 @@ input:checked + .toggle-bg {
 .shrink-0 {
   flex-shrink: 0;
 }
+.flex-grow {
+  flex-grow: 1;
+}
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1406,23 +1404,6 @@ input:checked + .toggle-bg {
 }
 .transform-none {
   transform: none;
-}
-@keyframes jump {
-
-  0%, 100% {
-    transform: scale(100%);
-  }
-
-  10% {
-    transform: scale(80%);
-  }
-
-  50% {
-    transform: scale(120%);
-  }
-}
-.animate-jump {
-  animation: jump .5s both;
 }
 .cursor-default {
   cursor: default;
@@ -1462,11 +1443,17 @@ input:checked + .toggle-bg {
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
+.flex-row {
+  flex-direction: row;
+}
 .flex-col {
   flex-direction: column;
 }
 .flex-wrap {
   flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
 }
 .items-start {
   align-items: flex-start;
@@ -2042,17 +2029,8 @@ input:checked + .toggle-bg {
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
-.animate-duration-\[8000ms\] {
-  animation-duration: 8000ms;
-}
-.animate-infinite {
-  animation-iteration-count: infinite;
-}
 .animate-once {
   animation-iteration-count: 1;
-}
-.animate-ease-linear {
-  animation-timing-function: linear;
 }
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
 
@@ -3425,6 +3403,10 @@ input:checked + .toggle-bg {
 .focus\:animate-ping:focus {
   animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
+.focus\:border-blue-50:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(235 245 255 / var(--tw-border-opacity));
+}
 .focus\:border-blue-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(63 131 248 / var(--tw-border-opacity));
@@ -3715,6 +3697,10 @@ input:checked + .toggle-bg {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+:is(.dark .dark\:focus\:border-blue-50:focus) {
+  --tw-border-opacity: 1;
+  border-color: rgb(235 245 255 / var(--tw-border-opacity));
+}
 :is(.dark .dark\:focus\:border-blue-500:focus) {
   --tw-border-opacity: 1;
   border-color: rgb(63 131 248 / var(--tw-border-opacity));
@@ -3730,10 +3716,6 @@ input:checked + .toggle-bg {
 :is(.dark .dark\:focus\:ring-gray-600:focus) {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
-}
-:is(.dark .dark\:focus\:ring-gray-700:focus) {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(55 65 81 / var(--tw-ring-opacity));
 }
 :is(.dark .dark\:focus\:ring-gray-800:focus) {
   --tw-ring-opacity: 1;

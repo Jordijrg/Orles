@@ -22,6 +22,8 @@ class adminpanelcontroller
         $response->set("plantillaorla",$plantillaorla);
 
 
+        $usuari_grup = $container["Users"]->getAllUsersAndGrups();
+        $response->set("usuari_grup", $usuari_grup);
 
         return $response;
     }
@@ -48,6 +50,24 @@ class adminpanelcontroller
 
         $usermodel = $container["Users"]->adduser($Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado);
 
+        $response->redirect("Location: /adminpanel");
+
+        return $response;
+
+    }
+
+public function addusergrup($request, $response, $container)
+    {
+        $nomUsuari = $request->get(INPUT_POST, "nomUsuari");
+        $IdUsuari = $container["Users"]->getIdUsuari($nomUsuari);
+        $IdUsuari = $IdUsuari["IdUsuari"];
+
+        $nomGrup = $request->get(INPUT_POST, "nomGrup");
+        $IdGrup = $container["Users"]->getIdGrup($nomGrup);
+        $IdGrup = $IdGrup["IdGrup"];
+
+
+        $usermodel = $container["Users"]->addusergrup($IdUsuari, $IdGrup);
         $response->redirect("Location: /adminpanel");
 
         return $response;
@@ -177,24 +197,34 @@ class adminpanelcontroller
 
         }
 
+        public function updateModalUserGrup($request, $response, $container){
+
+            $id_d = $request->get(INPUT_POST, "id_d");
+
+            $usermodel=$container["Users"]->getUsersAndGrupsById($id_d);
+
+            if(!empty($usermodel)){
+                $response->set("id", $usermodel);
+                $response->setJSON();
+            } else{
+                $response->set("id", "error");
+                $response->setJSON();
+            }
+
+            return $response;
+
+        }
+
         public function updateRandom($request, $response, $container){
             $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
-        
-            $usermodel = $container["Users"]->getUserById($IdUsuari);
-        
-            // Make an AJAX request to randomuser.me API
-            $randomUserData = $this->getRandomUserData(); // You need to implement this method
-        
-            // Update the user model with random values
+
             $usermodel = [
-                'Nom' => $randomUserData['name']['first'],
-                'Cognom' => $randomUserData['name']['last'],
-                'Correu' => $randomUserData['email'],
-                'Contrasenya' => 'testing10',
-                'rol' => 'random_role',
-                'estado' => 'active',
+                'password' => 'testing10',
+                'roles' => '',
+                'states' => 'pendent',
             ];
-        
+            
+
             if (!empty($usermodel)) {
                 $response->set("id", $usermodel);
                 $response->setJSON();
@@ -205,29 +235,6 @@ class adminpanelcontroller
         
             return $response;
         }
-        
-        // Function to make an AJAX request to randomuser.me API
-        private function getRandomUserData() {
-            $apiUrl = 'https://randomuser.me/api/';
-            
-            $ch = curl_init($apiUrl);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            
-            $response = curl_exec($ch);
-            
-            if (curl_errno($ch)) {
-                // Handle error
-                return null;
-            }
-            
-            curl_close($ch);
-            
-            $userData = json_decode($response, true);
-            
-            return $userData['results'][0];
-        }
-        
-
         
         
         public function addgrup($request, $response, $container){
@@ -241,6 +248,7 @@ class adminpanelcontroller
             
         }
 
+
         public function deletegrup($request, $response, $container){
             $model = $container->get("Users");
             $id = $request->getParam("id");
@@ -251,6 +259,38 @@ class adminpanelcontroller
         }
      
 
+
+
+        public function deleteusergrup($request, $response, $container){
+            $model = $container->get("Users");
+            $id = $request->getParam("id");
+            $model->deleteusergrup($id);
+            $response->redirect("Location: /adminpanel");
+    
+            return $response;
+        }
+
+        public function updateusergrup($request, $response, $container){
+
+            $id_d = $request->get(INPUT_POST, "id_d");
+
+            $nomUsuari = $request->get(INPUT_POST, "nomUsuari");
+            $IdUsuari = $container["Users"]->getIdUsuari($nomUsuari);
+            $IdUsuari = $IdUsuari["IdUsuari"];
+
+            $nomGrup = $request->get(INPUT_POST, "nomGrup");
+            $IdGrup = $container["Users"]->getIdGrup($nomGrup);
+            $IdGrup = $IdGrup["IdGrup"];
+
+            
+           $usermodel = $container["Users"]->updateusergrup($id_d, $IdGrup);
+
+            $response->redirect("Location: /adminpanel");
+
+            return $response;
+        }
+
+        
 
 
 }

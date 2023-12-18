@@ -15,7 +15,7 @@
   \*************************/
 /***/ (() => {
 
-eval("throw new Error(\"Module parse failed: Identifier 'delmissatge' has already been declared (15:8)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| import {form_img} from './show_form_img.js'\\n| import {delmissatge} from './delmissatge.js';\\n> import {delmissatge} from './ajaxorlapdf.js';\\n| back_orla\\n| console.log(\\\"funcionaaaaa\\\")\");\n\n//# sourceURL=webpack:///./App/js/index.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (1:0)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n> <<<<<<< HEAD\\n| =======\\n| import jQuery from 'jquery';\");\n\n//# sourceURL=webpack:///./App/js/index.js?");
 
 /***/ })
 

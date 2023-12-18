@@ -9,7 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="main.css">
 
-  <title>Todo APP</title>
+  <title>Orlify</title>
 </head>
 
 <body>
@@ -24,25 +24,15 @@
     <div class="relative h-56 overflow-hidden md:h-screen">
          <!-- Item 1 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <a href="/alumne">
             <img src="images/slider2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="1">
-            <h2 class="absolute top-0 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl">AMB LES TEVES PRÒPIES </h2> <br>
-            <h2 class="absolute top-10 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl"> FOTOS PERSONALITZADES</h2>
-            <?php if ($logged) { ?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear focus:animate-ping animate-once">Anar</button></a>
-            <?php }else {?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear focus:animate-ping animate-once">Començar</button></a>
-            <?php }?>
+            </a>
         </div>
         <!-- Item 2 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+          <a href="/alumne">
             <img src="images/slider1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 dark:bg-gray-900" alt="..2">
-            <h2 class="absolute top-0 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl">FES LA TEVA ORLA</h2> <br>
-            <h2 class="absolute top-10 start-40 z-30 flex items-center justify-center h-full px-4 group focus:outline-none text-blue-600 text-3xl"> PERSONALITZADA</h2>
-            <?php if ($logged) { ?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/alumne"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear focus:animate-ping animate-once">Anar</button></a>
-            <?php }else {?>
-            <a class="absolute top-24 start-40 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" href="/login"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 animate-jump animate-infinite animate-duration-[8000ms] animate-ease-linear focus:animate-ping animate-once">Començar</button></a>
-            <?php }?>
+            </a>
         </div>
        
         <!-- Item 3 -->
@@ -72,6 +62,51 @@
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
   </svg>
 </button>
+
+
+<div class="flex justify-center mt-8">
+
+    
+        <h1 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">COM FUNCIONA ?</h1>
+  
+
+</div>
+
+
+
+
+<div class="flex justify-center mt-8">
+
+    <!-- Primer div -->
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
+        <div class="flex flex-col items-center pb-10">
+            <img class="w-24 h-24 mb-3" src="/images/portatil.png" alt="Bonnie image"/>
+            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Afegeix els usuaris</h5>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Afegeix els usuaris d'un en un o en masa</span>
+        </div>
+    </div>
+
+    <!-- Segon div -->
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
+        <div class="flex flex-col items-center pb-10">
+            <img class="w-24 h-24 mb-3" src="/images/camara.png" alt="Bonnie image"/>
+            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Afegeix les fotos</h5>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Pots pujar la foto o bé fer-la amb la camara del teu dispositiu</span>
+        </div>
+    </div>
+
+    <!-- Tercer div -->
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
+        <div class="flex flex-col items-center pb-10">
+            <img class="w-24 h-24 mb-3" src="/images/diploma.png" alt="Bonnie image"/>
+            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Tria el disseny</h5>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Tria el disseny i imprimeix la teva orla!</span>
+        </div>
+    </div>
+
+</div>
+
+
 
 
 

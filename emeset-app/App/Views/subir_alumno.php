@@ -23,7 +23,7 @@
  </script>
 <?php include "script_icons.php" ?>
 
-  <title>Todo APP</title>
+  <title>Subir Alumno</title>
 </head>
 
 <body>

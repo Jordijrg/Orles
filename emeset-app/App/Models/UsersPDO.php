@@ -84,6 +84,17 @@ class UsersPDO
 
         return $login;
     }
+
+    /**
+         * Middleware per registrar un usuari
+         *
+         * @param string $nombre
+         * @param string $apellido
+         * @param string $email
+         * @param string $pass
+         * @return void
+     */
+
     public function registerUser($nombre,$apellido,$email,$pass)
     {
         
@@ -118,6 +129,13 @@ class UsersPDO
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /**
+         * Middleware per agafar tota la informació d'un usuari a partir del seu id
+         *
+         * @param int $IdUsuari
+         * @return array
+         * 
+     */
     public function getUserById($IdUsuari){
         $query = 'select * from usuaris where IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
@@ -126,6 +144,13 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+         * Middleware per agafar tota la informació d'un grup a partir del seu id
+         *
+         * @param int $IdGrup
+         * @return array
+         * 
+     */
     public function getGrupById($IdGrup){
         $query = 'select * from grup where IdGrup = :IdGrup;';
         $stm = $this->sql->prepare($query);
@@ -134,12 +159,31 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+         * Middleware per eliminar un usuari (desactivar) a partir del seu id
+         *
+         * @param int $id
+         * @return void
+         * 
+     */
     public function deleteuser($id){
         $query = 'UPDATE usuaris SET estado = "desactivat" WHERE IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdUsuari' => $id]);
     } 
 
+    /**
+         * Middleware per afegir un usuari a la base de dades, a la taula usuaris
+         *
+         * @param string $Nom
+         * @param string $Cognom
+         * @param string $Correu
+         * @param string $Contrasenya
+         * @param string $rol
+         * @param string $estado
+         * @return void
+         * 
+     */
     public function adduser($Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado){
         $Contrasenya = password_hash($Contrasenya, PASSWORD_DEFAULT,  ["cost" => 12]);
         $query = 'INSERT INTO usuaris (Nom, Cognom, Correu, Contrasenya, rol, estado) VALUES (:Nom, :Cognom, :Correu, :Contrasenya, :rol, :estado);';
@@ -147,22 +191,31 @@ class UsersPDO
         $result = $stm->execute([':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
     }
 
+
+    /**
+         * Middleware per actualitzar un usuari a la base de dades, a la taula usuaris
+         *
+         * @param int $IdUsuari
+         * @param string $Nom
+         * @param string $Cognom
+         * @param string $Correu
+         * @param string $Contrasenya
+         * @param string $rol
+         * @param string $estado
+         * @return void
+         * 
+     */
     public function updateuser($IdUsuari, $Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado){
         $query = 'UPDATE usuaris SET Nom = :Nom, Cognom = :Cognom, Correu = :Correu, Contrasenya = :Contrasenya, rol = :rol, estado = :estado WHERE IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
     }
 
-    public function updateuser_user($IdUsuari, $Nom, $Cognom, $Correu, $Contrasenya){
-        $query = 'UPDATE usuaris SET Nom = :Nom, Cognom = :Cognom, Correu = :Correu, Contrasenya = :Contrasenya WHERE IdUsuari = :IdUsuari;';
-        $stm = $this->sql->prepare($query);
-        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya]);
-    }
-
     public function hashPassword($password)
     {
         return password_hash($password, PASSWORD_DEFAULT, $this->options);
     }
+
 
     public function getAllGrups(){
         $query = 'select * from grup;';
@@ -185,12 +238,89 @@ class UsersPDO
         $result = $stm->execute([':IdGrup' => $id]);
     }
 
+    public function deleteusergrup($id){
+        $query = 'DELETE FROM usuari_grup WHERE id_d = :id_d;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id_d' => $id]);
+    }
+
     public function updategrup($IdGrup, $Nom, $estado){
         $query = 'UPDATE grup SET Nom = :Nom, estado = :estado WHERE IdGrup = :IdGrup;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdGrup' => $IdGrup, ':Nom' => $Nom, ':estado' => $estado]);
     }
 
+    public function addToken($Correu, $token){
+        $query = 'UPDATE usuaris SET token = :token WHERE Correu = :Correu;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':Correu' => $Correu, ':token' => $token]);
+    }
+
+    public function getUserByToken($token){
+        $query = 'select * from usuaris where token = :token;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':token' => $token]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function updatePassword($IdUsuari, $Contrasenya){
+        $query = 'UPDATE usuaris SET Contrasenya = :Contrasenya WHERE IdUsuari = :IdUsuari;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Contrasenya' => $Contrasenya]);
+    }
+
+    public function getAllUsersAndGrups(){
+        $query = "SELECT usuaris.Nom AS 'nom_usuari', usuaris.Cognom 'cognom_usuari', grup.Nom AS 'nom_grup', usuari_grup.id_d  FROM usuaris JOIN usuari_grup ON usuaris.IdUsuari = usuari_grup.IdUsuari JOIN grup ON usuari_grup.IdGrup = grup.IdGrup;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute();
+        
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getUsersAndGrupsById($id_d){
+        $query = "SELECT usuaris.Nom AS 'nom_usuari', usuaris.Cognom 'cognom_usuari', grup.Nom AS 'nom_grup', usuari_grup.id_d  FROM usuaris JOIN usuari_grup ON usuaris.IdUsuari = usuari_grup.IdUsuari JOIN grup ON usuari_grup.IdGrup = grup.IdGrup WHERE usuari_grup.id_d = :id_d;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id_d' => $id_d]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getIdUsuari($nomUsuari){
+        $query = "SELECT IdUsuari FROM usuaris WHERE Nom = :nomUsuari;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':nomUsuari' => $nomUsuari]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getIdGrup($nomGrup){
+        $query = "SELECT IdGrup FROM grup WHERE Nom = :nomGrup;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':nomGrup' => $nomGrup]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function addusergrup($IdUsuari, $IdGrup){
+        $query = 'INSERT INTO usuari_grup (IdUsuari, IdGrup) VALUES (:IdUsuari, :IdGrup);';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari, ':IdGrup' => $IdGrup]);
+    }
+
+    public function updateusergrup($id_d, $IdGrup){
+        $query = 'UPDATE usuari_grup SET IdGrup = :IdGrup WHERE id_d = :id_d;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id_d' => $id_d, ':IdGrup' => $IdGrup]);
+    }
+
+    public function getUsersOfGrupById($IdGrup){
+        $query = "SELECT usuaris.Nom AS 'nom_usuari' FROM usuaris JOIN usuari_grup ON usuaris.IdUsuari = usuari_grup.IdUsuari JOIN grup ON usuari_grup.IdGrup = grup.IdGrup WHERE grup.IdGrup = :IdGrup;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdGrup' => $IdGrup]);
+        
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
     
 
 }
