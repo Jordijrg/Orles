@@ -12,6 +12,7 @@ import {editar} from './profile.js';
 import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
 import {delmissatge} from './delmissatge.js';
+import {modal} from './profile_modal.js';
 
 console.log("funcionaaaaa")
 darkmode();
@@ -23,6 +24,7 @@ delmissatge();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
 
+modal();
 
 editar();
 
