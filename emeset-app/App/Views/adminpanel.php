@@ -330,28 +330,55 @@
 
 <!-- DIV TO SHOW THE ORLAS -->
 <div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
+        <div class="flex items-center	">
+        <div class="ps-3">
+                           <a href="/crear_orlaplantilla"> <div class="text-base font-semibold flex items-center" style="    border: 2px solid;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius:10px;
+">
+                                <p>Afegir plantilla d'una orle</p>
+                            <a class="" style="float:right;"><i data-feather="plus"></i></a>
+                            </div>
+
+                        </div>        
+                        </a>     
+      
+                      
+                        </div>
+<div class="grid grid-cols-3">
+<?php  
+
+foreach ($plantillaorla as $key => $value) {?>
 
 
-<div id="accordion-collapse" data-accordion="collapse">
-  <?php foreach ($grups as $index => $grup) : ?>
-    <h2 id="accordion-collapse-heading-<?php echo $index + 1; ?>">
-      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-<?php echo $index + 1; ?>" aria-expanded="<?php echo ($index === 0) ? 'true' : 'false'; ?>" aria-controls="accordion-collapse-body-<?php echo $index + 1; ?>">
-        <span><?php echo $grup['Nom']; ?></span>
-        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-        </svg>
-      </button>
-    </h2>
-    <div id="accordion-collapse-body-<?php echo $index + 1; ?>" class="<?php echo ($index === 0) ? 'block' : 'hidden'; ?>" aria-labelledby="accordion-collapse-heading-<?php echo $index + 1; ?>">
-        <?php foreach ($usuaris as $usuari) : ?>
-            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                <p class="mb-2 text-gray-500 dark:text-gray-400"><?php echo $usuari['Nom']; ?></p>
+        <div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div>
+                <a href=""></a>
             </div>
-        <?php endforeach; ?>
-    </div>
-    
-  <?php endforeach; ?>
+            <a href="#">
+                <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["nom"]; ?></h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
+                    acquisitions of 2021 so far, in reverse chronological order.</p>
+            </div>
+        </div>
+        <button id="scrollToTopBtn"
+            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                class="h-6 w-6 dark:stroke-black">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
+                </path>
+            </svg>
+        </button>
+        <?php }?>
 </div>
+    </div>
 
 
 
@@ -725,3 +752,4 @@
 
 
 </html>
+
