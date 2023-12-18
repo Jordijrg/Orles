@@ -331,6 +331,14 @@ class UsersPDO
         
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function adduserrandom($Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado){
+        $Contrasenya = password_hash($Contrasenya, PASSWORD_DEFAULT,  ["cost" => 12]);
+        $query = 'INSERT INTO usuaris (Nom, Cognom, Correu, Contrasenya, rol, estado) VALUES (:Nom, :Cognom, :Correu, :Contrasenya, :rol, :estado);';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
+
+    }
     
 
 }

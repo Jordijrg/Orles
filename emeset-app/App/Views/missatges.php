@@ -65,11 +65,11 @@
                                     type="button">
                                     Eliminar
                                 </button>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+            </div>
         </div>
+        <?php endforeach; ?>
+    </div>
+</div>
     <?php } else { ?>
         <div>No ets un gestor, no pots veure la pagina</div>
     <?php } ?>
@@ -106,6 +106,10 @@
             </div>
         </div>
     </div>
+
+
+
+
     
     <button id="scrollToTopBtn"
         class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
