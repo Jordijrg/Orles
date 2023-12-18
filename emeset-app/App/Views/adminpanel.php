@@ -39,7 +39,7 @@
       <a href="#" class="navbar__link"><i data-feather="users"></i><span>Usuari/Grup</span></a>        
     </li>
     <?php
-            if ($user["rol"] === "equip_directiu" || $user["rol"] === "profe") {?>
+            if ($user["rol"] === "equip_directiu" || $user["rol"] === "profe" || $user["rol"] === "admin") {?>
     <li class="navbar__item">
       <a href="/editororles" class="navbar__link cursor-pointer"><i data-feather="message-square"></i><span>Plantilles</span></a>
     </li>
