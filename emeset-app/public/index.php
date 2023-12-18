@@ -100,6 +100,7 @@ $app->post("/openModalGrup", [adminpanelcontroller::class, "updateModalGrup"]);
 
 $app->get("/register", [registercontroller::class,"addregister"]);
 $app->get("/pdforla", [orlescontroller::class,"pdforla"]);
+$app->post("/subir_logos", [profilecontroller::class,"subir_logos"]);
 
 
 

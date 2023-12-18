@@ -125,7 +125,13 @@ class UsersPDO
         
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
-
+    public function getAvat($IdUsuari){
+        $query = 'select * from avatar where avatar.iduser=:IdUsuari';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':IdUsuari' => $IdUsuari]);
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
     public function getGrupById($IdGrup){
         $query = 'select * from grup where IdGrup = :IdGrup;';
         $stm = $this->sql->prepare($query);

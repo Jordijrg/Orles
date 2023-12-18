@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Controllers;
- use Mpdf\Mpdf;
+
+
 class orlescontroller 
 {
+
     public function index($request, $response, $container)
     {
         $response->set("logged", $_SESSION["logged"]);
@@ -40,11 +42,9 @@ class orlescontroller
     }
     public function pdforla($request, $response, $container){
 //dd
-        $mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/tmp']);
 
         die();
         $response->SetTemplate("view_orla.php");
         return $response;
     }
 }
-
