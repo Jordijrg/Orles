@@ -61,7 +61,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white"style="    text-align: left;">
                             Nom
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -73,7 +73,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center ">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white " style="    text-align: left;">
                             Cognom
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -85,7 +85,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white" style="    text-align: left;">
                             Correu
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -98,7 +98,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center ">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white" style="    text-align: left;">
                             Estat
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -111,7 +111,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center ">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white" style="    text-align: left;">
                             Rol
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -148,7 +148,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white" style="    text-align: left;">
                             Nom
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -163,7 +163,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center ">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white"style="    text-align: left;">
                             Cognom
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -176,7 +176,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white"style="    text-align: left;">
                             Correu
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -189,7 +189,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center ">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white"style="    text-align: left;">
                             Contrasenya
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -201,7 +201,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center ">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white"style="    text-align: left;">
                             Estat
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
@@ -214,7 +214,7 @@ if(!is_array($avatar)){
             <li class="py-3">
                 <div class="flex items-center ">
                     <div class="flex-1 min-w-0 ms-4">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white"style="    text-align: left;">
                             Rol
                         </p>
                         <p class="text-sm text-gray-500 truncate dark:text-gray-400">

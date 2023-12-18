@@ -35,18 +35,9 @@
     <li class="navbar__item cursor-pointer" id="orlasbtn">
       <a  class="navbar__link" ><i data-feather="folder"></i><span>Orles</span></a>        
     </li>
-    <li class="navbar__item cursor-pointer" id="grupsbtn">
-      <a href="#" class="navbar__link"><i data-feather="archive"></i><span>Grups</span></a>        
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="help-circle"></i><span>Generar Orles</span></a>        
-    </li>
-    <li class="navbar__item">
-      <a href="#" class="navbar__link"><i data-feather="settings"></i><span>Settings</span></a>        
     <li class="navbar__item cursor-pointer" id="usuarigrupsbtn">
       <a href="#" class="navbar__link"><i data-feather="users"></i><span>Usuari/Grup</span></a>        
     </li>
-    
     <?php
             if ($user["rol"] === "equip_directiu" || $user["rol"] === "profe") {?>
     <li class="navbar__item">
@@ -337,8 +328,8 @@
 </div>
 
 
-
-    <div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
+<!-- DIV TO SHOW THE ORLAS -->
+<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
         <div class="flex items-center	">
         <div class="ps-3">
                            <a href="/crear_orlaplantilla"> <div class="text-base font-semibold flex items-center" style="    border: 2px solid;
@@ -357,12 +348,7 @@
                       
                         </div>
 <div class="grid grid-cols-3">
-<?php  
-
-foreach ($plantillaorla as $key => $value) {?>
-
-
-        <div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div>
                 <a href=""></a>
             </div>
@@ -385,32 +371,15 @@ foreach ($plantillaorla as $key => $value) {?>
                 </path>
             </svg>
         </button>
+<?php  
+
+foreach ($plantillaorla as $key => $value) {?>
+
+
+        
         <?php }?>
 </div>
-<!-- DIV TO SHOW THE ORLAS -->
-<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden">
-
-
-<div id="accordion-collapse" data-accordion="collapse">
-  <?php foreach ($grups as $index => $grup) : ?>
-    <h2 id="accordion-collapse-heading-<?php echo $index + 1; ?>">
-      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-<?php echo $index + 1; ?>" aria-expanded="<?php echo ($index === 0) ? 'true' : 'false'; ?>" aria-controls="accordion-collapse-body-<?php echo $index + 1; ?>">
-        <span><?php echo $grup['Nom']; ?></span>
-        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-        </svg>
-      </button>
-    </h2>
-    <div id="accordion-collapse-body-<?php echo $index + 1; ?>" class="<?php echo ($index === 0) ? 'block' : 'hidden'; ?>" aria-labelledby="accordion-collapse-heading-<?php echo $index + 1; ?>">
-        <?php foreach ($usuaris as $usuari) : ?>
-            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                <p class="mb-2 text-gray-500 dark:text-gray-400"><?php echo $usuari['Nom']; ?></p>
-            </div>
-        <?php endforeach; ?>
     </div>
-    
-  <?php endforeach; ?>
-</div>
 
 
 
@@ -418,19 +387,6 @@ foreach ($plantillaorla as $key => $value) {?>
 
 
 
-
-    
-    <div id="grups" class="relative overflow-x-auto shadow-md sm:rounded-lg ml-36 mr-10 hidden">
-        <div
-            class="flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
-            <label for="table-search" class="sr-only">Search</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
 <button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" onclick="scrollToTop()" style="display: none;">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M0 0h24v24H0V0z" fill="none"/>
@@ -709,7 +665,7 @@ foreach ($plantillaorla as $key => $value) {?>
             <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Sign in to our platform
+                    Editar el grup de l'usuari
                 </h3>
                 <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editUserGrupModal">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -785,54 +741,6 @@ foreach ($plantillaorla as $key => $value) {?>
     </div>
 </div>
 
-
-
-    <div id="afegirUsuari" tabindex="-1" aria-hidden="true"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-7xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                        Afegir grup
-                    </h3>
-                    <button type="button"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-toggle="crud-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <form method="POST" class="p-4 md:p-5 flex flex-wrap" action="/addgrup">
-                    <div class="grid gap-4 mb-4 grid-cols-7">
-                        <div>
-                            <label for="name"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
-                            <input type="text" name="Nom" id="name"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                required="">
-                        </div>
-                        <div>
-                            <button type="submit"
-                                class="mt-7 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 focus:animate-ping animate-once">Afegir</button>
-                        </div>
-
-                    </div>
-            </div>
-            </form>
-
-        </div>
-    </div>
-    </div>
-
-
-
-
 <!-- Main modal -->
 <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -885,15 +793,10 @@ foreach ($plantillaorla as $key => $value) {?>
         </div>
     </div>
 </div>
-
-
-
-
-
-    <script src="/js/flowbite.js"></script>
-    <script src="/js/bundle.js"></script>
     
-
+    
+<script src="js/flowbite.js"></script>
+<script src="js/bundle.js"></script>
 
 
 </body>
@@ -901,3 +804,4 @@ foreach ($plantillaorla as $key => $value) {?>
 
 
 </html>
+

@@ -1,5 +1,5 @@
 import jQuery from 'jquery';
-import {toggleUsuaris,toggleOrlas, toggleGrups} from './menupanel.js'
+import {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups} from './menupanel.js'
 import {ajax} from './adminpanel.js'
 import {random} from './random.js'
 import {randomuser} from './randomuser.js'
@@ -12,7 +12,6 @@ import {editar} from './profile.js';
 import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
 import {delmissatge} from './delmissatge.js';
-import {modal} from './profile_modal.js';
 
 console.log("funcionaaaaa")
 darkmode();
@@ -23,7 +22,7 @@ randomuser();
 delmissatge();
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
-modal();
+
 
 editar();
 
@@ -44,14 +43,14 @@ $("#btnmenu").click((e)=>{
         $("#menu_main").show()
         console.log("entra1")
 
-        
+
     }
-    
+
     $("#btn_close").click(()=>{
-        
+
             $("#btnmenu").data("status","closed")
             $("#menu_main").hide()
-        
+
     })
 })
 
@@ -65,8 +64,8 @@ $("#btnmenu").click((e)=>{
     jQuery('#grupsbtn').click(()=>{
         toggleGrups()
     })
+    jQuery('#usuarigrupsbtn').click(()=>{
+        toggleUsuariGrups()
+    })
 
-feather.replace()  
-
-
-
+feather.replace()
