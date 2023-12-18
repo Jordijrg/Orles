@@ -14,9 +14,13 @@ class adminpanelcontroller
 
         $usuaris = $container["Users"]->getAllUsers();
         $response->set("usuaris", $usuaris);
-
         $grups = $container["Users"]->getAllGrups();
         $response->set("grups", $grups);
+
+        $plantillaorla = $container["plantilla_orla"]->getAllorlas();
+      
+        $response->set("plantillaorla",$plantillaorla);
+
 
         $usuari_grup = $container["Users"]->getAllUsersAndGrups();
         $response->set("usuari_grup", $usuari_grup);
@@ -162,7 +166,17 @@ public function addusergrup($request, $response, $container)
     }
 
 
+    public function updategrup($request, $response, $container){
+        $IdGrup = $request->get(INPUT_POST, "IdGrup");
+        $Nom = $request->get(INPUT_POST, "Nom");
+        $estado = $request->get(INPUT_POST, "estado");
 
+        $usermodel=$container["Users"]->updategrup($IdGrup, $Nom, $estado);
+
+        $response->redirect("Location: /adminpanel");
+
+        return $response;
+    }
         public function updateModalGrup($request, $response, $container){
 
             $IdGrup = $request->get(INPUT_POST, "IdGrup");
@@ -204,8 +218,8 @@ public function addusergrup($request, $response, $container)
 
             $usermodel = [
                 'password' => 'testing10',
-                'role' => '',
-                'state' => 'pendent',
+                'roles' => '',
+                'states' => 'pendent',
             ];
             
 
@@ -241,6 +255,9 @@ public function addusergrup($request, $response, $container)
     
             return $response;
         }
+     
+
+
 
         public function deleteusergrup($request, $response, $container){
             $model = $container->get("Users");

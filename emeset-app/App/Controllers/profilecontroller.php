@@ -14,9 +14,13 @@ class profilecontroller
         $IdUsuari = $request->get("SESSION", "user")["IdUsuari"];
 
         $usuaris = $container["Users"]->getUserById($IdUsuari);
+        $avatar = $container["Users"]->getAvat($IdUsuari);
+        $response->set("avatar", $avatar);
 
         $response->set("usuaris", $usuaris);
 
+   
+       
         $response->SetTemplate("profile.php");
 
         return $response;
@@ -28,6 +32,7 @@ class profilecontroller
         $response->set("user", $_SESSION["user"]);
 
         $IdUsuari = $request->get("SESSION", "user")["IdUsuari"];
+        $Correucur = $request->get("SESSION", "user")["Correu"];
 
         $usuaris = $container["Users"]->getUserById($IdUsuari);
         $Contrasenya = $usuaris["Contrasenya"];
@@ -39,6 +44,16 @@ class profilecontroller
         } else {
             $Contrasenya2 = $request->get(INPUT_POST, "Contrasenya");
             $Contrasenya = password_hash($Contrasenya2, PASSWORD_DEFAULT,  ["cost" => 12]);
+            if (strlen($Contrasenya2) < 6 || strlen($Contrasenya2) > 13) {
+                $response->setTemplate("profile.php");
+                $response->redirect("Location: /adminpanel");
+                return $response; 
+            }
+            if (!preg_match('/[A-Za-z]/', $Contrasenya2) || !preg_match('/[0-9]/', $Contrasenya2) || !strpos($Contrasenya2, '-')) {
+                $response->setTemplate("profile.php");
+                $response->redirect("Location: /perfil/error");
+                return $response;          
+            }
         }
 
         $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
@@ -46,28 +61,13 @@ class profilecontroller
         $Cognom = $request->get(INPUT_POST, "Cognom");
         $Correu = $request->get(INPUT_POST, "Correu");
 
-        if (strlen($Contrasenya) < 6 || strlen($Contrasenya) > 13) {
-            $errorMessage = "La contraseña debe tener entre 6 y 13 caracteres";
-            $response->set("errorMessage", $errorMessage);
-            $response->setTemplate("profile.php");
-            return $response;
-            $response->redirect("Location: /perfil");
-        }
-    
-        if (!preg_match('/[A-Za-z]/', $Contrasenya) || !preg_match('/[0-9]/', $Contrasenya) || !strpos($Contrasenya, '-')) {
-            $errorMessage = "La contraseña debe contener al menos una letra, un numero y un guion";
-            $response->set("errorMessage", $errorMessage);
-            $response->setTemplate("profile.php");
-            return $response;
-            $response->redirect("Location: /perfil");
-        }
-
         $usersPDO = $container["Users"];
-        if ($usersPDO->emailExists($Correu)) {
+        if ($Correu != $Correucur && $usersPDO->emailExists($Correu)) {
+            
             $errorMessage = "Ese correo ya esta registrado";
             $response->set("errorMessage", $errorMessage);
-            $response->setTemplate("profile.php");            
-            $response->redirect("Location: /perfil");
+            $response->setTemplate("profile.php");
+            $response->redirect("Location: /perfil/error");
         } else {
 
         if ($Nom == "" or $Cognom == "" or $Correu == "") {
@@ -83,7 +83,20 @@ class profilecontroller
         return $response;
 
         }
+        public function subir_logos($request, $response, $container)
+        {
+            if($_FILES["avatar"]["name"][0]!=""){
+                $name=time()."ddd".".png";
+                $tmp_nameimg = $_FILES["avatar"]["tmp_name"];
+                $url_img = "images/" .$name;
+                $container["avatar"]->addavatar($name,$_SESSION["user"]["IdUsuari"]);
+                move_uploaded_file($tmp_nameimg, $url_img);
+                }
+                $response->redirect("Location: /perfil");
 
+        return $response;
+    }
+        
         public function error($request, $response, $container)
         {
         $response->SetTemplate("error_profile.php");

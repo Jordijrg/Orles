@@ -31,12 +31,12 @@ $(".modalRandom").on("click", function() {
                 console.log(users.id.IdUsuari);
 
                 $("#ID").val(users.id.IdUsuari);
-                $("#names").val(users.id.names);
-                $("#surname").val(users.id.surname);
-                $("#email").val(users.id.email);
+                $("#namess").val(users.id.namess);
+                $("#surnames").val(users.id.surnames);
+                $("#emails").val(users.id.emails);
                 $("#password").val(users.id.password);
-                $("#state").val(users.id.state);
-                $("#role").val(users.id.role);
+                $("#states").val(users.id.states);
+                $("#roles").val(users.id.roles);
 
             
         },
