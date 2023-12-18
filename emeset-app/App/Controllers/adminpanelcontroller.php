@@ -110,9 +110,9 @@ public function addusergrup($request, $response, $container)
 
         public function updateModalUser($request, $response, $container){
 
-        $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
+        $IdUsuari = $request->get(INPUT_POST, "IdUsuari"); 
 
-        $usermodel = $container["Users"]->getUserById($IdUsuari);
+        $usermodel = $container["Users"]->getUserById1($IdUsuari);
 
         if (!empty($usermodel)) {
             $response->set("id", $usermodel);
@@ -125,6 +125,7 @@ public function addusergrup($request, $response, $container)
         return $response;
 
     }
+    
     function parseCSV($csvContent)
     {
         $lines = explode("\n", $csvContent);

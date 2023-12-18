@@ -34,7 +34,7 @@ class profilecontroller
         $IdUsuari = $request->get("SESSION", "user")["IdUsuari"];
         $Correucur = $request->get("SESSION", "user")["Correu"];
 
-        $usuaris = $container["Users"]->getUserById($IdUsuari);
+        $usuaris = $container["Users"]->getUserById1($IdUsuari);
         $Contrasenya = $usuaris["Contrasenya"];
         $rol = $usuaris["Rol"];
         $estado = $usuaris["estado"];

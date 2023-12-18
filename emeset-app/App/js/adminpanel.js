@@ -8,20 +8,7 @@ $(document).ready(function() {
         var IdUsuari = $(this).data("user-id");
         var IdGrup = $(this).data("grup-id");
         var id_d = $(this).data("usuarigrup-id");
-        console.log(IdUsuari);
-        console.log(IdGrup);
-        console.log(id_d);
-
-       
- 
-
-        //quan tanqui el modal totes les dades del modal
-        $('#editUserModal').on('hidden.bs.modal', function() {
-            $(this).find('form').trigger('reset');
-        }); 
-
         
-
 
 
         $.ajax({
@@ -31,7 +18,11 @@ $(document).ready(function() {
             data: { IdUsuari: IdUsuari },
             dataType: "json", 
 
+
+            
+
             success: function(users) {
+              console.log(users);
                     $("#ID").val(users.id.IdUsuari);
                     $("#Nom").val(users.id.Nom);
                     $("#Cognom").val(users.id.Cognom);
@@ -41,14 +32,6 @@ $(document).ready(function() {
                     $("#Rol").val(users.id.rol);
 
 
-                    
-            // jQuery("#ID").html(users.id.IdUsuari);
-            // jQuery("#Nom").html(users.Nom);
-            // jQuery("#Cognom").html(users.Cognom);
-            // jQuery("#Correu").html(users.Correu);
-            // jQuery("#Contrasenya").html(users.Contrasenya);
-            // jQuery("#Estado").html(users.estado);
-            // jQuery("#Rol").html(users.rol);
                 
             },
             error: function(xhr, textStatus, errorThrown) {
