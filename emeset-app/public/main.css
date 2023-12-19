@@ -1808,9 +1808,21 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(227 160 8 / var(--tw-bg-opacity));
 }
-.bg-green-300 {
+.bg-lime-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(132 225 188 / var(--tw-bg-opacity));
+  background-color: rgb(217 249 157 / var(--tw-bg-opacity));
+}
+.bg-lime-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(54 83 20 / var(--tw-bg-opacity));
+}
+.bg-lime-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(77 124 15 / var(--tw-bg-opacity));
+}
+.bg-lime-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(101 163 13 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -3421,10 +3433,6 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
-.hover\:bg-gray-900:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
 .hover\:bg-green-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(3 84 63 / var(--tw-bg-opacity));
@@ -3452,6 +3460,10 @@ input:checked + .toggle-bg {
 .hover\:bg-zinc-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
+}
+.hover\:bg-gray-900:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 .hover\:text-blue-600:hover {
   --tw-text-opacity: 1;
@@ -3828,10 +3840,6 @@ input:checked + .toggle-bg {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
 }
-:is(.dark .dark\:focus\:ring-gray-700:focus) {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(55 65 81 / var(--tw-ring-opacity));
-}
 :is(.dark .dark\:focus\:ring-gray-800:focus) {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(31 41 55 / var(--tw-ring-opacity));
@@ -3847,6 +3855,10 @@ input:checked + .toggle-bg {
 :is(.dark .dark\:focus\:ring-red-900:focus) {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(119 29 29 / var(--tw-ring-opacity));
+}
+:is(.dark .dark\:focus\:ring-gray-700:focus) {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(55 65 81 / var(--tw-ring-opacity));
 }
 :is(.dark .peer:focus ~ .dark\:peer-focus\:ring-blue-800) {
   --tw-ring-opacity: 1;
