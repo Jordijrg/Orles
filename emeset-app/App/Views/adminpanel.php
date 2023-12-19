@@ -26,9 +26,16 @@
 <div>
     <nav class="navbar dark:bg-gray-900 border-inherit">
   <ul class="navbar__menu">
+  <?php
+    //
+    if ( $user["rol"] === "admin") { ?>
     <li class="navbar__item cursor-pointer" id="usuarisbtn">
       <a class="navbar__link" ><i data-feather="user"></i><span>Usuaris</span></a>        
     </li>
+    <?php
+    }
+    ?>
+    
     <li class="navbar__item cursor-pointer" id="grupsbtn">
       <a href="#" class="navbar__link"><i data-feather="users"></i><span>Grups</span></a>        
     </li>
@@ -38,14 +45,7 @@
     <li class="navbar__item cursor-pointer" id="usuarigrupsbtn">
       <a href="#" class="navbar__link"><i data-feather="users"></i><span>Usuari/Grup</span></a>        
     </li>
-    <?php
-    if ($user["rol"] === "equip_directiu" || $user["rol"] === "profe") { ?>
-        <li class="navbar__item">
-          <a href="/editororles" class="navbar__link cursor-pointer"><i data-feather="message-square"></i><span>Plantilles</span></a>
-        </li>
-        <?php
-    }
-    ?>
+
                <li class="navbar__item cursor-pointer" id="orlas_generadasbtn">
       <a href="#" class="navbar__link"><i data-feather="users"></i><span>Orles Existents</span></a>        
     </li>
@@ -53,7 +53,9 @@
   </ul>
 </nav>
 </div>
-
+<?php
+    //
+    if ( $user["rol"] === "admin") { ?>
 <!-- DIV TO SHOW THE USERS -->
 <div id="usuaris" class="relative overflow-x-auto shadow-md sm:rounded-lg ml-36 mr-10">
     <div class="flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
@@ -202,10 +204,12 @@
                         </div>
                     </div>
                 </div>
-            
+     
         </tbody>
     </table>
-
+    <?php
+    }
+    ?>
 
 <!-- MODAL TO ADD USERS -->
 <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
