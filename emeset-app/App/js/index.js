@@ -1,6 +1,7 @@
 import jQuery from 'jquery';
 import {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups,toggleorlasgeneradas} from './menupanel.js'
 import {ajax} from './adminpanel.js'
+import {delmissatge} from './delmissatge.js';
 import {random} from './random.js'
 import {randomuser} from './randomuser.js'
 import {grupoajax} from './ajax_grupos.js';
@@ -12,15 +13,15 @@ import {viwer} from './ajax_btn_viwer.js';
 
 import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
-import {delmissatge} from './delmissatge.js';
 
+delmissatge();
 viwer()
 darkmode();
 scrollFunction();
 scrollToTop();
 addfotoorla();
 randomuser();
-delmissatge();
+
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
 
