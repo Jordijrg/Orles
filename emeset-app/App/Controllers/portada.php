@@ -5,25 +5,19 @@ use \Emeset\Contracts\Http\Response;
 use \Emeset\Contracts\Container;
 
 /**
- * Controlador de la portada d'exemple del Framework Emeset
- * Framework d'exemple per a M07 Desenvolupament d'aplicacions web.
- * @author: Dani Prados dprados@cendrassos.net
+ * ctrlPortada: Loads the front page
  *
- * Carrega la portada
+ * @param $request  Content of the HTTP request.
+ * 
+ * @param $response Content of the HTTP response.
+ * 
+ * @param $container The application's dependency injection container.
  *
- **/
-
-/**
- * ctrlPortada: Controlador que carrega  la portada
- *
- * @param $request contingut de la petiicó http.
- * @param $response contingut de la response http.
- * @param array $config  paràmetres de configuració de l'aplicació
- *
- **/
+ * @return  array              session values
+ */
 function ctrlPortada(Request $request, Response $response, Container $container) :Response
 {
-    // Comptem quantes vegades has visitat aquesta pàgina
+    // Counts how many times have you visited this page
     $visites = $request->get(INPUT_COOKIE, "visites");
     if (!is_null($visites)) {
         $visites = (int)$visites + 1;
@@ -38,6 +32,9 @@ function ctrlPortada(Request $request, Response $response, Container $container)
     } else {
         $missatge = "Hola! Ja has visitat {$visites} pàgines d'aquesta web!";
     }
+
+    $avatar = $container["Users"]->getAvat($IdUsuari);
+    $response->set("avatar", $avatar);
 
     $response->set("missatge", $missatge);
     $response->SetTemplate("portada.php");

@@ -32,6 +32,13 @@ class alumnecontrollers
         }else{
         $response->set("res",$res ); }
         $response->SetTemplate("alumne.php");
+
+        $IdUsuari = $request->get("SESSION", "user")["IdUsuari"];
+
+        $usuaris = $container["Users"]->getUserById1($IdUsuari);
+        $avatar = $container["Users"]->getAvat($IdUsuari);
+        $response->set("avatar", $avatar);
+
         return $response;
     }
     

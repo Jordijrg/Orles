@@ -55,6 +55,9 @@ class Privat
         $response->set("missatge", $missatge);
         $response->SetTemplate("privat.php");
 
+        $avatar = $container["Users"]->getAvat($IdUsuari);
+        $response->set("avatar", $avatar);
+
         return $response;
     }
 }
