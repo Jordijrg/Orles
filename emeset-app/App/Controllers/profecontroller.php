@@ -11,6 +11,12 @@ class profecontroller
         $usuaris = $container["Users"]-> getAllUsers();
         $response->set("usuaris", $usuaris);
 
+        $IdUsuari = $request->get("SESSION", "user")["IdUsuari"];
+
+        $usuaris = $container["Users"]->getUserById1($IdUsuari);
+        $avatar = $container["Users"]->getAvat($IdUsuari);
+        $response->set("avatar", $avatar);
+
         $response->SetTemplate("panelporfe.php");
 
         return $response;
