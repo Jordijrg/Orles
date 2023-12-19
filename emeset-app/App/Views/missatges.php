@@ -9,54 +9,66 @@
 </head>
 
 <body class="dark:bg-gray-900">
-    
+
     <div id="header">
         <?php include 'header.php'; ?>
     </div>
     <?php if ($_SESSION["user"]["rol"] == "gestor") {
         ; ?>
         <div class="grid grid-cols-2 gap-7 p-5 content-start ">
-                <div class="col-span-1 grid grid-cols-3 gap-7 ">
-                    <div class="col-span-3">
-                        <h1 class="text-3xl font-bold text-center dark:text-white">Missatges sense llegir <?php echo $missatgesnovists[0]["Count"]; ?> </h1>
-                    </div>
-                    <?php foreach ($missatgesnovists as $missatgenovist): ?>
-                        <div class="bg-gray-100 col-span-1 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
-                            <div class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg">
-                            <?php echo ($missatgenovist["Nom"]); ?> <?php echo ($missatgenovist["Cognom"]); ?> 
-                            </div>
-                            <div class="p-6">
-                                <h5 class=" text-lg font-medium leading-tight text-black dark:text-white">
-                                    Missatge: 
-                                </h5>
-                                <p class="bg-gray-200 rounded-lg p-3 text-base text-black text-center dark:bg-gray-800 mt-5 break-words dark:text-white">
-                                    <?php echo $missatgenovist["TextoError"]; ?> 
-                                </p>
-                            </div>
-                            <a href="/updmissatge/<?php echo $missatgenovist["IdError"]; ?>"><button type="button"
-                                    class="mt-2 bg-black missid focus:outline-none text-white  hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2  dark:hover:bg-green-700 dark:focus:ring-green-800">Marcar
-                                    com a vist</button></a>
-                        </div>
-                    <?php endforeach; ?>
-                    
+            <div class="col-span-1 grid grid-cols-2 gap-7 ">
+                <div class="col-span-2">
+                    <h1 class="text-3xl font-bold text-center dark:text-white">Missatges sense llegir
+                        <?php echo $missatgesnovists[0]["Count"]; ?>
+                    </h1>
                 </div>
-                <div class="col-span-1 grid grid-cols-2 gap-7">
-                    <div class="col-span-2">
-                        <h1 class="text-3xl font-bold text-center dark:text-white">Missatges llegits <?php echo $missatgesvists[0]["Count"] ?> </h1>
+                <?php foreach ($missatgesnovists as $missatgenovist): ?>
+                    <div
+                        class="bg-gray-100 col-span-1 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
+                        <div
+                            class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg">
+                            <?php echo ($missatgenovist["Nom"]); ?>
+                            <?php echo ($missatgenovist["Cognom"]); ?>
+                        </div>
+                        <div class="p-6">
+                            <h5 class=" text-lg font-medium leading-tight text-black dark:text-white">
+                                Missatge:
+                            </h5>
+                            <p
+                                class="bg-gray-200 rounded-lg p-3 text-base text-black text-center dark:bg-gray-800 mt-5 break-words dark:text-white">
+                                <?php echo $missatgenovist["TextoError"]; ?>
+                            </p>
+                        </div>
+                        <a href="/updmissatge/<?php echo $missatgenovist["IdError"]; ?>"><button type="button"
+                                class="mt-2 bg-black missid focus:outline-none text-white  hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2  dark:hover:bg-green-700 dark:focus:ring-green-800">Marcar
+                                com a vist</button></a>
                     </div>
+                <?php endforeach; ?>
+
+            </div>
+            <div class="col-span-1 grid grid-cols-2 gap-7">
+                <div class="col-span-2">
+                    <h1 class="text-3xl font-bold text-center dark:text-white">Missatges llegits
+                        <?php echo $missatgesvists[0]["Count"] ?>
+                    </h1>
+                </div>
+
                     <?php foreach ($missatgesvists as $missatgevist): ?>
-                        <div class="col-span-2 dark:text-white">
+                        <div class="col-span-1 dark:text-white">
                             <div
                                 class="bg-gray-100 col-span-2 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
-                                <div class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg ">
-                                <?php echo ($missatgevist["Nom"]); ?> <?php echo ($missatgevist["Cognom"]); ?> 
+                                <div
+                                    class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg ">
+                                    <?php echo ($missatgevist["Nom"]); ?>
+                                    <?php echo ($missatgevist["Cognom"]); ?>
                                 </div>
                                 <div class="p-6">
                                     <h5 class=" text-lg font-medium leading-tight text-black dark:text-white">
                                         Missatge:
                                     </h5>
-                                    <p class="rounded-lg p-3 text-base text-black text-center bg-gray-200 mt-5 break-words dark:text-white dark:bg-gray-800">
-                                        <?php echo $missatgevist["TextoError"]; ?> 
+                                    <p
+                                        class="rounded-lg p-3 text-base text-black text-center bg-gray-200 mt-5 break-words dark:text-white dark:bg-gray-800">
+                                        <?php echo $missatgevist["TextoError"]; ?>
                                     </p>
                                 </div>
                                 <button id="<?php echo $missatgevist['IdError'] ?>" data-modal-target="popup-modal"
@@ -65,11 +77,11 @@
                                     type="button">
                                     Eliminar
                                 </button>
+                            </div>
+                        </div>
+                <?php endforeach; ?>
             </div>
         </div>
-        <?php endforeach; ?>
-    </div>
-</div>
     <?php } else { ?>
         <div>No ets un gestor, no pots veure la pagina</div>
     <?php } ?>
@@ -110,7 +122,7 @@
 
 
 
-    
+
     <button id="scrollToTopBtn"
         class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -120,6 +132,7 @@
         </svg>
     </button>
     <script src="/js/bundle.js"></script>
+    <script src="/js/flowbite.js"></script>
 </body>
 
 </html>

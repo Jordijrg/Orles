@@ -27,7 +27,7 @@
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 border-none ">
 
             <div class="flex flex-col items-center pb-10 justify-center">
-                <img id="img_profile" class="w-24 h-24 mb-3 rounded-full shadow-lg" data-modal-target="static-modal2" data-modal-toggle="static-modal2" 
+                <img id="img_profile" class="cursor-pointer w-24 h-24 mb-3 rounded-full shadow-lg" data-modal-target="static-modal2" data-modal-toggle="static-modal2" 
                 src="/images/<?php if(!is_array($avatar)) { 
                     echo "inici.png"; } else {
                     echo $avatar["srcimagen"];}?>" alt="Foto perfil"/>

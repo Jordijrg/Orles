@@ -1,6 +1,7 @@
 import jQuery from 'jquery';
 import {toggleUsuaris,toggleOrlas, toggleGrups, toggleUsuariGrups,toggleorlasgeneradas} from './menupanel.js'
 import {ajax} from './adminpanel.js'
+import {delmissatge} from './delmissatge.js';
 import {random} from './random.js'
 import {randomuser} from './randomuser.js'
 import {grupoajax} from './ajax_grupos.js';
@@ -16,7 +17,7 @@ import {delmissatge} from './delmissatge.js';
 import {camera_js} from './camera.js';
 
 
-console.log("funcionaaaaa")
+delmissatge();
 viwer()
 darkmode();
 scrollFunction();
