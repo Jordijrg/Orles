@@ -14,7 +14,7 @@ use \Emeset\Contracts\Container;
  **/
 
 /**
- * ctrlLogin: Controlador que carrega  la pàgina de login
+ * ctrlLogin: controller that loads the login page
  *
  * @param $request contingut de la peticó http.
  * @param $response contingut de la response http.
