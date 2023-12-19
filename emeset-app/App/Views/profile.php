@@ -22,27 +22,23 @@
         <?php include 'header.php'; ?>
 </div>
         
-<div class=" px-4 mx-auto max-w-screen-xl">
-<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-12 mb-4 mt-4">
-<center>                     
-<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 border-none">
-    <div class="flex flex-col items-center pb-10">
-        
-        <img id="img_profile" class="w-24 h-24 mb-3 rounded-full shadow-lg" style="  object-fit: contain;" data-modal-target="static-modal2" data-modal-toggle="static-modal2" src="/images/<?php 
+<div class="px-4 mx-auto max-w-screen-xl">
+    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-12 mb-4 mt-4 flex flex-row flex-nowrap justify-center items-center">
+        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 border-none ">
 
-     
-if(!is_array($avatar)){
-            echo "inici.png";
-        }else{
-            echo $avatar["srcimagen"];
+            <div class="flex flex-col items-center pb-10 justify-center">
+                <img id="img_profile" class="w-24 h-24 mb-3 rounded-full shadow-lg" style="  object-fit: contain;" data-modal-target="static-modal2" data-modal-toggle="static-modal2" 
+                src="/images/<?php if(!is_array($avatar)) { 
+                    echo "inici.png"; } else {
+                    echo $avatar["srcimagen"];}?>" alt="Foto perfil"/>
+                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $usuaris['Nom'] . " " . $usuaris['Cognom']?></h5>
+                <span class="text-sm text-gray-500 dark:text-gray-400"><?= $usuaris['Correu']?></span>
 
-        }
-        ?>" alt="Bonnie image"/>
-        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $usuaris['Nom'] . " " . $usuaris['Cognom']?></h5>
-        <span class="text-sm text-gray-500 dark:text-gray-400"><?= $usuaris['Correu']?></span>
-        <div class="flex mt-4 md:mt-6">
-            <a href="#" data-modal-target="static-modal" data-modal-toggle="static-modal" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Veure el carnet</a>
-            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Enviar un missatge</a>
+                <div class="flex mt-4 md:mt-6 justify-center"> 
+                    <a href="#" data-modal-target="static-modal" data-modal-toggle="static-modal" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus-ring-gray-700 ms-3">Veure el carnet</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -265,7 +261,7 @@ if(!is_array($avatar)){
     <div class=" px-4 mx-auto max-w-screen-xl">
         <div id="editusuaris"
             class="w-full max-w-screen p-4 bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 hidden">
-            <form method="POST" action="/updateuser_user">
+            <form method="POST" action="/updateuser">
                 <div class="flex items-center justify-between mb-4">
                     <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Editar</h5>
                     <button type="submit" class=" text-blue-500 font-bold py-2 px-4 rounded">
@@ -372,16 +368,10 @@ if(!is_array($avatar)){
   </svg>
   <span aria-label="Scroll to Top" class="hidden">Scroll to Top</span>
 </button>
-
-
-
 </div>
-<?php include 'modalperfil.php'; ?>
-<script src="js/flowbite.js"></script>
-<script src="js/bundle.js"></script>
 
-    <!-- Main modal -->
-    <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+
+<div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
@@ -431,6 +421,13 @@ if(!is_array($avatar)){
             </div>
         </div>
     </div>
+    
+<?php include 'modalperfil.php'; ?>
+<script src="js/flowbite.js"></script>
+<script src="js/bundle.js"></script>
+
+    <!-- Main modal -->
+    
     <button id="scrollToTopBtn"
         class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
