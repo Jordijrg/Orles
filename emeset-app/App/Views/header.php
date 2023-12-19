@@ -18,7 +18,10 @@
           id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
           data-dropdown-placement="bottom">
           <span class="sr-only">Open user menu</span>
-          <img class="w-8 h-8 rounded-full" src="/images/inici.png" alt="user photo">
+          <img id="img_profile" class="w-8 h-8 rounded-full"
+                src="/images/<?php if(!is_array($avatar)) { 
+                    echo "inici.png"; } else {
+                    echo $avatar["srcimagen"];}?>" alt="Foto perfil"/>
         </button>
         <!-- Dropdown menu -->
         <div
@@ -46,10 +49,6 @@
                 class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-500 dark:hover:text-gray-600 dark:text-gray-200 ">Missatges</a>
             </li>
             <?php } ?>
-            <li>
-              <a href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-500 dark:hover:text-gray-600 dark:text-gray-200 ">Settings</a>
-            </li>
             <li>
               <?php
             if ($user["rol"] === "profe" || $user["rol"] === "equip_directiu"|| $user["rol"] === "admin") {?>
