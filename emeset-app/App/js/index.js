@@ -15,24 +15,7 @@ import {form_img} from './show_form_img.js'
 import {delmissatge} from './delmissatge.js';
 import {camera_js} from './camera.js';
 
-jQuery('#usuarisbtn').click(()=>{
-    toggleUsuaris()
-   })
 
-    jQuery('#orlasbtn').click(()=>{
-        toggleOrlas()
-    })
-    jQuery('#grupsbtn').click(()=>{
-        toggleGrups()
-    })
-    jQuery('#usuarigrupsbtn').click(()=>{
-        toggleUsuariGrups()
-    })
-
-
-    jQuery('#orlas_generadasbtn').click(()=>{
-        toggleorlasgeneradas()
-    })
 console.log("funcionaaaaa")
 viwer()
 darkmode();
@@ -77,5 +60,22 @@ $("#btnmenu").click((e)=>{
     })
 })
 
- 
+  jQuery('#usuarisbtn').click(()=>{
+    toggleUsuaris()
+   })
+
+    jQuery('#orlasbtn').click(()=>{
+        toggleOrlas()
+    })
+    jQuery('#grupsbtn').click(()=>{
+        toggleGrups()
+    })
+    jQuery('#usuarigrupsbtn').click(()=>{
+        toggleUsuariGrups()
+    })
+
+
+    jQuery('#orlas_generadasbtn').click(()=>{
+        toggleorlasgeneradas()
+    })
 feather.replace()

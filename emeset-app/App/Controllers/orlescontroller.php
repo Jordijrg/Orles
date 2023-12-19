@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-
+use \Mpdf\Mpdf;
 class orlescontroller 
 {
 
@@ -49,9 +49,13 @@ class orlescontroller
     }
     public function pdforla($request, $response, $container){
 //dd
-
+$mpdf = new Mpdf();
+$mpdf->WriteHTML('<h1>Hello world!</h1>');
+$mpdf->Output();
         die();
         $response->SetTemplate("view_orla.php");
         return $response;
     }
+
+    
 }
