@@ -13,6 +13,17 @@ class orlescontroller
         $response->SetTemplate("alumne.php");
         return $response;
     }
+    /**
+     * general_orla: handles the creation of orlas
+     *
+     * @param $request  Content of the HTTP request.
+     * 
+     * @param $response Content of the HTTP response.
+     * 
+     * @param $container The application's dependency injection container.
+     *
+     * @return  array              values of the group
+     */
     public function general_orla($request, $response, $container){
         $info= $container["plantilla_orla"]->info_($_POST["grupo"]);
         
@@ -23,7 +34,17 @@ class orlescontroller
 
         return $response;
     }
-
+    /**
+     * view_orla: it sets the values of the orlas to be displayed
+     *
+     * @param $request  Content of the HTTP request.
+     * 
+     * @param $response Content of the HTTP response.
+     * 
+     * @param $container The application's dependency injection container.
+     *
+     * @return  array              values of the orla
+     */
     public function view_orla($request, $response, $container){
         $idgrup= $request->getParam("id");
   
@@ -41,8 +62,6 @@ class orlescontroller
         return $response;
     }
     public function pdforla($request, $response, $container){
-//dd
-
         die();
         $response->SetTemplate("view_orla.php");
         return $response;

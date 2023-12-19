@@ -4,6 +4,17 @@ namespace App\Controllers;
 
 class profilecontroller 
 {
+    /**
+     * index: it declares the values of the user to be shown in the page
+     *
+     * @param $request  Content of the HTTP request.
+     * 
+     * @param $response Content of the HTTP response.
+     * 
+     * @param $container The application's dependency injection container.
+     *
+     * @return  array              session values
+     */
     public function index($request, $response, $container)
     {
         
@@ -25,7 +36,17 @@ class profilecontroller
 
         return $response;
     }
-
+    /**
+     * updateuser: it updates on or more values of the active user
+     *
+     * @param $request  Content of the HTTP request.
+     * 
+     * @param $response Content of the HTTP response.
+     * 
+     * @param $container The application's dependency injection container.
+     *
+     * @return  array              new user values
+     */
     public function updateuser($request, $response, $container){
 
         $response->set("logged", $_SESSION["logged"]);
@@ -83,6 +104,17 @@ class profilecontroller
         return $response;
 
         }
+        /**
+         * subir_logos: it receives the profile image that the user uploads
+         *
+         * @param $request  Content of the HTTP request.
+         * 
+         * @param $response Content of the HTTP response.
+         * 
+         * @param $container The application's dependency injection container.
+         *
+         * @return  array              the image
+         */
         public function subir_logos($request, $response, $container)
         {
             if($_FILES["avatar"]["name"][0]!=""){
