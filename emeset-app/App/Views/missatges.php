@@ -13,7 +13,7 @@
     <div id="header">
         <?php include 'header.php'; ?>
     </div>
-    <?php if ($_SESSION["user"]["rol"] == "gestor") {
+    <?php if ($_SESSION["user"]["rol"] == "gestor" || $_SESSION["user"]["rol"] == "equip_directiu" || $_SESSION["user"]["rol"] == "admin") {
         ; ?>
         <div class="grid grid-cols-2 gap-7 p-5 content-start ">
             <div class="col-span-1 grid grid-cols-2 gap-7 ">

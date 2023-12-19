@@ -1074,6 +1074,15 @@ input:checked + .toggle-bg {
 .top-3 {
   top: 0.75rem;
 }
+.start-40 {
+  inset-inline-start: 10rem;
+}
+.top-10 {
+  top: 2.5rem;
+}
+.top-24 {
+  top: 6rem;
+}
 .z-10 {
   z-index: 10;
 }
@@ -1421,6 +1430,23 @@ input:checked + .toggle-bg {
 }
 .transform-none {
   transform: none;
+}
+@keyframes jump {
+
+  0%, 100% {
+    transform: scale(100%);
+  }
+
+  10% {
+    transform: scale(80%);
+  }
+
+  50% {
+    transform: scale(120%);
+  }
+}
+.animate-jump {
+  animation: jump .5s both;
 }
 .cursor-default {
   cursor: default;
@@ -1772,6 +1798,10 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(227 160 8 / var(--tw-bg-opacity));
 }
+.bg-green-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(132 225 188 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -2059,8 +2089,17 @@ input:checked + .toggle-bg {
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
+.animate-duration-\[8000ms\] {
+  animation-duration: 8000ms;
+}
+.animate-infinite {
+  animation-iteration-count: infinite;
+}
 .animate-once {
   animation-iteration-count: 1;
+}
+.animate-ease-linear {
+  animation-timing-function: linear;
 }
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
 
@@ -3807,6 +3846,10 @@ input:checked + .toggle-bg {
 :is(.dark .dark\:focus\:ring-red-900:focus) {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(119 29 29 / var(--tw-ring-opacity));
+}
+:is(.dark .dark\:focus\:ring-gray-700:focus) {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(55 65 81 / var(--tw-ring-opacity));
 }
 :is(.dark .peer:focus ~ .dark\:peer-focus\:ring-blue-800) {
   --tw-ring-opacity: 1;

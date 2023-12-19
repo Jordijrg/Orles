@@ -1,6 +1,6 @@
 {
     "name": "Orlify",
-    "short_name": "App",
+    "short_name": "Orlify",
     "start_url": "/carnet",
     "display": "standalone",
     "background_color": "#ffffff",
