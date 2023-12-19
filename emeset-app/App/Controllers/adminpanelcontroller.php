@@ -4,6 +4,17 @@ namespace App\Controllers;
 
 class adminpanelcontroller
 {
+    /**
+     * index: prepares the values of the user for other functions
+     *
+     * @param $request  Content of the HTTP request.
+     * 
+     * @param $response Content of the HTTP response.
+     * 
+     * @param $container The application's dependency injection container.
+     *
+     * @return  array              users and groups
+     */
     public function index($request, $response, $container)
     {
         $response->set("logged", $_SESSION["logged"]);
@@ -36,7 +47,17 @@ class adminpanelcontroller
         return $response;
     }
 
-
+    /**
+    * deleteuser: deletes a user from the database
+    *
+    * @param $request  Content of the HTTP request.
+    * 
+    * @param $response Content of the HTTP response.
+    * 
+    * @param $container The application's dependency injection container.
+    *
+    * @return  array              users and groups
+    */
     public function deleteuser($request, $response, $container)
     {
         $model = $container->get("Users");
@@ -46,7 +67,17 @@ class adminpanelcontroller
 
         return $response;
     }
-
+    /**
+    * adduser: adds a user to the database
+    *
+    * @param $request  Content of the HTTP request.
+    * 
+    * @param $response Content of the HTTP response.
+    * 
+    * @param $container The application's dependency injection container.
+    *
+    * @return  array              values of a user
+    */
     public function adduser($request, $response, $container)
     {
         $Nom = $request->get(INPUT_POST, "Nom");
@@ -63,8 +94,18 @@ class adminpanelcontroller
         return $response;
 
     }
-
-public function addusergrup($request, $response, $container)
+    /**
+    * addusergrup: add a group of students to the database
+    *
+    * @param $request  Content of the HTTP request.
+    * 
+    * @param $response Content of the HTTP response.
+    * 
+    * @param $container The application's dependency injection container.
+    *
+    * @return  array             values of a group
+    */
+    public function addusergrup($request, $response, $container)
     {
         $nomUsuari = $request->get(INPUT_POST, "nomUsuari");
         $IdUsuari = $container["Users"]->getIdUsuari($nomUsuari);
@@ -81,7 +122,17 @@ public function addusergrup($request, $response, $container)
         return $response;
 
     }
-
+    /**
+    * updateuser: adds the values of a user to the model that opens when you click on it
+    *
+    * @param $request  Content of the HTTP request.
+    * 
+    * @param $response Content of the HTTP response.
+    * 
+    * @param $container The application's dependency injection container.
+    *
+    * @return  array             values of user
+    */
     public function updateuser($request, $response, $container)
     {
         $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
@@ -113,7 +164,17 @@ public function addusergrup($request, $response, $container)
         return $response;
 
     }
-
+    /**
+    * updateModalUser: updates the modal with the values of the user you clciked
+    *
+    * @param $request  Content of the HTTP request.
+    * 
+    * @param $response Content of the HTTP response.
+    * 
+    * @param $container The application's dependency injection container.
+    *
+    * @return  array              values of the user
+    */
         public function updateModalUser($request, $response, $container){
 
         $IdUsuari = $request->get(INPUT_POST, "IdUsuari"); 
@@ -141,7 +202,7 @@ public function addusergrup($request, $response, $container)
         for ($i = 1; $i < count($lines); $i++) {
             $values = str_getcsv($lines[$i]);
     
-            // Verifica que la línea tenga la misma cantidad de valores que el encabezado
+            // It verifies that the line has the same number of values as the header
             if (count($values) === count($headers)) {
                 $user = array_combine($headers, $values);
                 $usersData[] = $user;
@@ -174,7 +235,17 @@ public function addusergrup($request, $response, $container)
         return $response;
     }
 
-
+    /**
+    * updategrup: updates the values of a group in the database
+    *
+    * @param $request  Content of the HTTP request.
+    * 
+    * @param $response Content of the HTTP response.
+    * 
+    * @param $container The application's dependency injection container.
+    *
+    * @return  array              values of the group
+    */
     public function updategrup($request, $response, $container){
         $IdGrup = $request->get(INPUT_POST, "IdGrup");
         $Nom = $request->get(INPUT_POST, "Nom");
@@ -221,7 +292,17 @@ public function addusergrup($request, $response, $container)
             return $response;
 
         }
-
+        /**
+        * updateRandom: inserts random values in the model for adding users
+        *
+        * @param $request  Content of the HTTP request.
+        * 
+        * @param $response Content of the HTTP response.
+        * 
+        * @param $container The application's dependency injection container.
+        *
+        * @return  array              the random ajax values
+        */
         public function updateRandom($request, $response, $container){
             $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
 
@@ -243,7 +324,17 @@ public function addusergrup($request, $response, $container)
             return $response;
         }
         
-        
+        /**
+        * addgrup: adds a group to the database
+        *
+        * @param $request  Content of the HTTP request.
+        * 
+        * @param $response Content of the HTTP response.
+        * 
+        * @param $container The application's dependency injection container.
+        *
+        * @return  array              changed values of the user
+        */
         public function addgrup($request, $response, $container){
             $Nom = $request->get(INPUT_POST, "Nom"); 
             
@@ -255,7 +346,17 @@ public function addusergrup($request, $response, $container)
             
         }
 
-
+        /**
+        * deletegrup: it deletes a group from the database
+        *
+        * @param $request  Content of the HTTP request.
+        * 
+        * @param $response Content of the HTTP response.
+        * 
+        * @param $container The application's dependency injection container.
+        *
+        * @return  array              the values of the group to be deleted
+        */
         public function deletegrup($request, $response, $container){
             $model = $container->get("Users");
             $id = $request->getParam("id");
@@ -265,9 +366,6 @@ public function addusergrup($request, $response, $container)
             return $response;
         }
      
-
-
-
         public function deleteusergrup($request, $response, $container){
             $model = $container->get("Users");
             $id = $request->getParam("id");
