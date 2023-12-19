@@ -402,7 +402,7 @@ class adminpanelcontroller
             $Contrasenya = $request->get(INPUT_POST, "Contrasenya");
             $rol = $request->get(INPUT_POST, "rol");
             $estado = $request->get(INPUT_POST, "estado");
-    
+            
             $usermodel = $container["Users"]->adduserrandom($Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado);
     
             $response->redirect("Location: /adminpanel");

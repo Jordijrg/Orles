@@ -20,9 +20,11 @@
                 <h2 class="font-bold text-2xl border-l-2 border-l-black pl-2 dark:border-l-white">ORLES</h2>
             </div>
 
-            <?php foreach ($orles as $orla): ?>
+            <?php 
+
+foreach ($orles as $orla): ?>
                 <div class=" col-span-1 ">
-                    <a href="/view_orla/<?php echo $orla['IdOrla']?>" class=" block max-w-sm p-6  idgrup" id-grup="<?php echo $orla['IdGrup'] ?>">
+                    <a href="/view_orla/<?php echo $orla['idgrup']?>" class=" block max-w-sm p-6  idgrup" id-grup="<?php echo $orla['IdGrup'] ?>">
 
                         <h5
                             class="p-2 border-t-2 dark:border-t-white border-t-black mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white text-center">

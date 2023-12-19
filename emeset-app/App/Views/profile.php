@@ -483,12 +483,23 @@
     color: #5D277D;
 }
 
+<<<<<<< HEAD
+    .card .links a:nth-child(4):hover {
+        color: #FE0000;
+    }
+
+=======
 .card .links a:nth-child(4):hover {
     color: #FE0000;
 }
+>>>>>>> 27fd05cffdc3b8a508aaec9052eb31d1707d746f
 </style>
 
 
+
+<div>
+		
+  
 
 
 </html>

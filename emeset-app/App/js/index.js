@@ -13,14 +13,17 @@ import {viwer} from './ajax_btn_viwer.js';
 
 import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
+import {camera_js} from './camera.js';
 
-delmissatge();
+
 viwer()
 darkmode();
 scrollFunction();
 scrollToTop();
 addfotoorla();
 randomuser();
+delmissatge();
+camera_js();
 
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
