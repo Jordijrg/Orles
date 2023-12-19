@@ -77,6 +77,10 @@
 
             </li>
             <li>
+              <a href="/carnet"
+                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-500 dark:hover:text-gray-600 dark:text-gray-200 ">Carnet</a>
+            </li>
+            <li>
               <a href="/logout"
                 class="block px-4 py-2 text-sm text-red-500 hover:text-red-700 dark:text-red-500 dark:hover:text-red-700">Logout</a>
             </li>
