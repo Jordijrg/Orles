@@ -14,7 +14,6 @@ import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
 import {delmissatge} from './delmissatge.js';
 
-console.log("funcionaaaaa")
 viwer()
 darkmode();
 scrollFunction();
