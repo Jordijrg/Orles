@@ -235,27 +235,27 @@
     <div class="grid gap-4 mb-4 grid-cols-7">
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
-            <input type="text" name="namess" id="namess" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+            <input type="text" name="Nom" id="namess" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
         </div>
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cognom</label>
-            <input type="text" name="surnames" id="surnames" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+            <input type="text" name="Cognom" id="surnames" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
         </div>
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correu</label>
-            <input type="text" name="emails" id="emails" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+            <input type="text" name="Correu" id="emails" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
         </div>
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contrasenya</label>
-            <input type="text" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+            <input type="text" name="Contrasenya" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
         </div>
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rol</label>
-            <input type="text" name="roles" id="roles" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            <input type="text" name="rol" id="roles" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
         </div>
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Estado</label>
-            <input type="text" name="states" id="states" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+            <input type="text" name="estado" id="states" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
 
         </div>
         <div>
@@ -330,67 +330,42 @@
     </div>
 </div>
 
-
 <!-- DIV TO SHOW THE ORLAS -->
-<div id="orlas" class="relative sm:rounded-lg ml-36 mr-10 hidden" >
-<div style="    display: flex !important;
-    flex-flow: row;
-    place-content: center;
-    align-items: center;
-">
-<h3 class="txt-2xl lg:text-4xl font-extrabold text-gray-900 dark:text-white" style="text-align:center;">Fes click a la plantilla per crear una orle </h3>
+<div id="orlas" class="flex flex-row flew-nowrap content-center justify-center items-center hidden">
+    <div class="flex flex-row flew-nowrap content-center justify-center items-center">
 
-</div>
-      
-                      
-<div class="" style="padding:20px;">
+    <?php foreach ($plantillaorla as $key => $value) { ?>
 
-<?php  
-
-foreach ($plantillaorla as $key => $value) {?>
-
-<div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div>
-                <a href=""></a>
+               
             </div>
-            <a href="#">
+            
                 <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
-            </a>
+        
             <div class="p-5">
-                <a href="#">
+                
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["nom"]; ?></h5>
-                </a>
+                
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
                     acquisitions of 2021 so far, in reverse chronological order.</p>
             </div>
         </div>
-        <button id="scrollToTopBtn"
-            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="h-6 w-6 dark:stroke-black">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
-                </path>
-            </svg>
-        </button>
-        
-        <?php }?>
-        
-</div>
+
+    <?php } ?>
+
     </div>
 
+</div>
 
 
 
 
 
 
-<button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" onclick="scrollToTop()" style="display: none;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M7.41 15.41L12 12l4.59-4.59L18.58 12 12 18.58 7.41 15.41z"/>
-  </svg>
-  <span aria-label="Scroll to top">Scroll to top</span>
-</button>
+
+
+
     
 </div>
 
@@ -399,56 +374,35 @@ foreach ($plantillaorla as $key => $value) {?>
 
 
 <!-- DIV TO SHOW ORLAS GENERATED -->
-<div id="orlas_generadas" class="relative sm:rounded-lg ml-36 mr-10 hidden " style="padding:20px;">
-       
-<div class="grid grid-cols-3 gap-5">
- 
-<?php  
-
-foreach ($orlas as $key => $value) {?>
-
-<div  class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div>
-                <p>Estat de l'orle <span id="<?php  echo "estado".$value["IdOrla"]; ?>"> <?php echo $value["estat"]; ?></span></p> 
-            <label class="relative inline-flex items-center cursor-pointer">
-                 
-            <input type="checkbox" value="<?php echo $value["estat"]; ?>" class="sr-only peer btn_viwer_ora" id="" data-id="<?php echo $value["IdOrla"]; ?>" <?php 
-                if($value["estat"]=="invisible"){
-
-                }else{
-                    echo "checked";
-                }
-            
-            ?>>
-                    
-                    <div
-                      class="w-8 h-4 bg-gray-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                    </div>
-
-                  </label>            </div>
-            
+<div id="orlas_generadas" class="relative sm:rounded-lg ml-36 mr-10 hidden" style="padding:20px;">
+    <div class="flex flex-wrap justify-center">
+        <?php foreach ($orlas as $key => $value) { ?>
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5">
+                
                 <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
-            
-            <div class="p-5">
+                <div class="p-5">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["nomorle"]; ?></h5>
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["datacreacio"]; ?></h5>
-                
+                </div>
+                <div>
+                    <p>Estat de l'orla <span id="<?php echo "estado" . $value["IdOrla"]; ?>"><?php echo $value["estat"]; ?></span></p>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="<?php echo $value["estat"]; ?>" class="sr-only peer btn_viwer_ora" id="" data-id="<?php echo $value["IdOrla"]; ?>" <?php if ($value["estat"] == "invisible") {
+                                                                                                                                                                } else {
+                                                                                                                                                                    echo "checked";
+                                                                                                                                                                } ?>>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                        </div>
+                        
+                    </label>
+                </div>
+                                                                                                                                    
+
+
             </div>
-        
-        </div>
-        <button id="scrollToTopBtn"
-            class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="h-6 w-6 dark:stroke-black">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
-                </path>
-            </svg>
-        </button>
-        
-        <?php }?>
-        
-</div>
+        <?php } ?>
     </div>
+</div>
 
 
 
@@ -456,13 +410,8 @@ foreach ($orlas as $key => $value) {?>
 
 
 
-<button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" onclick="scrollToTop()" style="display: none;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M7.41 15.41L12 12l4.59-4.59L18.58 12 12 18.58 7.41 15.41z"/>
-  </svg>
-  <span aria-label="Scroll to top">Scroll to top</span>
-</button>
+
+
     
 </div>
 
@@ -859,6 +808,14 @@ foreach ($orlas as $key => $value) {?>
     </div>
 </div>
 
+
+<button id="scrollToTopBtn" class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" onclick="scrollToTop()" style="display: none;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M7.41 15.41L12 12l4.59-4.59L18.58 12 12 18.58 7.41 15.41z"/>
+  </svg>
+  <span aria-label="Scroll to top">Scroll to top</span>
+</button>
     
 <script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>

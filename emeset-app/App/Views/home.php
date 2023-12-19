@@ -64,83 +64,11 @@
 </button>
 
 
-<div class="flex justify-center mt-8">
-
-    
-        <h1 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">COM FUNCIONA ?</h1>
-  
-
-</div>
-
-
-
-
-<div class="flex justify-center mt-8">
-
-    <!-- Primer div -->
-    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
-        <div class="flex flex-col items-center pb-10">
-            <img class="w-24 h-24 mb-3" src="/images/portatil.png" alt="Bonnie image"/>
-            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Afegeix els usuaris</h5>
-            <span class="text-sm text-gray-500 dark:text-gray-400">Afegeix els usuaris d'un en un o en masa</span>
-        </div>
-    </div>
-
-    <!-- Segon div -->
-    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
-        <div class="flex flex-col items-center pb-10">
-            <img class="w-24 h-24 mb-3" src="/images/camara.png" alt="Bonnie image"/>
-            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Afegeix les fotos</h5>
-            <span class="text-sm text-gray-500 dark:text-gray-400">Pots pujar la foto o bé fer-la amb la camara del teu dispositiu</span>
-        </div>
-    </div>
-
-    <!-- Tercer div -->
-    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
-        <div class="flex flex-col items-center pb-10">
-            <img class="w-24 h-24 mb-3" src="/images/diploma.png" alt="Bonnie image"/>
-            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Tria el disseny</h5>
-            <span class="text-sm text-gray-500 dark:text-gray-400">Tria el disseny i imprimeix la teva orla!</span>
-        </div>
-    </div>
-
-</div>
-
 
 
 
 
 <script src="js/flowbite.js"></script>
-<!-- <script>
-    // Función para alternar el modo oscuro y guardar la preferencia
-function toggleDarkMode() {
-  const htmlElement = document.getElementById('html');
-  const isDarkModeEnabled = htmlElement.classList.toggle('dark');
-
-  // Actualizar el estado del toggle
-  const toggleDarkModeButton = document.getElementById('toggleDarkModeButton');
-  toggleDarkModeButton.checked = isDarkModeEnabled;
-
-  // Guardar la preferencia en localStorage
-  localStorage.setItem('darkMode', isDarkModeEnabled ? 'enabled' : 'disabled');
-}
-
-// Agregar evento de clic al botón para alternar y guardar el modo oscuro
-const toggleDarkModeButton = document.getElementById('toggleDarkModeButton');
-toggleDarkModeButton.addEventListener('click', toggleDarkMode);
-
-// Verificar y aplicar la preferencia almacenada en localStorage al cargar la página
-window.addEventListener('load', function() {
-  const htmlElement = document.getElementById('html');
-  const storedDarkMode = localStorage.getItem('darkMode');
-
-  // Si la preferencia está almacenada, aplicarla y actualizar el estado del toggle
-  if (storedDarkMode === 'enabled') {
-    htmlElement.classList.add('dark');
-    toggleDarkModeButton.checked = true;
-  }
-});
-</script> -->
 <script src="js/bundle.js"></script>
 
 </body>
