@@ -190,11 +190,11 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-4 md:p-5 space-y-4">
-                                <h1 class="text-lg font-semibold mb-4">Importar Usuarios</h1>
+                                <h1 class="text-lg font-semibold mb-4 dark:text-white">Importar Usuaris</h1>
                                 <form id="csvForm" method="POST" action="/userimport" enctype="multipart/form-data">
-                                    <label for="csvFile">Selecciona un archivo CSV:</label>
+                                    <label for="csvFile" class="dark:text-white">Selecciona un arxiu CSV:</label>
                                     <input name="CSV" type="file" id="csvFile" accept=".csv" required>
-                                    <button class="font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-300" type="submit">Importar</button>
+                                    <button class="dark:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-300" type="submit">Importar</button>
                                 </form>
 
                             </div>
