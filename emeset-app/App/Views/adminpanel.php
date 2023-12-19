@@ -858,7 +858,7 @@ foreach ($orlas as $key => $value) {?>
         </div>
     </div>
 </div>
-    
+
     
 <script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>

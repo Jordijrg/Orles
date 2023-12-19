@@ -652,9 +652,14 @@ if(!is_array($avatar)){
     .card .links a:nth-child(4):hover {
         color: #FE0000;
     }
+
 </style>
 
 
+
+<div>
+		
+  
 
 
 </html>
