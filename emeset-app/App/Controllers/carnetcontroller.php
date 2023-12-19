@@ -12,6 +12,9 @@ class carnetcontroller
         $getuser = $model->getUserById($_SESSION["user"]["IdUsuari"]);
         $response->set("usuari", $getuser);
         $response->SetTemplate("carnet.php");
+
+        $avatar = $container["Users"]->getAvat($IdUsuari);
+        $response->set("avatar", $avatar);
         return $response;
     }
 

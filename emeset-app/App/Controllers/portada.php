@@ -39,6 +39,9 @@ function ctrlPortada(Request $request, Response $response, Container $container)
         $missatge = "Hola! Ja has visitat {$visites} pàgines d'aquesta web!";
     }
 
+    $avatar = $container["Users"]->getAvat($IdUsuari);
+    $response->set("avatar", $avatar);
+
     $response->set("missatge", $missatge);
     $response->SetTemplate("portada.php");
 
