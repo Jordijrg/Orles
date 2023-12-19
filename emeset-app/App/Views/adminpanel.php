@@ -341,7 +341,7 @@
                
             </div>
             
-                <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
+                <img class="rounded-t-lg" src="/images/orla.png" alt="" />
         
             <div class="p-5">
                 
@@ -379,7 +379,7 @@
         <?php foreach ($orlas as $key => $value) { ?>
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5">
                 
-                <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
+                <img class="rounded-t-lg" src="/images/orla.png" alt="" />
                 <div class="p-5">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["nomorle"]; ?></h5>
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["datacreacio"]; ?></h5>
@@ -775,7 +775,7 @@
             <!-- Modal body -->
             <div class="p-4 md:p-5 space-y-4">
                 <form action="/general_orla" method="POST">
-            <p>Selecciona un grup per generar l'orle:</p>
+            <p>Selecciona un grup per generar l'orla:</p>
 
             <select name="grupo" id="underline_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
             <?php
