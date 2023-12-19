@@ -13,7 +13,7 @@
     <div id="header">
         <?php include 'header.php'; ?>
     </div>
-    <?php if ($_SESSION["user"]["rol"] == "gestor" || $_SESSION["user"]["rol"] == "equip_directiu" || $_SESSION["user"]["rol"] == "admin") {
+    <?php if ($_SESSION["user"]["rol"] == "gestor"  || $_SESSION["user"]["rol"] == "admin") {
         ; ?>
         <div class="grid grid-cols-2 gap-7 p-5 content-start ">
             <div class="col-span-1 grid grid-cols-2 gap-7 ">
@@ -24,7 +24,7 @@
                 </div>
                 <?php foreach ($missatgesnovists as $missatgenovist): ?>
                     <div
-                        class="bg-gray-100 col-span-1 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
+                        class="bg-gray-100 col-span-1 p-2 block  rounded-lg bg-warning border border-2 border-slate-200 dark:border-zinc-600 dark:bg-gray-700">
                         <div
                             class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg">
                             <?php echo ($missatgenovist["Nom"]); ?>
@@ -56,7 +56,7 @@
                     <?php foreach ($missatgesvists as $missatgevist): ?>
                         <div class="col-span-1 dark:text-white">
                             <div
-                                class="bg-gray-100 col-span-2 p-2 block  rounded-lg bg-warning border border-2 border-black dark:border-zinc-600 dark:bg-gray-700">
+                                class="bg-gray-100 col-span-2 p-2 block  rounded-lg bg-warning border border-2 border-slate-200 dark:border-zinc-600 dark:bg-gray-700">
                                 <div
                                     class="text-xl border-b-2 border-[#0000002d] px-6 py-3 text-black text-center dark:text-white  rounded-lg ">
                                     <?php echo ($missatgevist["Nom"]); ?>
@@ -122,9 +122,9 @@
 
 
 
-
+    <!-- Boto per anar a la part superior -->
     <button id="scrollToTopBtn"
-        class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50">
+        class="fixed bottom-4 end-4 bg-black dark:bg-white text-white p-2 rounded-full hidden z-50" aria-label="Ir arriba">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
             class="h-6 w-6 dark:stroke-black">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">

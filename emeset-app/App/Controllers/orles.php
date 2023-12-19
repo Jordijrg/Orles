@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class orles
 {
+    //Controlador per mostrar la vista de les orles
     public function index($request, $response, $container)
     {
         $response->set("logged", $_SESSION["logged"]);

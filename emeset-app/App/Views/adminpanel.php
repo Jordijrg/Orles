@@ -152,6 +152,8 @@
         </th>
         
     </tr>
+
+    <!-- Botó per poder pujar usuaris amb un arxiu csv -->
     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer"
                     data-modal-target="default-modal" data-modal-toggle="default-modal">
                     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
@@ -163,7 +165,7 @@
                     </th>
 
                 </tr>
-                <!-- Main modal -->
+                <!-- Main modal per pujar el csv -->
                 <div id="default-modal" tabindex="-1" aria-hidden="true"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div class="relative p-4 w-full max-w-2xl max-h-full">

@@ -38,6 +38,7 @@ class missatges
      * @param int $id
      * @return array imatge amb ["titol", "url"]
      */
+    //Model per veure els missatges no llegits
     public function getmessno()
     { 
         $query = 'SELECT errors.*, usuaris.Nom AS "Nom", usuaris.Cognom AS "Cognom", 
@@ -55,7 +56,7 @@ class missatges
         }
         return $tasks;
     }
-    
+    //Model per veure els missatges llegits
     public function getmesssi()
     {
         $query = 'SELECT errors.*, usuaris.Nom AS "Nom", usuaris.Cognom AS "Cognom",
@@ -73,7 +74,7 @@ class missatges
         }
         return $tasks;
     }
-    
+    //Model per marcar el missatge com a llegit
     public function updmissatge($id){
         $query = 'update errors set estat = "vist"
         where IdError = :id;';
@@ -81,6 +82,7 @@ class missatges
         $stm->bindParam(':id', $id);
         $stm->execute();
     }
+    //Model per eliminar el missatge
     public function delmssg($id){
         $query = 'delete from errors
         where IdError = :id;';

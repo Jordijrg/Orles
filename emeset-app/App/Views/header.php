@@ -43,7 +43,7 @@
               <a href="/perfil"
                 class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-500 dark:hover:text-gray-600 dark:text-gray-200 ">Perfil</a>
             </li>
-            <?php if ($user["rol"] === "gestor" || $user["rol"] === "equip_directiu" || $user["rol"] === "admin") { ?>
+            <?php if ($user["rol"] === "gestor" ||  $user["rol"] === "admin") { ?>
             <li>
               <a href="/missatge"
                 class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-500 dark:hover:text-gray-600 dark:text-gray-200 ">Missatges</a>

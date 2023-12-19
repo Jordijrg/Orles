@@ -38,6 +38,7 @@ class Orles
      * @param int $id
      * @return array imatge amb ["titol", "url"]
      */
+    //Model per mostar totes les orles
     public function getallorles($id)
     {
         $query = 'select orles.*, grup.Nom as "Nom", grup.IdGrup as "IdGrup" from orles 
@@ -65,6 +66,7 @@ class Orles
         return $tasks;
         
     }
+    //Model per mostrar totes les orles
     public function getallorles_ALL()
     {
 
@@ -87,6 +89,7 @@ class Orles
         return $tasks;
         
     }
+    //Model per mostrar l'ultima orla
     public function lastorla($id){
         $query = 'select orles.*, grup.Nom as "Nom",usuaris.IdUsuari "IdUsuari" from orles 
         join grup on orles.idgrup = grup.IdGrup

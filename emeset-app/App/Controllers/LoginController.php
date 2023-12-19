@@ -36,6 +36,7 @@ class LoginController
      *
      * @return  array              session values
      */
+    //Controlador per fer el login
     function login($request, $response, $container)
     {
         $user = $request->get(INPUT_POST, "user");
@@ -67,6 +68,7 @@ class LoginController
      *
      * @return  array              the falselogged
      */
+    //Controlador per fer el logout
     function logout($request, $response, $container)
     {
 

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 function delmissatge() {
+    //Event per eliminar el missatge
     $(".delmssg").click(function () {
         // Mostrar el div con id "addfotoorla"
         // Obtener la ID y la ruta de la imagen

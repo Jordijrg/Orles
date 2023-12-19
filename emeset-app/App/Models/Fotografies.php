@@ -38,6 +38,7 @@ class Fotografies
      * @param int $id
      * @return array imatge amb ["titol", "url"]
      */
+    //Model per a mostrar totes les fotografies
     public function getallfotos($id)
     {
         $query = 'select imatges_usuaris.*, usuaris.Nom as "Nomuser", usuaris.Cognom as "Coguser"  from imatges_usuaris 
@@ -54,6 +55,7 @@ class Fotografies
         return $tasks;
         
     }
+    //Model per seleccionar una fotografia 
     public function selfoto($idgrup,$idimg){
         // return $stm->fetch(\PDO::FETCH_ASSOC);
         
@@ -61,6 +63,7 @@ class Fotografies
         where IdImatge = :idimg;');
         $result = $query->execute([":idgrup" => $idgrup , ":idimg" => $idimg]);
     }
+    //Model per comprovar si la imagta ja esta afegida
     public function confselfoto($idgrup,$idimg){
         // return $stm->fetch(\PDO::FETCH_ASSOC);
         
@@ -71,7 +74,7 @@ class Fotografies
         $stm->execute();
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
-
+    //Model per obtenir el grup de l'usuari
     public function getgrup($id){
         $query = 'select * from usuari_grup where IdUsuari= :id;';
         $stm = $this->sql->prepare($query);
@@ -79,6 +82,7 @@ class Fotografies
         $stm->execute();
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
+    //Model per mostra les imatges seleccionades
     public function imgselect($idgrup, $iduser){
         $query = 'select imatges_usuaris.*,usuaris.Nom as "Nomuser", usuaris.Cognom as "Coguser"  from imatges_usuaris
         join usuaris on usuaris.IdUsuari = imatges_usuaris.idusuari
@@ -93,6 +97,7 @@ class Fotografies
         }
         return $tasks;
     }
+    //Model per eliminar la imatge seleccionada
     public function delselfoto($id){
         $query = 'update imatges_usuaris set idgrup = 
         0 where IdImatge = :id;';
@@ -107,6 +112,7 @@ class Fotografies
     //     $currentGroupId = $query->fetchColumn();
     //     return $currentGroupId;
     // }
+    //Model per enviar el missatge d'error
     public function noterror($id, $missatge){
         $query = 'insert into errors (TextoError, IdUsuari, estat) values (:missatge, :id, "novist");';
         $stm = $this->sql->prepare($query);

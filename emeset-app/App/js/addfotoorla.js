@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 function addfotoorla() {
+    // Función para cerrar el modal
     function closeModal() {
         document.getElementById('myModal').classList.add('hidden');
     }
@@ -15,7 +16,7 @@ function addfotoorla() {
         // Evento para cerrar modal al hacer clic en la cruz
         $('.modal-close').on('click', closeModal);
 
-
+    //Event per a mostrar el modal de la foto
     $(".imgft").click(function () {
         // Mostrar el div con id "addfotoorla"
         $("#addfotoorla").removeClass("hidden");
@@ -30,6 +31,7 @@ function addfotoorla() {
         $(".bt-img").attr("id",id);
         $(".bt-img").attr("href","/selfoto/"+iduser+"/"+id);
         let prueba
+        //Ajax per a comprovar si l'usuari ja te la foto seleccionada
             $.ajax({
                 url: "/ajaxselfoto/"+iduser+"/"+id,
                 type: "POST",
@@ -64,6 +66,7 @@ function addfotoorla() {
       
         console.log(id + " " + rutaImagen);
     });
+    //Event per eliminar la foto
     $(".delft").click(function () {
         var id = this.dataset.id;
         $(".confdel").attr("href","/delselfoto/"+id);

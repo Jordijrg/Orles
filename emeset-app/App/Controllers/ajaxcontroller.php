@@ -38,6 +38,7 @@ class ajaxcontroller
         $response->setJson();  
         return $response;
     }
+    // controlador per comprovar si la imates esta seleccionada
     public function ajaxselfoto($request, $response, $container)
     {       
         $idimg = $request->getParam("id");
