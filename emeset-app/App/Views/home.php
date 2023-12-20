@@ -63,6 +63,19 @@
   </svg>
 </button>
 
+<div id="cookieConsent" class="flowbite-modal">
+    <div class="flowbite-modal-overlay"></div>
+    <div class="flowbite-modal-container">
+      <div class="flowbite-modal-content">
+        <p>Aquesta web utilitza cookies per millorar la teva experiència</p>
+        <button onclick="acceptCookies()">Acceptar</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
 
 
@@ -70,6 +83,48 @@
 
 <script src="js/flowbite.js"></script>
 <script src="js/bundle.js"></script>
+
+<script>
+    // Check if the user has already accepted cookies
+    if (!localStorage.getItem('cookieConsent')) {
+      // Show the cookie consent modal
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+
+    // Function to set a flag in localStorage when the user accepts cookies
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+  </script>
+
+<style>
+    /* Add custom styles for the cookie consent modal */
+    #cookieConsent {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      z-index: 1000; /* Ensure the modal is above other elements */
+    }
+
+    #cookieConsent button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+
 
 </body>
 

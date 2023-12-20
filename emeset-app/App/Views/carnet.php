@@ -21,8 +21,10 @@
     <div class="content">
         <span></span>
         <div class="img">
-            <img src="images/inici.png" alt="">
-        </div>
+                <img id="img_profile" src="/images/<?php if(!is_array($avatar)) { 
+                    echo "inici.png"; } else {
+                    echo $avatar["srcimagen"];}?>" alt="Foto perfil"/>
+            </div>
         <img class="qr" src="images/qr.png" alt="">
         <div class="text">
             <h1>
