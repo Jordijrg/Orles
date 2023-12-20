@@ -47,7 +47,7 @@ $app->post("/", [TaskController::class,"add"], [[\App\Middleware\Auth::class,"au
 $app->get("/index", [TaskController::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/done/{id}", [TaskController::class,"delete"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/undone/{id}", [TaskController::class,"undelete"], [[\App\Middleware\Auth::class,"auth"]]);
-$app->get("/panelprofe", [profecontroller::class,"index"]);
+$app->get("/panelprofe", [profecontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/alumne", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/alumne2/{iduser}/{id}", [alumnecontrollers::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/selfoto/{iduser}/{id}", [alumnecontrollers::class,"selfoto"], [[\App\Middleware\Auth::class,"auth"]]);
@@ -65,8 +65,8 @@ $app->post("/register", [registercontroller::class,"doregister"]);
 $app->post("/grupoajax", [ajaxcontroller::class,"grupoajax"]);
 $app->post("/allgrupoajaxprofe", [ajaxcontroller::class,"getgrupoallprofe"]);
 $app->post("/alumngrupajax", [ajaxcontroller::class,"alumngrupajax"]);
-$app->post("/subir_alumno/{id}/{idgrupo}", [profecontroller::class,"subir_alumno"]);
-$app->get("/subir_alumno/{id}/{idgrupo}", [profecontroller::class,"subir_alumno2"]);
+$app->post("/subir_alumno/{id}/{idgrupo}", [profecontroller::class,"subir_alumno"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/subir_alumno/{id}/{idgrupo}", [profecontroller::class,"subir_alumno2"], [[\App\Middleware\Auth::class,"auth"]]);
 
 $app->get("/login", [LoginController::class,"index"]);
 $app->post("/login", [LoginController::class,"login"]);
@@ -78,34 +78,34 @@ $app->get("/resetPassword/{token}", [RecuperacioController::class,"token"]);
 $app->post("/updatePassword", [RecuperacioController::class,"updatePassword"]);
 $app->post("/ajax_orlas_visibility", [ajaxcontroller::class,"ajax_orlas_visibility"]);
 
-$app->get("/carnet", [carnetcontroller::class,"index"]);
+$app->get("/carnet", [carnetcontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]);
 
-$app->get("/perfil", [profilecontroller::class,"index"]); 
-$app->post("/updateprofile", [profilecontroller::class,"updateprofile"]); 
-$app->get("/perfil/error", [profilecontroller::class,"error"]); 
-$app->get("/editororles", [editororlescontroller::class,"index"]); 
+$app->get("/perfil", [profilecontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]); 
+$app->post("/updateprofile", [profilecontroller::class,"updateprofile"], [[\App\Middleware\Auth::class,"auth"]]); 
+$app->get("/perfil/error", [profilecontroller::class,"error"], [[\App\Middleware\Auth::class,"auth"]]); 
+$app->get("/editororles", [editororlescontroller::class,"index"], [[\App\Middleware\Auth::class,"auth"]]); 
 
-$app->get("/orles", [orles::class,"index"]); 
+$app->get("/orles", [orles::class,"index"], [[\App\Middleware\Auth::class,"auth"]]); 
 
 
 
 $app->get("/adminpanel", [adminpanelcontroller::class,"index"] , [[\App\Middleware\Auth::class,"auth"]] );
-$app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"]);
-$app->post("/adduser", [adminpanelcontroller::class,"adduser"]);
-$app->post("/adduserrandom", [adminpanelcontroller::class,"adduserrandom"]);
-$app->post("/updateuser", [adminpanelcontroller::class,"updateuser"]);
-$app->post("/updategrup", [adminpanelcontroller::class,"updategrup"]);
-$app->post("/updateuser_user", [profilecontroller::class,"updateuser"]);
+$app->get("/deleteuser/{id}", [adminpanelcontroller::class,"deleteuser"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/adduser", [adminpanelcontroller::class,"adduser"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/adduserrandom", [adminpanelcontroller::class,"adduserrandom"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/updateuser", [adminpanelcontroller::class,"updateuser"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/updategrup", [adminpanelcontroller::class,"updategrup"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/updateuser_user", [profilecontroller::class,"updateuser"], [[\App\Middleware\Auth::class,"auth"]]);
 
-$app->post("/addgrup", [adminpanelcontroller::class,"addgrup"]);
-$app->post("/addusergrup", [adminpanelcontroller::class,"addusergrup"]);
-$app->get("/deletegrup/{id}", [adminpanelcontroller::class,"deletegrup"]);
-$app->post("/getallplantillas", [adminpanelcontroller::class,"getallplantillas"]);
-$app->post("/general_orla", [orlescontroller::class,"general_orla"]);
+$app->post("/addgrup", [adminpanelcontroller::class,"addgrup"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/addusergrup", [adminpanelcontroller::class,"addusergrup"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/deletegrup/{id}", [adminpanelcontroller::class,"deletegrup"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/getallplantillas", [adminpanelcontroller::class,"getallplantillas"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/general_orla", [orlescontroller::class,"general_orla"], [[\App\Middleware\Auth::class,"auth"]]);
 
-$app->get("/view_orla/{id}", [orlescontroller::class,"view_orla"]);
-$app->get("/deleteusergrup/{id}", [adminpanelcontroller::class,"deleteusergrup"]);
-$app->post("/updateusergrup", [adminpanelcontroller::class,"updateusergrup"]);
+$app->get("/view_orla/{id}", [orlescontroller::class,"view_orla"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/deleteusergrup/{id}", [adminpanelcontroller::class,"deleteusergrup"], [[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/updateusergrup", [adminpanelcontroller::class,"updateusergrup"], [[\App\Middleware\Auth::class,"auth"]]);
 
 
 $app->post("/openModal", [adminpanelcontroller::class, "updateModal"]);

@@ -31,11 +31,8 @@
   <?php include "header.php";  ?>
 <section class="bg-indigo-50 h-screen">
 
-  <div class="grid grid-cols-12 gap-1">
-    <div class="col-span-1" >
-       
-    
-    </div>
+  <div class="grid grid-cols-1 gap-1">
+   
     
     <div class="col-span-6  mt-50 ">
     <h1 class="mt-20 mb-20 text-center">Aquí pots fer una cerca dels grups i orles</h1>
