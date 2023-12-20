@@ -386,23 +386,29 @@
 
 <!-- DIV TO SHOW THE ORLAS -->
 <div id="orlas" class="flex flex-row flew-nowrap content-center justify-center items-center hidden">
-    <div class="flex flex-row flew-nowrap content-center justify-center items-center">
+    <div class="flex flex-row flew-nowrap content-center justify-center items-center"  >
 
     <?php foreach ($plantillaorla as $key => $value) { ?>
 
-            <div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div data-modal-target="static-modal" data-modal-toggle="static-modal" class="max-w-sm m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 text-center mt-5" style="
+                    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;">
                 <div>
                
                 </div>
             
-                    <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
+                    <img class="rounded-t-lg w-52" src="/images/orla.png" alt="" />
         
                 <div class="p-5">
                 
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["nom"]; ?></h5>
                 
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                        acquisitions of 2021 so far, in reverse chronological order.</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dona clic aqui per poder generar la teva orla!.
+.</p>
                 </div>
             </div>
 
@@ -431,9 +437,15 @@
 <div id="orlas_generadas" class="relative sm:rounded-lg ml-36 mr-10 hidden" style="padding:20px;">
     <div class="flex flex-wrap justify-center">
         <?php foreach ($orlas as $key => $value) { ?>
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5">
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5 text-center flex justify-center flex-col" style="
+                    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;">
                 
-                    <img class="rounded-t-lg" src="/images/img1.jpg" alt="" />
+                    <img class="rounded-t-lg w-52 " src="/images/orla.png" alt="" />
                     <div class="p-5">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["nomorle"]; ?></h5>
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $value["datacreacio"]; ?></h5>
