@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2023 a las 00:25:30
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: localhost:3306
+-- Tiempo de generación: 20-12-2023 a las 11:38:33
+-- Versión del servidor: 10.6.12-MariaDB-0ubuntu0.22.04.1
+-- Versión de PHP: 8.1.2-1ubuntu2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `orlas`
+-- Base de datos: `orla`
 --
 
 -- --------------------------------------------------------
@@ -39,8 +39,9 @@ CREATE TABLE `avatar` (
 
 INSERT INTO `avatar` (`idavatar`, `srcimagen`, `iduser`) VALUES
 (1, '1702859821ddd.png', 5),
-(5, '1702908637ddd.png', 4),
-(6, '1703028129ddd.png', 19);
+(5, '1703070576ddd.png', 4),
+(6, '1703028129ddd.png', 19),
+(7, '1703071883ddd.png', 27);
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,8 @@ CREATE TABLE `errors` (
 INSERT INTO `errors` (`IdError`, `TextoError`, `IdUsuari`, `estat`) VALUES
 (2, 'rt4wfes', 4, 'novist'),
 (4, 'rt4rwe', 4, 'vist'),
-(5, 'rqwefsdaa', 4, 'vist');
+(5, 'rqwefsdaa', 4, 'vist'),
+(6, '123', 4, 'novist');
 
 -- --------------------------------------------------------
 
@@ -120,14 +122,16 @@ CREATE TABLE `imatges_usuaris` (
 --
 
 INSERT INTO `imatges_usuaris` (`IdImatge`, `Srcimatge`, `idusuari`, `idgrup`, `img_select_orl`) VALUES
-(47, 'descarga.jpeg', 4, 0, 'active'),
 (49, 'descarga.jpeg', 5, 1, 'active'),
 (50, 'descarga.jpeg', 12, 1, 'active'),
-(53, '17025895770.png', 4, 0, NULL),
-(54, '17025895771.png', 4, 0, NULL),
-(55, '17025895772.png', 4, 0, 'active'),
-(56, '17030248230.png', 19, 0, 'active'),
-(57, 'descarga.jpeg', 12, 1, 'active');
+(57, 'descarga.jpeg', 12, 1, 'active'),
+(60, '17030341510.png', 19, 2, NULL),
+(61, '17030352140.png', 19, 2, NULL),
+(62, '17030352141.png', 19, 2, 'active'),
+(63, '17030355180.png', 19, 1, NULL),
+(64, '17030355910.png', 19, 1, 'active'),
+(65, '17030683090.png', 4, 1, 'active'),
+(66, '17030717030.png', 15, 1, 'active');
 
 -- --------------------------------------------------------
 
@@ -140,7 +144,7 @@ CREATE TABLE `orles` (
   `idgrup` int(11) NOT NULL,
   `nomorle` text NOT NULL,
   `estat` text NOT NULL,
-  `datacreacio` int(11) DEFAULT NULL,
+  `datacreacio` text DEFAULT NULL,
   `numcolum` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -149,15 +153,39 @@ CREATE TABLE `orles` (
 --
 
 INSERT INTO `orles` (`IdOrla`, `idgrup`, `nomorle`, `estat`, `datacreacio`, `numcolum`) VALUES
-(1, 1, 'DAW 2023-11-17', 'activado', 2023, 3),
-(2, 1, 'DAW 2023-11-17', 'activado', 2023, 3),
-(3, 1, 'DAW 2023-11-17', 'invisible', 2023, 3),
-(4, 2, 'smx2 2023-11-17', 'invisible', 2023, 3),
-(5, 1, 'DAW 2023-11-17', 'invisible', 2023, 3),
-(6, 1, 'DAW 2023-11-17', 'invisible', 2023, 3),
-(7, 1, 'DAW 2023-11-17', 'invisible', 2023, 3),
-(8, 1, 'DAW 2023-11-17', 'invisible', 2023, 3),
-(9, 1, 'DAW 2023-11-17', 'invisible', 2023, 3);
+(1, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(2, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(3, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(4, 2, 'smx2 2023-11-17', 'invisible', '2023', 3),
+(5, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(6, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(7, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(8, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(9, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(10, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(11, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(12, 2, 'smx2 2023-11-17', 'invisible', '2023', 3),
+(13, 2, 'smx2 2023-11-17', 'invisible', '2023', 3),
+(14, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(15, 2, 'smx2 2023-11-17', 'invisible', '2023', 3),
+(16, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(17, 2, 'smx2 2023-11-17', 'invisible', '2023', 3),
+(18, 2, 'smx2 2023-11-17', 'invisible', '2023', 3),
+(19, 2, 'smx2 2023-11-17', 'invisible', '2023', 3),
+(20, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(21, 2, 'smx2 2023-11-17', 'invisible', '2023', 3),
+(22, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(23, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(24, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(25, 1, 'DAW 2023-11-17', 'invisible', '2023', 3),
+(26, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
+(27, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
+(28, 2, 'smx2 2023-11-17', 'invisible', '2023-12-20', 3),
+(29, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
+(30, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
+(31, 1, 'DAW 2023-11-17', 'activado', '2023-12-20', 3),
+(32, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
+(33, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3);
 
 -- --------------------------------------------------------
 
@@ -233,7 +261,7 @@ CREATE TABLE `usuaris` (
   `Contrasenya` varchar(90) NOT NULL,
   `rol` varchar(50) DEFAULT NULL,
   `estado` varchar(50) NOT NULL,
-  `token` varchar(255) NOT NULL
+  `token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -244,7 +272,7 @@ INSERT INTO `usuaris` (`IdUsuari`, `Nom`, `Cognom`, `Correu`, `Contrasenya`, `ro
 (1, '1', '1', '1@1.com', '$2y$12$EFbKVKaAndTsA3LfLlKFQuiMbz0D9khJfxNeYeHQlI02HIovqBa0K', 'alumne', 'actiu', ''),
 (2, 'p', 'p1', 'p1@1.com', '$2y$12$LJgCSEkLEyUKnpEcKKKsQe.CNtekf5lfWcHs80Ek1.foEUnEY2kxC', NULL, 'pendent', ''),
 (3, 'prueba', '1', 'p@p.com', '$2y$12$NxGwTJs8JHSeXxLjTdQOm.Xv3UjT23RsIuhoqkxwDzhayXK3ML0RW', NULL, 'pendent', ''),
-(4, 'dddd', 'user2', 'caca@caca.com', '$2y$12$1ScAxD2fdSIUqcxTLLQcl.gb3EAmSun6MH78Qh.2siW8PbF0mElW.', 'equip_directiu', 'active', ''),
+(4, 'dddd3', 'user2', 'caca@caca.com', '$2y$12$1ScAxD2fdSIUqcxTLLQcl.gb3EAmSun6MH78Qh.2siW8PbF0mElW.', 'admin', 'actiu', ''),
 (5, 'pedro', '1', '1@1.cm', '$2y$12$S.Fj/dp6A2LOu9aKErSNR.PhIFgZdJFgoqxs49Gi5MkwFJBKNhUzy', 'alumne', 'pendent', ''),
 (6, '1', '1', '1@2.com', '$2y$12$2PzZbqrQjib3u1mnwIagq.Bwp8BDZ9kKWZlK8WmKONOAobnFRd7sW', NULL, 'pendent', ''),
 (7, 'd2', 'd2', 'd2@d2.com', '$2y$12$I2/66rULoZrh3pBi5OhBnuy0syrUvUL6ypdSxOFZc2aVg8h/QUrXa', '', 'actiu', ''),
@@ -259,7 +287,15 @@ INSERT INTO `usuaris` (`IdUsuari`, `Nom`, `Cognom`, `Correu`, `Contrasenya`, `ro
 (16, 'Isabel', 'López', 'isabel@example.com', '$2y$12$EuQUSMiji.orscTBHPNoEeLLP/QJ/5wV53XXVZx2hNrByo8NpfaIW', 'professor', 'actiu', ''),
 (17, 'Stefan', 'Amundsen', 'stefan.amundsen@example.com', '$2y$12$a3UfrvMi7aMHG3KXjkFkfep.RbEG8fVlsoo1sY3JGiY/VctbGt8bW', '', 'pendent', ''),
 (18, 'Jo', 'j', 'jordi@gmail.com', '$2y$12$U6VFOGERc3qRt3AIjS.zVet1ITFveNWuDB4HkMBMUSlu3gNJsZRpy', NULL, 'pendent', ''),
-(19, 'c', 'c', 'c@c.com', '$2y$12$rQu.AsApL5kbKogzET6kAeHPbErAJsrbVhqkUKG9aB1Z56MWrqOjS', 'profe', 'pendent', '');
+(19, 'c', 'c', 'c@c.com', '$2y$12$rQu.AsApL5kbKogzET6kAeHPbErAJsrbVhqkUKG9aB1Z56MWrqOjS', 'profe', 'pendent', ''),
+(20, 'Violet', 'Turner', 'violet.turner@example.com', '$2y$12$rLH3u5hMBNhLIS4nt7UHcOlR4KfPjtX8y0kpoPhOraHIk796m/NHq', '', 'pendent', NULL),
+(21, 'Marcellino', 'Tuithof', 'marcellino.tuithof@example.com', '$2y$12$tufoLQtJwwQIfLUM0v5Dee314r/hrM7LUTIJQQPH0SN4IgPjF3afO', '', 'pendent', NULL),
+(22, 'Laura', 'García', 'laura@example.com', '$2y$12$Lwsag8GBINYj9YqUrX5IKex5MBeDeVwen.kuo/mAfUvhdZrPu9LI6', 'alumne', 'pendent', NULL),
+(23, 'Carlos', 'Fernández', 'carlos@example.com', '$2y$12$o0f1As16OOU1dNsOqN7lbObRfau4Av.0XwkStBMmJJygKPKKgI862', 'professor', 'actiu', NULL),
+(24, 'Elena', 'Martínez', 'elena@example.com', '$2y$12$/E4egF56U8Xj1/ihQCH3o.6/TNxK1dp1QJbhslPrpG.7IWhebAFcW', 'gestor', 'inactiu', NULL),
+(25, 'Miguel', 'Ruiz', 'miguel@example.com', '$2y$12$L0P1MqY46/ZKi2SLp4QSLukBl89VBlG2MdReOZUKkFPlGZQFpd.Bm', 'alumne', 'pendent', NULL),
+(26, 'Isabel', 'López', 'isabel@example.com', '$2y$12$WKs9wUjrcOgyRJpFfcFvxOo7tWdpE/4b7Z6uYcwR8mzFYOyhstpaS', 'professor', 'actiu', NULL),
+(27, 'jose', 'pedrin', 'pedro@pedro.com', '$2y$12$BCyqGRDZ6YF/fpecHI.Oo.9wTH4gmUuLd1BxooujArfqzISy5Z7H.', NULL, 'pendent', NULL);
 
 -- --------------------------------------------------------
 
@@ -286,7 +322,11 @@ INSERT INTO `usuari_grup` (`IdGrup`, `IdUsuari`, `id_d`) VALUES
 (3, 5, 11),
 (1, 5, 12),
 (1, 11, 13),
-(1, 19, 14);
+(2, 19, 15),
+(2, 19, 16),
+(1, 16, 17),
+(1, 15, 18),
+(1, 27, 19);
 
 --
 -- Índices para tablas volcadas
@@ -376,7 +416,7 @@ ALTER TABLE `usuari_grup`
 -- AUTO_INCREMENT de la tabla `avatar`
 --
 ALTER TABLE `avatar`
-  MODIFY `idavatar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idavatar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `carnet`
@@ -388,7 +428,7 @@ ALTER TABLE `carnet`
 -- AUTO_INCREMENT de la tabla `errors`
 --
 ALTER TABLE `errors`
-  MODIFY `IdError` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IdError` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `grup`
@@ -400,13 +440,13 @@ ALTER TABLE `grup`
 -- AUTO_INCREMENT de la tabla `imatges_usuaris`
 --
 ALTER TABLE `imatges_usuaris`
-  MODIFY `IdImatge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `IdImatge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `orles`
 --
 ALTER TABLE `orles`
-  MODIFY `IdOrla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IdOrla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `plantilla_orlas`
@@ -430,13 +470,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `usuaris`
 --
 ALTER TABLE `usuaris`
-  MODIFY `IdUsuari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `IdUsuari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `usuari_grup`
 --
 ALTER TABLE `usuari_grup`
-  MODIFY `id_d` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_d` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas
