@@ -29,7 +29,7 @@ class profecontroller
         $id = $request->getParam("id");
         $id_grupo = $request->getParam("idgrupo");
         
-        $fotografies = $container["Fotografies"]->getallfotos($id,$id_grupo);
+        $fotografies = $container["Fotografies"]->getallfotos2($id,$id_grupo);
         $response->SetTemplate("subir_alumno.php");
         $response->set("fotografies",$fotografies);
         $response->set("id",$id);

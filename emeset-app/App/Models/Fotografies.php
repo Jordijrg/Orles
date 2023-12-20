@@ -39,7 +39,26 @@ class Fotografies
      * @return array imatge amb ["titol", "url"]
      */
     //Model per a mostrar totes les fotografies
-    public function getallfotos($id,$idgrup)
+    public function getallfotos($id)
+    {
+        
+        $query = 'select imatges_usuaris.*, usuaris.Nom as "Nomuser", usuaris.Cognom as "Coguser"  from imatges_usuaris 
+        join usuaris on usuaris.IdUsuari = imatges_usuaris.idusuari
+        where imatges_usuaris.idusuari= :id ';
+        $stm = $this->sql->prepare($query);
+        $stm->bindParam(':id', $id);
+       
+        
+        $stm->execute();
+
+        $tasks = array();
+        while ($task = $stm->fetch(\PDO::FETCH_ASSOC)) {
+            $tasks[] = $task;
+        }
+        return $tasks;
+        
+    }
+    public function getallfotos2($id,$idgrup)
     {
         
         $query = 'select imatges_usuaris.*, usuaris.Nom as "Nomuser", usuaris.Cognom as "Coguser"  from imatges_usuaris 

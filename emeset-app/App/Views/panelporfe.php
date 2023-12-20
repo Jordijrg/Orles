@@ -31,14 +31,14 @@
   <?php include "header.php";  ?>
 <section class="bg-indigo-50 h-screen">
 
-  <div class="grid grid-cols-7 gap-1">
+  <div class="grid grid-cols-12 gap-1">
     <div class="col-span-1" >
        
     
     </div>
     
     <div class="col-span-6  mt-50 ">
-    <h1 class="mt-20 mb-20 text-center">Aqui puedes hacer una busqueda de los grupos y orlas</h1>
+    <h1 class="mt-20 mb-20 text-center">Aquí pots fer una cerca dels grups i orles</h1>
       <div class="grid  gap-5" >
         <div   class="">
         <form>   
@@ -49,7 +49,8 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input type="search" id="grupo_search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar grupo" required>
+                <input type="search" id="grupo_search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar grup
+" required>
             </div>
         </form>
         <div class="grupos " id="valores_grupos">
