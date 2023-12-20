@@ -13,22 +13,29 @@ class Auth {
      * @param callable $next  següent middleware o controlador.   
      * @return \Emeset\Http\Response resposta HTTP
      */
-    public static function Auth($request, $response, $container, $next)
+    public static function Admin_gestor($request, $response, $container, $next)
     {
 
         $user = $request->get("SESSION", "user");
         $logged = $request->get("SESSION", "logged");
-
+        $control=false;
         if (!isset($logged)) {
             $user = "";
-            $logged = false;
+            $control=true;
+        }else{
+         
+            if($_SESSION["rol"]=="equip_directiu" || $_SESSION["rol"]=="admin"  ){
+
+            }else{
+                $control=true;
+            }
         }
 
         $response->set("user", $user);
         $response->set("logged", $logged);
 
         // si l'usuari està logat permetem carregar el recurs
-        if ($logged) {
+        if ($control) {
             $response = \Emeset\Middleware::next($request, $response, $container, $next);
         } else {
             $response->redirect("location: /login");

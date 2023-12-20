@@ -24,6 +24,7 @@ class alumnecontrollers
         $model = $container->get("Fotografies");
         $getgrup = $container["Fotografies"]->getgrup($iduser);
         $error = $model->confselfoto($getgrup["IdGrup"],$idimg);
+        //$res serveix per saber si la imatge j'ha afegirt correctament i mostrar una modal
         $res=0;
         if($error){
             $res = 1;
@@ -41,7 +42,7 @@ class alumnecontrollers
 
         return $response;
     }
-    
+    //Controlador per seleccionar la foto
     public function selfoto($request, $response, $container)
     {   
         $idimg = $request->getParam("id");
@@ -55,6 +56,7 @@ class alumnecontrollers
     return $response;
 
     }
+    //Controlador per eliminar la foto
     public function delselfoto($request, $response, $container){
         $id = $request->getParam("id");
         $model = $container->get("Fotografies");
@@ -63,6 +65,7 @@ class alumnecontrollers
         return $response;
 
     }
+    //Controlador per poder notificar si hi ha un error
     public function noterror($request, $response, $container){
         $missatge = $request->get(INPUT_POST, "description");
         $model = $container->get("Fotografies");

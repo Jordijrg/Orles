@@ -1,5 +1,5 @@
 window.addEventListener("scroll", scrollFunction);
-
+//Funcio per fer qe aparegui el boto de pujar al principi
 function scrollFunction() {
     var scrollToTopBtn = document.getElementById("scrollToTopBtn");
 

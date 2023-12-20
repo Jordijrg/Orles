@@ -137,7 +137,7 @@ class adminpanelcontroller
     {
         $IdUsuari = $request->get(INPUT_POST, "IdUsuari");
 
-        $usuaris = $container["Users"]->getUserById($IdUsuari);
+        $usuaris = $container["Users"]->getUserById1($IdUsuari);
         $Contrasenya = $usuaris["Contrasenya"];
 
         if ($request->get(INPUT_POST, "Contrasenya") == "") {
@@ -402,7 +402,7 @@ class adminpanelcontroller
             $Contrasenya = $request->get(INPUT_POST, "Contrasenya");
             $rol = $request->get(INPUT_POST, "rol");
             $estado = $request->get(INPUT_POST, "estado");
-    
+            
             $usermodel = $container["Users"]->adduserrandom($Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado);
     
             $response->redirect("Location: /adminpanel");

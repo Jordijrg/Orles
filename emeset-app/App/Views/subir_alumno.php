@@ -68,12 +68,170 @@
                     </div>
             <?php } ?>
             </dl>
-            <button type="submit" id="btn_sumbit" style="background-color:red;">enviar</button>
+
+            <button type="submit" id="btn_sumbit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Enviar</button>
+
             </div>
         </div>
         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
             <!-- List -->
-       
+          <div>
+          <button type="button" id="btn_show" data-estado="oc" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Mostrar camara</button>
+
+          </div>
+       <div class="hidden" id="camara_main">
+       <div>
+		<select name="listaDeDispositivos" id="listaDeDispositivos"></select>
+		<button id="boton">Tomar foto</button>
+
+	</div>
+	<br>
+	<video muted="muted" id="video"></video>
+	<canvas id="canvas" style="display: none;"></canvas>
+    <script>
+
+const tieneSoporteUserMedia = () =>
+    !!(navigator.getUserMedia || (navigator.mozGetUserMedia || navigator.mediaDevices.getUserMedia) || navigator.webkitGetUserMedia || navigator.msGetUserMedia)
+const _getUserMedia = (...arguments) =>
+    (navigator.getUserMedia || (navigator.mozGetUserMedia || navigator.mediaDevices.getUserMedia) || navigator.webkitGetUserMedia || navigator.msGetUserMedia).apply(navigator, arguments);
+
+// Declaramos elementos del DOM
+const $video = document.querySelector("#video"),
+    $canvas = document.querySelector("#canvas"),
+    $boton = document.querySelector("#boton"),
+    $listaDeDispositivos = document.querySelector("#listaDeDispositivos");
+
+const limpiarSelect = () => {
+    for (let x = $listaDeDispositivos.options.length - 1; x >= 0; x--)
+        $listaDeDispositivos.remove(x);
+};
+const obtenerDispositivos = () => navigator
+    .mediaDevices
+    .enumerateDevices();
+
+// La función que es llamada después de que ya se dieron los permisos
+// Lo que hace es llenar el select con los dispositivos obtenidos
+const llenarSelectConDispositivosDisponibles = () => {
+
+    limpiarSelect();
+    obtenerDispositivos()
+        .then(dispositivos => {
+            const dispositivosDeVideo = [];
+            dispositivos.forEach(dispositivo => {
+                const tipo = dispositivo.kind;
+                if (tipo === "videoinput") {
+                    dispositivosDeVideo.push(dispositivo);
+                }
+            });
+
+            // Vemos si encontramos algún dispositivo, y en caso de que si, entonces llamamos a la función
+            if (dispositivosDeVideo.length > 0) {
+                // Llenar el select
+                dispositivosDeVideo.forEach(dispositivo => {
+                    const option = document.createElement('option');
+                    option.value = dispositivo.deviceId;
+                    option.text = dispositivo.label;
+                    $listaDeDispositivos.appendChild(option);
+                });
+            }
+        });
+}
+
+(function() {
+    // Comenzamos viendo si tiene soporte, si no, nos detenemos
+    if (!tieneSoporteUserMedia()) {
+        alert("Lo siento. Tu navegador no soporta esta característica");
+        $estado.innerHTML = "Parece que tu navegador no soporta esta característica. Intenta actualizarlo.";
+        return;
+    }
+    //Aquí guardaremos el stream globalmente
+    let stream;
+
+
+    // Comenzamos pidiendo los dispositivos
+    obtenerDispositivos()
+        .then(dispositivos => {
+            // Vamos a filtrarlos y guardar aquí los de vídeo
+            const dispositivosDeVideo = [];
+
+            // Recorrer y filtrar
+            dispositivos.forEach(function(dispositivo) {
+                const tipo = dispositivo.kind;
+                if (tipo === "videoinput") {
+                    dispositivosDeVideo.push(dispositivo);
+                }
+            });
+
+            // Vemos si encontramos algún dispositivo, y en caso de que si, entonces llamamos a la función
+            // y le pasamos el id de dispositivo
+            if (dispositivosDeVideo.length > 0) {
+                // Mostrar stream con el ID del primer dispositivo, luego el usuario puede cambiar
+                mostrarStream(dispositivosDeVideo[0].deviceId);
+            }
+        });
+
+
+
+    const mostrarStream = idDeDispositivo => {
+        _getUserMedia({
+                video: {
+                    // Justo aquí indicamos cuál dispositivo usar
+                    deviceId: idDeDispositivo,
+                }
+            },
+            (streamObtenido) => {
+                // Aquí ya tenemos permisos, ahora sí llenamos el select,
+                // pues si no, no nos daría el nombre de los dispositivos
+                llenarSelectConDispositivosDisponibles();
+
+                // Escuchar cuando seleccionen otra opción y entonces llamar a esta función
+                $listaDeDispositivos.onchange = () => {
+                    // Detener el stream
+                    if (stream) {
+                        stream.getTracks().forEach(function(track) {
+                            track.stop();
+                        });
+                    }
+                    // Mostrar el nuevo stream con el dispositivo seleccionado
+                    mostrarStream($listaDeDispositivos.value);
+                }
+
+                // Simple asignación
+                stream = streamObtenido;
+
+                // Mandamos el stream de la cámara al elemento de vídeo
+                $video.srcObject = stream;
+                $video.play();
+
+                //Escuchar el click del botón para tomar la foto
+                $boton.addEventListener("click", function() {
+
+                    //Pausar reproducción
+                    $video.pause();
+
+                    //Obtener contexto del canvas y dibujar sobre él
+                    let contexto = $canvas.getContext("2d");
+                    $canvas.width = $video.videoWidth;
+                    $canvas.height = $video.videoHeight;
+                    contexto.drawImage($video, 0, 0, $canvas.width, $canvas.height);
+
+                    let foto = $canvas.toDataURL(); //Esta es la foto, en base 64
+
+                    let enlace = document.createElement('a'); // Crear un <a>
+                    enlace.download = "foto_parzibyte.me.png";
+                    enlace.href = foto;
+                    enlace.click();
+                    //Reanudar reproducción
+                    $video.play();
+                });
+            }, (error) => {
+                console.log("Permiso denegado o error: ", error);
+                $estado.innerHTML = "No se puede acceder a la cámara, o no diste permiso.";
+            });
+    }
+})();
+    </script>
+       </div>
             <div id="upload_image_div" class="	mt-5 bg-white	p-14	" >
     <h2 class="mt-5 text-center	">Sube las imagenes para el usuario:</h2>
 
@@ -94,8 +252,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;">
-        <button type="submit" id="btn_sumbit" style="background-color:red;" class="flex justify-center	    ">enviar</button>
-            </div>
+            <button type="submit" id="btn_sumbit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Enviar</button>            </div>
             </div>
         </div>
     </div>
@@ -134,54 +291,30 @@ dropContainer.ondrop = function(evt) {
 </script>
 
 <script>
-  let image=[]
-function dropHandler(ev) {
-  console.log("File(s) dropped");
+ let btn = document.getElementById("btn_show")
+ btn.addEventListener("click",(evt)=>{
+    switch (evt.target.dataset.estado) {
+        case "oc":
+            evt.target.dataset.estado="vi"
+            
+            document.getElementById("camara_main").style.display="block"
+            evt.target.textContent="Ocultar camara"
 
-  // Prevent default behavior (Prevent file from being opened)
-  ev.preventDefault();
-
-  if (ev.dataTransfer.items) {
-    // Use DataTransferItemList interface to access the file(s)
-    [...ev.dataTransfer.items].forEach((item, i) => {
-      // If dropped items aren't files, reject them
-      if (item.kind === "file") {
-        const file = item.getAsFile();
-        var newObject  = {
-   'lastModified'     : file.lastModified,
-   'lastModifiedDate' : file.lastModifiedDate,
-   'name'             : file.name,
-   'size'             : file.size,
-   'type'             : file.type
-};
-image.push(JSON.stringify(newObject))
-
-
-
-      }
-    });
-  } else {
-    // Use DataTransfer interface to access the file(s)
-    [...ev.dataTransfer.files].forEach((file, i) => {
-     
-
-    });
-  }
-  document.getElementById("imagen").value=JSON.stringify(image)
-}
-function dragOverHandler(ev) {
-  console.log("File(s) in drop zone");
-
-  // Prevent default behavior (Prevent file from being opened)
-  ev.preventDefault();
-}
-
+            break;
+            case "vi":
+                evt.target.dataset.estado="oc"
+                document.getElementById("camara_main").style.display="none"
+                evt.target.textContent="Mostrar camara"
+            break;
+        default:
+            break;
+    }
+ })
 </script>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
-<script src="js/bundle.js"></script>
+<script src="/js/bundle.js"></script>
 
 
 

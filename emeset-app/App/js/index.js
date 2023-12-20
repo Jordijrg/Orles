@@ -13,6 +13,7 @@ import {viwer} from './ajax_btn_viwer.js';
 
 import {upload_div} from './upload_div.js';
 import {form_img} from './show_form_img.js'
+import {camera_js} from './camera.js';
 
 delmissatge();
 viwer()
@@ -21,6 +22,11 @@ scrollFunction();
 scrollToTop();
 addfotoorla();
 randomuser();
+
+$("#camara_main").hide()
+$("#btn_show").click(()=>{
+    console.log("entra guarra")
+})
 
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))

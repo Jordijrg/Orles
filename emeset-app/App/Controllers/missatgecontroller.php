@@ -21,6 +21,7 @@ class missatgecontroller
         
         return $response;
     }
+    //Controlador per marcar el missatge com a vist
     public function updmissatge($request, $response, $container)
     {
         $model = $container->get("missatges");
@@ -29,6 +30,7 @@ class missatgecontroller
         $response->redirect("Location: /missatge");
         return $response;
     }
+    //Controlador per eliminar el missatge
     public function delmssg($request, $response, $container)
     {
         $model = $container->get("missatges");
