@@ -29,7 +29,7 @@ class profecontroller
         $id = $request->getParam("id");
         $id_grupo = $request->getParam("idgrupo");
         
-        $fotografies = $container["Fotografies"]->getallfotos($id);
+        $fotografies = $container["Fotografies"]->getallfotos($id,$id_grupo);
         $response->SetTemplate("subir_alumno.php");
         $response->set("fotografies",$fotografies);
         $response->set("id",$id);
@@ -52,10 +52,11 @@ class profecontroller
         }
        
         $imagen_id=$request->get(INPUT_POST, "imagen_user"); 
-        $fotografies = $container["Fotografies"]->activate_img_orla($imagen_id);
-        echo "<br>";
-
-        if($_FILES["imagen"]["name"][0]!=""){
+        
+     
+        
+             if($_FILES["imagen"]["name"][0]!=""){
+            
             for($i=0;$i<count($_FILES["imagen"]["name"]);$i++){
                 echo $i;
                 $name=time()."".$i.".png";
@@ -64,6 +65,9 @@ class profecontroller
                 $fotografies = $container["Fotografies"]->add_imguser_orla($name,$id,$id_grupo);
                 move_uploaded_file($tmp_nameimg, $url_img);
             }
+        }else{
+            $fotografies = $container["Fotografies"]->activate_img_orla($id,$id_grupo);
+            $fotografies = $container["Fotografies"]->activate_img_orla2($imagen_id);
         }
      
 

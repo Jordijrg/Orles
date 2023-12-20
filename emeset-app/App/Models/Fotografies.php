@@ -39,13 +39,16 @@ class Fotografies
      * @return array imatge amb ["titol", "url"]
      */
     //Model per a mostrar totes les fotografies
-    public function getallfotos($id)
+    public function getallfotos($id,$idgrup)
     {
+        
         $query = 'select imatges_usuaris.*, usuaris.Nom as "Nomuser", usuaris.Cognom as "Coguser"  from imatges_usuaris 
         join usuaris on usuaris.IdUsuari = imatges_usuaris.idusuari
-        where imatges_usuaris.idusuari= :id;';
+        where imatges_usuaris.idusuari= :id and imatges_usuaris.idgrup=:idgrup;';
         $stm = $this->sql->prepare($query);
         $stm->bindParam(':id', $id);
+        $stm->bindParam(':idgrup',$idgrup);
+        
         $stm->execute();
 
         $tasks = array();
@@ -120,14 +123,24 @@ class Fotografies
         $stm->bindParam(':missatge', $missatge);
         $stm->execute();
     }
-    public function activate_img_orla($id){
+    public function activate_img_orla($id,$idgrup){
+      
         
-        $query = 'update imatges_usuaris set img_select_orl="active" where IdImatge=:IdImatge ;';
+        $query = 'update imatges_usuaris set img_select_orl=null where IdImatge in (
+            select imatges_usuaris.IdImatge from imatges_usuaris where imatges_usuaris.idusuari=:idusuari and imatges_usuaris.idgrup=:idgrup and img_select_orl="active"
+        ) ;';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':IdImatge' =>  $id]);
+        $stm->execute([':idusuari'=>$id,':idgrup'=>$idgrup]);
 
     }
+    public function activate_img_orla2($id){
+      
+        
+        $query = 'update imatges_usuaris set img_select_orl="active" where IdImatge =:IdImatge;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':IdImatge'=>$id]);
 
+    }
 
     public function add_imguser_orla($Srcimatge,$idusuari,$idgrup){
         
