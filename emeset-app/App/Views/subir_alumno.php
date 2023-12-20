@@ -68,16 +68,18 @@
                     </div>
             <?php } ?>
             </dl>
-            <button type="submit" id="btn_sumbit" style="background-color:red;">enviar</button>
+
+            <button type="submit" id="btn_sumbit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Enviar</button>
+
             </div>
         </div>
         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
             <!-- List -->
           <div>
-          <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Dark</button>
+          <button type="button" id="btn_show" data-estado="oc" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Mostrar camara</button>
 
           </div>
-       <div class="" id="camara_main">
+       <div class="hidden" id="camara_main">
        <div>
 		<select name="listaDeDispositivos" id="listaDeDispositivos"></select>
 		<button id="boton">Tomar foto</button>
@@ -87,12 +89,7 @@
 	<video muted="muted" id="video"></video>
 	<canvas id="canvas" style="display: none;"></canvas>
     <script>
-        /*
-    Tomar una fotografía y descargarla
-	@date 2019-04-23
-	@author parzibyte
-	@web parzibyte.me/blog
-*/
+
 const tieneSoporteUserMedia = () =>
     !!(navigator.getUserMedia || (navigator.mozGetUserMedia || navigator.mediaDevices.getUserMedia) || navigator.webkitGetUserMedia || navigator.msGetUserMedia)
 const _getUserMedia = (...arguments) =>
@@ -255,8 +252,7 @@ const llenarSelectConDispositivosDisponibles = () => {
     flex-direction: column;
     justify-content: center;
     align-items: center;">
-        <button type="submit" id="btn_sumbit" style="background-color:red;" class="flex justify-center	    ">enviar</button>
-            </div>
+            <button type="submit" id="btn_sumbit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Enviar</button>            </div>
             </div>
         </div>
     </div>
@@ -295,8 +291,25 @@ dropContainer.ondrop = function(evt) {
 </script>
 
 <script>
-  let btn_main=document.getElementById("camara_main")
-  btn_main
+ let btn = document.getElementById("btn_show")
+ btn.addEventListener("click",(evt)=>{
+    switch (evt.target.dataset.estado) {
+        case "oc":
+            evt.target.dataset.estado="vi"
+            
+            document.getElementById("camara_main").style.display="block"
+            evt.target.textContent="Ocultar camara"
+
+            break;
+            case "vi":
+                evt.target.dataset.estado="oc"
+                document.getElementById("camara_main").style.display="none"
+                evt.target.textContent="Mostrar camara"
+            break;
+        default:
+            break;
+    }
+ })
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

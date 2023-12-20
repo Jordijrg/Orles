@@ -23,7 +23,10 @@ scrollToTop();
 addfotoorla();
 randomuser();
 
-camera_js();
+$("#camara_main").hide()
+$("#btn_show").click(()=>{
+    console.log("entra guarra")
+})
 
 jQuery("#menu_main").hide()
 console.log(jQuery("#btnmenu"))
