@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 20-12-2023 a las 11:38:33
+-- Tiempo de generación: 20-12-2023 a las 21:42:44
 -- Versión del servidor: 10.6.12-MariaDB-0ubuntu0.22.04.1
 -- Versión de PHP: 8.1.2-1ubuntu2.14
 
@@ -39,7 +39,7 @@ CREATE TABLE `avatar` (
 
 INSERT INTO `avatar` (`idavatar`, `srcimagen`, `iduser`) VALUES
 (1, '1702859821ddd.png', 5),
-(5, '1703070576ddd.png', 4),
+(5, '1703072365ddd.png', 4),
 (6, '1703028129ddd.png', 19),
 (7, '1703071883ddd.png', 27);
 
@@ -74,9 +74,9 @@ CREATE TABLE `errors` (
 
 INSERT INTO `errors` (`IdError`, `TextoError`, `IdUsuari`, `estat`) VALUES
 (2, 'rt4wfes', 4, 'novist'),
-(4, 'rt4rwe', 4, 'vist'),
 (5, 'rqwefsdaa', 4, 'vist'),
-(6, '123', 4, 'novist');
+(6, '123', 4, 'novist'),
+(7, 'la imagen esta mal la 3', 4, 'vist');
 
 -- --------------------------------------------------------
 
@@ -100,8 +100,8 @@ INSERT INTO `grup` (`IdGrup`, `Nom`, `data_grup`, `estado`) VALUES
 (1, 'DAW', '2023-11-17', NULL),
 (2, 'smx2', '2023-11-17', NULL),
 (3, 'smx3', '2023-11-17', NULL),
-(4, 'DAW2', '2023-11-17', NULL),
-(5, 'f', '2023-12-18', 'desactivat');
+(4, 'DAW', '2023-11-17', 'desactivat'),
+(5, 'f', '2023-12-18', 'actiu');
 
 -- --------------------------------------------------------
 
@@ -130,8 +130,10 @@ INSERT INTO `imatges_usuaris` (`IdImatge`, `Srcimatge`, `idusuari`, `idgrup`, `i
 (62, '17030352141.png', 19, 2, 'active'),
 (63, '17030355180.png', 19, 1, NULL),
 (64, '17030355910.png', 19, 1, 'active'),
-(65, '17030683090.png', 4, 1, 'active'),
-(66, '17030717030.png', 15, 1, 'active');
+(65, '17030683090.png', 4, 1, NULL),
+(66, '17030717030.png', 15, 1, 'active'),
+(67, '17030813600.png', 4, 0, NULL),
+(68, '17030826210.png', 4, 0, 'active');
 
 -- --------------------------------------------------------
 
@@ -183,9 +185,10 @@ INSERT INTO `orles` (`IdOrla`, `idgrup`, `nomorle`, `estat`, `datacreacio`, `num
 (28, 2, 'smx2 2023-11-17', 'invisible', '2023-12-20', 3),
 (29, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
 (30, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
-(31, 1, 'DAW 2023-11-17', 'activado', '2023-12-20', 3),
+(31, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
 (32, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3),
-(33, 1, 'DAW 2023-11-17', 'invisible', '2023-12-20', 3);
+(33, 1, 'DAW 2023-11-17', 'activado', '2023-12-20', 3),
+(34, 1, 'DAW 2023-11-17', 'activado', '2023-12-20', 3);
 
 -- --------------------------------------------------------
 
@@ -269,10 +272,10 @@ CREATE TABLE `usuaris` (
 --
 
 INSERT INTO `usuaris` (`IdUsuari`, `Nom`, `Cognom`, `Correu`, `Contrasenya`, `rol`, `estado`, `token`) VALUES
-(1, '1', '1', '1@1.com', '$2y$12$EFbKVKaAndTsA3LfLlKFQuiMbz0D9khJfxNeYeHQlI02HIovqBa0K', 'alumne', 'actiu', ''),
+(1, '1', '1', '1@1.com', '$2y$12$EFbKVKaAndTsA3LfLlKFQuiMbz0D9khJfxNeYeHQlI02HIovqBa0K', 'profe', 'actiu', ''),
 (2, 'p', 'p1', 'p1@1.com', '$2y$12$LJgCSEkLEyUKnpEcKKKsQe.CNtekf5lfWcHs80Ek1.foEUnEY2kxC', NULL, 'pendent', ''),
 (3, 'prueba', '1', 'p@p.com', '$2y$12$NxGwTJs8JHSeXxLjTdQOm.Xv3UjT23RsIuhoqkxwDzhayXK3ML0RW', NULL, 'pendent', ''),
-(4, 'dddd3', 'user2', 'caca@caca.com', '$2y$12$1ScAxD2fdSIUqcxTLLQcl.gb3EAmSun6MH78Qh.2siW8PbF0mElW.', 'admin', 'actiu', ''),
+(4, 'dddd3', 'Jofreasd', 'caca@caca.com', '$2y$12$1ScAxD2fdSIUqcxTLLQcl.gb3EAmSun6MH78Qh.2siW8PbF0mElW.', 'admin', 'actiu', ''),
 (5, 'pedro', '1', '1@1.cm', '$2y$12$S.Fj/dp6A2LOu9aKErSNR.PhIFgZdJFgoqxs49Gi5MkwFJBKNhUzy', 'alumne', 'pendent', ''),
 (6, '1', '1', '1@2.com', '$2y$12$2PzZbqrQjib3u1mnwIagq.Bwp8BDZ9kKWZlK8WmKONOAobnFRd7sW', NULL, 'pendent', ''),
 (7, 'd2', 'd2', 'd2@d2.com', '$2y$12$I2/66rULoZrh3pBi5OhBnuy0syrUvUL6ypdSxOFZc2aVg8h/QUrXa', '', 'actiu', ''),
@@ -293,9 +296,14 @@ INSERT INTO `usuaris` (`IdUsuari`, `Nom`, `Cognom`, `Correu`, `Contrasenya`, `ro
 (22, 'Laura', 'García', 'laura@example.com', '$2y$12$Lwsag8GBINYj9YqUrX5IKex5MBeDeVwen.kuo/mAfUvhdZrPu9LI6', 'alumne', 'pendent', NULL),
 (23, 'Carlos', 'Fernández', 'carlos@example.com', '$2y$12$o0f1As16OOU1dNsOqN7lbObRfau4Av.0XwkStBMmJJygKPKKgI862', 'professor', 'actiu', NULL),
 (24, 'Elena', 'Martínez', 'elena@example.com', '$2y$12$/E4egF56U8Xj1/ihQCH3o.6/TNxK1dp1QJbhslPrpG.7IWhebAFcW', 'gestor', 'inactiu', NULL),
-(25, 'Miguel', 'Ruiz', 'miguel@example.com', '$2y$12$L0P1MqY46/ZKi2SLp4QSLukBl89VBlG2MdReOZUKkFPlGZQFpd.Bm', 'alumne', 'pendent', NULL),
+(25, 'Miguel', 'Ruiz', 'amoya@cendrassos.net', '$2y$12$G9JpVdSbVfgXfBGcbVfij.PiY3Z0cSzu9SWYHYGubbgVdJpLIAqSy', 'alumne', 'pendent', 'a86f611320d10cc0775828c7112ffbb8'),
 (26, 'Isabel', 'López', 'isabel@example.com', '$2y$12$WKs9wUjrcOgyRJpFfcFvxOo7tWdpE/4b7Z6uYcwR8mzFYOyhstpaS', 'professor', 'actiu', NULL),
-(27, 'jose', 'pedrin', 'pedro@pedro.com', '$2y$12$BCyqGRDZ6YF/fpecHI.Oo.9wTH4gmUuLd1BxooujArfqzISy5Z7H.', NULL, 'pendent', NULL);
+(27, 'jose', 'pedrin', 'pedro@pedro.com', '$2y$12$BCyqGRDZ6YF/fpecHI.Oo.9wTH4gmUuLd1BxooujArfqzISy5Z7H.', NULL, 'pendent', NULL),
+(28, 'Laura', 'García', 'laura@example.com', '$2y$12$8phReYwyNbJKkWD4gFZgkeaX3jY7y74CQmJxRkuZoiqLO3vC6PoDi', 'alumne', 'pendent', NULL),
+(29, 'Carlos', 'Fernández', 'carlos@example.com', '$2y$12$yWQliEv11JKgwbKGtYwhG.mHLloK5FqKU1UIuWI.A.nzM7D1zte0u', 'professor', 'actiu', NULL),
+(30, 'Elena', 'Martínez', 'elena@example.com', '$2y$12$gjM3Kj4EN.8SQ6PJhmH.6.GlAJcdJaxgfBYpHOH5n/pNDVyQFOM6y', 'gestor', 'inactiu', NULL),
+(31, 'Miguel', 'Ruiz', 'miguel@example.com', '$2y$12$EElmFDHv/78edY8O0nqyNO71eMRZaxjvssky.nLg9OTqUcwJtLPL2', 'alumne', 'pendent', NULL),
+(32, 'Isabel', 'López', 'isabel@example.com', '$2y$12$z3evgKM2zl4bpOPflV7ALuVsoTsZ16Hbj2lCkrqcgTR3DjkB2TrUO', 'professor', 'actiu', NULL);
 
 -- --------------------------------------------------------
 
@@ -428,7 +436,7 @@ ALTER TABLE `carnet`
 -- AUTO_INCREMENT de la tabla `errors`
 --
 ALTER TABLE `errors`
-  MODIFY `IdError` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IdError` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `grup`
@@ -440,13 +448,13 @@ ALTER TABLE `grup`
 -- AUTO_INCREMENT de la tabla `imatges_usuaris`
 --
 ALTER TABLE `imatges_usuaris`
-  MODIFY `IdImatge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `IdImatge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `orles`
 --
 ALTER TABLE `orles`
-  MODIFY `IdOrla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `IdOrla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `plantilla_orlas`
@@ -470,7 +478,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `usuaris`
 --
 ALTER TABLE `usuaris`
-  MODIFY `IdUsuari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `IdUsuari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `usuari_grup`
