@@ -25,5 +25,16 @@ return [
     "app" => [
         "name" => Emeset\Env::get("app_name", "Emeset demo"),
         "version" => Emeset\Env::get("app_version", "0.2.5")
+    ],
+    "repass" => [
+
+        "host" => "smtp.gmail.com",
+        "username" => "noreplyorles@gmail.com",
+        "password" =>  "bflz yjrm pqwr jnxi",
+        "secure" => "tls",
+        "port" =>  "587",
+        "from" => "noreplyorles@gmail.com",
+        "fromname" => "Orlify",
+        "subject" => "Recuperacio de Contrasenya"
     ]
 ];
