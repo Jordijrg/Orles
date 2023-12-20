@@ -64,7 +64,7 @@ class RecuperacioController
             $mail->setFrom('noreplyorles@gmail.com', 'Orlify');
             $mail->addAddress($Correu, 'Destinatari');
             $mail->Subject = 'Recuperacio de Contrasenya';
-            $mail->Body = 'Aquí tens l\'enllaç per restablir la contrasenya: http://localhost:8080/resetPassword/'. $token;
+            $mail->Body = 'Aquí tens l\'enllaç per restablir la contrasenya: http://orla2amd.chickenkiller.com/resetPassword/'. $token;
 
             // Envia el correu electrònic
             $mail->send();
