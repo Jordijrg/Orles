@@ -33,10 +33,11 @@ class UsersPDO
     }
 
     /**
-     * get et retorna la imatge amb l'id
-     *
-     * @param int $id
-     * @return array imatge amb ["titol", "url"]
+         * Middleware per agafar tota la informació d'un usuari a partir del seu correu
+         *
+         * @param string $user
+         * @return array
+         * 
      */
     public function getUser($user)
     {
@@ -56,7 +57,14 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
-
+    /**
+         * Middleware per validar un usuari
+         *
+         * @param string $user
+         * @param string $pass
+         * @return array
+         * 
+     */
     public function validateUser($user, $pass)
     {
 
@@ -85,6 +93,8 @@ class UsersPDO
         return $login;
     }
 
+    
+
     /**
          * Middleware per registrar un usuari
          *
@@ -93,10 +103,9 @@ class UsersPDO
          * @param string $email
          * @param string $pass
          * @return void
+         * 
      */
-
-    public function registerUser($nombre,$apellido,$email,$pass)
-    {
+    public function registerUser($nombre,$apellido,$email,$pass) {
         
         $newHash = password_hash($pass, PASSWORD_DEFAULT,  ["cost" => 12]);
 
@@ -106,8 +115,14 @@ class UsersPDO
       
     }
 
-    public function emailExists($email)
-{
+    /**
+         * Middleware per comprovar si un email ja existeix a la base de dades
+         *
+         * @param string $email
+         * @return boolean
+         * 
+     */
+    public function emailExists($email) {
     $query = 'SELECT COUNT(*) FROM usuaris WHERE Correu = :Correu';
     $stm = $this->sql->prepare($query);
     $result = $stm->execute([':Correu' => $email]);
@@ -130,7 +145,7 @@ class UsersPDO
     }
 
     /**
-         * Middleware per agafar tota la informació d'un usuari a partir del seu id
+         * Middleware per agafar tota la informació d'un usuari a partir del seu id si esta en un grup
          *
          * @param int $IdUsuari
          * @return array
@@ -147,6 +162,13 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+         * Middleware per agafar tota la informació d'un usuari a partir del seu id
+         *
+         * @param int $IdUsuari
+         * @return array
+         * 
+     */
     public function getUserById1($IdUsuari){
         $query = 'select * from usuaris where IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
@@ -155,10 +177,11 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    
     /**
-         * Middleware per agafar tota la informació d'un grup a partir del seu id
+         * Middleware per agafar l'avatar d'un usuari a partir del seu id
          *
-         * @param int $IdGrup
+         * @param string $IdUsuari
          * @return array
          * 
      */
@@ -169,6 +192,14 @@ class UsersPDO
         
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
+
+    /**
+         * Middleware per agafar els grups a partir del seu id
+         *
+         * @param int $IdGrup
+         * @return array
+         * 
+     */
     public function getGrupById($IdGrup){
         $query = 'select * from grup where IdGrup = :IdGrup;';
         $stm = $this->sql->prepare($query);
@@ -178,7 +209,7 @@ class UsersPDO
     }
 
     /**
-         * Middleware per eliminar un usuari (desactivar) a partir del seu id
+         * Middleware per eliminar un usuari a la base de dades, a la taula usuaris, a partir del seu id
          *
          * @param int $id
          * @return void
@@ -229,12 +260,24 @@ class UsersPDO
         $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Nom' => $Nom, ':Cognom' => $Cognom, ':Correu' => $Correu, ':Contrasenya' => $Contrasenya, ':rol' => $rol, ':estado' => $estado]);
     }
 
+
+    /**
+     * Funció per hashejar la contrasenya
+     * 
+     * @param string $password
+     * @return string
+     */
     public function hashPassword($password)
     {
         return password_hash($password, PASSWORD_DEFAULT, $this->options);
     }
 
 
+    /**
+     * Funció per agafar tots els grups de la base de dades
+     * 
+     * @return array
+     */
     public function getAllGrups(){
         $query = 'select * from grup;';
         $stm = $this->sql->prepare($query);
@@ -243,6 +286,12 @@ class UsersPDO
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Funció per afegir un grup a la base de dades
+     * 
+     * @param string $Nom
+     * @return void
+     */
     public function addgrup($Nom){
         $data_grup = date('Y/m/d');
         $query = 'INSERT INTO grup (Nom, data_grup, estado) VALUES (:Nom, :data_grup, "actiu");';
@@ -250,30 +299,63 @@ class UsersPDO
         $result = $stm->execute([':Nom' => $Nom, ':data_grup' => $data_grup]);
     }
 
+    /**
+     * Funció per eliminar un grup a la base de dades
+     * 
+     * @param int $id
+     * @return void
+     */
     public function deletegrup($id){
         $query = 'UPDATE grup SET estado = "desactivat" WHERE IdGrup = :IdGrup;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdGrup' => $id]);
     }
 
+    /**
+     * Funció per eliminar un usuari d'un grup a la base de dades
+     * 
+     * @param int $id
+     * @return void
+     */
     public function deleteusergrup($id){
         $query = 'DELETE FROM usuari_grup WHERE id_d = :id_d;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':id_d' => $id]);
     }
 
+    /**
+     * Funció per actualitzar un grup a la base de dades
+     * 
+     * @param int $IdGrup
+     * @param string $Nom
+     * @param string $estado
+     * @return void
+     */
     public function updategrup($IdGrup, $Nom, $estado){
         $query = 'UPDATE grup SET Nom = :Nom, estado = :estado WHERE IdGrup = :IdGrup;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdGrup' => $IdGrup, ':Nom' => $Nom, ':estado' => $estado]);
     }
 
+    /**
+     * Funció per afegir un token a la base de dades a partir del correu
+     * 
+     * @param string $Correu
+     * @param string $token
+     * @return void
+     */
     public function addToken($Correu, $token){
         $query = 'UPDATE usuaris SET token = :token WHERE Correu = :Correu;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':Correu' => $Correu, ':token' => $token]);
     }
 
+    /**
+     * Funció per agafar un usuari a partir del token
+     * 
+     * @param string $token
+     * @return array
+     */
     public function getUserByToken($token){
         $query = 'select * from usuaris where token = :token;';
         $stm = $this->sql->prepare($query);
@@ -282,12 +364,24 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Funció per actualitzar la contrasenya a partir del id
+     * 
+     * @param string $IdUsuari
+     * @param string $Contrasenya
+     * @return void
+     */
     public function updatePassword($IdUsuari, $Contrasenya){
         $query = 'UPDATE usuaris SET Contrasenya = :Contrasenya WHERE IdUsuari = :IdUsuari;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdUsuari' => $IdUsuari, ':Contrasenya' => $Contrasenya]);
     }
 
+    /**
+     * Funció per agafar tots els usuaris i els seus grups
+     * 
+     * @return array
+     */
     public function getAllUsersAndGrups(){
         $query = "SELECT usuaris.Nom AS 'nom_usuari', usuaris.Cognom 'cognom_usuari', grup.Nom AS 'nom_grup', usuari_grup.id_d  FROM usuaris JOIN usuari_grup ON usuaris.IdUsuari = usuari_grup.IdUsuari JOIN grup ON usuari_grup.IdGrup = grup.IdGrup;";
         $stm = $this->sql->prepare($query);
@@ -296,6 +390,12 @@ class UsersPDO
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Funció per agafar tots els usuaris i els seus grups a partir del seu id
+     * 
+     * @param int $id_d
+     * @return array
+     */
     public function getUsersAndGrupsById($id_d){
         $query = "SELECT usuaris.Nom AS 'nom_usuari', usuaris.Cognom 'cognom_usuari', grup.Nom AS 'nom_grup', usuari_grup.id_d  FROM usuaris JOIN usuari_grup ON usuaris.IdUsuari = usuari_grup.IdUsuari JOIN grup ON usuari_grup.IdGrup = grup.IdGrup WHERE usuari_grup.id_d = :id_d;";
         $stm = $this->sql->prepare($query);
@@ -304,6 +404,12 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Funció per agafar l'id d'un usuari a partir del seu nom
+     * 
+     * @param string $nomUsuari
+     * @return array
+     */
     public function getIdUsuari($nomUsuari){
         $query = "SELECT IdUsuari FROM usuaris WHERE Nom = :nomUsuari;";
         $stm = $this->sql->prepare($query);
@@ -312,6 +418,12 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Funció per agafar l'id d'un grup a partir del seu nom
+     * 
+     * @param string $nomGrup
+     * @return array
+     */
     public function getIdGrup($nomGrup){
         $query = "SELECT IdGrup FROM grup WHERE Nom = :nomGrup;";
         $stm = $this->sql->prepare($query);
@@ -320,18 +432,38 @@ class UsersPDO
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Funció per afegir un usuari a un grup a la base de dades
+     * 
+     * @param int $IdUsuari
+     * @param int $IdGrup
+     * @return void
+     */
     public function addusergrup($IdUsuari, $IdGrup){
         $query = 'INSERT INTO usuari_grup (IdUsuari, IdGrup) VALUES (:IdUsuari, :IdGrup);';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':IdUsuari' => $IdUsuari, ':IdGrup' => $IdGrup]);
     }
 
+    /**
+     * Funció per actualitzar un usuari a un grup a la base de dades
+     * 
+     * @param int $id_d
+     * @param int $IdGrup
+     * @return void
+     */
     public function updateusergrup($id_d, $IdGrup){
         $query = 'UPDATE usuari_grup SET IdGrup = :IdGrup WHERE id_d = :id_d;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':id_d' => $id_d, ':IdGrup' => $IdGrup]);
     }
 
+    /**
+     * Funció per agafar tots els usuaris d'un grup a partir del seu id
+     * 
+     * @param int $IdGrup
+     * @return array
+     */
     public function getUsersOfGrupById($IdGrup){
         $query = "SELECT usuaris.Nom AS 'nom_usuari' FROM usuaris JOIN usuari_grup ON usuaris.IdUsuari = usuari_grup.IdUsuari JOIN grup ON usuari_grup.IdGrup = grup.IdGrup WHERE grup.IdGrup = :IdGrup;";
         $stm = $this->sql->prepare($query);
@@ -340,6 +472,18 @@ class UsersPDO
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Funció per afegir un usuari random a la base de dades
+     * 
+     * @param string $Nom
+     * @param string $Cognom
+     * @param string $Correu
+     * @param string $Contrasenya
+     * @param string $rol
+     * @param string $estado
+     * @return void
+     * 
+     */
     public function adduserrandom($Nom, $Cognom, $Correu, $Contrasenya, $rol, $estado){
         $Contrasenya = password_hash($Contrasenya, PASSWORD_DEFAULT,  ["cost" => 12]);
         $query = 'INSERT INTO usuaris (Nom, Cognom, Correu, Contrasenya, rol, estado) VALUES (:Nom, :Cognom, :Correu, :Contrasenya, :rol, :estado);';
